@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('product', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.SERIAL,
       allowNull: false,
     },
 
@@ -19,6 +19,16 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
+    costoAnterior: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+
+    costoActual: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -26,6 +36,11 @@ module.exports = (sequelize) => {
 
     stock: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+
+    isActive: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
 

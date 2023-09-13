@@ -21,6 +21,10 @@
     name:{
       type:DataTypes.VARCHAR,
       allowNull:false
-    }
+    },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
   })
- }
+}
