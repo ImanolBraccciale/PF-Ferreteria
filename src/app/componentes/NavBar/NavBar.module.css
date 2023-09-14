@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    background: #FFA424;
+    width: 100vw;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+}
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rutas,
+.option {
+    padding: 30px;
+}
+
+.option2 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid black ;
+}
+
+.logo {
+    position: relative;
+    background-image: url("../assets/images/rofe-logo1.jpeg");
+    background-size: cover;
+    width: 220px;
+    height: 130px;
+    background-position: left;
+}
