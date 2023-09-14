@@ -7,11 +7,11 @@
       primaryKey : true ,
     },
     email:{
-      type:DataTypes.VARCHAR,
+      type:DataTypes.STRING,
       allowNull:false
     },
     password:{
-      type:DataTypes.VARCHAR,
+      type:DataTypes.STRING,
         allowNull:false
     },
     rol:{
@@ -19,7 +19,7 @@
       allowNull:false
     },
     name:{
-      type:DataTypes.VARCHAR,
+      type:DataTypes.STRING,
       allowNull:false
     },
     isActive: {

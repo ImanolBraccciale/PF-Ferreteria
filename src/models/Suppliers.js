@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('suppliers', {
     id_suppliers: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.SERIAL,
       allowNull: false,
     },
 
