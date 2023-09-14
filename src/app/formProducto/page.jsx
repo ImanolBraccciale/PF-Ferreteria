@@ -12,7 +12,12 @@ function FormProducto() {
                         <input className={style.inputNombre} type="text" id='name' name='name' />
                     </div>
                     <div className={style.group}>
-                        <label className={style.descripcion} htmlFor="description">Descripción:</label>
+                        <label className={style.nombre}  htmlFor="">Imagen</label>
+                        <input className={style.inputImagen} type="file" id="imagen" name="imagen" accept=".png, .jpg, .jpeg" required />
+
+                    </div>
+                    <div className={style.group}>
+                        <label className={style.descripcion} htmlFor="description">Observaciones:</label>
                         <textarea className={style.inputDescripcion} name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
                     <div className={style.group}>
@@ -31,12 +36,18 @@ function FormProducto() {
                             <option value="">No o si?</option>
                         </select>
                     </div>
-                    <div className={style.group}>
-                        <label className={style.precio} htmlFor="price">Precio:</label>
-                        <input className={style.inputPrecio} type="number" id='price' name='price' />
+                    <div className={style.grupoCorto}>
+                        <div className={style.group}>
+                            <label className={style.precio} htmlFor="price">Precio:</label>
+                            <input className={style.inputPrecio} type="number" id='price' name='price' />
+                        </div>
+                        <div className={style.group}>
+                            <label className={style.ganancia} htmlFor="price">% Ganancia:</label>
+                            <input className={style.inputGanancia} type="number" id='price' name='price' />
+                        </div>
                     </div>
                     <div className={style.divButton}>
-                    <button className={style.buttonCreate} type='submit'>Crear</button>
+                        <button className={style.buttonCreate} type='submit'>Crear</button>
                     </div>
                 </form>
             </div>

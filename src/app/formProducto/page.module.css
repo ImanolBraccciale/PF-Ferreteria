@@ -22,15 +22,25 @@
 .group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
+
+.grupoCorto {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
 
 .title,
 .nombre,
 .descripcion,
 .tipo,
 .proveedor,
-.precio {
+.precio,
+.ganancia {
     color: #EC8800;
     padding-bottom: 5px;
 
@@ -43,8 +53,7 @@
 
 .inputNombre,
 .inputTipo,
-.inputProveedor,
-.inputPrecio {
+.inputProveedor {
     border-radius: 12px;
     background: #FFF;
     color: #2c2c2c;
@@ -53,11 +62,37 @@
     flex-shrink: 0;
 }
 
+.inputImagen {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #EC8800;
+    /* Cambia este color al que desees */
+    color: white;
+    /* Cambia el color del texto al que desees */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.inputImagen:hover{
+    background-color: #FFA424;
+}
+
 .inputDescripcion {
     border-radius: 12px;
     background: #FFF;
     color: #2c2c2c;
     resize: none;
+}
+
+.inputPrecio,
+.inputGanancia {
+    border-radius: 12px;
+    background: #FFF;
+    color: #2c2c2c;
+    width: 200px;
+    height: 51px;
+    flex-shrink: 0;
 }
 
 .divButton {
@@ -68,7 +103,7 @@
 
 .buttonCreate {
 
-    background: #EC8800 ;
+    background: #EC8800;
     border-radius: 5px;
 }
 
