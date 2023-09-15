@@ -31,7 +31,8 @@ function FormProducto() {
             alert('te falta llenar valores')
         }
         else {
-            alert('fue creado correctamente')
+            alert(input.ganance)//alerta de creación exitosa
+            console.log(input.name);
             setInput({
                 name: '',
                 descripcion: '',

@@ -6,7 +6,7 @@ const validateProductos = (data) => {
     if (!data.descripcion) {
         errors.descripcion = 'La descripción debe tener letras'
     }
-    if (isNaN(data.price) || data.price < 10) {
+    if (data.price < 10) {
         errors.price = 'Métale más plata loco';
     }
     if (data.ganance < 1) {
