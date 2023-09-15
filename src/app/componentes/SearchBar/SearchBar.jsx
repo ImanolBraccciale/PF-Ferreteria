@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getProduct } from "@/app/redux/features/slice"
 import s from "@/app/componentes/SearchBar/SearchBar.module.css";
 
 function SearchBar() {
