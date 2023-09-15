@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #FFA424;
+    color: black;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option select,
+.option2 select {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: black;
+}
+
+.rutas a, .rutas a:visited, .rutas a:hover, .rutas a:active{
+    text-decoration: none;
+    color: black;
+}
+
+.rutas,
+.option {
+    padding: 5px 30px 5px 30px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.option2 {
+    padding: 5px 30px 5px 30px;
+    border-right: 1px solid rgb(0, 0, 0);
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.logo {
+    position: relative;
+    background-image: url("../assets/images/rofe-logo4.jpg");
+    background-size: cover;
+    width: 220px;
+    height: 130px;
+    background-position: left;
+}
+
+.sesion{
+    padding: 0 60px 0 60px;
+}
+
