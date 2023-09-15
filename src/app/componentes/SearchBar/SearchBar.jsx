@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getProduct } from "@/app/redux/slice"
+import { getProduct } from "@/app/redux/features/slice"
 import s from "@/app/componentes/SearchBar/SearchBar.module.css";
 
 function SearchBar() {
@@ -16,7 +16,7 @@ function SearchBar() {
     function handleSubmit(e) {
         e.preventDefault();
         if (state.length > 1) {
-            dispatch(getProduct(state)); // Corrige la llamada a la acción
+            dispatch(getProduct(state));
             setState("");
         } else {
             alert("Ingrese un Producto");

@@ -1,5 +1,3 @@
-
-
 function page() {
   return (
     <div>
