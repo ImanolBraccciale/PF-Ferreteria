@@ -1,10 +1,11 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define("Tag", {
+   const Tag= sequelize.define("Tag", {
         id: {
-            type: DataTypes.SERIAL,
-            primaryKey: true,
+            type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
         },
         name: {
             type: DataTypes.STRING,
@@ -16,4 +17,5 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
     })
+    return Tag
 }
