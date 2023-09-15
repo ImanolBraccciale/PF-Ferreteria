@@ -2,7 +2,8 @@ const { db } = require("../../db");
 db.sequelize.sync();
 const Suppliers = db.Suppliers;
 
-module.exports = async (data) => {
+const postSuppliers = async (data) => {
+  console.log(data);
   const existSupplier = await Suppliers.findOne({
     where: {
       name: data.name,
@@ -14,3 +15,4 @@ module.exports = async (data) => {
     return newSupplier;
   }
 };
+export default postSuppliers;

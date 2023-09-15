@@ -2,10 +2,12 @@ const { db } = require("../../db");
 
 const { Suppliers } = db;
 
-export default async () => {
+const getSuppliers = async () => {
   return await Suppliers.findAll({
     attributes: {
       exclude: ["createdAt", "updatedAt"],
     },
   });
 };
+
+export default getSuppliers;
