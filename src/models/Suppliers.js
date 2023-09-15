@@ -3,10 +3,11 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('suppliers', {
+ const Suppliers= sequelize.define('Suppliers', {
     id_suppliers: {
-      type: DataTypes.SERIAL,
-      allowNull: false,
+         type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
     },
 
     name: {
@@ -30,4 +31,5 @@ module.exports = (sequelize) => {
     },
 
   },{timestamps: false});
+  return Suppliers
 };

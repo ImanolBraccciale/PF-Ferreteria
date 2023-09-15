@@ -1,10 +1,11 @@
  const { DataTypes } = require('sequelize');
 
  module.exports = (sequelize) =>{
-  sequelize.define("detailSale",{
+  const DetailSale =sequelize.define("DetailSale",{
     id:{
-      type:DataTypes.SERIAL,
-      primaryKey : true ,
+       type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
     },
     quantity:{
       type:DataTypes.INTEGER,
@@ -15,6 +16,6 @@
         allowNull:false
       }
   })
+  return DetailSale
  }
-
- /* prueba de cambios de rama que no son mios*/
+ 

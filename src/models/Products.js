@@ -3,10 +3,11 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('product', {
+ const Products= sequelize.define('Products', {
     id: {
-      type: DataTypes.SERIAL,
-      allowNull: false,
+           type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
     },
 
     name: {
@@ -36,13 +37,15 @@ module.exports = (sequelize) => {
 
     stock: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+
     },
 
     isActive: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false
     },
 
   },{timestamps: false});
+return Products
 };
