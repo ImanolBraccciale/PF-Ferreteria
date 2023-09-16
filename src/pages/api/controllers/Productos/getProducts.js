@@ -3,6 +3,6 @@ const {Products} = db
 module.exports = async () =>{
 
   const products =await Products.findAll()
-
+  return products
   
 }
