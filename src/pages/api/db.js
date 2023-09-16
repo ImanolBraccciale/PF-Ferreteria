@@ -10,36 +10,16 @@ const TagModel = require("../../models/Tag");
 //IMPORTANTE!!!!!
 // const { faTruckMedical } = require('@fortawesome/free-solid-svg-icons');
 
-<<<<<<< HEAD
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
-const sequelize = new Sequelize({
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
   host: DB_HOST,
-  username: DB_USER,
-  password: DB_PASSWORD,
-  database: "ferreteria",
   dialect: "postgres",
   dialectModule: require("pg"),
-=======
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,DB_NAME
-} = process.env;
-
-const sequelize = new Sequelize(DB_NAME,DB_USER,DB_PASSWORD,{
-  host: DB_HOST,
-  dialect: 'postgres',
-  dialectModule: require('pg'),
->>>>>>> Products
   force: false,
   operatorAliases: false,
   logging: false,
   native: false,
-<<<<<<< HEAD
-  dialectOptions: {
-    ssl: false,
-  },
-=======
->>>>>>> Products
   pool: {
     max: 5,
     min: 0,
