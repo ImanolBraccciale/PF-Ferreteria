@@ -6,16 +6,14 @@ import Link from "next/link";
 
 
 const LoginPage = () => {
-    const [input, setInput] = useState("");
-    const [password, setPassword] = useState("")
+    const [input, setInput] = useState({
+        usuario: '',
+        contraseña: '',
+    })
+    const [mostrarContr , setMostrarContr] = useState(true)
 
-    const handleInputUser = (event) => {
+    const handleChange = (event) => {
         setInput(event.target.value)
-    }
-
-    const handleInputPassword = (event) => {
-        setPassword(event.target.value)
-
     }
 
     return (
@@ -24,13 +22,17 @@ const LoginPage = () => {
 
             <h3 className={style.subtitle}>Usuario:</h3>
 
-            <input className={style.input} placeholder="Escriba su usuario" type="text" value={input} onChange={handleInputUser}/>
+            <input className={style.input} placeholder="Escriba su usuario" type="text" value={input.usuario} id="usuario" onChange={handleChange}/>
             
             <h3 className={style.subtitle} >Contraseña:</h3>
 
-            <input className={style.input} placeholder="Escriba su contraseña" type="password" value={password} onChange={handleInputPassword}/>
-            
+            <input className={style.input} placeholder="Escriba su contraseña" type={mostrarContr ? "text" : "password"} value={input.contraseña} id="contraseña" onChange={handleChange}/>
+            <button onClick={() => setMostrarContr(!mostrarContr)}>Mostrar contraseña</button>
+            {mostrarContr ? "mostrando contraseña" : "contraseña oculta"}
+
+
             <Link href="/" className={style.button}>Ingresar</Link>
+
             <p>¿Has olvidado tu contraseña?</p>
         </div>
     )
