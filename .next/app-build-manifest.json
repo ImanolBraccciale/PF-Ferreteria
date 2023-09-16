@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "pages": {
     "/page": [
       "static/chunks/webpack.js",
@@ -12,6 +11,12 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/formProducto/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/formProducto/page.css",
+      "static/chunks/app/formProducto/page.js"
+    ],
     "/Form_Prov/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -19,7 +24,4 @@
       "static/chunks/app/Form_Prov/page.js"
     ]
   }
-=======
-  "pages": {}
->>>>>>> origin/Products
 }

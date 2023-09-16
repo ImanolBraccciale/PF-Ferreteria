@@ -1,9 +1,5 @@
 {
   "/page": "app/page.js",
-<<<<<<< HEAD
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/formProducto/page": "app/formProducto/page.js",
   "/Form_Prov/page": "app/Form_Prov/page.js"
-=======
-  "/formProducto/page": "app/formProducto/page.js"
->>>>>>> daniel
 }
