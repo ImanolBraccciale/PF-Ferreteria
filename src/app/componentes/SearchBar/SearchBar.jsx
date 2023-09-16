@@ -5,7 +5,7 @@ import s from "@/app/componentes/SearchBar/SearchBar.module.css";
 
 function SearchBar() {
     const [state, setState] = useState("");
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     function handleChange(e) {
         e.preventDefault();

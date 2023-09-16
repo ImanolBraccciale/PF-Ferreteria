@@ -96,7 +96,11 @@ self["webpackHotUpdate_N_E"]("webpack",{},
 /******/ 
 /******/ /* webpack/runtime/getFullHash */
 /******/ !function() {
+<<<<<<< HEAD
 /******/ 	__webpack_require__.h = function() { return "4e30bd6c6fab0d05"; }
+=======
+/******/ 	__webpack_require__.h = function() { return "afb7ce200156e96e"; }
+>>>>>>> daniel
 /******/ }();
 /******/ 
 /******/ /* webpack/runtime/global */

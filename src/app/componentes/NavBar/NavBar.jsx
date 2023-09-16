@@ -1,3 +1,4 @@
+'use client'
 import s from "@/app/componentes/NavBar/NavBar.module.css"
 import Link from "next/link"
 import SearchBar from "../SearchBar/SearchBar"
