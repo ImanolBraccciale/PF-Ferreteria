@@ -1,0 +1,41 @@
+
+
+.all {
+    display:flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    background-color: #474747;
+    padding: 15px;
+    color: white;
+    margin: 16px
+}
+
+.a {
+    width: 10%;
+}
+
+.b {
+    width: 30%;
+}
+
+.c {
+    width: 10%;
+}
+
+.d {
+    width: 15%;
+}
+
+.e {
+    width: 15%;
+}
+
+.f {
+    width: 9%;
+}

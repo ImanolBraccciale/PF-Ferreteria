@@ -1,0 +1,35 @@
+.all {
+    display:flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 17px;
+    color: rgb(0, 0, 0);
+    border-top: 1px solid #474747;
+}
+
+
+.a {
+    width: 17%;
+}
+
+.b {
+    width: 17%;
+}
+
+.c {
+    width: 23%;
+}
+
+.d {
+    width: 20%;
+}
+
+.e {
+    width: 15%;
+}
