@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react'
 import style from './page.module.css'
-import validateProductos from '../componentes/Validations/validateProductos'
+import validateProductos from '../componentes/validations.js/validateProductos'
 
 function FormProducto() {
     const [input, setInput] = useState({
