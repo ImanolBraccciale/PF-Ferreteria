@@ -7,8 +7,8 @@ export default async  function Handler(req, res){
   switch (req.method) {
     case 'GET':
       try {
-        // const allProducts = await getProducts();
-        return res.status(200).json({msj:"es una mierda"});
+        const allProducts = await getProducts();
+        return res.status(200).json( allProducts);
       } catch (error) {
         return res.status(400).json({ error: error.message });
       }
