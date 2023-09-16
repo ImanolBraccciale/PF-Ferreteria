@@ -1,10 +1,11 @@
  const { DataTypes } = require('sequelize');
 
  module.exports = (sequelize) =>{
-  sequelize.define("usuarios",{
+  const Users = sequelize.define("Users",{
     id:{
-      type:DataTypes.SERIAL,
-      primaryKey : true ,
+       type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
     },
     email:{
       type:DataTypes.STRING,
@@ -27,4 +28,5 @@
       allowNull: false,
     },
   })
+  return Users
 }
