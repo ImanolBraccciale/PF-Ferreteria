@@ -1,4 +1,4 @@
-export const validation = (datos) => {
+export const validationEmail = (input) => {
     const emailRegex = new RegExp(
         /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
     );
@@ -7,29 +7,31 @@ export const validation = (datos) => {
 
     let errors = {};
 
-    if (!emailRegex.test(datos.email)) {
-        errors.email = "Debes ingresar un email válido";
+    if (!emailRegex.test(input.usuario)) {
+        errors.usuario = "Debes ingresar un usuario o email válido";
     }
 
-    if (datos.email.length === 0) {
-        errors.email = "Debes ingresar un email";
+    if (input.usuario.length === 0) {
+        errors.usuario = "Debes ingresar un usuario o email";
     }
 
-    if (datos.email.length > 35) {
-        errors.email = "El email debe tener menos de 35 caracteres";
+    if (input.usuario.length > 35) {
+        errors.usuario = "El email o usuario debe tener menos de 35 caracteres";
     }
 
-    if (!passwordRegex.test(datos.password)) {
-        errors.password = "Debes ingresar una contraseña válida";
+    if (!passwordRegex.test(input.contraseña)) {
+        errors.contraseña = "Debes ingresar una contraseña válida";
     }
 
-    if (datos.password.length === 0) {
-        errors.password = "Debes ingresar una contraseña";
+    if (input.contraseña.length === 0) {
+        errors.contraseña = "Debes ingresar una contraseña";
     }
 
-    if (datos.password.length < 3) {
-        errors.password = "La contraseña debe tener al menos 3 caracteres";
+    if (input.contraseña.length < 3) {
+        errors.contraseña = "La contraseña debe tener al menos 3 caracteres";
     }
 
     return errors;
 };
+
+export default validationEmail;
