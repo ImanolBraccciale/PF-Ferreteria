@@ -130,6 +130,7 @@
 /******/ 	!function() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "f8c7dfe41bd31e29"; }
 =======
 /******/ 		__webpack_require__.h = function() { return "59e789673485c46d"; }
@@ -137,6 +138,9 @@
 =======
 /******/ 		__webpack_require__.h = function() { return "676f77753fe407b4"; }
 >>>>>>> origin/Products
+=======
+/******/ 		__webpack_require__.h = function() { return "09e990c8eb3c4fd8"; }
+>>>>>>> origin/suppliers
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

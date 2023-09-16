@@ -25,6 +25,7 @@ self["webpackHotUpdate_N_E"]("webpack",{},
 /******/ !function() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /******/ 	__webpack_require__.h = function() { return "4e30bd6c6fab0d05"; }
 =======
 /******/ 	__webpack_require__.h = function() { return "afb7ce200156e96e"; }
@@ -32,6 +33,9 @@ self["webpackHotUpdate_N_E"]("webpack",{},
 =======
 /******/ 	__webpack_require__.h = function() { return "676f77753fe407b4"; }
 >>>>>>> origin/Products
+=======
+/******/ 	__webpack_require__.h = function() { return "09e990c8eb3c4fd8"; }
+>>>>>>> origin/suppliers
 /******/ }();
 /******/ 
 /******/ /* webpack/runtime/global */
