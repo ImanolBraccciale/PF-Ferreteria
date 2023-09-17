@@ -1,8 +1,8 @@
-const getSuppliers = require("../controllers/suppliers/getSuppliers");
-const postSuppliers = require("../controllers/suppliers/postSuppliers");
-const deleteSuppliers = require("../controllers/suppliers/deleteSuppliers");
-const deleteUpSuppliers = require("../controllers/suppliers/deleteUpSuppliers");
-const upSuppliers = require("../controllers/suppliers/upSuppliers");
+import getSuppliers from "../controllers/suppliers/getSuppliers";
+import postSuppliers from "../controllers/suppliers/postSuppliers";
+import deleteSuppliers from "../controllers/suppliers/deleteSuppliers";
+import deleteLogic from "../controllers/suppliers/deleteLogic";
+import putSuppliers from "../controllers/suppliers/putSuppliers";
 
 const handlerSuppliers = async (req, res) => {
   console.log("pasando por el handler suppliers");
@@ -23,7 +23,7 @@ const handlerSuppliers = async (req, res) => {
       const response = await postSuppliers(body);
       res.status(200).json(response);
     } else if (method === "PUT") {
-      const upDate = await upSuppliers(req.body);
+      const upDate = await putSuppliers(req.body);
       res.status(200).json(upDate);
     } else if (method === "DELETE") {
       const { id, permanently } = req.body;
@@ -32,7 +32,7 @@ const handlerSuppliers = async (req, res) => {
         const deletSupplier = await deleteSuppliers(id);
         return res.status(201).json(deletSupplier);
       } else {
-        const deletSupplier = await deleteUpSuppliers(id);
+        const deletSupplier = await deleteLogic(id);
         return res.status(201).json(deletSupplier);
       }
     }
