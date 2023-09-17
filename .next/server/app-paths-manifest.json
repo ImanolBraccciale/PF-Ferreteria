@@ -1,7 +1,11 @@
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/suppliers/page": "app/suppliers/page.js",
   "/history/page": "app/history/page.js",
   "/formProducto/page": "app/formProducto/page.js",
   "/formProv/page": "app/formProv/page.js"
+=======
+  "/detail/page": "app/detail/page.js"
+>>>>>>> Detail
 }

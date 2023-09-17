@@ -1,5 +1,6 @@
 {
   "pages": {
+<<<<<<< HEAD
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -7,6 +8,9 @@
       "static/chunks/app/page.js"
     ],
     "/history/page": [
+=======
+    "/layout": [
+>>>>>>> Detail
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/history/page.css",
@@ -30,17 +34,24 @@
       "static/css/app/formProv/page.css",
       "static/chunks/app/formProv/page.js"
     ],
-    "/formProducto/page": [
+    "/detail/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/formProducto/page.css",
-      "static/chunks/app/formProducto/page.js"
+      "static/css/app/detail/page.css",
+      "static/chunks/app/detail/page.js"
     ],
+<<<<<<< HEAD
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+=======
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+>>>>>>> Detail
     ]
   }
 }
