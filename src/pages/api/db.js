@@ -11,10 +11,6 @@ const TagModel = require("../../models/Tag");
 // const { faTruckMedical } = require('@fortawesome/free-solid-svg-icons');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
-<<<<<<< HEAD
-=======
-
->>>>>>> eaba0ed172552ad51d3bd9c9c5d6650ae79492e6
 const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
   host: DB_HOST,
   dialect: "postgres",
@@ -75,8 +71,4 @@ db.sequelize.sync();
 
 module.exports = {
   db,
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> eaba0ed172552ad51d3bd9c9c5d6650ae79492e6

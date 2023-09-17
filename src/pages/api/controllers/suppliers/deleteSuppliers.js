@@ -1,7 +1,7 @@
 import { db } from "../../db";
 const { Suppliers } = db;
 
-const deleteSuppliers = async (id) => {
+const deleteSuppliers = async (id, permanently) => {
   const supplier = await Suppliers.findByPk(id);
   if (!supplier) throw new Error("unknow Supplier");
   await Suppliers.destroy({
