@@ -5,7 +5,7 @@ import s from "@/app/componentes/SearchBar/SearchBar.module.css";
 
 function SearchBar() {
     const [state, setState] = useState("");
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     function handleChange(e) {
         e.preventDefault();
@@ -15,7 +15,7 @@ function SearchBar() {
     function handleSubmit(e) {
         e.preventDefault();
         if (state.length > 1) {
-            dispatch(getProduct(state)); // Corrige la llamada a la acción
+            dispatch(getProduct(state));
             setState("");
         } else {
             alert("Ingrese un Producto");

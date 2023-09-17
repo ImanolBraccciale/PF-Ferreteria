@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const slice = createSlice({
     name: "valores",
     initialState: {
-        productos: "gabi, dani",
+        productos: [],
     },
     reducers: {
         getProduct: (state, action) => {
@@ -12,6 +12,6 @@ export const slice = createSlice({
     },
 });
 
-export const { getProduct } = slice.actions;
+export const {getProduct} = slice.actions;
 
 export default slice.reducer;
