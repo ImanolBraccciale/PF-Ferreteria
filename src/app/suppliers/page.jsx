@@ -10,7 +10,7 @@ function suppliers() {
         <div>
             <NavBar/>
             <SuppliersBar/>
-            <SuppliersList/><SuppliersList/><SuppliersList/><SuppliersList/><SuppliersList/><SuppliersList/>
+            <SuppliersList/>
             <Link href="/formProv">
                 <AddButtom/>
             </Link>
