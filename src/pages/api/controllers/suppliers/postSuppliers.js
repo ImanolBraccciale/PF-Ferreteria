@@ -16,3 +16,12 @@ const postSuppliers = async (data) => {
   }
 };
 export default postSuppliers;
+
+//!modelo para post sin el id. esta es la data traida por el get:
+/*{
+    "id_suppliers": "b7fc56d5-e693-4bb1-b6c4-c0ad07c2b939",
+    "name": "Amder Dev",
+    "cellphone": "(054)658-53-95",
+    "name_company": "La casa vieja",
+    "isActive": true
+  }*/
