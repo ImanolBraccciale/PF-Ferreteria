@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "pages": {
     "/layout": [
       "static/chunks/webpack.js",
@@ -25,4 +26,7 @@
       "static/chunks/app/formProv/page.js"
     ]
   }
+=======
+  "pages": {}
+>>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
 }

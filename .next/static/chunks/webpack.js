@@ -91,6 +91,7 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+<<<<<<< HEAD
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -133,6 +134,9 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+=======
+<<<<<<< HEAD
+>>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -145,6 +149,7 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+<<<<<<< HEAD
 /******/ 	/* webpack/runtime/ensure chunk */
 /******/ 	!function() {
 /******/ 		__webpack_require__.f = {};
@@ -167,6 +172,10 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+=======
+=======
+>>>>>>> tag
+>>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
 /******/ 	/* webpack/runtime/get javascript update chunk filename */
 /******/ 	!function() {
 /******/ 		// This function allow to reference all chunks
@@ -181,7 +190,7 @@
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "static/css/" + chunkId + ".css";
+/******/ 			return undefined;
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -192,7 +201,12 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "de7476e81e11bed7"; }
+=======
+<<<<<<< HEAD
+/******/ 		__webpack_require__.h = function() { return "664cd5f10f2352b5"; }
+>>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -205,6 +219,12 @@
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
+<<<<<<< HEAD
+=======
+=======
+/******/ 		__webpack_require__.h = function() { return "08bbe3671c2a994f"; }
+>>>>>>> tag
+>>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -833,44 +853,7 @@
 /******/ 			"webpack": 0
 /******/ 		};
 /******/ 		
-/******/ 		__webpack_require__.f.j = function(chunkId, promises) {
-/******/ 				// JSONP chunk loading for javascript
-/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
-/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
-/******/ 		
-/******/ 					// a Promise means "currently loading".
-/******/ 					if(installedChunkData) {
-/******/ 						promises.push(installedChunkData[2]);
-/******/ 					} else {
-/******/ 						if("webpack" != chunkId) {
-/******/ 							// setup Promise in chunk cache
-/******/ 							var promise = new Promise(function(resolve, reject) { installedChunkData = installedChunks[chunkId] = [resolve, reject]; });
-/******/ 							promises.push(installedChunkData[2] = promise);
-/******/ 		
-/******/ 							// start chunk loading
-/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
-/******/ 							// create error before stack unwound to get useful stacktrace later
-/******/ 							var error = new Error();
-/******/ 							var loadingEnded = function(event) {
-/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
-/******/ 									installedChunkData = installedChunks[chunkId];
-/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
-/******/ 									if(installedChunkData) {
-/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 										var realSrc = event && event.target && event.target.src;
-/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 										error.name = 'ChunkLoadError';
-/******/ 										error.type = errorType;
-/******/ 										error.request = realSrc;
-/******/ 										installedChunkData[1](error);
-/******/ 									}
-/******/ 								}
-/******/ 							};
-/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
-/******/ 						} else installedChunks[chunkId] = 0;
-/******/ 					}
-/******/ 				}
-/******/ 		};
+/******/ 		// no chunk on demand loading
 /******/ 		
 /******/ 		// no prefetching
 /******/ 		

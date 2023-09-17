@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+<<<<<<< HEAD
     "redux-thunk": "^2.4.2",
+=======
+>>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
     "axios": "^1.5.0",
     "dotenv": "^16.3.1",
     "eslint": "8.49.0",

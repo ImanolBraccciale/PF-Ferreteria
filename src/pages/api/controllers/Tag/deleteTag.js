@@ -1,10 +1,10 @@
 const {db} =require("../../db")
 db.sequelize.sync()
-const Products = db.Products
+const Tag = db.Tag
 
 module.exports = async(id) =>{
 
-   await Products.destroy(
+   await Tag.destroy(
     {where:{
       id:id,
     }}

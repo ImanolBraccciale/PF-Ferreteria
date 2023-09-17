@@ -1,6 +1,7 @@
 import getUser from '../controllers/User/getUser';
 import getUserById from '../controllers/User/getUserById';
 import deleteUser from '../controllers/User/deleteUser';
+import deleteLogic from '../controllers/User/deleteLogic';
 import editUser from '../controllers/User/editUser';
 import postUser from '../controllers/User/postUser';
 
@@ -13,7 +14,7 @@ export default async (req, res) => {
     switch (method) {
         case 'GET':
             try {
-                if (id) { 
+                if (id) {
                     const user = await getUserById(id);
                     return res.status(200).json(user);
                 } else {
@@ -38,13 +39,18 @@ export default async (req, res) => {
             } catch (error) {
                 return res.status(400).json({ error: error.message })
             }
-        case 'DELETE':
+        case "DELETE":
             try {
-                const { id } = req.body;
-                const userDelete = await deleteUser(id);
-                return res.status(200).json(userDelete);
+                const { id, permanently } = req.body
+                if (permanently === true) {
+                    const delProduct = await deleteUser(id)
+                    return res.status(201).json(delProduct)
+                } else {
+                    const delProduct = await deleteLogic(id)
+                    return res.status(201).json(delProduct)
+                }
             } catch (error) {
-                return res.status(400).json({ error: error.message });
+                return res.status(400).json({ error: error.message })
             }
 
         default:

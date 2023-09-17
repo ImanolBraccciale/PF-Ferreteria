@@ -9,7 +9,9 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-
+    image:{
+      type :DataTypes.STRING,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -42,7 +44,7 @@ module.exports = (sequelize) => {
     isActive: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false
+      defaultValue: true
     },
 
   },{timestamps: false});
