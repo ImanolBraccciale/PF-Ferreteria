@@ -23,8 +23,8 @@
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			loaded: false,
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
@@ -39,9 +39,6 @@
 /******/ 		} finally {
 /******/ 			if(threw) delete __webpack_module_cache__[moduleId];
 /******/ 		}
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -91,6 +88,8 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+<<<<<<< HEAD
+=======
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -167,6 +166,7 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+>>>>>>> origin/componentes
 /******/ 	/* webpack/runtime/get javascript update chunk filename */
 /******/ 	!function() {
 /******/ 		// This function allow to reference all chunks
@@ -192,7 +192,18 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "86fcdd62a925ed25"; }
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+/******/ 		__webpack_require__.h = function() { return "08bbe3671c2a994f"; }
+=======
+/******/ 		__webpack_require__.h = function() { return "7a5a8f5270000744"; }
+=======
+/******/ 		__webpack_require__.h = function() { return "d00aba0c2ce41f90"; }
+>>>>>>> Detail
+>>>>>>> eaba0ed172552ad51d3bd9c9c5d6650ae79492e6
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -205,6 +216,7 @@
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
+>>>>>>> origin/componentes
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -254,26 +266,6 @@
 /******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
 /******/ 			script.onload = onScriptComplete.bind(null, script.onload);
 /******/ 			needAttach && document.head.appendChild(script);
-/******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	!function() {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = function(exports) {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/node module decorator */
-/******/ 	!function() {
-/******/ 		__webpack_require__.nmd = function(module) {
-/******/ 			module.paths = [];
-/******/ 			if (!module.children) module.children = [];
-/******/ 			return module;
 /******/ 		};
 /******/ 	}();
 /******/ 	

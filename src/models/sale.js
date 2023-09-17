@@ -1,10 +1,11 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define("sale", {
+ const Sale= sequelize.define("Sale", {
     id: {
-      type: DataTypes.SERIAL,
-      primaryKey: true,
+       type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
     },
     date_time: {
       type: DataTypes.DATE,
@@ -21,4 +22,5 @@ module.exports = (sequelize) => {
   }, {
     timestamps: true
   });
+  return Sale
 }

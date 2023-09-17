@@ -1,3 +1,4 @@
+'use client'
 import s from "@/app/componentes/NavBar/NavBar.module.css"
 import Link from "next/link"
 import SearchBar from "../SearchBar/SearchBar"
@@ -24,16 +25,16 @@ function NavBar() {
                         </select>
                     </div>
                     <div className={s.rutas}>
-                        <Link href="/historial">Historial</Link>
+                        <Link href="/history">Historial</Link>
                     </div>
                     <div className={s.rutas}>
-                        <Link href="/proveedores">Proveedores</Link>
+                        <Link href="/suppliers">Proveedores</Link>
                     </div>
                 </div>
             </div>
             <div className={s.sesion}>
                 <div>
-                    <Link href="/">cerrar sesion</Link>
+                    <Link href="/login">cerrar sesion</Link>
                 </div>
                 <div>
                     logo

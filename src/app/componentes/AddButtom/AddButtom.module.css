@@ -1,0 +1,16 @@
+.add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    background-color: #FF9800;
+    color: white;
+    border-radius: 50%; 
+    position: absolute;
+    bottom: 7%;
+    right: 8%;
+    font-size: 120px;
+    padding-bottom: 15px;
+    padding-right: 2px;
+}
