@@ -1,14 +1,14 @@
 import React from 'react'
 import s from '@/app/componentes/SuppliersList/SuppliersList.module.css'
-function SuppliersList() {
+function SuppliersList({ id_suppliers, name, cellphone, name_company, isActive }) {
     return (
         <div className={s.all}>
             <div className={s.container}>
                 <div className={s.a}>
-                    Empresa
+                    {name_company}
                 </div>
                 <div className={s.b}>
-                    Nombre
+                    {name}
                 </div>
                 <div className={s.c}>
                     Dirreción
@@ -17,7 +17,7 @@ function SuppliersList() {
                     E-Mail
                 </div>
                 <div className={s.e}>
-                    Tel.
+                    {cellphone}
                 </div>
             </div>
         </div>

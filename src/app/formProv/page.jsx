@@ -6,11 +6,11 @@ import NavBar from '../componentes/NavBar/NavBar';
 
 const ProveedorForm = () => {
     const [formData, setFormData] = useState({
-        empresa: '',
-        nombre: '',
+        name_company: '',
+        name: '',
         direccion: '',
         email: '',
-        telefono: '',
+        cellphone: '',
     });
 
     const [errors, setErrors] = useState({});

@@ -10,10 +10,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
-<<<<<<< HEAD
-    "redux-thunk": "^2.4.2",
-=======
->>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
     "axios": "^1.5.0",
     "dotenv": "^16.3.1",
     "eslint": "8.49.0",
@@ -27,6 +23,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.1.2",
+    "redux": "^4.2.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.2",
     "sequelize": "^6.33.0"
   }
 }

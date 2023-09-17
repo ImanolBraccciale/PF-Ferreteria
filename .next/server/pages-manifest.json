@@ -1,14 +1,6 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-<<<<<<< HEAD
-  "/_document": "pages/_document.js"
-=======
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
-  "/api/user": "pages/api/user.js"
-=======
-  "/api/tag": "pages/api/tag.js"
->>>>>>> tag
->>>>>>> 509fc720154b06cca68697e4dc4cd7abb6baa1fd
+  "/api/suppliers": "pages/api/suppliers.js"
 }
