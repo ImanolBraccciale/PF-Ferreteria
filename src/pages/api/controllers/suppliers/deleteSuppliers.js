@@ -1,13 +1,20 @@
-import { db } from "../../db";
-const { Suppliers } = db;
+const { db } = require("../../db");
+db.sequelize.sync();
+const Suppliers = db.Suppliers;
 
-const deleteSuppliers = async (id, permanently) => {
-  const supplier = await Suppliers.findByPk(id);
-  if (!supplier) throw new Error("unknow Supplier");
+module.exports = async (id) => {
   await Suppliers.destroy({
-    where: { id: id },
+    where: {
+      id: id,
+    },
   });
-  return supplier;
 };
 
-export default deleteSuppliers;
+// const deleteSuppliers = async (id, permanently) => {
+//   const supplier = await Suppliers.findByPk(id);
+//   if (!supplier) throw new Error("unknow Supplier");
+//
+//   return supplier;
+// };
+
+// export default deleteSuppliers;

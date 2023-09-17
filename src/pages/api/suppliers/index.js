@@ -1,7 +1,8 @@
-import deleteSuppliers from "../controllers/suppliers/deleteSuppliers";
-import getSuppliers from "../controllers/suppliers/getSuppliers";
-import putSuppliers from "../controllers/suppliers/putSuppliers";
-import postSuppliers from "../controllers/suppliers/postSuppliers";
+const getSuppliers = require("../controllers/suppliers/getSuppliers");
+const postSuppliers = require("../controllers/suppliers/postSuppliers");
+const deleteSuppliers = require("../controllers/suppliers/deleteSuppliers");
+const deleteUpSuppliers = require("../controllers/suppliers/deleteUpSuppliers");
+const upSuppliers = require("../controllers/suppliers/upSuppliers");
 
 const handlerSuppliers = async (req, res) => {
   console.log("pasando por el handler suppliers");
@@ -22,21 +23,18 @@ const handlerSuppliers = async (req, res) => {
       const response = await postSuppliers(body);
       res.status(200).json(response);
     } else if (method === "PUT") {
-      const { id } = body;
-      if (!id) {
-        res.status(400).json({ error: "Missing id" });
-        return;
-      }
-      const response = await putSuppliers(body);
-      res.status(200).json(response);
+      const upDate = await upSuppliers(req.body);
+      res.status(200).json(upDate);
     } else if (method === "DELETE") {
-      const { id } = body;
-      if (!id) {
-        res.status(400).json({ error: "You must enter the id" });
-        return;
+      const { id, permanently } = req.body;
+
+      if (permanently === true) {
+        const deletSupplier = await deleteSuppliers(id);
+        return res.status(201).json(deletSupplier);
+      } else {
+        const deletSupplier = await deleteUpSuppliers(id);
+        return res.status(201).json(deletSupplier);
       }
-      const response = await deleteSuppliers(id);
-      res.status(200).json(response);
     }
   } catch (error) {
     res.status(500).json({ error: error.message });

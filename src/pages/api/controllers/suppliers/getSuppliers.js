@@ -1,8 +1,8 @@
 const { db } = require("../../db");
+db.sequelize.sync();
+const Suppliers = db.Suppliers;
 
-const { Suppliers } = db;
-
-const getSuppliers = async () => {
+module.exports = async () => {
   return await Suppliers.findAll({
     attributes: {
       exclude: ["createdAt", "updatedAt"],
@@ -10,4 +10,4 @@ const getSuppliers = async () => {
   });
 };
 
-export default getSuppliers;
+//export default getSuppliers;

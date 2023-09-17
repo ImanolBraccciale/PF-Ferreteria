@@ -2,8 +2,8 @@ const { db } = require("../../db");
 db.sequelize.sync();
 const Suppliers = db.Suppliers;
 
-const postSuppliers = async (data) => {
-  console.log("creando Proveedor");
+module.exports = async (data) => {
+  //console.log("creando Proveedor");
   const existSupplier = await Suppliers.findOne({
     where: {
       name: data.name,
@@ -15,7 +15,7 @@ const postSuppliers = async (data) => {
     return newSupplier;
   }
 };
-export default postSuppliers;
+//export default postSuppliers;
 
 //!modelo para post sin el id. esta es la data traida por el get:
 /*{
