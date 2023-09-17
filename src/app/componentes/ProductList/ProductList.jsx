@@ -1,24 +1,23 @@
-import React from 'react'
 import s from '@/app/componentes/ProductList/ProductList.module.css'
 
-function ProductList() {
+function ProductList({id, name,stock, costoActual,price}) {
     return (
         <div className={s.all}>
             <div className={s.container}>
                 <div className={s.a}>
-                    Codigo
+                    {id}
                 </div>
                 <div className={s.b}>
-                    Descripción
+                    {name}
                 </div>
                 <div className={s.c}>
-                    Stock
+                    {stock}
                 </div>
                 <div className={s.d}>
-                    Precio sin IVA
+                    {costoActual}
                 </div>
                 <div className={s.e}>
-                    Precio final
+                    {price}
                 </div>
                 <div className={s.f}>
                 </div>
