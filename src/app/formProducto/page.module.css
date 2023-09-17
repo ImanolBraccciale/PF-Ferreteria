@@ -62,24 +62,13 @@
     flex-shrink: 0;
 }
 
-.inputImagen {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #EC8800;
-    /* Cambia este color al que desees */
-    color: white;
-    /* Cambia el color del texto al que desees */
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
 
-.inputImagen:hover{
-    background-color: #FFA424;
-}
+
+
 
 .inputDescripcion {
     border-radius: 12px;
+    height: 200px;
     background: #FFF;
     color: #2c2c2c;
     resize: none;
