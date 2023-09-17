@@ -2,6 +2,8 @@ const getProducts =require("../controllers/Productos/getProducts")
 const postProducts = require("../controllers/Productos/postProduct")
 const deleteProduct = require("../controllers/Productos/delete")
 const updateProduct = require("../controllers/Productos/upProducts")
+const logicP = require("../controllers/Productos/loigProduct")
+
 export default async  function Handler(req, res){
   console.log("aaaaaaaaaaaaaaaaa");
   switch (req.method) {
@@ -22,9 +24,18 @@ export default async  function Handler(req, res){
       }
       case "DELETE":
         try {
-          const { id } = req.body
-          const delProduct = await deleteProduct(id)
-          return res.status(201).json(delProduct)
+          const { id,permanently } = req.body
+
+          if (permanently ===true) {
+
+            const delProduct = await deleteProduct(id)
+            return res.status(201).json(delProduct)
+          }else {
+
+            const delProduct = await logicP(id)
+            return res.status(201).json(delProduct)
+          }
+
         } catch (error) {
           return res.status(400).json({error:error.message})
         }
