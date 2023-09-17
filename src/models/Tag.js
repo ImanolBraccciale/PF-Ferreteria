@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
 
         isActive: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+
         },
     })
     return Tag

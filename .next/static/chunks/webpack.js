@@ -88,6 +88,24 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+=======
+>>>>>>> tag
+>>>>>>> Developer
 /******/ 	/* webpack/runtime/get javascript update chunk filename */
 /******/ 	!function() {
 /******/ 		// This function allow to reference all chunks
@@ -113,7 +131,27 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "08bbe3671c2a994f"; }
+=======
+<<<<<<< HEAD
+/******/ 		__webpack_require__.h = function() { return "664cd5f10f2352b5"; }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	!function() {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+=======
+/******/ 		__webpack_require__.h = function() { return "08bbe3671c2a994f"; }
+>>>>>>> tag
+>>>>>>> Developer
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
