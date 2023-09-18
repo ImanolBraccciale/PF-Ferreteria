@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   const Suppliers = sequelize.define(
     "Suppliers",
     {
-      id: {
+      id_suppliers: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
 
       isActive: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
       },
     },
     // Deshabilitamos timestamps (created_at y updated_at)
