@@ -24,6 +24,16 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
 
+        direction: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+
+        email: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+
         isActive: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

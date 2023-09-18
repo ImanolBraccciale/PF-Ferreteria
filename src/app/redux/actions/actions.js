@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL } from "./actionsTypes";
+=======
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, ORDER_BY } from "./actionsTypes";
+>>>>>>> 76df8a3eb0ad196030b1559a5697d9c97350998f
 import axios from "axios";
 
 export const getSuppliers = () => {

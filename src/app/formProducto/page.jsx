@@ -3,6 +3,8 @@ import { useState } from 'react'
 import style from './page.module.css'
 import validateProductos from '../componentes/validations.js/validateProductos'
 import NavBar from '../componentes/NavBar/NavBar'
+import Link from 'next/link'
+import BackButtom from '../componentes/BackButtom/BackButtom'
 
 function FormProducto() {
     const [input, setInput] = useState({
@@ -29,10 +31,10 @@ function FormProducto() {
         event.preventDefault()
 
         if (Object.keys(errors).length > 0) {
-            alert('te falta llenar valores')
+            alert('falta llenar valores')
         }
         else {
-            alert(input.ganance)//alerta de creación exitosa
+            alert(input.ganance)
             console.log(input.name);
             setInput({
                 name: '',
@@ -48,6 +50,7 @@ function FormProducto() {
     return (
         <>
             <NavBar />
+            <Link href='/'><BackButtom /></Link>
             <main className={style.main}>
                 <div className={style.contenedor}>
                     <h1 className={style.title}>Añadir producto</h1>
@@ -76,8 +79,8 @@ function FormProducto() {
                             </select>
                         </div>
                         <div className={style.group}>
-                            <label className={style.proveedor} htmlFor="provider">Proveedor:</label>
-                            <select className={style.inputProveedor} name="provider" id="provider">
+                            <label className={style.proveedor} htmlFor="prov">Proveedor:</label>
+                            <select className={style.inputProveedor} name="prov" id="prov">
                                 <option value="">Seleccionar</option>
                                 <option value="">No seleccionar</option>
                                 <option value="">No o si?</option>
@@ -90,8 +93,8 @@ function FormProducto() {
                                 {errors.price ? <span style={{ color: 'red' }}>{errors.price}</span> : ''}
                             </div>
                             <div className={style.group}>
-                                <label className={style.ganancia} htmlFor="ganance">% Ganancia:</label>
-                                <input className={style.inputGanancia} type="number" id='ganance' name='ganance' value={input.ganance} onChange={handleChange} />
+                                <label className={style.ganancia} htmlFor="profit">% Ganancia:</label>
+                                <input className={style.inputGanancia} type="number" id='profit' name='profit' value={input.ganance} onChange={handleChange} />
                                 {errors.ganance ? <span style={{ color: 'red' }}>{errors.ganance}</span> : ''}
                             </div>
                         </div>
@@ -101,6 +104,7 @@ function FormProducto() {
                     </form>
                 </div>
             </main>
+
         </>
     )
 }

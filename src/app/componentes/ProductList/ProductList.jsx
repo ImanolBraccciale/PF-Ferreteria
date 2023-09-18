@@ -20,6 +20,7 @@ function ProductList({id, name,stock, costoActual,price}) {
                     {price}
                 </div>
                 <div className={s.f}>
+                    <button className={s.button}>Agregar</button>
                 </div>
             </div>
         </div>

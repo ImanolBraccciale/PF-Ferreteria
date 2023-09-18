@@ -1,7 +1,15 @@
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/[id]/page": "app/[id]/page.js",
   "/formProducto/page": "app/formProducto/page.js",
   "/suppliers/page": "app/suppliers/page.js",
   "/login/page": "app/login/page.js"
+=======
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/suppliers/page": "app/suppliers/page.js",
+  "/formProv/page": "app/formProv/page.js",
+  "/formProducto/page": "app/formProducto/page.js",
+  "/history/page": "app/history/page.js"
+>>>>>>> 76df8a3eb0ad196030b1559a5697d9c97350998f
 }

@@ -61,8 +61,9 @@ DetailSale.belongsToMany(Products, {
   timestamps: false,
 });
 
-Products.belongsToMany(Tag, { through: "product_tag", timestamps: false });
-Tag.belongsToMany(Products, { through: "product_tag", timestamps: false });
+Products.belongsTo(Tag, { foreignKey: 'TagId' });
+Tag.hasMany(Products, { foreignKey: 'TagId' });
+
 
 DetailSale.belongsTo(Sale, { through: "detailSale_sale", timestamps: false });
 Sale.hasOne(DetailSale, { through: "detailSale_sale", timestamps: false });

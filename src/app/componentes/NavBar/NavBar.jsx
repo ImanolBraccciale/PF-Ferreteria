@@ -3,7 +3,9 @@ import s from "@/app/componentes/NavBar/NavBar.module.css"
 import Link from "next/link"
 import SearchBar from "../SearchBar/SearchBar"
 
+
 function NavBar() {
+
     return (
         <div className={s.container}>
                 <Link href="/">
@@ -13,11 +15,11 @@ function NavBar() {
                 <div className={s.search}><SearchBar/></div>
                 <div className={s.botones}>
                     <div className={s.option}>
-                        <select>
-                            <option value="">Ordenar</option>
-                            <option value="A-Z">A-Z</option>
-                            <option value="Z-A">Z-A</option>
-                        </select>
+                    <select onChange={e => handleSort(e)}>
+                        <option value="all" >Ordenar</option>
+                        <option value="A-Z" >A-Z</option>
+                        <option value="Z-A" >Z-A</option>
+                    </select>
                     </div>
                     <div className={s.option2}>
                         <select >
