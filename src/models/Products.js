@@ -46,6 +46,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: true
     },
+    TagId: {
+   type: DataTypes.UUID, 
+    allowNull: true, 
+},
+
 
   },{timestamps: false});
 return Products
