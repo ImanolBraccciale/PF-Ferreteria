@@ -1,8 +1,8 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS } from "../actions/actionsTypes"
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL } from "../actions/actionsTypes"
 
 const initialState = {
     allSuppliers: [],
-    productDetail: {},
+    productDetail: [],
     allProducts: [],
     products: [],
 
@@ -23,6 +23,12 @@ const reducer = (state = initialState, action) => {
                 allSuppliers: [...state.allSuppliers, action.payload]
             }
         case GET_BY_ID:
+            console.log('este es el id del product: ', state.productDetail);
+            return {
+                ...state,
+                productDetail: action.payload
+            }
+        case DELETE_DETAIL:
             return {
                 ...state,
                 productDetail: action.payload

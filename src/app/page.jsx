@@ -21,14 +21,17 @@ const page = () => {
       {
         allProducts.map(({ id, name, stock, costoActual, price }) => {
           return (
-            <ProductList
-              key={id}
-              id={id}
-              name={name}
-              stock={stock}
-              costoActual={costoActual}
-              price={price}
-            />
+            <Link href={`/${id}`} key={id}>
+              <ProductList
+               
+                id={id}
+                name={name}
+                stock={stock}
+                costoActual={costoActual}
+                price={price}
+              />
+            </Link>
+
           )
         })
       }
