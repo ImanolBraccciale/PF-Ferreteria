@@ -1,28 +1,30 @@
-const {db} = require("../../db")
+const { db } = require("../../db")
 db.sequelize.sync()
 const Tag = db.Tag
-const Products=db.Products
+const Products = db.Products
 
-module.exports = async (tagName) =>{
+module.exports = async (tagName) => {
 
- try {
-  const tag = await Tag.findOne({
-    where:{
-      name:tagName
-    }
-  })
+  try {
+    const tag = await Tag.findAll(
+    //   {
+    //   where: {
+    //     name: tagName
+    //   }
+    // }
+    )
 
-  if (tag) {
-    const products =await Products.findAll({
-      where:{
-        TagId:tag.id
-      }
-    })
-    return products;
+    // if (tag) {
+    //   const products = await Tag.findAll({
+    //     where: {
+    //       TagId: tag.id
+    //     }
+    //   })
+    //   return products;
+    // }
+    return tag
+  } catch (error) {
+    throw new Error({ error: error.message })
   }
-  return []
- } catch (error) {
-  throw new Error({error:error.message})
- }
 
 }

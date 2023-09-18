@@ -2,9 +2,36 @@
 import s from "@/app/componentes/NavBar/NavBar.module.css"
 import Link from "next/link"
 import SearchBar from "../SearchBar/SearchBar"
+import { filterByProd, getAllProducts, orderBy } from "@/app/redux/actions/actions"
+import { useDispatch, useSelector } from "react-redux"
 
 
 function NavBar() {
+
+const dispatch = useDispatch()
+const productos = useSelector(state => state.allProducts)
+
+console.log(productos);
+
+    function handleSort(e) {
+        e.preventDefault()
+        if(e.target.value === '') {
+            dispatch(getAllProducts())
+        } else {
+            dispatch(orderBy(e.target.value))
+        }
+    }
+
+    function handleFilter(e) {
+        e.preventDefault()
+        if(e.target.value === '') {
+            dispatch(getAllProducts());
+        } else {
+            dispatch(filterByProd(e.target.value))
+        }
+    }
+
+
 
     return (
         <div className={s.container}>
@@ -22,9 +49,14 @@ function NavBar() {
                     </select>
                     </div>
                     <div className={s.option2}>
-                        <select >
-                            <option value=''>Filtrar</option>
-                        </select>
+                    <select onChange={e => handleFilter(e)}>
+                        <option value=''>Filtrar</option>
+                        {productos && productos.map(p => {
+                            return (
+                                <option key={p.id} value={p.TagId}>{p.TagId}</option>
+                            )
+                        })}
+                    </select>
                     </div>
                     <div className={s.rutas}>
                         <Link href="/history">Historial</Link>

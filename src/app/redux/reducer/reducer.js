@@ -1,14 +1,11 @@
-<<<<<<< HEAD
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL } from "../actions/actionsTypes"
-=======
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, ORDER_BY} from "../actions/actionsTypes"
->>>>>>> 76df8a3eb0ad196030b1559a5697d9c97350998f
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS } from "../actions/actionsTypes"
 
 const initialState = {
     allSuppliers: [],
     productDetail: [],
     allProducts: [],
     products: [],
+    tags: [],
 
 }
 
@@ -43,6 +40,70 @@ const reducer = (state = initialState, action) => {
                 allProducts: action.payload,
                 products: action.payload
             };
+
+        case ORDER_BY:
+            let productCopy = [...state.allProducts]; //hago una copia de mi estado importante
+            let ordenamiento
+
+            switch (action.payload) {
+                case 'All':
+                    ordenamiento = [...state.allProducts];
+                    break;
+                case 'A-Z':
+                    ordenamiento = productCopy.sort(function (a, b) {
+                        if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                            return 1
+                        }
+                        if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                            return -1
+                        }
+                        return 0;
+                    });
+                    break;
+                case 'Z-A':
+                    ordenamiento = productCopy.sort(function (a, b) {
+                        if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                            return 1;
+                        }
+                        if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                            return -1;
+                        }
+                        return 0;
+                    })
+                    break;
+
+                default:
+                    ordenamiento = productCopy
+                    break;
+            }
+            return {
+                ...state,
+                allProducts: ordenamiento,
+                products: ordenamiento
+            };
+
+        case FILTER_BY_GROUP:
+            let aux = [];
+            if (action.payload) {
+                aux = state.products.filter(product => {
+                    return product.TagId === action.payload;
+                });
+            } else {
+                aux = state.products;
+            }
+
+            return {
+                ...state,
+                allProducts: aux,
+            };
+
+
+        case GET_TAGS:
+            return {
+                ...state,
+                tags: action.payload,
+            };
+
 
         default:
             return state
