@@ -1,7 +1,10 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/api/suppliers": "pages/api/suppliers.js",
+=======
+  "/_error": "pages/_error.js",
+>>>>>>> d731b9f2116c23c55842386a3eaa866311d2ffaf
   "/api/products": "pages/api/products.js"
 }
