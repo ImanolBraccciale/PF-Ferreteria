@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS } from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, ORDER_BY } from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {

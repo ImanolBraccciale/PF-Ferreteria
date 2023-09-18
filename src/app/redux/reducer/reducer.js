@@ -1,4 +1,4 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS } from "../actions/actionsTypes"
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, ORDER_BY} from "../actions/actionsTypes"
 
 const initialState = {
     allSuppliers: [],
@@ -33,7 +33,6 @@ const reducer = (state = initialState, action) => {
                 allProducts: action.payload,
                 products: action.payload
             };
-
 
         default:
             return state
