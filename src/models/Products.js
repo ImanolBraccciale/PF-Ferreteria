@@ -9,9 +9,7 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-    image:{
-      type :DataTypes.STRING,
-    },
+    
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,6 +44,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: true
     },
+    TagId: {
+   type: DataTypes.UUID, 
+    allowNull: true, 
+},
+
 
   },{timestamps: false});
 return Products

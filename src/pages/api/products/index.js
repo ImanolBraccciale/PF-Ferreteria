@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const getProducts = require("../controllers/Productos/getProducts");
 const postProducts = require("../controllers/Productos/postProduct");
 const deleteProduct = require("../controllers/Productos/delete");
@@ -11,6 +12,30 @@ export default async function Handler(req, res) {
       try {
         const allProducts = await getProducts();
         return res.status(200).json(allProducts);
+=======
+const getProducts = require("../controllers/Productos/getProducts")
+const postProducts = require("../controllers/Productos/postProduct")
+const deleteProduct = require("../controllers/Productos/delete")
+const updateProduct = require("../controllers/Productos/upProducts")
+const getProductById = require("../controllers/Productos/getProductById")
+const logicP = require("../controllers/Productos/loigProduct")
+
+export default async function Handler(req, res) {
+  const {
+    query: { id },
+    method,
+  } = req;
+  switch (method) {
+    case 'GET':
+      try {
+        if (id) {
+          const product = await getProductById(id);
+          return res.status(200).json(product);
+        } else {
+          const allProducts = await getProducts();
+          return res.status(200).json(allProducts);
+        }
+>>>>>>> Developer
       } catch (error) {
         return res.status(400).json({ error: error.message });
       }
@@ -24,6 +49,7 @@ export default async function Handler(req, res) {
       }
     case "DELETE":
       try {
+<<<<<<< HEAD
         const { id, permanently } = req.body;
 
         if (permanently === true) {
@@ -42,8 +68,35 @@ export default async function Handler(req, res) {
         return res.status(201).json(updateP);
       } catch (error) {
         return res.status(400).json({ error: error.message });
+=======
+        const { id, permanently } = req.body
+
+        if (permanently === true) {
+
+          const delProduct = await deleteProduct(id)
+          return res.status(201).json(delProduct)
+        } else {
+
+          const delProduct = await logicP(id)
+          return res.status(201).json(delProduct)
+        }
+
+      } catch (error) {
+        return res.status(400).json({ error: error.message })
+      }
+    case "PUT":
+      try {
+        const updateP = await updateProduct(req.body)
+        return res.status(201).json(updateP)
+      } catch (error) {
+        return res.status(400).json({ error: error.message })
+>>>>>>> Developer
       }
     default:
       break;
   }
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> Developer

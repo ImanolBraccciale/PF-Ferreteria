@@ -1,7 +1,8 @@
+"use client"
 import './globals.css'
 import { Inter } from 'next/font/google'
-// import Providers from './redux/provider'
-import NavBar from './componentes/NavBar/NavBar'
+import { Provider } from 'react-redux'
+import store from './redux/store/store'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,11 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      {/* <Providers> */}
+      <Provider store={store}>
         <body className={inter.className}>
           {children}
         </body>
-      {/* </Providers>  */}
-    </html>
+      </Provider>
+    </html >
   )
 }

@@ -26,10 +26,27 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
 
+<<<<<<< HEAD
       isActive: {
         type: DataTypes.BOOLEAN,
         allowNull: true,
       },
+=======
+        direction: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+
+        email: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+
+        isActive: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+>>>>>>> Developer
     },
     // Deshabilitamos timestamps (created_at y updated_at)
     { timestamps: false }

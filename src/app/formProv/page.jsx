@@ -3,14 +3,17 @@ import { useState } from 'react';
 import { validateProveedor } from '../componentes/validations.js/ValidationProveedores';
 import styles from './FormProv.module.css';
 import NavBar from '../componentes/NavBar/NavBar';
+import BackButtom from '../componentes/BackButtom/BackButtom';
+import Link from 'next/link';
+
 
 const ProveedorForm = () => {
     const [formData, setFormData] = useState({
-        empresa: '',
-        nombre: '',
+        name_company: '',
+        name: '',
         direccion: '',
         email: '',
-        telefono: '',
+        cellphone: '',
     });
 
     const [errors, setErrors] = useState({});
@@ -37,6 +40,7 @@ const ProveedorForm = () => {
     return (
         <>
             <NavBar />
+            <Link href='/suppliers'><BackButtom/></Link>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.formgroup}>
                     <label className={styles.label} htmlFor="empresa">

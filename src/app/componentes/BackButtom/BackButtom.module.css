@@ -1,0 +1,18 @@
+.add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    background-image: url(../assets/images/backarrow.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-color: #FF9800;
+    background-position: center;
+    color: white;
+    border-radius: 50%; 
+    position: absolute;
+    top: 24%;
+    left: 5%;
+    font-size: 120px;
+}
