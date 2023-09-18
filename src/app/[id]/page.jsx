@@ -8,16 +8,16 @@ import NavBar from '../componentes/NavBar/NavBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getProductById, detailDelete } from '../redux/actions/actions'
-import { useParams } from 'react-router-dom'
+import { useRouter } from 'next/router';
 
-const Detail = () => {
-    const {id} = useParams
+const Detail = ({params}) => {
+    // const router = useRouter() 
+    const  id  = params.id
     const dispatch = useDispatch()
     const productDetail = useSelector((state) => state.productDetail)
-    console.log('page detail: ',productDetail);
     useEffect(() => {
         dispatch(getProductById(id))
-        return (() => dispatch(detailDelete()))
+        // return (() => dispatch(detailDelete()))
     }, [dispatch, id])
     return (
         <>

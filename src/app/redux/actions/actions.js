@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY } from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL } from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -31,24 +31,17 @@ export const postSuppliers = (supplier) => {
     }
 }
 
-export const getProductById = (id) => {
-    
-    return async (dispatch) => {
-        try {
-            console.log('desde el action pero arriba');
-            const {data} = await axios.get(`/api/products?id=${id}`)
-            console.log('desde el action', data );
-            return dispatch({
-                type: GET_BY_ID,
-                payload: data
-            })
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
+export function getProductById(id) {
+    return async dispatch => {
+        const response = await axios(`/api/products?id=${id}`);
+        dispatch({
+            type: GET_BY_ID,
+            payload: response.data,
+        });
+    };
 }
 
-export const detailDelete = () =>{
+export const detailDelete = () => {
     return {
         type: DELETE_DETAIL,
         payload: {}
