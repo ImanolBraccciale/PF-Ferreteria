@@ -1,9 +1,9 @@
-const getProducts = require("../controllers/Productos/getProducts")
-const postProducts = require("../controllers/Productos/postProduct")
-const deleteProduct = require("../controllers/Productos/delete")
-const updateProduct = require("../controllers/Productos/upProducts")
-const getProductById = require("../controllers/Productos/getProductById")
-const logicP = require("../controllers/Productos/loigProduct")
+const getProducts = require("../controllers/Productos/getProducts");
+const postProducts = require("../controllers/Productos/postProduct");
+const deleteProduct = require("../controllers/Productos/delete");
+const updateProduct = require("../controllers/Productos/upProducts");
+const getProductById = require("../controllers/Productos/getProductById");
+const logicP = require("../controllers/Productos/loigProduct");
 
 export default async function Handler(req, res) {
   const {
@@ -11,7 +11,7 @@ export default async function Handler(req, res) {
     method,
   } = req;
   switch (method) {
-    case 'GET':
+    case "GET":
       try {
         if (id) {
           const product = await getProductById(id);
@@ -33,33 +33,26 @@ export default async function Handler(req, res) {
       }
     case "DELETE":
       try {
-        const { id, permanently } = req.body
+        const { id, permanently } = req.body;
 
         if (permanently === true) {
-
-          const delProduct = await deleteProduct(id)
-          return res.status(201).json(delProduct)
+          const delProduct = await deleteProduct(id);
+          return res.status(201).json(delProduct);
         } else {
-
-          const delProduct = await logicP(id)
-          return res.status(201).json(delProduct)
+          const delProduct = await logicP(id);
+          return res.status(201).json(delProduct);
         }
-
       } catch (error) {
-        return res.status(400).json({ error: error.message })
+        return res.status(400).json({ error: error.message });
       }
     case "PUT":
       try {
-        const updateP = await updateProduct(req.body)
-        return res.status(201).json(updateP)
+        const updateP = await updateProduct(req.body);
+        return res.status(201).json(updateP);
       } catch (error) {
-        return res.status(400).json({ error: error.message })
+        return res.status(400).json({ error: error.message });
       }
     default:
       break;
   }
-<<<<<<< HEAD
 }
-=======
-};
->>>>>>> Developer
