@@ -2,9 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-<<<<<<< Updated upstream
-  "/api/suppliers": "pages/api/suppliers.js",
-=======
->>>>>>> Stashed changes
-  "/api/products": "pages/api/products.js"
+  "/api/nodemailer": "pages/api/nodemailer.js"
 }
