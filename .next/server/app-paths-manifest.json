@@ -1,9 +1,4 @@
 {
-  "/[id]/page": "app/[id]/page.js",
-  "/login/page": "app/login/page.js",
-  "/formProv/page": "app/formProv/page.js",
-  "/formProducto/page": "app/formProducto/page.js",
   "/page": "app/page.js",
-  "/history/page": "app/history/page.js",
-  "/suppliers/page": "app/suppliers/page.js"
+  "/[id]/page": "app/[id]/page.js"
 }
