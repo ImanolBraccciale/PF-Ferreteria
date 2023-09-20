@@ -11,7 +11,7 @@ let totalAmout =0
 for (const product of data.products) {
   totalAmout += product.quantity * product.unitPrice
 }
-
+//aaaaaaaaaaaaaaa
 const newSale = Sale.create({
   saleDate: new Date(data.saleDate),
   totalAmout:totalAmout,
