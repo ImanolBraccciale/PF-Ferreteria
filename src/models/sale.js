@@ -7,20 +7,18 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-    date_time: {
+    saleDate: {
       type: DataTypes.DATE,
-      allowNull: false
-    },
-    payment_method: {
-      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    total: {
-      type: DataTypes.DECIMAL,
+    totalAmount: {
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
-  }, {
-    timestamps: true
+    paymentMethod: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
   return Sale
 }
