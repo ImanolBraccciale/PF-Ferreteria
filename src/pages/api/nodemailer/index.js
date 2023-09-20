@@ -2,7 +2,7 @@ import { sendMail } from "../service/mailService";
 
 // Constantes para el correo
 const SUBJECT = "TEST";
-const TO_EMAIL = "ahernandezdep@gmail.com";
+const TO_EMAIL = "ajhd2022@gmail.com";
 const OTP_TEXT = "THIS IS A TEST FOR MY MEDIUM USERS";
 
 const handlerMail = async (req, res) => {
