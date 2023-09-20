@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL } from "../actions/actionsTypes"
-=======
 import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES} from "../actions/actionsTypes"
->>>>>>> 9949d98c7eb97afc3ca6290f7a09a7d80d124dc3
 
 const initialState = {
     allSuppliers: [],

@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-{}
-=======
-<<<<<<< HEAD
 {
   "/page": "app/page.js",
-  "/[id]/page": "app/[id]/page.js"
+  "/suppliers/page": "app/suppliers/page.js"
 }
-=======
-{}
->>>>>>> 54d8024ee2d336455a4e23d9234f58204e9a68df
->>>>>>> 9949d98c7eb97afc3ca6290f7a09a7d80d124dc3

@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-  "pages": {}
-=======
-<<<<<<< HEAD
   "pages": {
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,15 +12,11 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/[id]/page": [
+    "/suppliers/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[id]/page.css",
-      "static/chunks/app/[id]/page.js"
+      "static/css/app/suppliers/page.css",
+      "static/chunks/app/suppliers/page.js"
     ]
   }
-=======
-  "pages": {}
->>>>>>> 54d8024ee2d336455a4e23d9234f58204e9a68df
->>>>>>> 9949d98c7eb97afc3ca6290f7a09a7d80d124dc3
 }
