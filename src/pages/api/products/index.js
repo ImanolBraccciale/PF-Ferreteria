@@ -3,19 +3,23 @@ const postProducts = require("../controllers/Productos/postProduct")
 const deleteProduct = require("../controllers/Productos/delete")
 const updateProduct = require("../controllers/Productos/upProducts")
 const getProductById = require("../controllers/Productos/getProductById")
+const getProductByName = require("../controllers/Productos/getProductByName")
 const logicP = require("../controllers/Productos/loigProduct")
 
 export default async function Handler(req, res) {
   const {
-    query: { id },
+    query: { id, name },
     method,
   } = req;
   switch (method) {
     case 'GET':
       try {
         if (id) {
-          const product = await getProductById(id);
-          return res.status(200).json(product);
+          const productById = await getProductById(id);
+          return res.status(200).json(productById);
+        }else if (name) {
+          const productByName = await getProductByName(name);
+          return res.status(200).json(productByName)
         } else {
           const allProducts = await getProducts();
           return res.status(200).json(allProducts);

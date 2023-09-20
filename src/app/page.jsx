@@ -7,6 +7,7 @@ import ProductList from "./componentes/ProductList/ProductList"
 import { getAllProducts } from "./redux/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
+import s from "@/app/page.module.css"
 
 const page = () => {
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ const page = () => {
       {
         allProducts.map(({ id, name, stock, costoActual, price }) => {
           return (
-            <Link href={`/${id}`} key={id}>
+            <Link className={s.z} href={`/${id}`} key={id}>
               <ProductList
                
                 id={id}

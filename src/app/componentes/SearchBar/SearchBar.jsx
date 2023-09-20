@@ -1,11 +1,12 @@
 "use client"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { getProductByName } from "@/app/redux/actions/actions";
 import s from "@/app/componentes/SearchBar/SearchBar.module.css";
 
 function SearchBar() {
     const [state, setState] = useState("");
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     function handleChange(e) {
         e.preventDefault();
@@ -15,7 +16,7 @@ function SearchBar() {
     function handleSubmit(e) {
         e.preventDefault();
         if (state.length > 1) {
-            dispatch(getProduct(state));
+            dispatch(getProductByName(state));
             setState("");
         } else {
             alert("Ingrese un Producto");
