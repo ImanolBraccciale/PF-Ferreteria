@@ -43,14 +43,12 @@ const { Users, Products, DetailSale, Sale, Suppliers, Tag } =
 Users.belongsToMany(Products, { through: "user_product", timestamps: false });
 Products.belongsToMany(Users, { through: "user_product", timestamps: false });
 
-Products.belongsToMany(Suppliers, {
-  through: "user_supplier",
-  timestamps: false,
+Products.belongsTo(Suppliers, {
+  as: 'supplier',
+  foreignKey: 'SupplierId', // Asegúrate de que sea la clave correcta
+  allowNull: true,
 });
-Suppliers.belongsToMany(Products, {
-  through: "user_supplier",
-  timestamps: false,
-});
+
 
 Products.belongsToMany(DetailSale, {
   through: "product_detailSale",
@@ -61,11 +59,28 @@ DetailSale.belongsToMany(Products, {
   timestamps: false,
 });
 
+<<<<<<< HEAD
 Products.belongsTo(Tag, { foreignKey: "TagId" });
 Tag.hasMany(Products, { foreignKey: "TagId" });
+=======
+  Products.belongsTo(Tag, {
+    as: 'groupTag',
+    foreignKey: 'groupTagId',
+     tagetKey:"name",
+    allowNull: true,
+  });
 
-DetailSale.belongsTo(Sale, { through: "detailSale_sale", timestamps: false });
-Sale.hasOne(DetailSale, { through: "detailSale_sale", timestamps: false });
+  Products.belongsTo(Tag, {
+    as: 'rubroTag',
+    foreignKey: 'rubroTagId',
+    tagetKey:"name",
+    allowNull: true,
+  });
+
+Sale.hasMany(DetailSale, { foreignKey: 'saleId' });
+DetailSale.belongsTo(Sale, { foreignKey: 'saleId' });
+>>>>>>> Developer
+
 
 db.sequelize.sync();
 

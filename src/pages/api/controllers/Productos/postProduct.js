@@ -1,29 +1,70 @@
 const { db } = require("../../db");
-db.sequelize.sync(); 
+db.sequelize.sync();
 
 const Products = db.Products;
 const Tag = db.Tag;
+const Suppliers=db.Suppliers
 
 module.exports = async (data) => {
   try {
+    const { name, descripcion, costoAnterior, costoActual, price, stock, isActive, group, rubro, supplierName } = data;
 
-    const tag = await Tag.findOne({
+    // Buscar las etiquetas de grupo y rubro por sus nombres
+    const groupTag = await Tag.findOne({
       where: {
-        name: data.TagId,
+        name: group,
       },
     });
 
-    if (tag) {
+    const rubroTag = await Tag.findOne({
+      where: {
+        name: rubro,
+      },
+    });
 
-      const newProduct = await Products.create({
-        ...data,
-        TagId: tag.id,
-      });
-
-      return newProduct;
-    } else {
-      throw new Error("La etiqueta no existe");
+    if (!groupTag || !rubroTag) {
+      throw new Error("Una o ambas etiquetas no existen");
     }
+
+       const supplier = await Suppliers.findOne({
+      where: {
+        name: supplierName,
+      },
+    });
+
+    const newProduct = await Products.create({
+      name: name,
+      descripcion: descripcion,
+      costoAnterior: costoAnterior,
+      costoActual: costoActual,
+      price: price,
+      stock: stock,
+      isActive: isActive,
+      groupTagId: groupTag.id, 
+      rubroTagId: rubroTag.id, 
+      SupplierId: supplier.id_suppliers
+    });
+
+
+    const groupName = groupTag.name;
+    const rubroName = rubroTag.name;
+    const supplierADD =supplier.name
+
+    const responseObject = {
+      id: newProduct.id,
+      name: newProduct.name,
+      descripcion: newProduct.descripcion,
+      costoAnterior: newProduct.costoAnterior,
+      costoActual: newProduct.costoActual,
+      price: newProduct.price,
+      stock: newProduct.stock,
+      isActive: newProduct.isActive,
+      group: groupName, 
+      rubro: rubroName, 
+      supplier:supplierADD
+    };
+
+    return responseObject;
   } catch (error) {
     throw new Error(`Error al crear el producto: ${error.message}`);
   }

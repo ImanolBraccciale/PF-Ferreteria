@@ -1,4 +1,16 @@
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/[id]/page": "app/[id]/page.js"
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+  "/history/page": "app/history/page.js",
+=======
+>>>>>>> a98ce76c88537a8c5ffb3bb142c21a2e6dc8e8b5
+  "/suppliers/page": "app/suppliers/page.js"
+=======
+  "/history/page": "app/history/page.js"
+>>>>>>> Stashed changes
+>>>>>>> Developer
 }

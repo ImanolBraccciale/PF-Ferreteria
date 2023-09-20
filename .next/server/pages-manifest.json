@@ -1,6 +1,18 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+<<<<<<< HEAD
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/api/nodemailer": "pages/api/nodemailer.js"
+=======
+<<<<<<< Updated upstream
+  "/api/suppliers": "pages/api/suppliers.js",
+=======
+>>>>>>> Stashed changes
+  "/api/products": "pages/api/products.js"
+=======
+  "/_document": "pages/_document.js"
+>>>>>>> a98ce76c88537a8c5ffb3bb142c21a2e6dc8e8b5
+>>>>>>> Developer
 }
