@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS } from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES} from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -93,6 +93,24 @@ export const getTags = () => {
             });
         } catch (err) {
             console.log(err);
+        }
+    };
+};
+
+export const getProductByName = (name) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(`api/products?name=${name}`
+            );
+            return dispatch({
+                type: GET_NAMES,
+                payload: data,
+            });
+        } catch (err) {
+            return dispatch({
+                type: GET_NAMES,
+                payload: []
+            })
         }
     };
 };

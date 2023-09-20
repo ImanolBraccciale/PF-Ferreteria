@@ -43,9 +43,11 @@ console.log(productos);
                 <div className={s.botones}>
                     <div className={s.option}>
                     <select onChange={e => handleSort(e)}>
-                        <option value="all" >Ordenar</option>
+                        <option value="" >Ordenar</option>
                         <option value="A-Z" >A-Z</option>
                         <option value="Z-A" >Z-A</option>
+                        <option value="MenorPrecio">Menor Precio</option>
+                        <option value="MayorPrecio">Mayor Precio</option>
                     </select>
                     </div>
                     <div className={s.option2}>

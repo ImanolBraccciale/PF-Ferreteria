@@ -13,7 +13,7 @@ export default async  function Handler(req, res){
       }
     case "POST":
       try {
-        console.log("prueba 1");
+      
         const newProduct = await postTag(req.body); 
         return res.status(201).json(newProduct);
       } catch (error) {
