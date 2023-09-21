@@ -1,11 +1,11 @@
 import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES} from "../actions/actionsTypes"
 
 const initialState = {
-    allSuppliers: [],
-    productDetail: [],
     allProducts: [],
     products: [],
-    tags: [],
+    allSuppliers: [],
+    etiquetas:[],
+    productDetail: []
 
 }
 
@@ -45,7 +45,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 allProducts: action.payload
             };
-
         case ORDER_BY:
             let productCopy = [...state.allProducts]; //hago una copia de mi estado importante
             let ordenamiento
@@ -116,7 +115,7 @@ const reducer = (state = initialState, action) => {
         case GET_TAGS:
             return {
                 ...state,
-                tags: action.payload,
+                etiquetas: action.payload,
             };
 
 

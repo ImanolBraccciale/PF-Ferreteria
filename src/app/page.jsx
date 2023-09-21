@@ -11,7 +11,7 @@ import s from "@/app/page.module.css"
 
 const page = () => {
   const dispatch = useDispatch()
-  const allProducts = useSelector((state) => state.allProducts)
+  const allProducts = useSelector((state) => state.products)
   useEffect(() => {
     dispatch(getAllProducts())
   }, [dispatch])

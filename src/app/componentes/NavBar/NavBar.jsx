@@ -12,14 +12,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 function NavBar() {
   const dispatch = useDispatch();
-  const productos = useSelector((state) => state.allProducts);
+  const tag = useSelector((state) => state.etiquetas);
 
   const [modoOscuro, setModoOscuro] = useState(false);
   const toggleModoOscuro = () => {
     setModoOscuro(!modoOscuro);
   };
 
-  console.log(productos);
+  console.log(tag);
 
   function handleSort(e) {
     e.preventDefault();
@@ -64,12 +64,12 @@ function NavBar() {
           </div>
           <div className={s.option2}>
             <select onChange={(e) => handleFilter(e)}>
-              <option value="">Filtrar</option>
-              {productos &&
-                productos.map((p) => {
+              <option value=''>Filtrar</option>
+              {tag &&
+                tag.map((p) => {
                   return (
-                    <option key={p.id} value={p.TagId}>
-                      {p.TagId}
+                    <option key={p.id} value={p.name}>
+                      {p.name}
                     </option>
                   );
                 })}

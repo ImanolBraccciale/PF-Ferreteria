@@ -84,7 +84,7 @@ export const filterByProd = (payload) => {
 export const getTags = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get("/api/tag");
+            const { data } = await axios.get("http://localhost:3000/api/tag");
             return dispatch({
                 type: GET_TAGS,
                 payload: data,
@@ -112,5 +112,3 @@ export const getProductByName = (name) => {
         }
     };
 };
-
-
