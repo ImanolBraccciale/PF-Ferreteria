@@ -6,9 +6,11 @@ import SearchBar from "../SearchBar/SearchBar";
 import {
   filterByProd,
   getAllProducts,
+  getTags,
   orderBy,
 } from "@/app/redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -19,7 +21,9 @@ function NavBar() {
     setModoOscuro(!modoOscuro);
   };
 
-  console.log(tag);
+  useEffect(() => {
+    dispatch(getTags())
+  }, [dispatch])
 
   function handleSort(e) {
     e.preventDefault();
@@ -64,7 +68,7 @@ function NavBar() {
           </div>
           <div className={s.option2}>
             <select onChange={(e) => handleFilter(e)}>
-              <option value=''>Filtrar</option>
+              <option value='all'>Filtrar</option>
               {tag &&
                 tag.map((p) => {
                   return (

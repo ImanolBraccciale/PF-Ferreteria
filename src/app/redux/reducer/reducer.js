@@ -1,10 +1,10 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES} from "../actions/actionsTypes"
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES } from "../actions/actionsTypes"
 
 const initialState = {
     allProducts: [],
     products: [],
     allSuppliers: [],
-    etiquetas:[],
+    etiquetas: [],
     productDetail: []
 
 }
@@ -97,18 +97,13 @@ const reducer = (state = initialState, action) => {
             };
 
         case FILTER_BY_GROUP:
-            let aux = [];
-            if (action.payload) {
-                aux = state.products.filter(product => {
-                    return product.TagId === action.payload;
-                });
-            } else {
-                aux = state.products;
-            }
+            const filteredProducts = action.payload === "all"? state.products : state.products.filter(product => {
+                return product.group.includes(action.payload);
+            });
 
             return {
                 ...state,
-                allProducts: aux,
+                allProducts: filteredProducts,
             };
 
 
