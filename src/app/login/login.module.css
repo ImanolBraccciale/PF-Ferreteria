@@ -9,7 +9,7 @@
     align-items: center;
     text-align: center;
     width: 50vh;
-    height: 50vh;
+    height: 60vh;
     padding: 40px;
 }
 
@@ -50,3 +50,17 @@
 .forget {
     color: #474747;
 }
+
+.btn-floating {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+.google-icon {
+    font-size: 1.5rem;
+    color: #4285f4;
+}
+  
