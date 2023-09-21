@@ -46,9 +46,6 @@ module.exports = async (data) => {
     });
 
 
-    const groupName = groupTag.name;
-    const rubroName = rubroTag.name;
-    const supplierADD =supplier.name
 
     const responseObject = {
       id: newProduct.id,
@@ -59,9 +56,9 @@ module.exports = async (data) => {
       price: newProduct.price,
       stock: newProduct.stock,
       isActive: newProduct.isActive,
-      group: groupName, 
-      rubro: rubroName, 
-      supplier:supplierADD
+      group: [groupTag.name], 
+      rubro: [rubroTag.name], 
+      supplier:[supplier.name]
     };
 
     return responseObject;

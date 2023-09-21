@@ -1,7 +1,7 @@
 const { db } = require("../../db");
 const Products = db.Products;
-const Tag = db.Tag; // Importar el modelo Tag
-const Suppliers = db.Suppliers; // Importar el modelo Suppliers
+const Tag = db.Tag;
+const Suppliers = db.Suppliers;
 
 module.exports = async () => {
   const products = await Products.findAll({
@@ -10,24 +10,38 @@ module.exports = async () => {
         model: Tag,
         as: 'groupTag',
         attributes: ['name'],
-        required: false, // Usar required: false para que sea una consulta LEFT JOIN
+        required: false,
       },
       {
         model: Tag,
         as: 'rubroTag',
         attributes: ['name'],
-        required: false, // Usar required: false para que sea una consulta LEFT JOIN
+        required: false,
       },
       {
-      model: Suppliers,
-      as: 'supplier',
-      attributes: ['name']
+        model: Suppliers,
+        as: 'supplier',
+        attributes: ['name'],
       },
     ],
     attributes: {
-      exclude: ['groupTagId', 'rubroTagId'], // Excluir los IDs de los tags
+      exclude: ['groupTagId', 'rubroTagId'],
     },
   });
 
-  return products; // Asegúrate de devolver los productos recuperados
+  const transformedProducts = products.map((product) => ({
+    id: product.id,
+    name: product.name,
+    descripcion: product.descripcion,
+    costoAnterior: product.costoAnterior,
+    costoActual: product.costoActual,
+    price: product.price,
+    stock: product.stock,
+    isActive: product.isActive,
+    group: product.groupTag ? [product.groupTag.name] : [], 
+    rubro: product.rubroTag ? [product.rubroTag.name] : [], 
+    supplier: product.supplier ? [product.supplier.name] : [], 
+  }));
+
+  return transformedProducts;
 };
