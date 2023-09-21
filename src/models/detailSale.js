@@ -7,14 +7,14 @@
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-    quantity:{
-      type:DataTypes.INTEGER,
-      allowNull:false,
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
-      price:{
-        type:DataTypes.DECIMAL,
-        allowNull:false
-      }
+    unitPrice: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
   })
   return DetailSale
  }

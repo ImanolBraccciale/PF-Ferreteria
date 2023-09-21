@@ -1,5 +1,6 @@
 import getUser from '../controllers/User/getUser';
 import getUserById from '../controllers/User/getUserById';
+import getUserByName from '../controllers/User/getUserByName';
 import deleteUser from '../controllers/User/deleteUser';
 import deleteLogic from '../controllers/User/deleteLogic';
 import editUser from '../controllers/User/editUser';
@@ -7,7 +8,7 @@ import postUser from '../controllers/User/postUser';
 
 export default async (req, res) => {
     const {
-        query: { id },
+        query: { id, name },
         method,
     } = req;
 
@@ -15,8 +16,11 @@ export default async (req, res) => {
         case 'GET':
             try {
                 if (id) {
-                    const user = await getUserById(id);
-                    return res.status(200).json(user);
+                    const userById = await getUserById(id);
+                    return res.status(200).json(userById);
+                } else if (name) {
+                    const userByName = await getUserByName(name);
+                    return res.status(200).json(userByName)
                 } else {
                     const allUsers = await getUser();
                     return res.status(200).json(allUsers);

@@ -1,4 +1,4 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS } from "../actions/actionsTypes"
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES} from "../actions/actionsTypes"
 
 const initialState = {
     allSuppliers: [],
@@ -40,6 +40,11 @@ const reducer = (state = initialState, action) => {
                 allProducts: action.payload,
                 products: action.payload
             };
+        case GET_NAMES: //para mi searchbar
+            return {
+                ...state,
+                allProducts: action.payload
+            };
 
         case ORDER_BY:
             let productCopy = [...state.allProducts]; //hago una copia de mi estado importante
@@ -69,6 +74,16 @@ const reducer = (state = initialState, action) => {
                             return -1;
                         }
                         return 0;
+                    })
+                    break;
+                case 'MenorPrecio':
+                    ordenamiento = productCopy.sort(function (a, b) {
+                        return a.price - b.price
+                    })
+                    break;
+                case 'MayorPrecio':
+                    ordenamiento = productCopy.sort(function (a, b) {
+                        return b.price - a.price
                     })
                     break;
 
