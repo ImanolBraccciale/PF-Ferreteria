@@ -59,10 +59,6 @@ DetailSale.belongsToMany(Products, {
   timestamps: false,
 });
 
-<<<<<<< HEAD
-Products.belongsTo(Tag, { foreignKey: "TagId" });
-Tag.hasMany(Products, { foreignKey: "TagId" });
-=======
   Products.belongsTo(Tag, {
     as: 'groupTag',
     foreignKey: 'groupTagId',
@@ -79,7 +75,6 @@ Tag.hasMany(Products, { foreignKey: "TagId" });
 
 Sale.hasMany(DetailSale, { foreignKey: 'saleId' });
 DetailSale.belongsTo(Sale, { foreignKey: 'saleId' });
->>>>>>> Developer
 
 
 db.sequelize.sync();

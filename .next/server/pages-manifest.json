@@ -1,24 +1,7 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-<<<<<<< HEAD
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
-  "/api/products": "pages/api/products.js",
-  "/registroDeVentas": "pages/registroDeVentas.js",
-  "/api/suppliers": "pages/api/suppliers.js"
-=======
-<<<<<<< HEAD
-  "/api/nodemailer": "pages/api/nodemailer.js"
-=======
-<<<<<<< Updated upstream
+  "/_error": "pages/_error.js",
   "/api/suppliers": "pages/api/suppliers.js",
-=======
->>>>>>> Stashed changes
   "/api/products": "pages/api/products.js"
-=======
-  "/_document": "pages/_document.js"
->>>>>>> a98ce76c88537a8c5ffb3bb142c21a2e6dc8e8b5
->>>>>>> Developer
->>>>>>> bf802ebbf7faf125b6ff628d8785f5a8394aa710
 }
