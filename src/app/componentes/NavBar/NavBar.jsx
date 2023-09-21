@@ -58,6 +58,8 @@ function NavBar() {
               <option value="all">Ordenar</option>
               <option value="A-Z">A-Z</option>
               <option value="Z-A">Z-A</option>
+              <option value= "MenorPrecio">"Precio Ascendente"</option>
+              <option value= "MayorPrecio">"Precio descendente"</option>
             </select>
           </div>
           <div className={s.option2}>

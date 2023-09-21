@@ -5,7 +5,6 @@ export const getSuppliers = () => {
     return async (dispatch) => {
         try {
             const response = await axios('/api/suppliers')
-            console.log('info desde el action ', response.data);
             return dispatch({
                 type: GET_SUPPLIERS,
                 payload: response.data
@@ -35,7 +34,6 @@ export const getProductById = (id) => {
 
     return async (dispatch) => {
         try {
-            console.log('desde el action pero arriba');
             const { data } = await axios.get(`/api/products?id=${id}`)
             console.log('desde el action', data);
             return dispatch({
@@ -114,3 +112,5 @@ export const getProductByName = (name) => {
         }
     };
 };
+
+
