@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES} from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -81,10 +81,18 @@ export const filterByProd = (payload) => {
     };
 };
 
+export const filterBySuppliers = (payload) => {
+    return {
+        type: FILTER_BY_SUPPLIERS,
+        payload,
+    };
+};
+
+
 export const getTags = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get("http://localhost:3000/api/tag");
+            const { data } = await axios.get("/api/tag");
             return dispatch({
                 type: GET_TAGS,
                 payload: data,

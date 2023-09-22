@@ -7,3 +7,4 @@ export const ORDER_BY = "ORDER_BY";
 export const FILTER_BY_GROUP = "FILTER_BY_GROUP"
 export const GET_TAGS = "GET_TAGS"
 export const GET_NAMES = "GET_NAMES"
+export const FILTER_BY_SUPPLIERS = "FILTER_BY_SUPPLIERS"

@@ -1,10 +1,11 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES } from "../actions/actionsTypes"
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "../actions/actionsTypes"
 
 const initialState = {
     allProducts: [],
     products: [],
     allSuppliers: [],
-    etiquetas: [],
+    suppliers: [],
+    etiquetas:[],
     productDetail: []
 
 }
@@ -12,19 +13,20 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_SUPPLIERS:
-            console.log('estos son los proveedores: ', state.allSuppliers);
             return {
                 ...state,
-                allSuppliers: action.payload
+                allSuppliers: action.payload,
+                suppliers: action.payload
             }
 
         case POST_SUPPLIERS:
             return {
                 ...state,
-                allSuppliers: [...state.allSuppliers, action.payload]
+                allSuppliers: [...state.allSuppliers, action.payload],
+                suppliers: [...state.suppliers, action.payload]
             }
         case GET_BY_ID:
-            console.log('este es el id del product: ', state.productDetail);
+            
             return {
                 ...state,
                 productDetail: action.payload
@@ -40,13 +42,13 @@ const reducer = (state = initialState, action) => {
                 allProducts: action.payload,
                 products: action.payload
             };
-        case GET_NAMES: //para mi searchbar
+        case GET_NAMES: 
             return {
                 ...state,
                 allProducts: action.payload
             };
         case ORDER_BY:
-            let productCopy = [...state.allProducts]; //hago una copia de mi estado importante
+            let productCopy = [...state.allProducts];
             let ordenamiento
 
             switch (action.payload) {
@@ -92,28 +94,45 @@ const reducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                allProducts: ordenamiento,
                 products: ordenamiento
             };
 
         case FILTER_BY_GROUP:
-            const filteredProducts = action.payload === "all"? state.products : state.products.filter(product => {
-                return product.group.includes(action.payload);
-            });
-
+            let aux = [];
+            let filtrado
+            if(action.payload) {
+                aux = state.allProducts
+                filtrado = aux.filter(e => {
+                    console.log("aaaa")
+                    return e.rubro?.includes(action.payload)
+                })
+                console.log(filtrado);
+            };
             return {
                 ...state,
-                allProducts: filteredProducts,
+                products: filtrado
+
+            }
+            case FILTER_BY_SUPPLIERS:
+            let aux1 = [];
+            let filtradoSup
+            if(action.payload) {
+                aux1 = state.allSuppliers
+                filtradoSup = aux1.filter(e => {
+                    return e.supplier?.includes(action.payload)
+                })
+                console.log(filtradoSup);
             };
-
-
+            return {
+                ...state,
+                allSuppliers: filtradoSup,
+                suppliers: filtradoSup
+            }
         case GET_TAGS:
             return {
                 ...state,
                 etiquetas: action.payload,
             };
-
-
         default:
             return state
     }

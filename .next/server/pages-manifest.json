@@ -2,11 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
   "/api/tag": "pages/api/tag.js",
-  "/api/products": "pages/api/products.js"
-=======
   "/api/products": "pages/api/products.js",
-  "/api/mercadoPago": "pages/api/mercadoPago.js"
->>>>>>> mecadoPago
+  "/api/suppliers": "pages/api/suppliers.js"
 }

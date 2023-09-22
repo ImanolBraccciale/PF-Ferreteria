@@ -1,11 +1,12 @@
-"use client";
 import { useState } from "react";
 import s from "@/app/componentes/NavBar/NavBar.module.css";
 import Link from "next/link";
 import SearchBar from "../SearchBar/SearchBar";
 import {
   filterByProd,
+  filterBySuppliers,
   getAllProducts,
+  getSuppliers,
   getTags,
   orderBy,
 } from "@/app/redux/actions/actions";
@@ -15,6 +16,7 @@ import { useEffect } from "react";
 function NavBar() {
   const dispatch = useDispatch();
   const tag = useSelector((state) => state.etiquetas);
+  const suppliers = useSelector((state) => state.suppliers);
 
   const [modoOscuro, setModoOscuro] = useState(false);
   const toggleModoOscuro = () => {
@@ -22,7 +24,8 @@ function NavBar() {
   };
 
   useEffect(() => {
-    dispatch(getTags())
+    dispatch(getSuppliers()),
+    dispatch(getTags());
   }, [dispatch])
 
   function handleSort(e) {
@@ -43,6 +46,16 @@ function NavBar() {
     }
   }
 
+  function handleFilter1(e) {
+    e.preventDefault();
+    if (e.target.value === "") {
+      dispatch(getAllProducts());
+    } else {
+      dispatch(filterBySuppliers(e.target.value));
+    }
+  }
+  console.log(suppliers)
+
   const containerClassName = modoOscuro
     ? `${s.container} ${s.modoOscuro}`
     : s.container;
@@ -59,21 +72,34 @@ function NavBar() {
         <div className={s.botones}>
           <div className={s.option}>
             <select onChange={(e) => handleSort(e)}>
-              <option value="all">Ordenar</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
-              <option value= "MenorPrecio">"Precio Ascendente"</option>
-              <option value= "MayorPrecio">"Precio descendente"</option>
+              <option value= "all">Ordenar</option>
+              <option value= "A-Z">A-Z</option>
+              <option value= "Z-A">Z-A</option>
+              <option value= "MenorPrecio">Precio Asc.</option>
+              <option value= "MayorPrecio">Precio desc.</option>
             </select>
           </div>
-          <div className={s.option2}>
+          <div className={s.option}>
             <select onChange={(e) => handleFilter(e)}>
-              <option value='all'>Filtrar</option>
+              <option value=''>Grupo</option>
               {tag &&
                 tag.map((p) => {
                   return (
                     <option key={p.id} value={p.name}>
                       {p.name}
+                    </option>
+                  );
+                })}
+            </select>
+          </div>
+          <div className={s.option2}>
+            <select onChange={(e) => handleFilter1(e)}>
+              <option value=''>Proveedor</option>
+              {suppliers &&
+                suppliers.map((s) => {
+                  return (
+                    <option key={s.id} value={s.name}>
+                      {s.name}
                     </option>
                   );
                 })}
