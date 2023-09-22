@@ -1,4 +1,4 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "../actions/actionsTypes"
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, POST_TAGS} from "../actions/actionsTypes"
 
 const initialState = {
     allProducts: [],
@@ -128,11 +128,19 @@ const reducer = (state = initialState, action) => {
                 allSuppliers: filtradoSup,
                 suppliers: filtradoSup
             }
+            
         case GET_TAGS:
             return {
                 ...state,
                 etiquetas: action.payload,
             };
+
+        case POST_TAGS:
+                return {
+                    ...state,
+                    etiquetas: [...state.etiquetas, action.payload],
+                }    
+
         default:
             return state
     }
