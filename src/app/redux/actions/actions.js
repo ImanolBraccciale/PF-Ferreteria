@@ -19,10 +19,13 @@ export const getSuppliers = () => {
 export const postSuppliers = (supplier) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post('/api/suppliers', supplier)
+            console.log("estoy aca");
+            const { data } = await axios.post('/api/suppliers', supplier);
+            console.log("llegue hasta aca");
             return dispatch({
+                
                 type: POST_SUPPLIERS,
-                payload: response.data
+                payload: data
             })
         } catch (error) {
             console.log(error.message);
@@ -108,6 +111,22 @@ export const getAllProducts = () => {
     };
 };
 
+export const postProducts = (product) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post('/api/products', product);
+            return dispatch({
+                
+                type: POST_PRODUCTS,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+
 export const orderBy = (payload) => {
     return {
         type: ORDER_BY,
@@ -122,10 +141,18 @@ export const filterByProd = (payload) => {
     };
 };
 
+export const filterBySuppliers = (payload) => {
+    return {
+        type: FILTER_BY_SUPPLIERS,
+        payload,
+    };
+};
+
+
 export const getTags = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get("http://localhost:3000/api/tag");
+            const { data } = await axios.get("/api/tag");
             return dispatch({
                 type: GET_TAGS,
                 payload: data,
