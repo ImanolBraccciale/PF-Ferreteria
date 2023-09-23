@@ -6,12 +6,15 @@ import ProductBar from "./componentes/ProductBar/ProductBar"
 import ProductList from "./componentes/ProductList/ProductList"
 import { getAllProducts } from "./redux/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import s from "@/app/page.module.css"
 
 const page = () => {
   const dispatch = useDispatch()
   const allProducts = useSelector((state) => state.products)
+  const userEmail = useSelector((state) => state.user)
+  console.log('useEmail, ',userEmail);
+  const [rolUser, setRolUser] = useState('admin')
   useEffect(() => {
     dispatch(getAllProducts())
   }, [dispatch])
@@ -19,12 +22,18 @@ const page = () => {
     <div>
       <NavBar />
       <ProductBar />
+      <h1>
+        {rolUser === "admin"
+          ? "Bienvenido, administrador"
+          : rolUser === "employee"
+          ? "Bienvenido, empleado"
+          : "Bienvenido, cliente"}
+      </h1>
       {
         allProducts.map(({ id, name, stock, costoActual, price }) => {
           return (
             <Link className={s.z} href={`/${id}`} key={id}>
               <ProductList
-               
                 id={id}
                 name={name}
                 stock={stock}

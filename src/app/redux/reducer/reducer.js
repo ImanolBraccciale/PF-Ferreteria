@@ -1,11 +1,14 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES } from "../actions/actionsTypes"
+import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL } from "../actions/actionsTypes"
 
 const initialState = {
     allProducts: [],
     products: [],
     allSuppliers: [],
+    allUsers: [],
     etiquetas: [],
-    productDetail: []
+    productDetail: [],
+    user: {},
+    estado: false
 
 }
 
@@ -23,6 +26,25 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 allSuppliers: [...state.allSuppliers, action.payload]
             }
+        case POST_USERS:
+            return {
+                ...state,
+                allUsers: [...state.allUsers, action.payload]
+            }
+
+        case CREDENTIAL:
+            return {
+                ...state,
+                estado: action.payload
+            }
+
+        case GET_USER_BY_EMAIL:
+            console.log(action.payload);
+            return {
+                ...state,
+                user: action.payload
+            }
+
         case GET_BY_ID:
             console.log('este es el id del product: ', state.productDetail);
             return {

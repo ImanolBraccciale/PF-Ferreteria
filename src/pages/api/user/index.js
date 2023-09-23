@@ -1,25 +1,30 @@
 import getUser from '../controllers/User/getUser';
 import getUserById from '../controllers/User/getUserById';
-import getUserByName from '../controllers/User/getUserByName';
+import getUserByEmail from '../controllers/User/getUserByEmail';
 import deleteUser from '../controllers/User/deleteUser';
 import deleteLogic from '../controllers/User/deleteLogic';
 import editUser from '../controllers/User/editUser';
 import postUser from '../controllers/User/postUser';
+import credential from '../controllers/User/credential';
 
 export default async (req, res) => {
     const {
-        query: { id, name },
+        query: { idUser, emailUser, passwordUser },
         method,
     } = req;
 
     switch (method) {
         case 'GET':
             try {
-                if (id) {
-                    const userById = await getUserById(id);
+                if (passwordUser && emailUser) {
+                    const user = await credential(emailUser, passwordUser);
+                    return res.status(200).json(user);
+                }
+                else if (idUser) {
+                    const userById = await getUserById(idUser);
                     return res.status(200).json(userById);
-                } else if (name) {
-                    const userByName = await getUserByName(name);
+                } else if (emailUser) {
+                    const userByName = await getUserByEmail(emailUser);
                     return res.status(200).json(userByName)
                 } else {
                     const allUsers = await getUser();
@@ -45,12 +50,12 @@ export default async (req, res) => {
             }
         case "DELETE":
             try {
-                const { id, permanently } = req.body
+                const { idUser, permanently } = req.body
                 if (permanently === true) {
-                    const delProduct = await deleteUser(id)
+                    const delProduct = await deleteUser(idUser)
                     return res.status(201).json(delProduct)
                 } else {
-                    const delProduct = await deleteLogic(id)
+                    const delProduct = await deleteLogic(idUser)
                     return res.status(201).json(delProduct)
                 }
             } catch (error) {
