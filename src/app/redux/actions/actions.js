@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, POST_PRODUCTS } from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -19,10 +19,13 @@ export const getSuppliers = () => {
 export const postSuppliers = (supplier) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post('/api/suppliers', supplier)
+            console.log("estoy aca");
+            const { data } = await axios.post('/api/suppliers', supplier);
+            console.log("llegue hasta aca");
             return dispatch({
+                
                 type: POST_SUPPLIERS,
-                payload: response.data
+                payload: data
             })
         } catch (error) {
             console.log(error.message);
@@ -66,6 +69,22 @@ export const getAllProducts = () => {
         }
     };
 };
+
+export const postProducts = (product) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post('/api/products', product);
+            return dispatch({
+                
+                type: POST_PRODUCTS,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
 
 export const orderBy = (payload) => {
     return {

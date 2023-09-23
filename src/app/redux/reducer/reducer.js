@@ -1,4 +1,4 @@
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "../actions/actionsTypes"
+import { POST_PRODUCTS, GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "../actions/actionsTypes"
 
 const initialState = {
     allProducts: [],
@@ -25,6 +25,14 @@ const reducer = (state = initialState, action) => {
                 allSuppliers: [...state.allSuppliers, action.payload],
                 suppliers: [...state.suppliers, action.payload]
             }
+
+        case POST_PRODUCTS:
+            return {
+                ...state,
+                allProducts: [...state.allProducts, action.payload],
+                products: [...state.products, action.payload]
+            }
+
         case GET_BY_ID:
             
             return {
@@ -117,7 +125,7 @@ const reducer = (state = initialState, action) => {
             let aux1 = [];
             let filtradoSup
             if(action.payload) {
-                aux1 = state.allSuppliers
+                aux1 = state.allProducts
                 filtradoSup = aux1.filter(e => {
                     return e.supplier?.includes(action.payload)
                 })
@@ -125,8 +133,7 @@ const reducer = (state = initialState, action) => {
             };
             return {
                 ...state,
-                allSuppliers: filtradoSup,
-                suppliers: filtradoSup
+                products: filtradoSup
             }
         case GET_TAGS:
             return {
