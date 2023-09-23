@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import AddButtom from "./componentes/AddButtom/AddButtom"
+import VentaButton from "./componentes/IngresarVenta/VentaButton"
 import NavBar from "./componentes/NavBar/NavBar"
 import ProductBar from "./componentes/ProductBar/ProductBar"
 import ProductList from "./componentes/ProductList/ProductList"
@@ -17,6 +18,7 @@ const page = () => {
   }, [dispatch])
   return (
     <div>
+      <div>
       <NavBar />
       <ProductBar />
       {
@@ -39,7 +41,12 @@ const page = () => {
       <Link href="/formProducto">
         <AddButtom />
       </Link>
+      </div>
+      <Link href="/formCarrito">
+        <VentaButton />
+      </Link>
     </div>
+    
   )
 }
 

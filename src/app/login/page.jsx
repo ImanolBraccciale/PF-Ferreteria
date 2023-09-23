@@ -53,6 +53,7 @@ const LoginPage = () => {
       console.log(data);
     } catch (error) {
       console.log(error);
+      console.error("Error de autenticación de Google:", error);
     }
   };
 
