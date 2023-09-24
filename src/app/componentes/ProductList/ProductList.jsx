@@ -17,6 +17,9 @@ function ProductList({id, name,stock, costoActual,price}) {
                     {costoActual}
                 </div>
                 <div className={s.e}>
+                    {(costoActual * 1.21)}
+                </div>
+                <div className={s.d}>
                     {price}
                 </div>
                 <div className={s.f}>

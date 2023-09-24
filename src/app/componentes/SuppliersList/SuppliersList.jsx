@@ -1,6 +1,6 @@
 import React from 'react'
 import s from '@/app/componentes/SuppliersList/SuppliersList.module.css'
-function SuppliersList({ id_suppliers, name, cellphone, name_company, isActive }) {
+function SuppliersList({ name, cellphone, direction, name_company, email }) {
     return (
         <div className={s.all}>
             <div className={s.container}>
@@ -11,10 +11,10 @@ function SuppliersList({ id_suppliers, name, cellphone, name_company, isActive }
                     {name}
                 </div>
                 <div className={s.c}>
-                    Dirreción
+                    {direction}
                 </div>
                 <div className={s.d}>
-                    E-Mail
+                    {email}
                 </div>
                 <div className={s.e}>
                     {cellphone}

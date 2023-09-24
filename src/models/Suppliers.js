@@ -37,6 +37,7 @@ module.exports = (sequelize) => {
         isActive: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: true,
         },
     },
     // Deshabilitamos timestamps (created_at y updated_at)

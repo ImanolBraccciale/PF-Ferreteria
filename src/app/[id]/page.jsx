@@ -4,21 +4,20 @@ import style from "./page.module.css";
 import martillo from "../componentes/assets/images/97957.jpeg";
 import Link from "next/link";
 import NavBar from "../componentes/NavBar/NavBar";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getProductById, detailDelete } from "../redux/actions/actions";
-import { useRouter } from "next/router";
+import { getProductById } from "../redux/actions/actions";
 
 const Detail = ({ params }) => {
-  // const router = useRouter()
+  
   const id = params.id;
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   useEffect(() => {
     dispatch(getProductById(id));
-    // return (() => dispatch(detailDelete()))
   }, [dispatch, id]);
+
+  console.log(productDetail);
   return (
     <>
       <NavBar />
@@ -36,8 +35,20 @@ const Detail = ({ params }) => {
                   <p>{productDetail.descripcion}</p>
                 </div>
                 <div className={style.seguido}>
+                  <h2>grupo:</h2>
+                  <p>{productDetail.rubroTagId}</p>
+                </div>
+                <div className={style.seguido}>
+                  <h2>Grupo:</h2>
+                  <p>{productDetail.groupTagId}</p>
+                </div>
+                <div className={style.seguido}>
                   <h2>Proveedor:</h2>
-                  <p>qué mirá bobo</p>
+                  <p>{productDetail.SupplierId}</p>
+                </div>
+                <div className={style.seguido}>
+                  <h2>Precio anterior:</h2>
+                  <p>{productDetail.costoAnterior}</p>
                 </div>
                 <div className={style.seguido}>
                   <h2>stock:</h2>
@@ -51,24 +62,6 @@ const Detail = ({ params }) => {
             ) : (
               ""
             )}
-            {/* <h1>Martillo de una</h1>
-                        <div className={style.description}>
-                            <h2>Descripcion:</h2>
-                            <p>El martillo de una de 27mm tiene una cabeza forjada de acero al carbono con mango de fibra y es adecuado para clavar o retirar clavos, y tambien para desgarrar y retirar componentes estructurales de madera y driwall.</p>
-                        </div> */}
-
-            {/* <div className={style.seguido}>
-                            <h2>Proveedor:</h2>
-                            <p>pepito.inc</p>
-                        </div> */}
-            {/* <div className={style.seguido}>
-                            <h2>stock:</h2>
-                            <p>7</p>
-                        </div> */}
-            {/* <div className={style.seguido}>
-                            <h2>Precio:</h2>
-                            <p>5.420.00$ars</p>
-                        </div> */}
           </div>
         </section>
         <Link href="/">

@@ -11,7 +11,6 @@ import { getSuppliers } from '../redux/actions/actions'
 function suppliers() {
     const dispatch = useDispatch()
     const allSuppliers = useSelector((state) => state.allSuppliers)
-    console.log('desde el page',allSuppliers);
     useEffect(() => {
         dispatch(getSuppliers())
     }, [dispatch])
@@ -20,19 +19,19 @@ function suppliers() {
             <NavBar />
             <SuppliersBar />
             {
-                allSuppliers.map(({ id_suppliers, name, cellphone, name_company, isActive }) =>{
+                allSuppliers.map(({ name, cellphone, name_company, direction, email }) => {
                     return (
                         <SuppliersList
-                            key={id_suppliers}
                             name={name}
-                            cellphone={cellphone}
                             name_company={name_company}
-                            isActive={isActive}
+                            direction={direction}
+                            cellphone={cellphone}
+                            email={email}
                         />
                     )
                 })
             }
-            
+
             <Link href="/formProv">
                 <AddButtom />
             </Link>

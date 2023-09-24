@@ -165,7 +165,7 @@ function FormProducto() {
         </div>
 
         <div>
-          <label htmlFor="price">Price:</label>
+          <label htmlFor="price">% Ganancia:</label>
           <input
             type="number"
             id="price"

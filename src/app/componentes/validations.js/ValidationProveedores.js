@@ -1,33 +1,30 @@
-const validateProveedor = (formData) => {
+// ValidationProveedores.js
+export function validateProveedor(input) {
     const errors = {};
 
-    if (!formData.empresa.trim()) {
-        errors.empresa = "La empresa es obligatoria";
+    if (!input.name_company.trim()) {
+        errors.name_company = 'El nombre de la empresa es requerido';
     }
 
-    if (!formData.nombre.trim()) {
-        errors.nombre = "El nombre es obligatorio";
+    if (!input.name.trim()) {
+        errors.name = 'El nombre es requerido';
     }
 
-    if (!formData.direccion.trim()) {
-        errors.direccion = "La dirección es obligatoria";
+    if (!input.direccion.trim()) {
+        errors.direccion = 'La dirección es requerida';
     }
 
-    if (!formData.email.trim()) {
-        errors.email = "El correo electrónico es obligatorio";
-    } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)
-    ) {
-        errors.email = "El correo electrónico no es válido";
+    if (!input.email.trim()) {
+        errors.email = 'El correo electrónico es requerido';
+    } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(input.email)) {
+        errors.email = 'Ingrese una dirección de correo electrónico válida';
     }
 
-    if (!formData.telefono.trim()) {
-        errors.telefono = "El teléfono es obligatorio";
-    } else if (!/^\d{10}$/i.test(formData.telefono)) {
-        errors.telefono = "El teléfono debe tener 10 dígitos numéricos";
+    if (!input.cellphone.trim()) {
+        errors.cellphone = 'El teléfono es requerido';
+    } else if (!/^\d{10}$/.test(input.cellphone)) {
+        errors.cellphone = 'El teléfono debe tener 10 dígitos numéricos';
     }
 
     return errors;
-};
-
-export { validateProveedor };
+}

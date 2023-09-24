@@ -1,18 +1,31 @@
-const validateProductos = (data) => {
-    const errors = {}
-    if (!data.name) {
-        errors.name = 'El nombre debe tener letras'
+function validateProductos(input) {
+    let errors = {};
+
+    if (!input.name.trim()) {
+        errors.name = "Nombre es obligatorio";
     }
-    if (!data.descripcion) {
-        errors.descripcion = 'La descripción debe tener letras'
+
+    if (!input.descripcion.trim()) {
+        errors.descripcion = "Descripción es obligatoria";
     }
-    if (data.price < 10) {
-        errors.price = 'Métale más plata loco';
+
+    if (!input.costoAnterior) {
+        errors.costoAnterior = "Costo Anterior es obligatorio";
     }
-    if (data.ganance < 1) {
-        errors.ganance = 'metele más ganas a la vida'
+
+    if (!input.costoActual) {
+        errors.costoActual = "Costo Actual es obligatorio";
     }
-    return errors
+
+    if (!input.price) {
+        errors.price = "Price es obligatorio";
+    }
+
+    if (!input.stock) {
+        errors.stock = "Stock es obligatorio";
+    }
+
+    return errors;
 }
 
-export default validateProductos
+export default validateProductos;

@@ -19,11 +19,8 @@ export const getSuppliers = () => {
 export const postSuppliers = (supplier) => {
     return async (dispatch) => {
         try {
-            console.log("estoy aca");
-            const { data } = await axios.post('/api/suppliers', supplier);
-            console.log("llegue hasta aca");
+            const { data } = await axios.post('api/suppliers', supplier);
             return dispatch({
-                
                 type: POST_SUPPLIERS,
                 payload: data
             })

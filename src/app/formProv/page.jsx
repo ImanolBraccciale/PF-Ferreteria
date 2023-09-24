@@ -1,114 +1,126 @@
 "use client"
 import { useState } from 'react';
 import { validateProveedor } from '../componentes/validations.js/ValidationProveedores';
-import styles from './FormProv.module.css';
 import NavBar from '../componentes/NavBar/NavBar';
 import BackButtom from '../componentes/BackButtom/BackButtom';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { postSuppliers } from '../redux/actions/actions';
 
 
 const ProveedorForm = () => {
-    const [formData, setFormData] = useState({
+    const [input, setInput] = useState({
         name_company: '',
         name: '',
         direccion: '',
         email: '',
         cellphone: '',
+        isActive: true
     });
 
+    const dispatch = useDispatch()
     const [errors, setErrors] = useState({});
 
-    const handleChange = (e) => {
+    function handleChange(e) {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
+        setInput((prevInput) => ({
+            ...prevInput,
+            [name]: value
+        }));
+        setErrors({
+            ...errors,
+            [name]: undefined
         });
-    };
+    }
 
-    const handleSubmit = (e) => {
+    function handleSubmit(e) {
         e.preventDefault();
-        const validationErrors = validateProveedor(formData);
-        if (Object.keys(validationErrors).length === 0) {
-            console.log('Formulario válido');
-            alert("proveedor creado con exito")
+        const validate = validateProveedor(input);
+
+        if (Object.keys(validate).length !== 0) {
+            alert('Llene los campos correctamente');
+            setErrors(validate);
         } else {
-            setErrors(validationErrors);
+            dispatch(postSuppliers(input));
+            console.log(input)
+            setInput({
+                name_company: '',
+                name: '',
+                direccion: '',
+                email: '',
+                cellphone: '',
+                isActive: true
+
+            });
+            alert('Felicidades, el proveedor fue creado exitosamente.');
         }
-    };
+    }
+
 
     return (
         <>
             <NavBar />
-            <Link href='/suppliers'><BackButtom/></Link>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.formgroup}>
-                    <label className={styles.label} htmlFor="empresa">
-                        Empresa:
-                    </label>
+            <Link href='/suppliers'><BackButtom /></Link>
+            <form onSubmit={handleSubmit}>
+
+                <div>
+                    <label htmlFor="name_company">nombre de la empresa:</label>
                     <input
                         type="text"
-                        id="empresa"
-                        name="empresa"
-                        value={formData.empresa}
+                        id="name_company"
+                        name="name_company"
+                        value={input.name_company}
                         onChange={handleChange}
-                        className={styles.input}
                     />
-                    {errors.empresa && <p className={`${styles.error} error`}>{errors.empresa}</p>}
+                    {errors.name_company && <p>{errors.name_company}</p>}
                 </div>
 
-                <div className={styles.formgroup}>
-                    <label className={styles.label} htmlFor="nombre">
-                        Nombre:
-                    </label>
+                <div>
+                    <label htmlFor="name">Nombre:</label>
                     <input
                         type="text"
-                        id="nombre"
-                        name="nombre"
-                        value={formData.nombre}
+                        id="name"
+                        name="name"
+                        value={input.name}
                         onChange={handleChange}
-                        className={styles.input}
                     />
-                    {errors.nombre && <p className={`${styles.error} error`}>{errors.nombre}</p>}
+                    {errors.name && <p>{errors.name}</p>}
                 </div>
 
-                <div className={styles.formgroup}>
-                    <label className={styles.label} htmlFor="direccion">Dirección:</label>
+                <div>
+                    <label htmlFor="direccion">dirección:</label>
                     <input
                         type="text"
                         id="direccion"
                         name="direccion"
-                        value={formData.direccion}
+                        value={input.direccion}
                         onChange={handleChange}
-                        className={styles.input}
                     />
-                    {errors.direccion && <p className={`${styles.error} error`}>{errors.direccion}</p>}
+                    {errors.direccion && <p>{errors.direccion}</p>}
                 </div>
 
-                <div className={styles.formgroup}>
-                    <label className={styles.label} htmlFor="email">E-Mail:</label>
+                <div>
+                    <label htmlFor="email">E-Mail:</label>
                     <input
                         type="text"
                         id="email"
                         name="email"
-                        value={formData.email}
+                        value={input.email}
                         onChange={handleChange}
-                        className={styles.input}
                     />
-                    {errors.email && <p className={`${styles.error} error`}>{errors.email}</p>}
+                    {errors.email && <p>{errors.email}</p>}
                 </div>
 
-                <div className={styles.formgroup}>
-                    <label className={styles.label} htmlFor="telefono">Teléfono:</label>
+                <div>
+                    <label htmlFor="cellphone">Telefono:</label>
                     <input
                         type="text"
-                        id="telefono"
-                        name="telefono"
-                        value={formData.telefono}
+                        id="cellphone"
+                        name="cellphone"
+                        value={input.cellphone}
                         onChange={handleChange}
-                        className={styles.input}
                     />
-                    {errors.telefono && <p className={`${styles.error} error`}>{errors.telefono}</p>}
+                    {errors.cellphone && <p >{errors.cellphone}</p>}
                 </div>
 
                 <button type="submit">Enviar</button>
