@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, POST_TAGS} from "../actions/actionsTypes"
+=======
+import { POST_PRODUCTS, GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_USERS} from "../actions/actionsTypes"
+>>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
 
 const initialState = {
     allProducts: [],
     products: [],
     allSuppliers: [],
+    allUsers: [],
+    etiquetas: [],
+    productDetail: [],
+    user: {},
+    estado: false,
     suppliers: [],
-    etiquetas:[],
-    productDetail: []
 
 }
 
@@ -25,6 +32,31 @@ const reducer = (state = initialState, action) => {
                 allSuppliers: [...state.allSuppliers, action.payload],
                 suppliers: [...state.suppliers, action.payload]
             }
+        case POST_USERS:
+            return {
+                ...state,
+                allUsers: [...state.allUsers, action.payload]
+            }
+
+        case CREDENTIAL:
+            return {
+                ...state,
+                estado: action.payload
+            }
+
+        case GET_USER_BY_EMAIL:
+            console.log(action.payload);
+            return {
+                ...state,
+                user: action.payload
+        }
+        case POST_PRODUCTS:
+            return {
+                ...state,
+                allProducts: [...state.allProducts, action.payload],
+                products: [...state.products, action.payload]
+            }
+
         case GET_BY_ID:
             
             return {
@@ -117,7 +149,7 @@ const reducer = (state = initialState, action) => {
             let aux1 = [];
             let filtradoSup
             if(action.payload) {
-                aux1 = state.allSuppliers
+                aux1 = state.allProducts
                 filtradoSup = aux1.filter(e => {
                     return e.supplier?.includes(action.payload)
                 })
@@ -125,8 +157,7 @@ const reducer = (state = initialState, action) => {
             };
             return {
                 ...state,
-                allSuppliers: filtradoSup,
-                suppliers: filtradoSup
+                products: filtradoSup
             }
             
         case GET_TAGS:

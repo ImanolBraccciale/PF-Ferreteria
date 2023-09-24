@@ -5,7 +5,7 @@ const Users = db.Users;
 module.exports = async (data) => {
     const existUser = await Users.findOne({
         where: {
-            name: data.name,
+            nameUser: data.nameUser,
         },
     });
     if (existUser) throw new Error(`User ${data.name} already exists`);

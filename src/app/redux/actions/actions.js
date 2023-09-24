@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, POST_TAGS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "./actionsTypes";
+=======
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL} from "./actionsTypes";
+>>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -19,9 +23,27 @@ export const getSuppliers = () => {
 export const postSuppliers = (supplier) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post('/api/suppliers', supplier)
+            console.log("estoy aca");
+            const { data } = await axios.post('/api/suppliers', supplier);
+            console.log("llegue hasta aca");
             return dispatch({
+                
                 type: POST_SUPPLIERS,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+export const postUsers = (user) => {
+    return async (dispatch) => {
+        try {
+            console.log(user);
+            const response = await axios.post('/api/user', user)
+            return dispatch({
+                type: POST_USERS,
                 payload: response.data
             })
         } catch (error) {
@@ -31,13 +53,39 @@ export const postSuppliers = (supplier) => {
 }
 
 export const getProductById = (id) => {
-
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`/api/products?id=${id}`)
-            console.log('desde el action', data);
             return dispatch({
                 type: GET_BY_ID,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+export const getUserByEmail = (emailUser) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(`/api/user?emailUser=${emailUser}`)
+            return dispatch({
+                type: GET_USER_BY_EMAIL,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+export const credential = (emailUser, passwordUser) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios(`/api/user?emailUser=${emailUser}&passwordUser=${passwordUser}`)
+            console.log(data);
+            return dispatch({
+                type: CREDENTIAL,
                 payload: data
             })
         } catch (error) {
@@ -66,6 +114,22 @@ export const getAllProducts = () => {
         }
     };
 };
+
+export const postProducts = (product) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post('/api/products', product);
+            return dispatch({
+                
+                type: POST_PRODUCTS,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
 
 export const orderBy = (payload) => {
     return {

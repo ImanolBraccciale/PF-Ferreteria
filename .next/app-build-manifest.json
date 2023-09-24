@@ -12,18 +12,22 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+<<<<<<< HEAD
     "/formGrupo/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/formGrupo/page.css",
       "static/chunks/app/formGrupo/page.js"
     ],
+=======
+>>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
     "/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
     ],
+<<<<<<< HEAD
     "/formRubro/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -35,6 +39,19 @@
       "static/chunks/main-app.js",
       "static/css/app/history/page.css",
       "static/chunks/app/history/page.js"
+=======
+    "/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
+    ],
+    "/register/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/register/page.css",
+      "static/chunks/app/register/page.js"
+>>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
     ]
   }
 }

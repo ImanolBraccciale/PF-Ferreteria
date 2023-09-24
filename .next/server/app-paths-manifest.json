@@ -1,6 +1,13 @@
 {
+<<<<<<< HEAD
   "/formGrupo/page": "app/formGrupo/page.js",
   "/history/page": "app/history/page.js",
   "/dashAdmin/page": "app/dashAdmin/page.js",
   "/formRubro/page": "app/formRubro/page.js"
+=======
+  "/page": "app/page.js",
+  "/register/page": "app/register/page.js",
+  "/login/page": "app/login/page.js",
+  "/[id]/page": "app/[id]/page.js"
+>>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
 }
