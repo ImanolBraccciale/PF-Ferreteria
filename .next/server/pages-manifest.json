@@ -3,11 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/api/suppliers": "pages/api/suppliers.js",
-<<<<<<< HEAD
-  "/api/tag": "pages/api/tag.js"
-=======
   "/api/tag": "pages/api/tag.js",
-  "/api/products": "pages/api/products.js",
-  "/api/user": "pages/api/user.js"
->>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
+  "/api/products": "pages/api/products.js"
 }
