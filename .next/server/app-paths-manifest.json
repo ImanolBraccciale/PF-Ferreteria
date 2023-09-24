@@ -1,7 +1,5 @@
 {
   "/page": "app/page.js",
-  "/formProducto/page": "app/formProducto/page.js",
-  "/history/page": "app/history/page.js",
   "/[id]/page": "app/[id]/page.js",
-  "/formCarrito/page": "app/formCarrito/page.js"
+  "/formProducto/page": "app/formProducto/page.js"
 }

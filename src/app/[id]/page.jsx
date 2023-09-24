@@ -17,7 +17,7 @@ const Detail = ({ params }) => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
 
-  console.log(productDetail);
+
   return (
     <>
       <NavBar />
