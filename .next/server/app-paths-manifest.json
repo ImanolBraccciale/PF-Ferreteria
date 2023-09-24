@@ -1,7 +1,5 @@
 {
   "/page": "app/page.js",
-  "/formProducto/page": "app/formProducto/page.js",
-  "/dashAdmin/page": "app/dashAdmin/page.js",
-  "/suppliers/page": "app/suppliers/page.js",
-  "/[id]/page": "app/[id]/page.js"
+  "/[id]/page": "app/[id]/page.js",
+  "/dashAdmin/page": "app/dashAdmin/page.js"
 }
