@@ -24,8 +24,8 @@ const Dashboard = () => {
                     </div>
                     <div className={style.cajaButtons1}>
                         <Link href="/formProv" className={style.buttonsCaja1}>Crear Proveedor</Link>
-                        <Link href="/formRubro" className={style.buttonsCaja1}>Crear Rubro</Link>
-                        <Link href="/formGrupo" className={style.buttonsCaja1}>Crear Grupo</Link>
+                        <Link href="/" className={style.buttonsCaja1}>Crear Rubro</Link>
+                        <Link href="/" className={style.buttonsCaja1}>Crear Grupo</Link>
                         <Link href="/formProducto" className={style.buttonsCaja1}>Crear Producto</Link>
                         <Link href="/" className={style.buttonsCaja1}>Volver al inicio</Link>
                     </div>

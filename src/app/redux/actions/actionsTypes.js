@@ -11,8 +11,4 @@ export const GET_NAMES = "GET_NAMES"
 export const GET_USER_BY_EMAIL = "GET_USER_BY_EMAIL"
 export const CREDENTIAL = "CREDENTIAL"
 export const FILTER_BY_SUPPLIERS = "FILTER_BY_SUPPLIERS"
-<<<<<<< HEAD
-export const POST_TAGS = "POST_TAGS"
-=======
 export const POST_PRODUCTS = "POST_PRODUCTS"
->>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70

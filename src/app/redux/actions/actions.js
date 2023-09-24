@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, POST_TAGS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "./actionsTypes";
-=======
 import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL} from "./actionsTypes";
->>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -167,19 +163,7 @@ export const getTags = () => {
     };
 };
 
-export const postTags = (tag) => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.post('/api/tags', tag)
-            return dispatch({
-                type: POST_TAGS,
-                payload: response.data
-            })
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
-};
+
 
 export const getProductByName = (name) => {
     return async (dispatch) => {

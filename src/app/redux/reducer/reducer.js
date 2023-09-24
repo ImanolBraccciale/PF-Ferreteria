@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, POST_TAGS} from "../actions/actionsTypes"
-=======
 import { POST_PRODUCTS, GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_USERS} from "../actions/actionsTypes"
->>>>>>> 93973cc185d1e72b3ee88f98ecbbe1543b8d0f70
 
 const initialState = {
     allProducts: [],
@@ -164,13 +160,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 etiquetas: action.payload,
-            };
-
-        case POST_TAGS:
-                return {
-                    ...state,
-                    etiquetas: [...state.etiquetas, action.payload],
-                }    
+            };   
 
         default:
             return state
