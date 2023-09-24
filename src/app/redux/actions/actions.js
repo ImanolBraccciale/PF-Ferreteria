@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, POST_PRODUCTS } from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL} from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -30,14 +30,55 @@ export const postSuppliers = (supplier) => {
     }
 }
 
-export const getProductById = (id) => {
+export const postUsers = (user) => {
+    return async (dispatch) => {
+        try {
+            console.log(user);
+            const response = await axios.post('/api/user', user)
+            return dispatch({
+                type: POST_USERS,
+                payload: response.data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
 
+export const getProductById = (id) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`/api/products?id=${id}`)
-            console.log('desde el action', data);
             return dispatch({
                 type: GET_BY_ID,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+export const getUserByEmail = (emailUser) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(`/api/user?emailUser=${emailUser}`)
+            return dispatch({
+                type: GET_USER_BY_EMAIL,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+export const credential = (emailUser, passwordUser) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios(`/api/user?emailUser=${emailUser}&passwordUser=${passwordUser}`)
+            console.log(data);
+            return dispatch({
+                type: CREDENTIAL,
                 payload: data
             })
         } catch (error) {
@@ -118,6 +159,8 @@ export const getTags = () => {
         }
     };
 };
+
+
 
 export const getProductByName = (name) => {
     return async (dispatch) => {

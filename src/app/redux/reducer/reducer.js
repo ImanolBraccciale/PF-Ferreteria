@@ -1,12 +1,15 @@
-import { POST_PRODUCTS, GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS} from "../actions/actionsTypes"
+import { POST_PRODUCTS, GET_SUPPLIERS, POST_SUPPLIERS, GET_BY_ID, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, FILTER_BY_SUPPLIERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_USERS} from "../actions/actionsTypes"
 
 const initialState = {
     allProducts: [],
     products: [],
     allSuppliers: [],
+    allUsers: [],
+    etiquetas: [],
+    productDetail: [],
+    user: {},
+    estado: false,
     suppliers: [],
-    etiquetas:[],
-    productDetail: []
 
 }
 
@@ -25,7 +28,24 @@ const reducer = (state = initialState, action) => {
                 allSuppliers: [...state.allSuppliers, action.payload],
                 suppliers: [...state.suppliers, action.payload]
             }
+        case POST_USERS:
+            return {
+                ...state,
+                allUsers: [...state.allUsers, action.payload]
+            }
 
+        case CREDENTIAL:
+            return {
+                ...state,
+                estado: action.payload
+            }
+
+        case GET_USER_BY_EMAIL:
+            console.log(action.payload);
+            return {
+                ...state,
+                user: action.payload
+        }
         case POST_PRODUCTS:
             return {
                 ...state,
@@ -135,11 +155,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 products: filtradoSup
             }
+            
         case GET_TAGS:
             return {
                 ...state,
                 etiquetas: action.payload,
-            };
+            };   
+
         default:
             return state
     }

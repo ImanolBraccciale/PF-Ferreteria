@@ -1,0 +1,95 @@
+.containerGrid{
+    display: grid;
+    grid-template-columns: 35% auto;
+    /* grid-template-rows: auto auto auto; */
+    color: black;
+}
+
+.image {
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.caja1 {
+    /* border: solid 1px black; */
+    grid-row: 1 / span 2;
+    height: 83vh;
+    padding: 6vh;
+}
+
+.ul{
+    list-style: none;
+}
+
+.li{
+    margin: 5px;
+    font-size: 23px;
+}
+.caja2 {
+    /* border: solid 1px black; */
+    grid-row: 1 / span 2;
+}
+
+.infoAdmin {
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.cajaButtons1{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 25px;
+    align-items: center;
+}
+
+.buttonsCaja1{
+    display: flex;
+    padding: 4px;
+    background-color: #FFA424;
+    border-radius: 10px;
+    margin: 10px;
+    width: 150px;
+    height: 35px;
+    justify-content: center;
+}
+
+.cajaButtons2 {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonsCaja2{
+    display: flex;
+    padding: 4px;
+    background-color: #FFA424;
+    border-radius: 10px;
+    margin: 5px;
+    width: 150px;
+    height: 35px;
+    justify-content: center;
+}
+
+.cajaGraficos {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* margin: 5px;
+    padding: 5px; */
+    align-items: center;
+    justify-content: center;
+}
+
+.grafico {
+    border: solid 1px #FFA424;
+    width: 50vh;
+    height: 32vh;
+    margin: 10px;
+    border-radius: 10px;
+}

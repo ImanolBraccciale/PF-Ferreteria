@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
     },
     rolUser: {
       type: DataTypes.ENUM("admin","employee","client"),
-      allowNull: false
+      defaultValue: "client"
     },
     nameUser: {
       type: DataTypes.STRING,
@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
     },
     isActiveUser: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      defaultValue: true
     },
   },{timestamps: false})
   return Users

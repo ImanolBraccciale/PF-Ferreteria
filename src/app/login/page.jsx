@@ -1,18 +1,20 @@
-"use client";
-import { useState } from "react";
+"use client"
+import { useEffect, useState } from "react";
 import style from "./login.module.css";
 import Link from "next/link";
 import validationEmail from "../componentes/validations.js/validationEmail";
 import { signIn } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { credential, getUserByEmail } from "../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const [input, setInput] = useState({
     usuario: "",
     contraseña: "",
   });
-
   const [mostrarContr, setMostrarContr] = useState(true);
   const [errors, setErrors] = useState({});
 
@@ -30,35 +32,32 @@ const LoginPage = () => {
     );
   };
 
+  const isFormValid = Object.keys(errors).length === 0 && input.usuario && input.contraseña;
+
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (Object.keys(errors).length > 0) {
+    const credencial = await dispatch(credential(input.usuario, input.contraseña));
+    const userEmail = await dispatch(getUserByEmail(input.usuario));
+    
+    if (!isFormValid) {
       alert("Complete valores");
-    } else {
-      console.log(input.usuario);
-      setInput({
-        usuario: "",
-        contraseña: "",
-      });
+      return;
     }
 
-    try {
-      const data = await signIn("credentials", {
-        redirect: false,
-        email,
-        password,
-      });
-
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-      console.error("Error de autenticación de Google:", error);
+    if (credencial.payload !== true) {
+      alert("El usuario no existe");
+      return;
+    }else{
+      
+      try {
+        window.location.href = "/";
+      } catch (error) {
+        console.log(error);
+      }
     }
+
   };
-
-  const isFormValid =
-    Object.keys(errors).length === 0 && input.usuario && input.contraseña;
 
   return (
     <div key="login">
@@ -96,13 +95,14 @@ const LoginPage = () => {
         </button>
         {mostrarContr ? "mostrando contraseña" : "contraseña oculta"}
 
-        <Link
+        {/* <Link
           href={isFormValid ? "/" : "#"}
           className={style.button}
           disabled={!isFormValid}
         >
           Ingresar
-        </Link>
+        </Link> */}
+        <button className={style.button} type="submit"> Ingresar </button>
         <p>O ingresa con</p>
         <button
           type="button"
