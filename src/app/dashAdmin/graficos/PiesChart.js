@@ -14,8 +14,6 @@ ChartJS.register(
     Legend,
 );
 
-// "Martillo", "Destornillador", "Clavos", "Pintura", "Discos".
-// 10, 50, 30, 15, 10
 let midata = {
     labels: [],
     datasets: [ // cada una de las lineas del grafico
@@ -41,19 +39,7 @@ let midata = {
     ]
 }
 
-//const url = 'https://dummyjson.com/products';
-const url = 'http://localhost:3000/api/products'
-
-//ESTE FUNCIONA CON LA API DE PRUEBA
-// const fetchChartData = () => {
-//     axios.get(url)
-//         .then(response => {
-//             const datos = response.data;
-//             console.log(datos.products);
-//             mostrar(datos.products)
-//         })
-//         .catch(error => console.log(error))
-// }
+const url = 'api/products'
 
 const fetchChartData = () => {
     axios.get(url)
@@ -68,7 +54,7 @@ const fetchChartData = () => {
 const mostrar = (datos) => {
     if (Array.isArray(datos)) {
         datos.forEach(element => {
-            midata.labels.push(element.title);
+            midata.labels.push(element.name);
             midata.datasets[0].data.push(element.stock);  // Se actualiza el data del dataset existente
         });
     }

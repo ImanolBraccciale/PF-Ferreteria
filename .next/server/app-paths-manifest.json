@@ -1,9 +1,7 @@
 {
-  "/page": "app/page.js",
+  "/suppliers/page": "app/suppliers/page.js",
   "/[id]/page": "app/[id]/page.js",
-<<<<<<< HEAD
-  "/formProducto/page": "app/formProducto/page.js"
-=======
+  "/formProducto/page": "app/formProducto/page.js",
+  "/formProv/page": "app/formProv/page.js",
   "/dashAdmin/page": "app/dashAdmin/page.js"
->>>>>>> b04a426b287c19ca378a1d882a552f7708b68f98
 }

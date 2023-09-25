@@ -62,7 +62,7 @@ const fetchChartData = () => {
 const mostrar = (datos) => {
     if (Array.isArray(datos)) {
         datos.forEach(element => {
-            midata.labels.push(element.title);
+            midata.labels.push(element.name);
             midata.datasets[0].data.push(element.stock);  // Se actualiza el data del dataset existente
         });
     }
@@ -74,7 +74,7 @@ const misoptions = {
     scales: {
         y: {
             min: 0,
-            max: 200,
+            max: 60,
         },
         x: {
             ticks: { color: "rgba(0, 220, 195)" }  // Se corrigió la especificación del color

@@ -6,7 +6,7 @@ import BackButtom from '../componentes/BackButtom/BackButtom';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { postSuppliers } from '../redux/actions/actions';
-
+import s from "@/app/formProv/FormProv.module.css"
 
 const ProveedorForm = () => {
     const [input, setInput] = useState({
@@ -58,74 +58,74 @@ const ProveedorForm = () => {
 
 
     return (
-        <>
+        <a >
             <NavBar />
             <Link href='/suppliers'><BackButtom /></Link>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={s.form}>
 
-                <div>
-                    <label htmlFor="name_company">nombre de la empresa:</label>
-                    <input
+                <div className={s.label}>
+                    <label  htmlFor="name_company">Empresa:</label><br/>
+                    <input className={s.input}
                         type="text"
                         id="name_company"
                         name="name_company"
                         value={input.name_company}
                         onChange={handleChange}
                     />
-                    {errors.name_company && <p>{errors.name_company}</p>}
+                    {errors.name_company && <p className={s.error}>{errors.name_company}</p>}<br/>
                 </div>
 
-                <div>
-                    <label htmlFor="name">Nombre:</label>
-                    <input
+                <div className={s.label}>
+                    <label htmlFor="name">Nombre:</label><br/>
+                    <input className={s.input}
                         type="text"
                         id="name"
                         name="name"
                         value={input.name}
                         onChange={handleChange}
-                    />
-                    {errors.name && <p>{errors.name}</p>}
+                    /><br/>
+                    {errors.name && <p className={s.error}>{errors.name}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="direccion">dirección:</label>
-                    <input
+                <div className={s.label}>
+                    <label htmlFor="direccion">dirección:</label><br/>
+                    <input className={s.input}
                         type="text"
                         id="direccion"
                         name="direccion"
                         value={input.direccion}
                         onChange={handleChange}
-                    />
-                    {errors.direccion && <p>{errors.direccion}</p>}
+                    /><br/>
+                    {errors.direccion && <p className={s.error}>{errors.direccion}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="email">E-Mail:</label>
-                    <input
+                <div className={s.label}>
+                    <label htmlFor="email">E-Mail:</label><br/>
+                    <input className={s.input}
                         type="text"
                         id="email"
                         name="email"
                         value={input.email}
                         onChange={handleChange}
-                    />
-                    {errors.email && <p>{errors.email}</p>}
+                    /><br/>
+                    {errors.email && <p className={s.error}>{errors.email}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="cellphone">Telefono:</label>
-                    <input
+                <div className={s.label}>
+                    <label htmlFor="cellphone">Telefono:</label><br/>
+                    <input className={s.input}
                         type="text"
                         id="cellphone"
                         name="cellphone"
                         value={input.cellphone}
                         onChange={handleChange}
-                    />
-                    {errors.cellphone && <p >{errors.cellphone}</p>}
+                    /><br/>
+                    {errors.cellphone && <p className={s.error}>{errors.cellphone}</p>}
                 </div>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" className={s.b}>Enviar</button>
             </form>
-        </>
+        </a>
     );
 };
 
