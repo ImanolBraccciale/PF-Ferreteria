@@ -59,19 +59,14 @@ DetailSale.belongsToMany(Products, {
   timestamps: false,
 });
 
-  Products.belongsTo(Tag, {
-    as: 'groupTag',
-    foreignKey: 'groupTagId',
-     tagetKey:"name",
-    allowNull: true,
-  });
-
-  Products.belongsTo(Tag, {
-    as: 'rubroTag',
-    foreignKey: 'rubroTagId',
-    tagetKey:"name",
-    allowNull: true,
-  });
+Products.belongsToMany(Tag, {
+  through: "ProductTag",
+  foreignKey: "productId",
+});
+Tag.belongsToMany(Products, {
+  through: "ProductTag",
+  foreignKey: "tagId",
+});
 
 Sale.hasMany(DetailSale, { foreignKey: 'saleId' });
 DetailSale.belongsTo(Sale, { foreignKey: 'saleId' });

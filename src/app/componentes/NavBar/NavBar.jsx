@@ -2,6 +2,8 @@ import { useState } from "react";
 import s from "@/app/componentes/NavBar/NavBar.module.css";
 import Link from "next/link";
 import SearchBar from "../SearchBar/SearchBar";
+import Dashboard from '@/app/dashAdmin/page';
+
 import {
   filterByProd,
   filterBySuppliers,
@@ -25,7 +27,7 @@ function NavBar() {
 
   useEffect(() => {
     dispatch(getSuppliers()),
-    dispatch(getTags());
+      dispatch(getTags());
   }, [dispatch])
 
   function handleSort(e) {
@@ -65,18 +67,20 @@ function NavBar() {
       <Link href="/">
         <div className={s.logo}></div>
       </Link>
+
       <div>
+
         <div className={s.search}>
           <SearchBar />
         </div>
         <div className={s.botones}>
           <div className={s.option}>
             <select onChange={(e) => handleSort(e)}>
-              <option value= "all">Ordenar</option>
-              <option value= "A-Z">A-Z</option>
-              <option value= "Z-A">Z-A</option>
-              <option value= "MenorPrecio">Precio Asc.</option>
-              <option value= "MayorPrecio">Precio desc.</option>
+              <option value="all">Ordenar</option>
+              <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
+              <option value="MenorPrecio">Precio Asc.</option>
+              <option value="MayorPrecio">Precio desc.</option>
             </select>
           </div>
           <div className={s.option}>
@@ -121,6 +125,9 @@ function NavBar() {
           <button onClick={toggleModoOscuro}>
             {modoOscuro ? "Modo Claro" : "Modo Oscuro"}
           </button>
+          <Link href="/dashAdmin">
+            <button> DashBoard</button>
+          </Link>
         </div>
       </div>
     </div>
