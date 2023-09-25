@@ -1,4 +1,4 @@
-const validate = (input) => {
+export const validate = (input) => {
     const nameRegex = new RegExp(/^[a-zA-Z]+$/)
     let errors = {};
     

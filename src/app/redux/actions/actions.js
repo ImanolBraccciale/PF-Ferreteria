@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL} from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_TAG} from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -179,3 +179,17 @@ export const getProductByName = (name) => {
         }
     };
 };
+
+export const postTags = (tag) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post('api/tag', tag);
+            return dispatch({
+                type: POST_TAG,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}

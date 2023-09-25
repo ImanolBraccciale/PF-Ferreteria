@@ -46,36 +46,3 @@
     border: none;
     cursor: pointer;
 }
-
-.label1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-.option {
-    font-size: 16px;
-}
-
-
-.selectioned {
-    background-color: #bb9f63;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.x {
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    margin-left: 10px;
-}

@@ -24,18 +24,14 @@ const Dashboard = () => {
                     </div>
                     <div className={style.cajaButtons1}>
                         <Link href="/formProv" className={style.buttonsCaja1}>Crear Proveedor</Link>
-                        <Link href="/" className={style.buttonsCaja1}>Crear Rubro</Link>
-                        <Link href="/" className={style.buttonsCaja1}>Crear Grupo</Link>
+                        <Link href="/postTag" className={style.buttonsCaja1}>Crear Rubro/Grupo</Link>
                         <Link href="/formProducto" className={style.buttonsCaja1}>Crear Producto</Link>
+                        <Link href="/" className={style.buttonsCaja1}>Empleados</Link>
                         <Link href="/" className={style.buttonsCaja1}>Volver al inicio</Link>
                     </div>
                 </div>
                 <div className={style.caja2}>
                     <div className={style.cajaButtons2}>
-                        <Link href="/" className={style.buttonsCaja2}>Productos</Link>
-                        <Link href="/history" className={style.buttonsCaja2}>Historial</Link>
-                        <Link href="/suppliers" className={style.buttonsCaja2}>Proveedores</Link>
-                        <Link href="/" className={style.buttonsCaja2}>Empleados</Link>
                     </div>
                     <div className={style.cajaGraficos}>
                         <div className={style.grafico}><LinesChart /></div>

@@ -4,7 +4,7 @@ import validate from "../componentes/validations.js/validateProductos";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getSuppliers, getTags, postProducts } from "../redux/actions/actions";
-
+import s from "@/app/formProducto/page.module.css"
 function FormProducto() {
   const [input, setInput] = useState({
     name: "",
@@ -115,81 +115,81 @@ function FormProducto() {
   return (
     <div>
       <NavBar />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={s.form}>
 
-        <div>
+        <div className={s.label}>
           <label htmlFor="name">Nombre:</label>
-          <input
+          <input className={s.input}
             type="text"
             id="name"
             name="name"
             value={input.name}
             onChange={handleChange}
           />
-          {errors.name && <p className="error">{errors.name}</p>}
+          {errors.name && <p className={s.error}>{errors.name}</p>}
         </div>
 
-        <div>
+        <div className={s.label}>
           <label htmlFor="descripcion">Descripción:</label>
-          <textarea
+          <textarea className={s.input}
             id="descripcion"
             name="descripcion"
             value={input.descripcion}
             onChange={handleChange}
           />
-          {errors.descripcion && <p className="error">{errors.descripcion}</p>}
+          {errors.descripcion && <p className={s.error}>{errors.descripcion}</p>}
         </div>
 
-        <div>
+        <div className={s.label}>
           <label htmlFor="costoAnterior">Costo Anterior:</label>
-          <input
+          <input className={s.input}
             type="number"
             id="costoAnterior"
             name="costoAnterior"
             value={input.costoAnterior}
             onChange={handleChange}
           />
-          {errors.costoAnterior && <p className="error">{errors.costoAnterior}</p>}
+          {errors.costoAnterior && <p className={s.error}>{errors.costoAnterior}</p>}
         </div>
 
-        <div>
+        <div className={s.label}>
           <label htmlFor="costoActual">Costo Actual:</label>
-          <input
+          <input className={s.input}
             type="number"
             id="costoActual"
             name="costoActual"
             value={input.costoActual}
             onChange={handleChange}
           />
-          {errors.costoActual && <p className="error">{errors.costoActual}</p>}
+          {errors.costoActual && <p className={s.error}>{errors.costoActual}</p>}
         </div>
 
-        <div>
+        <div className={s.label}>
           <label htmlFor="price">% Ganancia:</label>
-          <input
+          <input className={s.input}
             type="number"
             id="price"
             name="price"
             value={input.price}
             onChange={handleChange}
           />
-          {errors.price && <p className="error">{errors.price}</p>}
+          {errors.price && <p className={s.error}>{errors.price}</p>}
         </div>
 
-        <div>
+        <div className={s.label}>
           <label htmlFor="stock">Stock:</label>
-          <input
+          <input className={s.input}
             type="number"
             id="stock"
             name="stock"
             value={input.stock}
             onChange={handleChange}
           />
-          {errors.stock && <p className="error">{errors.stock}</p>}
+          {errors.stock && <p className={s.error}>{errors.stock}</p>}
         </div>
 
-        <div>
-          <select id="grupo" defaultValue="" onChange={(e) => handleTags(e)}>
+        <div className={s.label1}>
+          <select id="grupo" defaultValue="" className={s.option} onChange={(e) => handleTags(e)}>
             <option value='' disabled hidden>Grupo</option>
             {group.map((g) => {
               return (
@@ -199,14 +199,14 @@ function FormProducto() {
           </select> 
           {input.group.map((g) => (
             <div >
-              <div>{g}</div>
-              <button onClick={() => handleDeleteG(g)} key={g} value={g}><span >X</span></button>
+              <div className={s.selectioned}>{g}</div>
+              <button onClick={() => handleDeleteG(g)} key={g} value={g} className={s.x}><span >X</span></button>
             </div>
           ))}
         </div>
 
-        <div>
-          <select id="rubro" defaultValue="" onChange={(e) => handleRubro(e)}>
+        <div className={s.label1}>
+          <select id="rubro" defaultValue="" className={s.option} onChange={(e) => handleRubro(e)}>
             <option value='' disabled hidden>Rubro</option>
             {group.map((r) => {
               return (
@@ -216,14 +216,14 @@ function FormProducto() {
           </select>
           {input.rubro.map((r) => (
             <div >
-              <div>{r}</div>
-              <button onClick={() => handleDeleteG(r)} key={r} value={r}><span >X</span></button>
+              <div className={s.selectioned}>{r}</div>
+              <button onClick={() => handleDeleteG(r)} key={r} value={r} className={s.x}><span >X</span></button>
             </div>
           ))}
         </div>
 
-        <div>
-          <select id="" defaultValue="" onChange={(e) => handleSuppliers(e)}>
+        <div className={s.label1}>
+          <select id="" defaultValue="" className={s.option} onChange={(e) => handleSuppliers(e)}>
             <option value='' disabled hidden>Proveedor</option>
             {suppliers.map((s) => {
               return (
@@ -233,8 +233,8 @@ function FormProducto() {
           </select>
           {input.supplierName.map((s) => (
             <div >
-              <div>{s}</div>
-              <button onClick={() => handleDeleteS(s)} key={s} value={s}><span >X</span></button>
+              <div className={s.selectioned}>{s}</div>
+              <button onClick={() => handleDeleteS(s)} key={s} value={s} className={s.x}><span >X</span></button>
             </div>
           ))}
         </div>
@@ -242,7 +242,7 @@ function FormProducto() {
 
 
         <div>
-          <button type="submit">Guardar</button>
+          <button type="submit" className={s.b}>Guardar</button>
         </div>
       </form>
     </div>

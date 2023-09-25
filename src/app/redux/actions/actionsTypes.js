@@ -12,3 +12,5 @@ export const GET_USER_BY_EMAIL = "GET_USER_BY_EMAIL"
 export const CREDENTIAL = "CREDENTIAL"
 export const FILTER_BY_SUPPLIERS = "FILTER_BY_SUPPLIERS"
 export const POST_PRODUCTS = "POST_PRODUCTS"
+export const POST_TAG = "POST_TAG"
+
