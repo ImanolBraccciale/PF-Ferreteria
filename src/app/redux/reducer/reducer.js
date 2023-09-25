@@ -73,7 +73,7 @@ const reducer = (state = initialState, action) => {
         case GET_NAMES: 
             return {
                 ...state,
-                allProducts: action.payload
+                products: action.payload
             };
         case ORDER_BY:
             let productCopy = [...state.allProducts];

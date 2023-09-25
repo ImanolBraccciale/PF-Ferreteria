@@ -1,9 +1,4 @@
 {
   "/page": "app/page.js",
-  "/[id]/page": "app/[id]/page.js",
-<<<<<<< HEAD
-  "/formProducto/page": "app/formProducto/page.js"
-=======
-  "/dashAdmin/page": "app/dashAdmin/page.js"
->>>>>>> b04a426b287c19ca378a1d882a552f7708b68f98
+  "/[id]/page": "app/[id]/page.js"
 }
