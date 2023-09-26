@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/dashAdmin/page": [
+    "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/dashAdmin/page.css",
-      "static/chunks/app/dashAdmin/page.js"
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
       "static/chunks/webpack.js",
@@ -18,11 +18,17 @@
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
     ],
-    "/layout": [
+    "/formProducto/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/css/app/formProducto/page.css",
+      "static/chunks/app/formProducto/page.js"
+    ],
+    "/suppliers/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/suppliers/page.css",
+      "static/chunks/app/suppliers/page.js"
     ]
   }
 }
