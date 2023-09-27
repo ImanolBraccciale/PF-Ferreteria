@@ -11,7 +11,9 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-
+        type:{
+          type :DataTypes.ENUM , values:[ 'group', 'rubro']
+        },
         isActive: {
             type: DataTypes.BOOLEAN,
         },

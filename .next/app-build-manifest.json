@@ -1,5 +1,6 @@
 {
   "pages": {
+<<<<<<< HEAD
     "/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -7,10 +8,13 @@
       "static/chunks/app/[id]/page.js"
     ],
     "/layout": [
+=======
+    "/dashAdmin/page": [
+>>>>>>> 083bb33c0aeb913901aa119bb316148317c420e2
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/css/app/dashAdmin/page.css",
+      "static/chunks/app/dashAdmin/page.js"
     ],
     "/page": [
       "static/chunks/webpack.js",
@@ -24,6 +28,7 @@
       "static/css/app/suppliers/page.css",
       "static/chunks/app/suppliers/page.js"
     ],
+<<<<<<< HEAD
     "/formProv/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -35,6 +40,13 @@
       "static/chunks/main-app.js",
       "static/css/app/formProducto/page.css",
       "static/chunks/app/formProducto/page.js"
+=======
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+>>>>>>> 083bb33c0aeb913901aa119bb316148317c420e2
     ]
   }
 }

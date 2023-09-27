@@ -10,8 +10,8 @@ export function validateProveedor(input) {
         errors.name = 'El nombre es requerido';
     }
 
-    if (!input.direccion.trim()) {
-        errors.direccion = 'La dirección es requerida';
+    if (!input.direction.trim()) {
+        errors.direction = 'La dirección es requerida';
     }
 
     if (!input.email.trim()) {
