@@ -22,40 +22,40 @@ const page = () => {
   return (
     <div>
       <div>
-      <NavBar />
-      <ProductBar />
-      {/* <h1>
+        <NavBar />
+        <ProductBar />
+        {/* <h1>
         {rolUser === "admin"
           ? "Bienvenido, administrador"
           : rolUser === "employee"
           ? "Bienvenido, empleado"
           : "Bienvenido, cliente"}
       </h1> */}
-      {
-        allProducts.map(({ id, name, stock, costoActual, price }) => {
-          return (
-            <Link className={s.z} href={`/${id}`} key={id}>
-              <ProductList
-                id={id}
-                name={name}
-                stock={stock}
-                costoActual={costoActual}
-                price={price}
-              />
-            </Link>
+        {
+          allProducts.map(({ id, name, stock, costoActual, price }) => {
+            return (
+              <Link className={s.z} href={`/${id}`} key={id}>
+                <ProductList
+                  id={id}
+                  name={name}
+                  stock={stock}
+                  costoActual={costoActual}
+                  price={price}
+                />
+              </Link>
 
-          )
-        })
-      }
-      <Link href="/formProducto">
-        <AddButtom />
-      </Link>
+            )
+          })
+        }
+        <Link href="/formProducto">
+          <AddButtom />
+        </Link>
       </div>
       <Link href="/formCarrito">
         <VentaButton />
       </Link>
     </div>
-    
+
   )
 }
 

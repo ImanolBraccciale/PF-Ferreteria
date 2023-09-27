@@ -22,7 +22,7 @@ function FormProducto() {
   });
 
   const handleUploadSuccess = (e) => {
-    console.log('Imagen subida:', e);
+    console.log('Imagen subida:', e.event);
 
   };
 
@@ -248,12 +248,12 @@ function FormProducto() {
 
         <div>
           <h2>Subir una imagen</h2>
-          <CldUploadButton
+          {/* <CldUploadButton
             uploadPreset="uv0vtybv"
             onSuccess={handleUploadSuccess}
           >
             Seleccionar imagen
-          </CldUploadButton>
+          </CldUploadButton> */}
         </div>
 
         <div>

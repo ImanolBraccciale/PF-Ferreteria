@@ -56,7 +56,7 @@ function NavBar() {
       dispatch(filterBySuppliers(e.target.value));
     }
   }
-  console.log(suppliers)
+
 
   const containerClassName = modoOscuro
     ? `${s.container} ${s.modoOscuro}`
