@@ -1,14 +1,23 @@
 const { db } = require("../../db");
-db.sequelize.sync();
-
 const Products = db.Products;
 const Tag = db.Tag;
-const Suppliers=db.Suppliers
+const Suppliers = db.Suppliers;
 
 module.exports = async (data) => {
   try {
-    const { name, descripcion, costoAnterior, costoActual, price, stock, isActive, group, rubro, supplierName } = data;
-
+    const {
+      name,
+      descripcion,
+      costoAnterior,
+      costoActual,
+      price,
+      stock,
+      isActive,
+      group,
+      rubro,
+      supplierName,
+    } = data;
+console.log(name);
     // Buscar las etiquetas de grupo y rubro por sus nombres
     const groupTag = await Tag.findOne({
       where: {
@@ -26,42 +35,28 @@ module.exports = async (data) => {
       throw new Error("Una o ambas etiquetas no existen");
     }
 
-       const supplier = await Suppliers.findOne({
+    const supplier = await Suppliers.findOne({
       where: {
         name: supplierName,
       },
     });
-
+     console.log(supplier, "aasdasdasdas");
     const newProduct = await Products.create({
-      name: name,
-      descripcion: descripcion,
-      costoAnterior: costoAnterior,
-      costoActual: costoActual,
-      price: price,
-      stock: stock,
-      isActive: isActive,
-      groupTagId: groupTag.id, 
-      rubroTagId: rubroTag.id, 
-      SupplierId: supplier.id_suppliers
+      name,
+      descripcion,
+      costoAnterior,
+      costoActual,
+      price,
+      stock,
+      isActive,
+      supplierName: supplier.name,
     });
+console.log(newProduct);
 
+await newProduct.addTag(groupTag); // Agregar una etiqueta de grupo al producto
+await newProduct.addTag(rubroTag); // Agregar una etiqueta de rubro al producto
+await newProduct.setSupplier(supplier); // Establecer el proveedor del producto
 
-
-    const responseObject = {
-      id: newProduct.id,
-      name: newProduct.name,
-      descripcion: newProduct.descripcion,
-      costoAnterior: newProduct.costoAnterior,
-      costoActual: newProduct.costoActual,
-      price: newProduct.price,
-      stock: newProduct.stock,
-      isActive: newProduct.isActive,
-      group: [groupTag.name], 
-      rubro: [rubroTag.name], 
-      supplier:[supplier.name]
-    };
-
-    return responseObject;
   } catch (error) {
     throw new Error(`Error al crear el producto: ${error.message}`);
   }
