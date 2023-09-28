@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import validate from "../componentes/validations.js/validateProductos";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getSuppliers, getTags, postProducts } from "../redux/actions/actions";
-import s from "@/app/formProducto/page.module.css"
+import s from "@/app/formProducto/page.module.css";
 function FormProducto() {
   const [input, setInput] = useState({
     name: "",
@@ -15,14 +15,12 @@ function FormProducto() {
     rubro: [],
     supplierName: [],
     price: "",
-    stock: ""
+    stock: "",
   });
-
-
 
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
-
+  const [selectErrors, setSelectErrors] = useState({});
   const group = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.allSuppliers);
 
@@ -34,13 +32,18 @@ function FormProducto() {
   function handleSubmit(e) {
     e.preventDefault();
     const validationErrors = validate(input);
+    setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length !== 0 || !input.group.length || !input.rubro.length|| !input.supplierName.length) {
-      alert('Llene los campos correctamente');
-      setErrors(validationErrors);
+    if (
+      Object.keys(validationErrors).length > 0 ||
+      !input.group.length ||
+      !input.rubro.length ||
+      !input.supplierName.length
+    ) {
+      alert("Llene los campos correctamente");
     } else {
       dispatch(postProducts(input));
-      console.log(input)
+      console.log(input);
       setInput({
         name: "",
         descripcion: "",
@@ -50,9 +53,9 @@ function FormProducto() {
         rubro: [],
         supplierName: [],
         price: "",
-        stock: ""
+        stock: "",
       });
-      alert('Felicidades, el producto fue creado exitosamente.');
+      alert("Felicidades, el producto fue creado exitosamente.");
     }
   }
 
@@ -60,11 +63,11 @@ function FormProducto() {
     const { name, value } = e.target;
     setInput((prevInput) => ({
       ...prevInput,
-      [name]: value
+      [name]: value,
     }));
     setErrors({
       ...errors,
-      [name]: undefined
+      [name]: undefined,
     });
   }
 
@@ -73,7 +76,7 @@ function FormProducto() {
     if (!input.group.includes(tagValue)) {
       setInput((prevInput) => ({
         ...prevInput,
-        group: [...prevInput.group, tagValue]
+        group: [...prevInput.group, tagValue],
       }));
     }
   }
@@ -83,7 +86,7 @@ function FormProducto() {
     if (!input.rubro.includes(RubroValue)) {
       setInput((prevInput) => ({
         ...prevInput,
-        rubro: [...prevInput.rubro, RubroValue]
+        rubro: [...prevInput.rubro, RubroValue],
       }));
     }
   }
@@ -93,7 +96,7 @@ function FormProducto() {
     if (!input.supplierName.includes(supplierValue)) {
       setInput((prevInput) => ({
         ...prevInput,
-        supplierName: [...prevInput.supplierName, supplierValue]
+        supplierName: [...prevInput.supplierName, supplierValue],
       }));
     }
   }
@@ -101,14 +104,16 @@ function FormProducto() {
   function handleDeleteG(tagToDelete) {
     setInput((prevInput) => ({
       ...prevInput,
-      group: prevInput.group.filter((tag) => tag !== tagToDelete)
+      group: prevInput.group.filter((tag) => tag !== tagToDelete),
     }));
   }
 
   function handleDeleteS(supplierToDelete) {
     setInput((prevInput) => ({
       ...prevInput,
-      supplierName: prevInput.supplierName.filter((sup) => sup !== supplierToDelete)
+      supplierName: prevInput.supplierName.filter(
+        (sup) => sup !== supplierToDelete
+      ),
     }));
   }
 
@@ -116,10 +121,11 @@ function FormProducto() {
     <div>
       <NavBar />
       <form onSubmit={handleSubmit} className={s.form}>
-
+        <h1 style={{ textAlign: "center" }}>Productos</h1>
         <div className={s.label}>
           <label htmlFor="name">Nombre:</label>
-          <input className={s.input}
+          <input
+            className={s.input}
             type="text"
             id="name"
             name="name"
@@ -131,42 +137,52 @@ function FormProducto() {
 
         <div className={s.label}>
           <label htmlFor="descripcion">Descripción:</label>
-          <textarea className={s.input}
+          <textarea
+            className={s.input}
             id="descripcion"
             name="descripcion"
             value={input.descripcion}
             onChange={handleChange}
           />
-          {errors.descripcion && <p className={s.error}>{errors.descripcion}</p>}
+          {errors.descripcion && (
+            <p className={s.error}>{errors.descripcion}</p>
+          )}
         </div>
 
         <div className={s.label}>
           <label htmlFor="costoAnterior">Costo Anterior:</label>
-          <input className={s.input}
+          <input
+            className={s.input}
             type="number"
             id="costoAnterior"
             name="costoAnterior"
             value={input.costoAnterior}
             onChange={handleChange}
           />
-          {errors.costoAnterior && <p className={s.error}>{errors.costoAnterior}</p>}
+          {errors.costoAnterior && (
+            <p className={s.error}>{errors.costoAnterior}</p>
+          )}
         </div>
 
         <div className={s.label}>
           <label htmlFor="costoActual">Costo Actual:</label>
-          <input className={s.input}
+          <input
+            className={s.input}
             type="number"
             id="costoActual"
             name="costoActual"
             value={input.costoActual}
             onChange={handleChange}
           />
-          {errors.costoActual && <p className={s.error}>{errors.costoActual}</p>}
+          {errors.costoActual && (
+            <p className={s.error}>{errors.costoActual}</p>
+          )}
         </div>
 
         <div className={s.label}>
           <label htmlFor="price">% Ganancia:</label>
-          <input className={s.input}
+          <input
+            className={s.input}
             type="number"
             id="price"
             name="price"
@@ -178,7 +194,8 @@ function FormProducto() {
 
         <div className={s.label}>
           <label htmlFor="stock">Stock:</label>
-          <input className={s.input}
+          <input
+            className={s.input}
             type="number"
             id="stock"
             name="stock"
@@ -187,62 +204,120 @@ function FormProducto() {
           />
           {errors.stock && <p className={s.error}>{errors.stock}</p>}
         </div>
+        <div className={s.rubroGrupo}>
+          <div className={s.label1}>
+            <select
+              id="grupo"
+              defaultValue=""
+              className={s.option}
+              onChange={(e) => handleTags(e)}
+            >
+              <option value="" disabled hidden>
+                Grupo
+              </option>
+              {group.map((g) => {
+                return (
+                  <option key={g.id} value={g.name}>
+                    {g.name}
+                  </option>
+                );
+              })}
+            </select>
+           
+            {/* {input.group.map((g) => (
+              <div className={s.optioncombinada}>
+                <div className={s.selectioned}>{g}</div>
 
-        <div className={s.label1}>
-          <select id="grupo" defaultValue="" className={s.option} onChange={(e) => handleTags(e)}>
-            <option value='' disabled hidden>Grupo</option>
-            {group.map((g) => {
-              return (
-                <option key={g.id} value={g.name}>{g.name}</option>
-              );
-            })}
-          </select> 
-          {input.group.map((g) => (
-            <div >
-              <div className={s.selectioned}>{g}</div>
-              <button onClick={() => handleDeleteG(g)} key={g} value={g} className={s.x}><span >X</span></button>
-            </div>
-          ))}
+                <span
+                  onClick={() => handleDeleteG(g)}
+                  key={g}
+                  value={g}
+                  className={s.x}
+                >
+                  X
+                </span>
+              </div>
+            ))} */}
+            <br/>
+            {errors.group && <p className={s.errorSelect}>{errors.group}</p>}
+          </div>
+
+          <div className={s.label1}>
+            <select
+              id="rubro"
+              defaultValue=""
+              className={s.option}
+              onChange={(e) => handleRubro(e)}
+            >
+              <option value="" disabled hidden>
+                Rubro
+              </option>
+              {group.map((r) => {
+                return (
+                  <option key={r.id} value={r.name}>
+                    {r.name}
+                  </option>
+                );
+              })}
+            </select>
+            {/* {input.rubro.map((r) => (
+              <div className={s.optioncombinada}>
+                <div className={s.selectioned}>{r}</div>
+
+                <span
+                  onClick={() => handleDeleteG(r)}
+                  key={r}
+                  value={r}
+                  className={s.x}
+                >
+                  X
+                </span>
+              </div>
+            ))} */}
+            {errors.rubro && <p className={s.errorSelect}>{errors.rubro}</p>}
+          </div>
         </div>
 
         <div className={s.label1}>
-          <select id="rubro" defaultValue="" className={s.option} onChange={(e) => handleRubro(e)}>
-            <option value='' disabled hidden>Rubro</option>
-            {group.map((r) => {
-              return (
-                <option key={r.id} value={r.name}>{r.name}</option>
-              );
-            })}
-          </select>
-          {input.rubro.map((r) => (
-            <div >
-              <div className={s.selectioned}>{r}</div>
-              <button onClick={() => handleDeleteG(r)} key={r} value={r} className={s.x}><span >X</span></button>
-            </div>
-          ))}
-        </div>
-
-        <div className={s.label1}>
-          <select id="" defaultValue="" className={s.option} onChange={(e) => handleSuppliers(e)}>
-            <option value='' disabled hidden>Proveedor</option>
+          <select
+            id=""
+            defaultValue=""
+            className={s.option}
+            onChange={(e) => handleSuppliers(e)}
+          >
+            <option value="" disabled hidden>
+              Proveedor
+            </option>
             {suppliers.map((s) => {
               return (
-                <option key={s.id} value={s.name}>{s.name}</option>
+                <option key={s.id} value={s.name}>
+                  {s.name}
+                </option>
               );
             })}
           </select>
-          {input.supplierName.map((s) => (
-            <div >
+          {/* {input.supplierName.map((s) => (
+            <div className={s.optioncombinada}>
               <div className={s.selectioned}>{s}</div>
-              <button onClick={() => handleDeleteS(s)} key={s} value={s} className={s.x}><span >X</span></button>
+              <span
+                onClick={() => handleDeleteS(s)}
+                key={s}
+                value={s}
+                className={s.x}
+              >
+                X
+              </span>
             </div>
-          ))}
+          ))} */}
+          {errors.supplierName && (
+            <p className={s.errorSelect}>{errors.supplierName}</p>
+          )}
         </div>
 
-
-
-        <div>
-          <button type="submit" className={s.b}>Guardar</button>
+        <div className={s.butt}>
+          <button type="submit" className={s.b}>
+            Guardar
+          </button>
         </div>
       </form>
     </div>
