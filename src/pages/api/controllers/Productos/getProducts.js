@@ -22,11 +22,11 @@ const productsWithTags = await Products.findAll({
         }
   ],
 });
-
+console.log(productsWithTags);
 const reformattedProducts = productsWithTags.map((product) => {
   const group = product.Tags[0]?.name || ''; // El primer nombre en "grupo" o cadena vacía si no hay etiqueta
   const rubro = product.Tags[1]?.name || ''; // El segundo nombre en "rubro" o cadena vacía si no hay etiqueta
-console.log(product,"asdasdasdasdassa");
+
   // Crear un nuevo objeto con las propiedades reformateadas
   return {
     id: product.id,
