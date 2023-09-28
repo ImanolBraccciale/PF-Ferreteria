@@ -9,11 +9,16 @@
   background: #ffa424;
   color: black;
 }
+[data-theme="dark"] .container {
+  background: #1e1e1e;
+  color: white;
+}
 
 .botones {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-block: 5px;
 }
 
 .option select,
@@ -57,17 +62,19 @@
 }
 
 .sesion {
-  padding: 0 60px 0 60px;
+  /* Otros estilos existentes */
+  padding: 0; /* Ajusta el padding para evitar espacios innecesarios */
+  position: relative; /* Posicionamiento absoluto */
+  top: 10px; /* Distancia desde la parte superior */
+  right: 10px; /* Distancia desde la derecha */
+  display: flex; /* Establece flexbox */
+  flex-direction: column; /* Coloca los elementos en una columna */
+  align-items: flex-end; /* Alinea los elementos a la derecha */
 }
 
-.modoOscuro {
-  background-color: #000000; 
-  color: #ffffff; 
- 
+.sesion div {
+  margin-bottom: 20px; /* Espacio entre los íconos */
 }
-
-.modoOscuro button {
-  background-color: #ffffff;
-  color: #000000;
+.dash {
+  padding: 0;
 }
-
