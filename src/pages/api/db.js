@@ -71,12 +71,6 @@ Tag.belongsToMany(Products, {
 Sale.hasMany(DetailSale, { foreignKey: 'saleId' });
 DetailSale.belongsTo(Sale, { foreignKey: 'saleId' });
 
-Review.hasMany(Users, { through: "ReviewUsers", foreignKey: 'userId' });
-Users.belongsTo(Review, { through: "ReviewUsers", foreignKey: 'userId' });
-
-Review.hasMany(Sale, { through: "ReviewSale", foreignKey: 'saleId' });
-Sale.belongsTo(Review, { through: "ReviewSale", foreignKey: 'saleId' });
-
 
 db.sequelize.sync();
 

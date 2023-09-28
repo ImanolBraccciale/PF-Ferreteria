@@ -61,7 +61,7 @@ const LoginPage = () => {
         <div className={style.passwordContainer}>
 
           <input
-            className={style.input}
+            className={errors.nameUser ? style.inputWrong : style.input}
             placeholder="Escriba su nombre completo"
             type="text"
             value={input.nameUser}
@@ -76,7 +76,7 @@ const LoginPage = () => {
 
         <div className={style.passwordContainer}>
           <input
-            className={style.input}
+            className={errors.emailUser ? style.inputWrong : style.input}
             placeholder="Escriba su email"
             type="email"
             value={input.emailUser}
@@ -91,7 +91,7 @@ const LoginPage = () => {
         <h3 className={style.subtitle}>Contraseña</h3>
         <div className={style.passwordContainer}>
           <input
-            className={style.passwordInput}
+            className={errors.passwordUser ? style.inputWrong : style.passwordInput}
             placeholder="Escriba su contraseña"
             type={mostrarContr ? "text" : "password"}
             value={input.passwordUser}

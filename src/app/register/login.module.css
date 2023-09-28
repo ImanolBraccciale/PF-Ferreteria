@@ -38,6 +38,16 @@
     height: 4vh;
 }
 
+.inputWrong {
+    color: #474747;
+    background-color: white;
+    border-radius: 10px;
+    border: solid 2px rgb(180, 0, 0);
+    margin: 0 1vw 1vh;
+    width: 400px;
+    height: 4vh;
+}
+
 .button {
     padding: 1vh 2vw;
     font-size: 16px;
