@@ -22,7 +22,7 @@
 }
 
 .a {
-  width: 10%;
+  width: 12%;
 }
 
 .b {
@@ -48,6 +48,8 @@
 .button {
   background: #ffa424;
   border: none;
-  padding: 15px 20px;
+  padding: 13px 20px;
   border-radius: 5px;
+  color: #1e1e1e;
+  font-size: 15px;
 }
