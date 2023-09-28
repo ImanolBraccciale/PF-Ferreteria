@@ -1,6 +1,7 @@
 {
   "/page": "app/page.js",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "/suppliers/page": "app/suppliers/page.js",
   "/history/page": "app/history/page.js",
   "/[id]/page": "app/[id]/page.js"
@@ -8,4 +9,9 @@
   "/[id]/page": "app/[id]/page.js",
   "/suppliers/page": "app/suppliers/page.js"
 >>>>>>> a33347855d5fdcb670fe0e192c6997673f1d74b0
+=======
+  "/register/page": "app/register/page.js",
+  "/login/page": "app/login/page.js",
+  "/[id]/page": "app/[id]/page.js"
+>>>>>>> 58f9cced875de42faac44268219c6c627dc038a7
 }
