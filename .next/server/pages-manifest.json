@@ -3,6 +3,15 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/api/suppliers": "pages/api/suppliers.js",
+<<<<<<< HEAD
   "/api/products": "pages/api/products.js",
   "/api/tag": "pages/api/tag.js"
+=======
+<<<<<<< HEAD
+  "/api/products": "pages/api/products.js"
+=======
+  "/api/products": "pages/api/products.js",
+  "/api/tag": "pages/api/tag.js"
+>>>>>>> ima
+>>>>>>> 42fc772e5f1c93211f0d9818776b3dfaee2afa80
 }

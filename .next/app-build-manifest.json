@@ -11,6 +11,7 @@
       "static/chunks/main-app.js",
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
+<<<<<<< HEAD
     ],
     "/formProv/page": [
       "static/chunks/webpack.js",
@@ -27,6 +28,7 @@
     "/formProducto/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+<<<<<<< HEAD
       "static/css/app/formProducto/page.css",
       "static/chunks/app/formProducto/page.js"
     ],
@@ -47,6 +49,12 @@
       "static/chunks/main-app.js",
       "static/css/app/postTag/page.css",
       "static/chunks/app/postTag/page.js"
+=======
+      "static/css/app/formProv/page.css",
+      "static/chunks/app/formProv/page.js"
+=======
+>>>>>>> ima
+>>>>>>> 42fc772e5f1c93211f0d9818776b3dfaee2afa80
     ]
   }
 }
