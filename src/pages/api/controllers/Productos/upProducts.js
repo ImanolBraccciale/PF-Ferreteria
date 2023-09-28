@@ -51,10 +51,10 @@ module.exports = async (data) => {
     // Guarda los cambios en el producto
     await product.save();
 
-    console.log('Producto actualizado con éxito:', product);
+
     return product;
   } catch (error) {
-    console.error('Error al actualizar el producto:', error.message);
+
     throw error;
   }
 };
