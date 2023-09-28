@@ -18,23 +18,41 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-block: 5px;
 }
 
 .option select,
 .option2 select {
-  background-color: transparent;
-  border: none;
+  background-color: rgb(55, 55, 45);
   font-size: 16px;
-  color: black;
+  color: white;
+  border: 2px solid orange;
+  border-radius: 8px;
+  text-align: center;
+  font-size: large;
+  padding: 8px 15px;
+}
+.option select:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.option2 select:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .rutas a,
 .rutas a:visited,
-.rutas a:hover,
 .rutas a:active {
+  background-color: rgb(55, 55, 45);
+  font-size: 16px;
+  color: white;
+  border: 2px solid orange;
+  border-radius: 8px;
+  text-align: center;
+  font-size: medium;
+  padding: 8px 15px;
   text-decoration: none;
-  color: black;
+}
+.rutas a:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .rutas,
@@ -62,19 +80,41 @@
 }
 
 .sesion {
-  /* Otros estilos existentes */
-  padding: 0; /* Ajusta el padding para evitar espacios innecesarios */
-  position: relative; /* Posicionamiento absoluto */
-  top: 10px; /* Distancia desde la parte superior */
-  right: 10px; /* Distancia desde la derecha */
-  display: flex; /* Establece flexbox */
-  flex-direction: column; /* Coloca los elementos en una columna */
-  align-items: flex-end; /* Alinea los elementos a la derecha */
+  padding: 0;
+  position: relative;
+  top: 15px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sesion div {
-  margin-bottom: 20px; /* Espacio entre los íconos */
+  margin-bottom: 25px; /* Espacio entre los íconos */
 }
-.dash {
-  padding: 0;
+.dash a {
+  background-color: rgb(55, 55, 45);
+  color: white;
+  border: 2px solid orange;
+  border-radius: 8px;
+  text-align: center;
+  font-size: medium;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+.dash a:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.login a {
+  background-color: rgb(55, 55, 45);
+  color: white;
+  border: 2px solid orange;
+  border-radius: 8px;
+  text-align: center;
+  font-size: medium;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+.login a:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }

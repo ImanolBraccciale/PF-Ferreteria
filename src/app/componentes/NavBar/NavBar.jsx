@@ -131,12 +131,10 @@ function NavBar() {
           )}
         </div>
         <div className={s.dash}>
-          <Link href="/dashAdmin">
-            <button> DashBoard</button>
-          </Link>
+          <a href="/dashAdmin">Ir al Panel</a>
         </div>
-        <div>
-          <Link href="/login">cerrar sesion</Link>
+        <div className={s.login}>
+          <a href="/login">Cerrar Sesion</a>
         </div>
       </div>
     </div>

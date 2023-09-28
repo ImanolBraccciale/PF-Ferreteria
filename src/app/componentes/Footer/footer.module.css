@@ -5,18 +5,27 @@
   justify-content: center;
   align-items: center;
   background-color: orange;
-  height: 70px; /* Altura del footer */
+  height: 70px;
   width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
+  font-size: large;
+}
+[data-theme="dark"] .footer {
+  background: #262525;
+  color: white;
 }
 
 /* Estilos para los enlaces dentro del footer */
 .footer a {
-  color: #333;
-  margin: 0 25px; /* Espacio entre los enlaces */
+  color: rgb(55, 55, 45);
+  margin: 0 25px;
   text-decoration: none;
+}
+[data-theme="dark"] .footer a {
+  background: #262525;
+  color: white;
 }
 
 .footer a:hover {

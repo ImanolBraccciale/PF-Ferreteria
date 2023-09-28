@@ -23,6 +23,12 @@
       "static/chunks/main-app.js",
       "static/css/app/suppliers/page.css",
       "static/chunks/app/suppliers/page.js"
+    ],
+    "/history/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/history/page.css",
+      "static/chunks/app/history/page.js"
     ]
   }
 }
