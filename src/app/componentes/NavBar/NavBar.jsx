@@ -143,13 +143,3 @@ function NavBar() {
 
 export default NavBar;
 
-//   const [modoOscuro, setModoOscuro] = useState(false);
-//   const toggleModoOscuro = () => {
-//     setModoOscuro(!modoOscuro);
-//   };
-
-//console.log(suppliers);
-
-//   const containerClassName = modoOscuro
-//     ? `${s.container} ${s.modoOscuro}`
-//     : s.container;
