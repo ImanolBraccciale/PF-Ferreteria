@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { FiMoon } from "react-icons/fi";
+import { BsSun } from "react-icons/bs";
 import s from "@/app/componentes/NavBar/NavBar.module.css";
 import Link from "next/link";
 import SearchBar from "../SearchBar/SearchBar";
-import Dashboard from '@/app/dashAdmin/page';
+import Dashboard from "@/app/dashAdmin/page";
 
 import {
   filterByProd,
@@ -13,22 +16,22 @@ import {
   orderBy,
 } from "@/app/redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 
 function NavBar() {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
   const dispatch = useDispatch();
   const tag = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.suppliers);
 
-  const [modoOscuro, setModoOscuro] = useState(false);
-  const toggleModoOscuro = () => {
-    setModoOscuro(!modoOscuro);
-  };
-
   useEffect(() => {
-    dispatch(getSuppliers()),
-      dispatch(getTags());
-  }, [dispatch])
+    dispatch(getSuppliers()), getTags();
+  }, [dispatch]);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) {
+    return null;
+  }
 
   function handleSort(e) {
     e.preventDefault();
@@ -56,20 +59,14 @@ function NavBar() {
       dispatch(filterBySuppliers(e.target.value));
     }
   }
-  console.log(suppliers)
-
-  const containerClassName = modoOscuro
-    ? `${s.container} ${s.modoOscuro}`
-    : s.container;
 
   return (
-    <div className={containerClassName}>
+    <div className={s.container}>
       <Link href="/">
         <div className={s.logo}></div>
       </Link>
 
       <div>
-
         <div className={s.search}>
           <SearchBar />
         </div>
@@ -85,7 +82,7 @@ function NavBar() {
           </div>
           <div className={s.option}>
             <select onChange={(e) => handleFilter(e)}>
-              <option value=''>Grupo</option>
+              <option value="">Grupo</option>
               {tag &&
                 tag.map((p) => {
                   return (
@@ -98,7 +95,7 @@ function NavBar() {
           </div>
           <div className={s.option2}>
             <select onChange={(e) => handleFilter1(e)}>
-              <option value=''>Proveedor</option>
+              <option value="">Proveedor</option>
               {suppliers &&
                 suppliers.map((s) => {
                   return (
@@ -119,15 +116,25 @@ function NavBar() {
       </div>
       <div className={s.sesion}>
         <div>
-          <Link href="/login">cerrar sesion</Link>
+          {theme === "dark" ? (
+            <BsSun
+              size={40}
+              cursor="pointer"
+              onClick={() => setTheme("light")}
+            />
+          ) : (
+            <FiMoon
+              size={40}
+              cursor="pointer"
+              onClick={() => setTheme("dark")}
+            />
+          )}
         </div>
-        <div>
-          <button onClick={toggleModoOscuro}>
-            {modoOscuro ? "Modo Claro" : "Modo Oscuro"}
-          </button>
-          <Link href="/dashAdmin">
-            <button> DashBoard</button>
-          </Link>
+        <div className={s.dash}>
+          <a href="/dashAdmin">Ir al Panel</a>
+        </div>
+        <div className={s.login}>
+          <a href="/login">Cerrar Sesion</a>
         </div>
       </div>
     </div>
@@ -135,3 +142,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

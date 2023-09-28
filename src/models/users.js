@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     rolUser: {
-      type: DataTypes.ENUM("admin","employee","client"),
+      type: DataTypes.ENUM("admin", "employee", "client"),
       defaultValue: "client"
     },
     nameUser: {
@@ -27,6 +27,6 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       defaultValue: true
     },
-  },{timestamps: false})
+  }, { timestamps: false })
   return Users
 }

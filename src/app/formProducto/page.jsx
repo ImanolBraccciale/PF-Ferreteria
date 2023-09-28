@@ -4,7 +4,10 @@ import validate from "../componentes/validations.js/validateProductos";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getSuppliers, getTags, postProducts } from "../redux/actions/actions";
-import s from "@/app/formProducto/page.module.css";
+import { CldUploadButton } from 'next-cloudinary';
+
+
+import s from "@/app/formProducto/page.module.css"
 function FormProducto() {
   const [input, setInput] = useState({
     name: "",
@@ -17,6 +20,12 @@ function FormProducto() {
     price: "",
     stock: "",
   });
+
+  const handleUploadSuccess = (e) => {
+    console.log('Imagen subida:', e.event);
+
+  };
+
 
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
@@ -32,15 +41,10 @@ function FormProducto() {
   function handleSubmit(e) {
     e.preventDefault();
     const validationErrors = validate(input);
-    setErrors(validationErrors);
 
-    if (
-      Object.keys(validationErrors).length > 0 ||
-      !input.group.length ||
-      !input.rubro.length ||
-      !input.supplierName.length
-    ) {
-      alert("Llene los campos correctamente");
+    if (Object.keys(validationErrors).length !== 0 || !input.group.length || !input.rubro.length || !input.supplierName.length) {
+      alert('Llene los campos correctamente');
+      setErrors(validationErrors);
     } else {
       dispatch(postProducts(input));
       console.log(input);
@@ -314,6 +318,17 @@ function FormProducto() {
           )}
         </div>
 
+        <div>
+          <h2>Subir una imagen</h2>
+          {/* <CldUploadButton
+            uploadPreset="uv0vtybv"
+            onSuccess={handleUploadSuccess}
+          >
+            Seleccionar imagen
+          </CldUploadButton> */}
+        </div>
+
+        
         <div className={s.butt}>
           <button type="submit" className={s.b}>
             Guardar

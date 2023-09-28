@@ -8,27 +8,27 @@ export const validationEmail = (input) => {
     let errors = {};
 
     if (!emailRegex.test(input.usuario)) {
-        errors.usuario = "Debes ingresar un usuario o email válido";
+        errors.usuario = "Debes ingresar un email válido";
     }
 
     if (input.usuario.length === 0) {
-        errors.usuario = "Debes ingresar un usuario o email";
+        errors.usuario = "Debes ingresar un email";
     }
 
-    if (input.usuario.length > 35) {
-        errors.usuario = "El email o usuario debe tener menos de 35 caracteres";
+    if (input.usuario.length > 50) {
+        errors.usuario = "El email debe tener menos de 50 caracteres";
     }
 
     if (!passwordRegex.test(input.contraseña)) {
-        errors.contraseña = "Debes ingresar una contraseña válida";
+        errors.contraseña = "La contraseña debe tener al menos un número y una mayúscula";
     }
 
     if (input.contraseña.length === 0) {
         errors.contraseña = "Debes ingresar una contraseña";
     }
 
-    if (input.contraseña.length < 3) {
-        errors.contraseña = "La contraseña debe tener al menos 3 caracteres";
+    if (input.contraseña.length < 6) {
+        errors.contraseña = "La contraseña debe tener al menos 6 caracteres";
     }
 
     return errors;

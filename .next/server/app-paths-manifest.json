@@ -1,5 +1,16 @@
 {
+<<<<<<< HEAD
   "/suppliers/page": "app/suppliers/page.js",
   "/formProv/page": "app/formProv/page.js",
   "/formProducto/page": "app/formProducto/page.js"
+=======
+  "/page": "app/page.js",
+<<<<<<< HEAD
+  "/suppliers/page": "app/suppliers/page.js",
+  "/[id]/page": "app/[id]/page.js",
+  "/formProv/page": "app/formProv/page.js"
+=======
+  "/[id]/page": "app/[id]/page.js"
+>>>>>>> ima
+>>>>>>> 42fc772e5f1c93211f0d9818776b3dfaee2afa80
 }
