@@ -5,12 +5,13 @@
   justify-content: center;
   align-items: center;
   background-color: orange;
-  height: 70px;
+  height: 50px;
   width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
-  font-size: large;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 [data-theme="dark"] .footer {
   background: #262525;
@@ -25,11 +26,16 @@
 }
 [data-theme="dark"] .footer a {
   background: #262525;
+  color: orange;
+}
+[data-theme="dark"] .footer a:hover {
+  background: #262525;
   color: white;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
 }
 
 .footer a:hover {
-  color: #000;
+  color: #333b3f;
   font-size: 1.3em;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }

@@ -32,10 +32,10 @@
   padding: 8px 15px;
 }
 .option select:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
 .option2 select:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
 
 .rutas a,
@@ -52,7 +52,7 @@
   text-decoration: none;
 }
 .rutas a:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
 
 .rutas,
@@ -77,6 +77,14 @@
   width: 220px;
   height: 130px;
   background-position: left;
+  border-radius: 20px;
+}
+[data-theme="dark"] .logo {
+  filter: grayscale(80%);
+}
+[data-theme="dark"] .logo:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
 }
 
 .sesion {
@@ -103,7 +111,7 @@
   text-decoration: none;
 }
 .dash a:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
 .login a {
   background-color: rgb(55, 55, 45);
@@ -116,5 +124,5 @@
   text-decoration: none;
 }
 .login a:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
