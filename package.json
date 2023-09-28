@@ -26,11 +26,7 @@
     "morgan": "^1.10.0",
     "next": "13.4.19",
     "next-auth": "^4.23.1",
-<<<<<<< HEAD
     "next-themes": "^0.2.1",
-=======
-    "next-cloudinary": "^4.22.0",
->>>>>>> a33347855d5fdcb670fe0e192c6997673f1d74b0
     "nodemailer": "^6.9.5",
     "nodemon": "^3.0.1",
     "pg": "^8.11.3",
