@@ -27,30 +27,3 @@ export default function RootLayout({ children }) {
   );
 }
 
-// export const Providers = ({ children }) => {
-//   const [mounted, setMounted] = useState(false);
-//   useEffect(() => setMounted(true), []);
-//   if (!mounted) return <> {children}</>;
-
-//   return <ThemeProvider attribute="class">{children}</ThemeProvider>;
-// };
-
-// const inter = Inter({ subsets: ["latin"] });
-
-//
-
-// export default function RootLayout({ children }) {
-//   return (
-//     <html lang="es">
-//       <Provider store={store}>
-//         <body className={inter.className}>
-//           <Providers>
-//             <NavBar />
-//             {children}
-//             <Footer />
-//           </Providers>
-//         </body>
-//       </Provider>
-//     </html>
-//   );
-// }

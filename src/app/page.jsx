@@ -32,7 +32,6 @@ const page = () => {
           ? "Bienvenido, empleado"
           : "Bienvenido, cliente"}
       </h1> */}
-<<<<<<< HEAD
         {allProducts.map(({ id, name, stock, costoActual, price }) => {
           return (
             <Link className={s.z} href={`/${id}`} key={id}>
@@ -46,24 +45,6 @@ const page = () => {
             </Link>
           );
         })}
-=======
-        {
-          allProducts.map(({ id, name, stock, costoActual, price }) => {
-            return (
-              <Link className={s.z} href={`/${id}`} key={id}>
-                <ProductList
-                  id={id}
-                  name={name}
-                  stock={stock}
-                  costoActual={costoActual}
-                  price={price}
-                />
-              </Link>
-
-            )
-          })
-        }
->>>>>>> a33347855d5fdcb670fe0e192c6997673f1d74b0
         <Link href="/formProducto">
           <AddButtom />
         </Link>
@@ -75,13 +56,7 @@ const page = () => {
         <Footer />
       </div>
     </div>
-<<<<<<< HEAD
   );
 };
-=======
-
-  )
-}
->>>>>>> a33347855d5fdcb670fe0e192c6997673f1d74b0
 
 export default page;
