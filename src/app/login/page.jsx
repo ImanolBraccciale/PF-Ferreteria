@@ -15,7 +15,7 @@ const LoginPage = () => {
     usuario: "",
     contraseña: "",
   });
-  const [mostrarContr, setMostrarContr] = useState(true);
+  const [mostrarContr, setMostrarContr] = useState(false);
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
@@ -34,22 +34,25 @@ const LoginPage = () => {
 
   const isFormValid = Object.keys(errors).length === 0 && input.usuario && input.contraseña;
 
-  
+  const toggleMostrarContr = () => {
+    setMostrarContr(!mostrarContr);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const credencial = await dispatch(credential(input.usuario, input.contraseña));
     const userEmail = await dispatch(getUserByEmail(input.usuario));
-    
+
     if (!isFormValid) {
-      alert("Complete valores");
+      alert("Complete de manera correcta los valores");
       return;
     }
 
     if (credencial.payload !== true) {
       alert("El usuario no existe");
       return;
-    }else{
-      
+    } else {
+
       try {
         window.location.href = "/";
       } catch (error) {
@@ -60,57 +63,60 @@ const LoginPage = () => {
   };
 
   return (
-    <div key="login">
+    <div key="login" className={style.contenedor}>
+
       <form onSubmit={handleSubmit} className={style.container}>
         <h1 className={style.title}>LOGIN</h1>
 
-        <h3 className={style.subtitle}>Usuario:</h3>
+        <h3 className={style.subtitle}>Email</h3>
 
-        <input
-          className={style.input}
-          placeholder="Escriba su usuario"
-          type="text"
-          value={input.usuario}
-          id="usuario"
-          onChange={handleChange}
-        />
+        <div className={style.passwordContainer}>
+          <input
+            className={style.input}
+            placeholder="Escriba su usuario"
+            type="email"
+            value={input.usuario}
+            id="usuario"
+            onChange={handleChange}
+          />
 
-        {errors.usuario && <p>{errors.usuario}</p>}
+        </div>
 
-        <h3 className={style.subtitle}>Contraseña:</h3>
+        {errors.usuario && <p className={style.p}>{errors.usuario}</p>}
 
-        <input
-          className={style.input}
-          placeholder="Escriba su contraseña"
-          type={mostrarContr ? "text" : "password"}
-          value={input.contraseña}
-          id="contraseña"
-          onChange={handleChange}
-        />
+        <h3 className={style.subtitle}>Contraseña</h3>
+        <div className={style.passwordContainer}>
+          <input
+            className={style.passwordInput}
+            placeholder="Escriba su contraseña"
+            type={mostrarContr ? "text" : "password"}
+            value={input.contraseña}
+            id="contraseña"
+            onChange={handleChange}
+          />
+          <button
+            type="button"
+            onClick={toggleMostrarContr}
+            className={style.passwordToggle}
+          >
+            {mostrarContr ? (
+              <span className={style.eyeIcon}>🙈</span>
+            ) : (
+              <span className={style.eyeIcon}>👁️</span>
+            )}
+          </button>
+        </div>
 
-        {errors.contraseña && <p>{errors.contraseña}</p>}
-
-        <button type="button" onClick={() => setMostrarContr(!mostrarContr)}>
-          Mostrar contraseña
-        </button>
-        {mostrarContr ? "mostrando contraseña" : "contraseña oculta"}
-
-        {/* <Link
-          href={isFormValid ? "/" : "#"}
-          className={style.button}
-          disabled={!isFormValid}
-        >
-          Ingresar
-        </Link> */}
+        {errors.contraseña && <p className={style.p}>{errors.contraseña}</p>}
         <button className={style.button} type="submit"> Ingresar </button>
         <p>O ingresa con</p>
         <button
           type="button"
-          className="btn-floating"
+          className={style.btnFloating}
           onClick={() => signIn("google")}
         >
           <FontAwesomeIcon icon={faGoogle} />
-          <span className="google-icon"></span>
+          <span className={style.googleIcon}></span>
         </button>
         <br></br>
         <p>
