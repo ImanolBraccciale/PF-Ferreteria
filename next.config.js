@@ -12,14 +12,9 @@ const nextConfig = {
     GOOGLE_CLIENT_SECRET: "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",
   },
 
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: "/registroDeVentas",
-  //       destination: "/registroDeVentas",
-  //     },
-  //   ];
-  // },
+images: {
+    domains: ['res.cloudinary.com'],
+  },
 };
 
 module.exports = nextConfig;
