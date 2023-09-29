@@ -23,31 +23,39 @@
 
 .a {
   width: 10%;
+  margin: 0 auto;
 }
 
 .b {
-  width: 30%;
+  width: 28%;
 }
 
 .c {
-  width: 10%;
+  width: 15%;
+
+  margin: 0 auto;
 }
 
 .d {
   width: 15%;
+  margin: 0 auto;
 }
 
 .e {
   width: 15%;
+  margin: 0 auto;
 }
 
 .f {
-  width: 9%;
+  width: 15%;
+  margin: 0 auto;
 }
 
 .button {
   background: #ffa424;
   border: none;
-  padding: 15px 20px;
+  padding: 13px 20px;
   border-radius: 5px;
+  color: #1e1e1e;
+  font-size: 15px;
 }

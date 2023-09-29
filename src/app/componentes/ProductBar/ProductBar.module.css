@@ -23,25 +23,33 @@
 }
 
 .a {
-  width: 10%;
+  width: 12%;
 }
 
 .b {
-  width: 30%;
+  width: 28%;
 }
 
 .c {
-  width: 10%;
+  width: 15%;
+  margin: 0 auto;
+  margin-right: 10px;
 }
 
 .d {
   width: 15%;
+  margin: 0 auto;
+  margin-right: 10px;
 }
 
 .e {
   width: 15%;
+  margin: 0 auto;
+  margin-right: 10px;
 }
 
 .f {
-  width: 9%;
+  width: 15%;
+  margin: 0 auto;
+  margin-right: 10px;
 }

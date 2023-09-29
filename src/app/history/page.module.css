@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  margin-top: 20px;
+  flex: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #333;
+  border: solid 1px #555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+[data-theme="dark"] .button {
+  background-color: #333;
+  border: 2px solid #555;
+}
+.wallet {
+  display: none;
+}
+.button:hover {
+  box-shadow: 0 0 15px rgb(92, 106, 125);
+}

@@ -18,19 +18,21 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 10;
 }
 
 .option select,
 .option2 select {
-  background-color: rgb(55, 55, 45);
-  font-size: 16px;
+  background-color: #555;
+  font-size: 14px;
   color: white;
-  border: 2px solid orange;
-  border-radius: 8px;
+  border: 2px solid #555;
+  border-radius: 5px;
   text-align: center;
-  font-size: large;
-  padding: 8px 15px;
+  padding: 7px 12px;
+  text-decoration: none;
 }
+
 .option select:hover {
   box-shadow: 0 0 15px rgb(92, 106, 125);
 }
@@ -41,14 +43,13 @@
 .rutas a,
 .rutas a:visited,
 .rutas a:active {
-  background-color: rgb(55, 55, 45);
-  font-size: 16px;
+  background-color: #555;
+  font-size: 14px;
   color: white;
-  border: 2px solid orange;
-  border-radius: 8px;
+  border: 2px solid #555;
+  border-radius: 5px;
   text-align: center;
-  font-size: medium;
-  padding: 8px 15px;
+  padding: 7px 12px;
   text-decoration: none;
 }
 .rutas a:hover {
@@ -80,7 +81,7 @@
   border-radius: 20px;
 }
 [data-theme="dark"] .logo {
-  filter: grayscale(80%);
+  filter: grayscale(90%);
 }
 [data-theme="dark"] .logo:hover {
   transform: scale(1.1);
@@ -100,29 +101,34 @@
 .sesion div {
   margin-bottom: 25px; /* Espacio entre los íconos */
 }
+
 .dash a {
-  background-color: rgb(55, 55, 45);
+  background-color: #555;
   color: white;
-  border: 2px solid orange;
+  border: 2px solid #555;
   border-radius: 8px;
   text-align: center;
   font-size: medium;
   padding: 6px 12px;
+  display: inline-block;
   text-decoration: none;
 }
+
 .dash a:hover {
   box-shadow: 0 0 15px rgb(92, 106, 125);
 }
+
 .login a {
-  background-color: rgb(55, 55, 45);
+  background-color: #555;
   color: white;
-  border: 2px solid orange;
+  border: 2px solid #555;
   border-radius: 8px;
   text-align: center;
   font-size: medium;
   padding: 6px 12px;
   text-decoration: none;
 }
+
 .login a:hover {
   box-shadow: 0 0 15px rgb(92, 106, 125);
 }
