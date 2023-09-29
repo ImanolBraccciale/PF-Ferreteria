@@ -192,15 +192,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = function() { return "a1c3c865f33857ec"; }
-=======
-/******/ 		__webpack_require__.h = function() { return "0abaab266c48d053"; }
->>>>>>> ima
-=======
-/******/ 		__webpack_require__.h = function() { return "dbd9824ae6f4f5f6"; }
->>>>>>> ima
+/******/ 		__webpack_require__.h = function() { return "d4be7a83ab301fea"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

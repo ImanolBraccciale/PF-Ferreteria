@@ -82,7 +82,7 @@ const LoginPage = () => {
 
         </div>
 
-        {errors.usuario && <p className={style.p}>{errors.usuario}</p>}
+        {errors.usuario && <p className={style.error}>{errors.usuario}</p>}
 
         <h3 className={style.subtitle}>Contraseña</h3>
         <div className={style.passwordContainer}>
@@ -107,9 +107,9 @@ const LoginPage = () => {
           </button>
         </div>
 
-        {errors.contraseña && <p className={style.p}>{errors.contraseña}</p>}
+        {errors.contraseña && <p className={style.error}>{errors.contraseña}</p>}
         <button className={style.button} type="submit"> Ingresar </button>
-        <p>O ingresa con</p>
+        <p className={style.p}>O ingresa con</p>
         <button
           type="button"
           className={style.btnFloating}
@@ -119,11 +119,11 @@ const LoginPage = () => {
           <span className={style.googleIcon}></span>
         </button>
         <br></br>
-        <p>
+        <p className={style.p}>
           ¿No tienes una cuenta? <Link href="/register">¡Registrate!</Link>
         </p>
         <br></br>
-        <p>¿Has olvidado tu contraseña?</p>
+        <p className={style.p}>¿Has olvidado tu contraseña?</p>
         <br></br>
       </form>
     </div>

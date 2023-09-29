@@ -11,7 +11,9 @@
     padding: 40px;
 }
 
-.p{
+
+
+.error{
     color: rgb(180, 0, 0);
     font-size: 13px;
 }
@@ -63,6 +65,11 @@
     background-color: #000000;
 }
 
+.p {
+    font-size: 16px;
+    color: #2c2c2c;
+}
+
 .forget {
     color: #474747;
 }
@@ -105,4 +112,104 @@
 
 .eyeIcon {
     font-size: 1.5rem;
+}
+
+/* ------------RESPONSIVE----------------------------------------- */
+@media (max-width: 768px) {
+    .container{
+        width: 75%;
+        padding: 20px ;
+    }
+
+    .error {
+        font-size: 12px;
+    }
+
+    .p {
+        font-size: 15px;
+    }
+
+    .title{
+        font-size: 18px;
+    }
+
+    .subtitle{
+        font-size: 16px;
+    }
+
+    .input {
+        width: 92%;
+        padding: 5px;
+    }
+
+    .passwordInput{
+        width: 92%;
+        padding: 5px;
+    }
+
+    .inputWrong {
+        width: 92%;
+        padding: 5px;
+    }
+
+    .button{
+        width: 26%;
+    }
+
+    .eyeIcon{
+        width: 90%;
+    }
+
+    .googleIcon{
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        width: 90%;
+    }
+
+    .error {
+        font-size: 11px;
+    }
+
+    .p {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .subtitle{
+        font-size: 14px;
+    }
+
+    .input{
+        width: 88%;
+        padding: 5px;
+    }
+
+    .passwordInput{
+        width: 88%;
+        padding: 5px;
+    }
+
+    .inputWrong{
+        width: 88%;
+        padding: 5px;
+    }
+
+    .button{
+        width: 22%;
+    }
+
+    .eyeIcon{
+        width: 80%;
+    }
+
+    .googleIcon{
+        width: 85%;
+    }
 }
