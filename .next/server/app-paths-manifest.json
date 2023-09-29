@@ -1,7 +1,11 @@
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/history/page": "app/history/page.js",
   "/[id]/page": "app/[id]/page.js",
   "/formCarrito/page": "app/formCarrito/page.js",
+=======
+  "/formProducto/page": "app/formProducto/page.js",
+>>>>>>> ef2000b40d3882980cdf759d1c9610d9616dcb88
   "/dashAdmin/page": "app/dashAdmin/page.js"
 }

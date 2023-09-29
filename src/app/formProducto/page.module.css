@@ -38,6 +38,11 @@
     margin-top: 0.2rem;
 }
 
+.errorSelect{
+    color: red;
+  font-size: 12px;
+  margin-bottom: 1rem;
+}
 .form button {
     background: #FFA424;
     border-radius: 4px;
@@ -47,14 +52,28 @@
     cursor: pointer;
 }
 
-.label1 {
+.label1{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    /* border: 1px solid red; */
+
+}
+
+.rubroGrupo{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+   
+  
 }
 .option {
-    font-size: 16px;
+    border-radius: 6px;
+    font-size: 24px;
+    color: #EC8800;
+    background-color: transparent;
+    cursor: pointer;
+    
 }
 
 
@@ -67,7 +86,7 @@
 }
 
 .x {
-    color: #fff;
+    /* color: #fff;
     border: none;
     border-radius: 50%;
     width: 10px;
@@ -77,5 +96,36 @@
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    margin-left: 10px;
+    margin-left: 10px; */
+
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 5px;
+    color: red;
+    /* background: #bb9f63; */
+    border-radius: 5px;
 }
+
+
+.butt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    /* padding-top: 20px; */
+    /* border: 1px solid red; */
+    
+}
+.b{
+transition: border-color 0.25s;
+}
+
+.b:hover {
+    border-color: #2F3544;
+    transform: scale(1.05);
+}
+/* 
+.optioncombinada{
+    display: inline-flex;
+    border: 1px solid green;
+} */

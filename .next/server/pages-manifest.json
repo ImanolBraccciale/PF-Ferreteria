@@ -1,7 +1,13 @@
 {
-  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/api/products": "pages/api/products.js",
   "/api/suppliers": "pages/api/suppliers.js"
+=======
+  "/_app": "pages/_app.js",
+  "/api/tag": "pages/api/tag.js",
+  "/api/suppliers": "pages/api/suppliers.js",
+  "/api/products": "pages/api/products.js"
+>>>>>>> ef2000b40d3882980cdf759d1c9610d9616dcb88
 }
