@@ -4,10 +4,8 @@ import validate from "../componentes/validations.js/validateProductos";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getSuppliers, getTags, postProducts } from "../redux/actions/actions";
-import { CldUploadButton } from 'next-cloudinary';
-
-
-import s from "@/app/formProducto/page.module.css"
+import { CldUploadButton } from "next-cloudinary";
+import s from "@/app/formProducto/page.module.css";
 function FormProducto() {
   const [input, setInput] = useState({
     name: "",
@@ -22,14 +20,11 @@ function FormProducto() {
   });
 
   const handleUploadSuccess = (e) => {
-    console.log('Imagen subida:', e.event);
-
+    console.log("Imagen subida:", e.event);
   };
-
 
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
-  const [selectErrors, setSelectErrors] = useState({});
   const group = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.allSuppliers);
 
@@ -42,8 +37,13 @@ function FormProducto() {
     e.preventDefault();
     const validationErrors = validate(input);
 
-    if (Object.keys(validationErrors).length !== 0 || !input.group.length || !input.rubro.length || !input.supplierName.length) {
-      alert('Llene los campos correctamente');
+    if (
+      Object.keys(validationErrors).length !== 0 ||
+      !input.group.length ||
+      !input.rubro.length ||
+      !input.supplierName.length
+    ) {
+      alert("Llene los campos correctamente");
       setErrors(validationErrors);
     } else {
       dispatch(postProducts(input));
@@ -208,8 +208,17 @@ function FormProducto() {
           />
           {errors.stock && <p className={s.error}>{errors.stock}</p>}
         </div>
+        <div>
+          <h2>Subir una imagen</h2>
+          {/* <CldUploadButton
+            uploadPreset="uv0vtybv"
+            onSuccess={handleUploadSuccess}
+          >
+            Seleccionar imagen
+          </CldUploadButton> */}
+        </div>
         <div className={s.rubroGrupo}>
-          <div className={s.label1}>
+          <div>
             <select
               id="grupo"
               defaultValue=""
@@ -227,7 +236,7 @@ function FormProducto() {
                 );
               })}
             </select>
-           
+
             {/* {input.group.map((g) => (
               <div className={s.optioncombinada}>
                 <div className={s.selectioned}>{g}</div>
@@ -242,11 +251,11 @@ function FormProducto() {
                 </span>
               </div>
             ))} */}
-            <br/>
+            <br />
             {errors.group && <p className={s.errorSelect}>{errors.group}</p>}
           </div>
 
-          <div className={s.label1}>
+          <div>
             <select
               id="rubro"
               defaultValue=""
@@ -281,26 +290,26 @@ function FormProducto() {
             {errors.rubro && <p className={s.errorSelect}>{errors.rubro}</p>}
           </div>
         </div>
-
-        <div className={s.label1}>
-          <select
-            id=""
-            defaultValue=""
-            className={s.option}
-            onChange={(e) => handleSuppliers(e)}
-          >
-            <option value="" disabled hidden>
-              Proveedor
-            </option>
-            {suppliers.map((s) => {
-              return (
-                <option key={s.id} value={s.name}>
-                  {s.name}
-                </option>
-              );
-            })}
-          </select>
-          {/* {input.supplierName.map((s) => (
+        <div  className={s.label1}>
+          <div>
+            <select
+              id=""
+              defaultValue=""
+              className={s.option}
+              onChange={(e) => handleSuppliers(e)}
+            >
+              <option value="" disabled hidden>
+                Proveedor
+              </option>
+              {suppliers.map((s) => {
+                return (
+                  <option key={s.id} value={s.name}>
+                    {s.name}
+                  </option>
+                );
+              })}
+            </select>
+            {/* {input.supplierName.map((s) => (
             <div className={s.optioncombinada}>
               <div className={s.selectioned}>{s}</div>
               <span
@@ -313,22 +322,11 @@ function FormProducto() {
               </span>
             </div>
           ))} */}
-          {errors.supplierName && (
-            <p className={s.errorSelect}>{errors.supplierName}</p>
-          )}
+            {errors.supplierName && (
+              <p className={s.errorSelect}>{errors.supplierName}</p>
+            )}
+          </div>
         </div>
-
-        <div>
-          <h2>Subir una imagen</h2>
-          {/* <CldUploadButton
-            uploadPreset="uv0vtybv"
-            onSuccess={handleUploadSuccess}
-          >
-            Seleccionar imagen
-          </CldUploadButton> */}
-        </div>
-
-        
         <div className={s.butt}>
           <button type="submit" className={s.b}>
             Guardar
