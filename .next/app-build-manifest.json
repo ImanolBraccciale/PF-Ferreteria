@@ -1,5 +1,11 @@
 {
   "pages": {
+    "/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[id]/page.css",
+      "static/chunks/app/[id]/page.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -7,41 +13,34 @@
       "static/chunks/app/page.js"
     ],
     "/layout": [
-<<<<<<< HEAD
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/[id]/page": [
+    "/history/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[id]/page.css",
-      "static/chunks/app/[id]/page.js"
+      "static/css/app/history/page.css",
+      "static/chunks/app/history/page.js"
+    ],
+    "/formCarrito/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/formCarrito/page.css",
+      "static/chunks/app/formCarrito/page.js"
+    ],
+    "/suppliers/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/suppliers/page.css",
+      "static/chunks/app/suppliers/page.js"
     ],
     "/dashAdmin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/dashAdmin/page.css",
       "static/chunks/app/dashAdmin/page.js"
-    ],
-    "/postTag/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/postTag/page.css",
-      "static/chunks/app/postTag/page.js"
-=======
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
->>>>>>> Carrito
     ]
   }
 }

@@ -4,10 +4,6 @@ import putSuppliers from "../controllers/suppliers/putSuppliers";
 import postSuppliers from "../controllers/suppliers/postSuppliers";
 
 const handlerSuppliers = async (req, res) => {
-<<<<<<< HEAD
-  //console.log("pasando por el handler suppliers");
-=======
->>>>>>> Carrito
   const { method, body } = req;
 
   try {
