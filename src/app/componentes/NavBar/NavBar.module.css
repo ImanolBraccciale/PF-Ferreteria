@@ -9,27 +9,51 @@
   background: #ffa424;
   color: black;
 }
+[data-theme="dark"] .container {
+  background: #1e1e1e;
+  color: white;
+}
 
 .botones {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 10;
 }
 
 .option select,
 .option2 select {
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
-  color: black;
+  background-color: #555;
+  font-size: 14px;
+  color: white;
+  border: 2px solid #555;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px 12px;
+  text-decoration: none;
+}
+
+.option select:hover {
+  box-shadow: 0 0 15px rgb(92, 106, 125);
+}
+.option2 select:hover {
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
 
 .rutas a,
 .rutas a:visited,
-.rutas a:hover,
 .rutas a:active {
+  background-color: #555;
+  font-size: 14px;
+  color: white;
+  border: 2px solid #555;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px 12px;
   text-decoration: none;
-  color: black;
+}
+.rutas a:hover {
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
 
 .rutas,
@@ -54,20 +78,57 @@
   width: 220px;
   height: 130px;
   background-position: left;
+  border-radius: 20px;
+}
+[data-theme="dark"] .logo {
+  filter: grayscale(90%);
+}
+[data-theme="dark"] .logo:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
 }
 
 .sesion {
-  padding: 0 60px 0 60px;
+  padding: 0;
+  position: relative;
+  top: 15px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.modoOscuro {
-  background-color: #000000; 
-  color: #ffffff; 
- 
+.sesion div {
+  margin-bottom: 25px; /* Espacio entre los íconos */
 }
 
-.modoOscuro button {
-  background-color: #ffffff;
-  color: #000000;
+.dash a {
+  background-color: #555;
+  color: white;
+  border: 2px solid #555;
+  border-radius: 8px;
+  text-align: center;
+  font-size: medium;
+  padding: 6px 12px;
+  display: inline-block;
+  text-decoration: none;
 }
 
+.dash a:hover {
+  box-shadow: 0 0 15px rgb(92, 106, 125);
+}
+
+.login a {
+  background-color: #555;
+  color: white;
+  border: 2px solid #555;
+  border-radius: 8px;
+  text-align: center;
+  font-size: medium;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.login a:hover {
+  box-shadow: 0 0 15px rgb(92, 106, 125);
+}

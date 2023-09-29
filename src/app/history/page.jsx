@@ -1,16 +1,17 @@
-"use client"
+"use client";
 
 //TESTUSER1335749811
 //KYuaUHNube
-import React, { useState } from 'react';
-import NavBar from '../componentes/NavBar/NavBar';
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
-import axios from 'axios';
+import React, { useState } from "react";
+import NavBar from "../componentes/NavBar/NavBar";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import axios from "axios";
+import s from "./page.module.css";
 
-initMercadoPago('TEST-2704ea0d-a660-4fe8-be61-e2c32675c7ed');
+initMercadoPago("TEST-2704ea0d-a660-4fe8-be61-e2c32675c7ed");
 
 const samplePaymentInfo = {
-  name: 'Producto de prueba',
+  name: "Producto de prueba",
   price: 10.0, // Reemplaza con el precio deseado
 };
 
@@ -27,13 +28,12 @@ function History() {
           quantity: 1,
           currency_id: "ARS",
         },
-
       });
 
       const { id } = response.data;
       return id;
     } catch (error) {
-      console.error('Error al crear la preferencia:', error);
+      console.error("Error al crear la preferencia:", error);
     }
   };
 
@@ -46,11 +46,17 @@ function History() {
   };
 
   return (
-    <div>
+    <div className={s.container}>
       <NavBar />
-      <div>
-        <button onClick={handleBuy}>Realizar Pago</button>
-        {preferenceId && <div><Wallet initialization={{ preferenceId }} /></div>}
+      <div className={s.content}>
+        <button className={s.button} onClick={handleBuy}>
+          Realizar Pago
+        </button>
+        {preferenceId && (
+          <div>
+            <Wallet initialization={{ preferenceId }} className={s.wallet} />
+          </div>
+        )}
       </div>
     </div>
   );

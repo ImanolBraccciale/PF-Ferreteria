@@ -12,14 +12,14 @@ import { useEffect, useState } from "react"
 import s from "@/app/page.module.css"
 
 const page = () => {
-  const dispatch = useDispatch()
-  const allProducts = useSelector((state) => state.products)
+  const dispatch = useDispatch();
+  const allProducts = useSelector((state) => state.products);
   // const userEmail = useSelector((state) => state.user)
   // console.log('useEmail, ',userEmail);
   // const [rolUser, setRolUser] = useState('admin')
   useEffect(() => {
-    dispatch(getAllProducts())
-  }, [dispatch])
+    dispatch(getAllProducts());
+  }, [dispatch]);
   return (
     <div>
       <div>
@@ -33,22 +33,19 @@ const page = () => {
           ? "Bienvenido, empleado"
           : "Bienvenido, cliente"}
       </h1> */}
-        {
-          allProducts.map(({ id, name, stock, costoActual, price }) => {
-            return (
-              <Link className={s.z} href={`/${id}`} key={id}>
-                <ProductList
-                  id={id}
-                  name={name}
-                  stock={stock}
-                  costoActual={costoActual}
-                  price={price}
-                />
-              </Link>
-
-            )
-          })
-        }
+        {allProducts.map(({ id, name, stock, costoActual, price }) => {
+          return (
+            <Link className={s.z} href={`/${id}`} key={id}>
+              <ProductList
+                id={id}
+                name={name}
+                stock={stock}
+                costoActual={costoActual}
+                price={price}
+              />
+            </Link>
+          );
+        })}
         <Link href="/formProducto">
           <AddButtom />
         </Link>
@@ -56,9 +53,11 @@ const page = () => {
       <Link href="/formCarrito">
         <VentaButton />
       </Link>
+      <div>
+        <Footer />
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default page
+export default page;
