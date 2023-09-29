@@ -1,4 +1,22 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_TAG, FILTER_BY_SUPPLIERS, POST_PRODUCTS, POST_REVIEW, GET_REVIEW, GET_REVIEW_BY_ID } from "./actionsTypes";
+import { POST_PRODUCTS, 
+  GET_SUPPLIERS, 
+  POST_SUPPLIERS, 
+  GET_BY_ID, 
+  GET_ALL_PRODUCTS, 
+  DELETE_DETAIL, 
+  ORDER_BY, 
+  FILTER_BY_GROUP, 
+  GET_TAGS, 
+  GET_NAMES, 
+  FILTER_BY_SUPPLIERS, 
+  CREDENTIAL, 
+  GET_USER_BY_EMAIL, 
+  POST_USERS, 
+  POST_TAG, 
+  POST_REVIEW, 
+  GET_REVIEW, 
+  GET_REVIEW_BY_ID} 
+  from "../actions/actionsTypes"
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -214,7 +232,7 @@ export const getReviewById = (idReview) => {
         try {
             const { data } = await axios.get(`/api/Review?idReview=${idReview}`)
             return dispatch({
-                type: GET_USER_BY_EMAIL,
+                type: GET_REVIEW_BY_ID,
                 payload: data
             })
         } catch (error) {
