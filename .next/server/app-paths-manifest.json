@@ -1,0 +1,14 @@
+{
+<<<<<<< HEAD
+  "/page": "app/page.js",
+<<<<<<< HEAD
+  "/suppliers/page": "app/suppliers/page.js",
+  "/[id]/page": "app/[id]/page.js",
+  "/formProv/page": "app/formProv/page.js"
+=======
+  "/[id]/page": "app/[id]/page.js"
+>>>>>>> ima
+=======
+  "/page": "app/page.js"
+>>>>>>> ima
+}
