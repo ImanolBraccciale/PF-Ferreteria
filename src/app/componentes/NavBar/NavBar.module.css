@@ -18,7 +18,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 10;
 }
 
 .option select,
@@ -31,6 +30,7 @@
   text-align: center;
   padding: 7px 12px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .option select:hover {
@@ -75,8 +75,8 @@
   position: relative;
   background-image: url("../assets/images/rofe-logo4.jpg");
   background-size: cover;
-  width: 220px;
-  height: 130px;
+  width: 200px;
+  height: 100px;
   background-position: left;
   border-radius: 20px;
 }
