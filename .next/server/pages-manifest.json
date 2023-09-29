@@ -4,6 +4,5 @@
   "/_document": "pages/_document.js",
   "/api/suppliers": "pages/api/suppliers.js",
   "/api/tag": "pages/api/tag.js",
-  "/api/products": "pages/api/products.js",
-  "/api/Review": "pages/api/Review.js"
+  "/api/products": "pages/api/products.js"
 }
