@@ -7,6 +7,7 @@
       "static/chunks/app/page.js"
     ],
     "/layout": [
+<<<<<<< HEAD
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
@@ -29,6 +30,18 @@
       "static/chunks/main-app.js",
       "static/css/app/postTag/page.css",
       "static/chunks/app/postTag/page.js"
+=======
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
+>>>>>>> Carrito
     ]
   }
 }

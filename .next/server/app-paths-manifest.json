@@ -1,6 +1,10 @@
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/dashAdmin/page": "app/dashAdmin/page.js",
   "/[id]/page": "app/[id]/page.js",
   "/postTag/page": "app/postTag/page.js"
+=======
+  "/login/page": "app/login/page.js"
+>>>>>>> Carrito
 }
