@@ -9,14 +9,12 @@ import { useEffect } from "react";
 import { getProductById } from "../redux/actions/actions";
 
 const Detail = ({ params }) => {
-  
   const id = params.id;
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   useEffect(() => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
-
 
   return (
     <>
@@ -35,11 +33,11 @@ const Detail = ({ params }) => {
                   <p>{productDetail.descripcion}</p>
                 </div>
                 <div className={style.seguido}>
-                  <h2>grupo:</h2>
+                  <h2>Grupo:</h2>
                   <p>{productDetail.rubroTagId}</p>
                 </div>
                 <div className={style.seguido}>
-                  <h2>Grupo:</h2>
+                  <h2>Rubro:</h2>
                   <p>{productDetail.groupTagId}</p>
                 </div>
                 <div className={style.seguido}>
@@ -51,7 +49,7 @@ const Detail = ({ params }) => {
                   <p>{productDetail.costoAnterior}</p>
                 </div>
                 <div className={style.seguido}>
-                  <h2>stock:</h2>
+                  <h2>Stock:</h2>
                   <p>{productDetail.stock}</p>
                 </div>
                 <div className={style.seguido}>

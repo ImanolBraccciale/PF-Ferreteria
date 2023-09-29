@@ -5,7 +5,6 @@ function ProductBar() {
   return (
     <div className={s.all}>
       <div className={s.container}>
-        <div className={s.a}>Codigo</div>
         <div className={s.b}>Nombre</div>
         <div className={s.c}>Stock</div>
         <div className={s.d}>Precio sin IVA</div>
