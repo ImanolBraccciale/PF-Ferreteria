@@ -111,7 +111,7 @@
 }
 
 .eyeIcon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 /* ------------RESPONSIVE----------------------------------------- */
@@ -157,7 +157,7 @@
     }
 
     .eyeIcon{
-        width: 90%;
+        font-size: 1.2rem;
     }
 
     .googleIcon{
@@ -206,7 +206,7 @@
     }
 
     .eyeIcon{
-        width: 80%;
+        font-size: 1rem;
     }
 
     .googleIcon{
