@@ -24,17 +24,11 @@
       "static/css/app/dashAdmin/page.css",
       "static/chunks/app/dashAdmin/page.js"
     ],
-    "/formProducto/page": [
+    "/postTag/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/formProducto/page.css",
-      "static/chunks/app/formProducto/page.js"
-    ],
-    "/suppliers/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/suppliers/page.css",
-      "static/chunks/app/suppliers/page.js"
+      "static/css/app/postTag/page.css",
+      "static/chunks/app/postTag/page.js"
     ]
   }
 }
