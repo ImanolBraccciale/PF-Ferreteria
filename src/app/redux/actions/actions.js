@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_TAG, FILTER_BY_SUPPLIERS, POST_PRODUCTS } from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_TAG, FILTER_BY_SUPPLIERS, POST_PRODUCTS, POST_REVIEW, GET_REVIEW, GET_REVIEW_BY_ID } from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -194,3 +194,45 @@ export const postTags = (tag) => {
         }
     }
 }
+
+export const postReview = (review) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post('api/Review', review);
+            return dispatch({
+                type: POST_REVIEW,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+export const getReviewById = (idReview) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(`/api/Review?idReview=${idReview}`)
+            return dispatch({
+                type: GET_USER_BY_EMAIL,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+export const getReviews = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get("/api/Review");
+            return dispatch({
+                type: GET_REVIEW,
+                payload: data,
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+};

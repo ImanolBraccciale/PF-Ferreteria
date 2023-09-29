@@ -5,6 +5,7 @@ import VentaButton from "./componentes/IngresarVenta/VentaButton"
 import NavBar from "./componentes/NavBar/NavBar"
 import ProductBar from "./componentes/ProductBar/ProductBar"
 import ProductList from "./componentes/ProductList/ProductList"
+import Rating from "./componentes/Rating/Rating"
 import { getAllProducts } from "./redux/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
@@ -24,6 +25,7 @@ const page = () => {
       <div>
         <NavBar />
         <ProductBar />
+        <Rating/>
         {/* <h1>
         {rolUser === "admin"
           ? "Bienvenido, administrador"

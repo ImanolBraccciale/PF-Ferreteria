@@ -1,0 +1,19 @@
+.starRating {
+    display: flex;
+}
+
+.starRating .on .star {
+    color: gold;
+    font-size: 5em;
+}
+
+.starRating .off .star {
+    color: lightgray;
+    font-size: 5em;
+}
+
+.starRating button {
+    background: none;
+    border: none;
+    padding: 0;
+}

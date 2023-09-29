@@ -75,8 +75,8 @@ DetailSale.belongsTo(Sale, { foreignKey: 'saleId' });
 Review.belongsTo(Users, { foreignKey: 'idUser'});
 Users.hasOne(Review, { foreignKey: 'idUser'});
 
-Review.belongsTo(Sale, { foreignKey: 'id', as: 'idSale' });
-Sale.hasOne(Review, { foreignKey: 'id', as: 'idSale' });
+Review.hasOne(Sale, { foreignKey: 'idReview' });
+Sale.belongsTo(Review, { foreignKey: 'idReview' });
 
 
 db.sequelize.sync();
