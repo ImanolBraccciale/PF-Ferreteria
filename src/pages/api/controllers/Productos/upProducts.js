@@ -74,24 +74,3 @@ module.exports = async (data) => {
   }
 };
 
-
-// const product = await Products.findByPk(data.id);
-
-// if (!product) {
-//   throw new Error('El producto no fue encontrado');
-// }
-
-// // Busca el proveedor existente por el nombre proporcionado
-// const existingSupplier = await Suppliers.findOne({
-//   where: { name: data.supplierName },
-// });
-
-// if (!existingSupplier) {
-//   throw new Error('Proveedor no encontrado en la base de datos');
-// }
-
-// // Utiliza setSupplier para cambiar el proveedor del producto
-// await product.setSupplier(existingSupplier);
-
-// // Guarda los cambios en el producto
-// await product.save();
