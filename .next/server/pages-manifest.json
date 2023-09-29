@@ -1,13 +1,8 @@
 {
   "/_error": "pages/_error.js",
-  "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
-  "/api/suppliers": "pages/api/suppliers.js",
-  "/api/products": "pages/api/products.js",
-  "/api/tag": "pages/api/tag.js"
-=======
+  "/_app": "pages/_app.js",
   "/api/tag": "pages/api/tag.js",
-  "/api/suppliers": "pages/api/suppliers.js"
->>>>>>> Developer
+  "/api/suppliers": "pages/api/suppliers.js",
+  "/api/products": "pages/api/products.js"
 }

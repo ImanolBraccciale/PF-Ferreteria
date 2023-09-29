@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/page": [
+    "/formProducto/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/formProducto/page.css",
+      "static/chunks/app/formProducto/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,31 +12,17 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[id]/page.css",
-      "static/chunks/app/[id]/page.js"
-    ],
-<<<<<<< HEAD
-    "/formProducto/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/formProducto/page.css",
-      "static/chunks/app/formProducto/page.js"
-=======
     "/dashAdmin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/dashAdmin/page.css",
       "static/chunks/app/dashAdmin/page.js"
     ],
-    "/postTag/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/postTag/page.css",
-      "static/chunks/app/postTag/page.js"
->>>>>>> Developer
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ]
   }
 }
