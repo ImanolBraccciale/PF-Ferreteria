@@ -1,5 +1,11 @@
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/[id]/page": "app/[id]/page.js",
   "/formProducto/page": "app/formProducto/page.js"
+=======
+  "/dashAdmin/page": "app/dashAdmin/page.js",
+  "/[id]/page": "app/[id]/page.js",
+  "/postTag/page": "app/postTag/page.js"
+>>>>>>> Developer
 }
