@@ -53,9 +53,7 @@ const page = () => {
       <Link href="/formCarrito">
         <VentaButton />
       </Link>
-      <div>
-        <Footer />
-      </div>
+
     </div>
   );
 };
