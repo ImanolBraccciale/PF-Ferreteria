@@ -16,7 +16,8 @@ import {
   POST_TAG,
   POST_REVIEW,
   GET_REVIEW,
-  GET_REVIEW_BY_ID
+  GET_REVIEW_BY_ID,
+  USERCREDENTIALS
 }
   from "../actions/actionsTypes"
 import axios from "axios";

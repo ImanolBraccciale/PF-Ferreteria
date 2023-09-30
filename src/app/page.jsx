@@ -54,7 +54,7 @@ const page = () => {
         <VentaButton />
       </Link>
       <div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );
