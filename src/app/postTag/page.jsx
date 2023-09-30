@@ -72,7 +72,7 @@ const ProveedorForm = () => {
             value={input.type}
             onChange={handleChange}
           >
-            <option value="group">Group</option>
+            <option value="group">Grupo</option>
             <option value="rubro">Rubro</option>
           </select>
         </div>

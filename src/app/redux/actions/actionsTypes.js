@@ -14,7 +14,4 @@ export const USERCREDENTIALS = "USER_CREDENTIALS"
 export const FILTER_BY_SUPPLIERS = "FILTER_BY_SUPPLIERS"
 export const POST_PRODUCTS = "POST_PRODUCTS"
 export const POST_TAG = "POST_TAG"
-export const POST_REVIEW = "POST_REVIEW"
-export const GET_REVIEW = "GET_REVIEW"
-export const GET_REVIEW_BY_ID = "GET_REVIEW_BY_ID"
-
+export const GET_RUBRO= "GET_RUBRO"

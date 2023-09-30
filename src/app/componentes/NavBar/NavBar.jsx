@@ -25,7 +25,8 @@ function NavBar() {
   const suppliers = useSelector((state) => state.suppliers);
 
   useEffect(() => {
-    dispatch(getSuppliers()), getTags();
+    dispatch(getSuppliers()),
+    dispatch (getTags());
   }, [dispatch]);
 
   useEffect(() => setMounted(true), []);
@@ -130,11 +131,12 @@ function NavBar() {
             />
           )}
         </div>
+        
         <div className={s.dash}>
-          <a href="/dashAdmin">Ir al Panel</a>
+          <Link href="/dashAdmin">Panel</Link>
         </div>
         <div className={s.login}>
-          <a href="/login">Cerrar Sesion</a>
+          <Link href="/login">Cerrar Sesion</Link>
         </div>
       </div>
     </div>

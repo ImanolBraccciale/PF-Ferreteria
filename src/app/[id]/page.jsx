@@ -34,15 +34,15 @@ const Detail = ({ params }) => {
                 </div>
                 <div className={style.seguido}>
                   <h2>Grupo:</h2>
-                  <p>{productDetail.rubroTagId}</p>
+                  <p>{productDetail.rubro}</p>
                 </div>
                 <div className={style.seguido}>
                   <h2>Rubro:</h2>
-                  <p>{productDetail.groupTagId}</p>
+                  <p>{productDetail.group}</p>
                 </div>
                 <div className={style.seguido}>
                   <h2>Proveedor:</h2>
-                  <p>{productDetail.SupplierId}</p>
+                  <p>{productDetail.supplierName}</p>
                 </div>
                 <div className={style.seguido}>
                   <h2>Precio anterior:</h2>

@@ -5,21 +5,18 @@ import {
   GET_BY_ID,
   GET_ALL_PRODUCTS,
   DELETE_DETAIL,
-  USERCREDENTIALS,
   ORDER_BY,
   FILTER_BY_GROUP,
   GET_TAGS,
   GET_NAMES,
   FILTER_BY_SUPPLIERS,
   CREDENTIAL,
+  USERCREDENTIALS,
   GET_USER_BY_EMAIL,
   POST_USERS,
   POST_TAG,
-  POST_REVIEW,
-  GET_REVIEW,
-  GET_REVIEW_BY_ID
-}
-  from "../actions/actionsTypes"
+  GET_RUBRO,
+} from "../actions/actionsTypes";
 
 const initialState = {
   allProducts: [],
@@ -29,11 +26,11 @@ const initialState = {
   etiquetas: [],
   productDetail: [],
   user: {},
+  credential_user: {},
   estado: false,
   suppliers: [],
-  review: []
-
-}
+  rubro:[]
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -68,50 +65,52 @@ const reducer = (state = initialState, action) => {
         credential_user: action.payload,
       };
 
-    case GET_BY_ID:
-
+    case GET_USER_BY_EMAIL:
+      console.log(action.payload);
       return {
         ...state,
-        productDetail: action.payload
-      }
+        user: action.payload,
+      };
+    case POST_PRODUCTS:
+      return {
+        ...state,
+        allProducts: [...state.allProducts, action.payload],
+        products: [...state.products, action.payload],
+      };
+
+    case GET_BY_ID:
+      return {
+        ...state,
+        productDetail: action.payload,
+      };
     case DELETE_DETAIL:
       return {
         ...state,
-        productDetail: action.payload
-      }
+        productDetail: action.payload,
+      };
     case GET_ALL_PRODUCTS:
       return {
         ...state,
         allProducts: action.payload,
-        products: action.payload
+        products: action.payload,
       };
     case GET_NAMES:
       return {
         ...state,
-        products: action.payload
+        products: action.payload,
       };
-    case POST_REVIEW:
+    case POST_TAG:
       return {
         ...state,
-        review: [...state.review, action.payload],
-      }
-    case GET_REVIEW:
-      return {
-        ...state,
-        review: action.payload
+        etiquetas: [...state.etiquetas, action.payload],
       };
-    case GET_REVIEW_BY_ID:
-      return {
-        ...state,
-        review: action.payload
-      }
     case ORDER_BY:
-      let productCopy = [...state.allProducts];
-      let ordenamiento
+      let productCopy = [...state.products];
+      let ordenamiento;
 
       switch (action.payload) {
         case "All":
-          ordenamiento = [...state.allProducts];
+          productCopy = [...state.allProducts];
           break;
         case "A-Z":
           ordenamiento = productCopy.sort(function (a, b) {
@@ -159,10 +158,9 @@ const reducer = (state = initialState, action) => {
       let aux = [];
       let filtrado;
       if (action.payload) {
-        aux = state.allProducts;
+        aux = state.products;
         filtrado = aux.filter((e) => {
-          console.log("aaaa");
-          return e.rubro?.includes(action.payload);
+          return e.group?.includes(action.payload);
         });
         console.log(filtrado);
       }
@@ -174,9 +172,9 @@ const reducer = (state = initialState, action) => {
       let aux1 = [];
       let filtradoSup;
       if (action.payload) {
-        aux1 = state.allProducts;
+        aux1 = state.products;
         filtradoSup = aux1.filter((e) => {
-          return e.supplier?.includes(action.payload);
+          return e.supplierName?.includes(action.payload);
         });
         console.log(filtradoSup);
       }
@@ -190,7 +188,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         etiquetas: action.payload,
       };
-
+          case GET_RUBRO:
+      return {
+        ...state,
+        rubro: action.payload,
+      };
     default:
       return state;
   }

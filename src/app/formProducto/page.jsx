@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import validate from "../componentes/validations.js/validateProductos";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import { getSuppliers, getTags, postProducts } from "../redux/actions/actions";
+import { getRubro, getSuppliers, getTags, postProducts } from "../redux/actions/actions";
 import { CldUploadButton } from "next-cloudinary";
 import s from "@/app/formProducto/page.module.css";
 function FormProducto() {
@@ -27,9 +27,12 @@ function FormProducto() {
   const [errors, setErrors] = useState({});
   const group = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.allSuppliers);
-
+  const rubro = useSelector((state) => state.rubro);
+  console.log(rubro, "rubro");
+  console.log(group, "group");
   useEffect(() => {
     dispatch(getTags());
+    dispatch(getRubro())
     dispatch(getSuppliers());
   }, [dispatch]);
 
@@ -265,7 +268,7 @@ function FormProducto() {
               <option value="" disabled hidden>
                 Rubro
               </option>
-              {group.map((r) => {
+              {rubro.map((r) => {
                 return (
                   <option key={r.id} value={r.name}>
                     {r.name}
@@ -290,7 +293,7 @@ function FormProducto() {
             {errors.rubro && <p className={s.errorSelect}>{errors.rubro}</p>}
           </div>
         </div>
-        <div  className={s.label1}>
+        <div className={s.label1}>
           <div>
             <select
               id=""
