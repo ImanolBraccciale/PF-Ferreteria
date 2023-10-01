@@ -2,7 +2,16 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/api/suppliers": "pages/api/suppliers.js",
   "/api/tag": "pages/api/tag.js",
   "/api/products": "pages/api/products.js"
+=======
+  "/api/products": "pages/api/products.js",
+<<<<<<< HEAD
+=======
+  "/api/tag": "pages/api/tag.js",
+>>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
+  "/api/suppliers": "pages/api/suppliers.js"
+>>>>>>> f286f8787c5ae5dad3745182adf8f841f6e28957
 }
