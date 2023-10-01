@@ -9,8 +9,6 @@ import { getAllProducts } from "./redux/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 
-import Paginado from "./componentes/paginado/paginado"
-
 const page = () => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
@@ -49,12 +47,6 @@ const page = () => {
           : "Bienvenido, cliente"}
           </h1> */}
         
-      </div>
-      <div>
-        <Paginado
-          productsPerPage={productsPerPage} 
-          allProducts={allProducts.length} 
-          paginado={paginado} />
       </div>
     </div>
   );

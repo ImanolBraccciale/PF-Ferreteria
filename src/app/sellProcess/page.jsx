@@ -6,6 +6,7 @@ import ProductBar from "../componentes/ProductBar/ProductBar";
 import AddButtom from "../componentes/AddButtom/AddButtom";
 import VentaButton from "../componentes/IngresarVenta/VentaButton";
 import ProductList from "../componentes/ProductList/ProductList";
+import Paginado from "../componentes/paginado/paginado";
 
 const CartForm = () => {
   const allProducts = useSelector((state) => state.products);
@@ -19,20 +20,25 @@ const CartForm = () => {
     indexOfFirstProducts,
     indexOfLastProducts
   );
+
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
       <ProductBar />
       {currentProducts.map(({ id, name, stock, costoActual, price }) => {
         return (
-            <ProductList
-              key={id}
-              id={id}
-              name={name}
-              stock={stock}
-              costoActual={costoActual}
-              price={price}
-              enlace={`/${id}`}
-            />
+          <ProductList
+            key={id}
+            id={id}
+            name={name}
+            stock={stock}
+            costoActual={costoActual}
+            price={price}
+            enlace={`/${id}`}
+          />
         );
       })}
       <Link href="/formProducto">
@@ -41,6 +47,13 @@ const CartForm = () => {
       <Link href="/formCarrito">
         <VentaButton />
       </Link>
+      <div style={{marginLeft: 200}}>
+        <Paginado
+          productsPerPage={productsPerPage}
+          allProducts={allProducts.length}
+          paginado={paginado}
+        />
+      </div>
     </>
   );
 };
