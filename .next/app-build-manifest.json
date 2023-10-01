@@ -6,12 +6,6 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[id]/page.css",
-      "static/chunks/app/[id]/page.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -35,6 +29,18 @@
       "static/chunks/main-app.js",
       "static/css/app/formCarrito/page.css",
       "static/chunks/app/formCarrito/page.js"
+    ],
+    "/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[id]/page.css",
+      "static/chunks/app/[id]/page.js"
+    ],
+    "/dashAdmin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashAdmin/page.css",
+      "static/chunks/app/dashAdmin/page.js"
     ]
   }
 }
