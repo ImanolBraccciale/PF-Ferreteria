@@ -10,16 +10,32 @@ import { getAllProducts } from "./redux/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import s from "@/app/page.module.css"
+import Paginado from "./componentes/paginado/paginado"
 
 const page = () => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
-  // const userEmail = useSelector((state) => state.user)
-  // console.log('useEmail, ',userEmail);
-  // const [rolUser, setRolUser] = useState('admin')
+  
+  const [currentPage, setCurrentPage] = useState(1)
+  const productsPerPage = 30
+  const indexOfLastProducts = currentPage * productsPerPage 
+  const indexOfFirstProducts= indexOfLastProducts - productsPerPage 
+  const currentProducts = allProducts.slice(indexOfFirstProducts, indexOfLastProducts) 
+  
+  const paginado = (pageNumber) => { 
+    setCurrentPage(pageNumber)
+  }
+  
+  
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
+
+  
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  }, [currentPage])
+
   return (
     <div>
       <div>
@@ -32,8 +48,8 @@ const page = () => {
           : rolUser === "employee"
           ? "Bienvenido, empleado"
           : "Bienvenido, cliente"}
-      </h1> */}
-        {allProducts.map(({ id, name, stock, costoActual, price }) => {
+          </h1> */}
+        {currentProducts.map(({ id, name, stock, costoActual, price }) => {
           return (
             <Link className={s.z} href={`/${id}`} key={id}>
               <ProductList
@@ -51,13 +67,22 @@ const page = () => {
         </Link>
       </div>
       <Link href="/formCarrito">
-        <VentaButton />
+        <VentaButton/>
       </Link>
       <div>
-        {/* <Footer /> */}
+        <Paginado
+                productsPerPage={productsPerPage} 
+                allProducts={allProducts.length} 
+                paginado={paginado} />
       </div>
     </div>
   );
 };
 
 export default page;
+
+
+
+
+
+

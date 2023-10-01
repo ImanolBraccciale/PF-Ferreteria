@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import validate from "../componentes/validations.js/validateProductos";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import { getSuppliers, getTags, postProducts } from "../redux/actions/actions";
-import { CldUploadButton } from "next-cloudinary";
+import { getRubro, getSuppliers, getTags, postProducts } from "../redux/actions/actions";
+import { CldUploadButton } from 'next-cloudinary';
 import s from "@/app/formProducto/page.module.css";
 function FormProducto() {
   const [input, setInput] = useState({
@@ -18,18 +18,29 @@ function FormProducto() {
     price: "",
     stock: "",
   });
-
+  const [image, setImage] = useState({
+    image: "",
+    imageID: ""
+  })
   const handleUploadSuccess = (e) => {
-    console.log("Imagen subida:", e.event);
+    const { public_id, url } = e.info
+    console.log(public_id, url);
+    setImage({
+      image: url,
+      imageID: public_id
+    })
   };
 
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const group = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.allSuppliers);
-
+  const rubro = useSelector((state) => state.rubro);
+  console.log(rubro, "rubro");
+  console.log(group, "group");
   useEffect(() => {
     dispatch(getTags());
+    dispatch(getRubro())
     dispatch(getSuppliers());
   }, [dispatch]);
 
@@ -43,11 +54,13 @@ function FormProducto() {
       !input.rubro.length ||
       !input.supplierName.length
     ) {
+
       alert("Llene los campos correctamente");
       setErrors(validationErrors);
     } else {
+      input.image = image.image
+      input.imageID = image.imageID
       dispatch(postProducts(input));
-      console.log(input);
       setInput({
         name: "",
         descripcion: "",
@@ -105,21 +118,7 @@ function FormProducto() {
     }
   }
 
-  function handleDeleteG(tagToDelete) {
-    setInput((prevInput) => ({
-      ...prevInput,
-      group: prevInput.group.filter((tag) => tag !== tagToDelete),
-    }));
-  }
 
-  function handleDeleteS(supplierToDelete) {
-    setInput((prevInput) => ({
-      ...prevInput,
-      supplierName: prevInput.supplierName.filter(
-        (sup) => sup !== supplierToDelete
-      ),
-    }));
-  }
 
   return (
     <div>
@@ -210,12 +209,13 @@ function FormProducto() {
         </div>
         <div>
           <h2>Subir una imagen</h2>
-          {/* <CldUploadButton
+          <CldUploadButton
+
             uploadPreset="uv0vtybv"
             onSuccess={handleUploadSuccess}
           >
             Seleccionar imagen
-          </CldUploadButton> */}
+          </CldUploadButton>
         </div>
         <div className={s.rubroGrupo}>
           <div>
@@ -265,7 +265,7 @@ function FormProducto() {
               <option value="" disabled hidden>
                 Rubro
               </option>
-              {group.map((r) => {
+              {rubro.map((r) => {
                 return (
                   <option key={r.id} value={r.name}>
                     {r.name}
@@ -290,7 +290,7 @@ function FormProducto() {
             {errors.rubro && <p className={s.errorSelect}>{errors.rubro}</p>}
           </div>
         </div>
-        <div  className={s.label1}>
+        <div className={s.label1}>
           <div>
             <select
               id=""
