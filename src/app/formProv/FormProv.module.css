@@ -46,3 +46,21 @@
     border: none;
     cursor: pointer;
 }
+
+.butt{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.b{
+    transition: border-color 0.25s;
+}
+    
+.b:hover {
+    border-color: #2F3544;
+    transform: scale(1.05);
+}
+
+

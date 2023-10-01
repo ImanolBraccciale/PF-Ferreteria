@@ -32,6 +32,8 @@ module.exports = async (name) => {
   const reformattedProduct = {
     id: productWithTags.id,
     name: productWithTags.name,
+     image:productWithTags.image,
+    imageID:productWithTags.imageID,
     descripcion: productWithTags.descripcion,
     costoAnterior: productWithTags.costoAnterior,
     costoActual: productWithTags.costoActual,

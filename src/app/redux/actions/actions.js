@@ -1,4 +1,4 @@
-import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_TAG, FILTER_BY_SUPPLIERS, POST_PRODUCTS } from "./actionsTypes";
+import { GET_BY_ID, GET_SUPPLIERS, POST_SUPPLIERS, GET_ALL_PRODUCTS, DELETE_DETAIL, ORDER_BY, FILTER_BY_GROUP, GET_TAGS, GET_NAMES, POST_USERS, CREDENTIAL, GET_USER_BY_EMAIL, POST_TAG, FILTER_BY_SUPPLIERS, POST_PRODUCTS,GET_RUBRO } from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -151,9 +151,10 @@ export const getTags = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get("/api/tag");
+            const filteredData = data.filter((item) => item.type === "group");
             return dispatch({
                 type: GET_TAGS,
-                payload: data,
+                payload: filteredData,
             });
         } catch (err) {
             console.log(err);
@@ -161,7 +162,21 @@ export const getTags = () => {
     };
 };
 
-
+export const getRubro = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get("/api/tag");
+            const filterRubro = data.filter((item) => item.type === "rubro");
+      
+            return dispatch({
+                type: GET_RUBRO,
+                payload: filterRubro,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    };
+};
 
 export const getProductByName = (name) => {
     return async (dispatch) => {

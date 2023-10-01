@@ -31,6 +31,8 @@ const reformattedProducts = productsWithTags.map((product) => {
   return {
     id: product.id,
     name: product.name,
+    image:product.image,
+    imageID:product.imageID,
     descripcion: product.descripcion,
     costoAnterior: product.costoAnterior,
     costoActual: product.costoActual,

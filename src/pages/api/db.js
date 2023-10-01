@@ -6,6 +6,7 @@ const DetailSaleModel = require("../../models/detailSale");
 const SaleModel = require("../../models/sale");
 const SuppliersModel = require("../../models/Suppliers");
 const TagModel = require("../../models/Tag");
+const ReviewModel = require("../../models/Review");
 
 //IMPORTANTE!!!!!
 // const { faTruckMedical } = require('@fortawesome/free-solid-svg-icons');
@@ -36,8 +37,9 @@ db.DetailSale = DetailSaleModel(sequelize);
 db.Sale = SaleModel(sequelize);
 db.Suppliers = SuppliersModel(sequelize);
 db.Tag = TagModel(sequelize);
+db.Review = ReviewModel(sequelize);
 
-const { Users, Products, DetailSale, Sale, Suppliers, Tag } =
+const { Users, Products, DetailSale, Sale, Suppliers, Tag, Review } =
   db.sequelize.models;
 
 Users.belongsToMany(Products, { through: "user_product", timestamps: false });
@@ -45,10 +47,9 @@ Products.belongsToMany(Users, { through: "user_product", timestamps: false });
 
 Products.belongsTo(Suppliers, {
   as: 'supplier',
-  foreignKey: 'SupplierId', // Asegúrate de que sea la clave correcta
+  foreignKey: 'SupplierId',
   allowNull: true,
 });
-
 
 Products.belongsToMany(DetailSale, {
   through: "product_detailSale",
@@ -71,9 +72,13 @@ Tag.belongsToMany(Products, {
 Sale.hasMany(DetailSale, { foreignKey: 'saleId' });
 DetailSale.belongsTo(Sale, { foreignKey: 'saleId' });
 
+Review.belongsTo(Users, { foreignKey: 'idUser'});
+Users.hasOne(Review, { foreignKey: 'idUser'});
+
+Review.hasOne(Sale, { foreignKey: 'idReview' });
+Sale.belongsTo(Review, { foreignKey: 'idReview' });
+
 
 db.sequelize.sync();
 
-module.exports = {
-  db,
-};
+module.exports = { db };
