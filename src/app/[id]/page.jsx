@@ -32,7 +32,7 @@ const Detail = ({ params }) => {
             ) : (
               <Image
                 src="/ruta/a/martillo.jpg"
-                alt="Martillo"
+                alt="Foto Decsripción"
                 width={600} // Define el ancho deseado
                 height={400} // Define la altura deseada
               />
