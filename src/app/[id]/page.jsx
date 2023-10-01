@@ -1,20 +1,52 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import style from "./page.module.css";
 import martillo from "../componentes/assets/images/97957.jpeg";
 import Link from "next/link";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getProductById } from "../redux/actions/actions";
+import {
+  getProductById,
+  getAllCartItems,
+  cartAddItem,
+  getAllProducts,
+} from "../redux/actions/actions";
 
 const Detail = ({ params }) => {
   const id = params.id;
   const dispatch = useDispatch();
+  const allProducts = useSelector((state) => state.products);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 30;
+
+  const indexOfLastProducts = currentPage * productsPerPage;
+  const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
+  const currentProducts = allProducts.slice(
+    indexOfFirstProducts,
+    indexOfLastProducts
+  );
+
   const productDetail = useSelector((state) => state.productDetail);
   useEffect(() => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
+
+  useEffect(() => {
+    dispatch(getAllCartItems());
+  }, [dispatch]);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    let addProdToCart = {};
+    addProdToCart.Image = productDetail.image;
+    addProdToCart.Name = productDetail.name;
+    addProdToCart.Description = productDetail.descripcion;
+    addProdToCart.Price = productDetail.price;
+    addProdToCart.Qty = 1;
+    dispatch(cartAddItem(addProdToCart));
+    // Agregar redirección
+  };
 
   return (
     <>
@@ -79,6 +111,15 @@ const Detail = ({ params }) => {
         <Link href="/">
           <button className={style.button}>Volver</button>
         </Link>
+
+        <button
+          className={{}}
+          onClick={(event) => {
+            onSubmit(event);
+          }}
+        >
+          Agregar al carrito
+        </button>
       </main>
     </>
   );

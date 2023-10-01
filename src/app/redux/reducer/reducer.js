@@ -19,8 +19,8 @@ import {
   GET_REVIEW,
   GET_REVIEW_BY_ID,
   GET_RUBRO,
-}
-  from "../actions/actionsTypes"
+  GET_ALL_CART_ITEM_PRODUCTS,
+} from "../actions/actionsTypes";
 
 const initialState = {
   allProducts: [],
@@ -33,7 +33,8 @@ const initialState = {
   credential_user: {},
   estado: false,
   suppliers: [],
-  rubro:[]
+  rubro: [],
+  cartItems: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -192,11 +193,51 @@ const reducer = (state = initialState, action) => {
         ...state,
         etiquetas: action.payload,
       };
-          case GET_RUBRO:
+    case GET_RUBRO:
       return {
         ...state,
         rubro: action.payload,
       };
+
+    case "CART_ADD_ITEM": {
+      const newItem = action.payload;
+      console.log("newItem", newItem)
+
+      var existItem = state.cartItems.find(function (elem) {
+        return elem.Name === newItem.Name;
+      });
+
+      console.log("existItem", existItem)
+
+      state.cartItems.map((item) =>
+            console.log("item", item)
+          )
+
+      //una condicion para actualizar si existe el item o guardar si no existe
+      const cartItems = existItem
+        ? state.cartItems.map((item) =>
+            item.Name === existItem.Name ? newItem : item
+          )
+        : //de lo contrario si no existe entonces guardamos el primero
+          [...state.cartItems, newItem];
+
+      return { ...state, cartItems: { ...state.cartItems, cartItems } };
+    }
+
+    case "CART_REMOVE_ITEM": {
+      const cartItems = state.cart.cartItems.filter(
+        (item) => item.slug !== action.payload.slug
+      );
+
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
+
+    case "GET_ALL_CART_ITEM_PRODUCTS":
+      return {
+        ...state,
+        cart: action.payload,
+      };
+
     default:
       return state;
   }

@@ -1,6 +1,8 @@
 import s from "@/app/componentes/ProductList/ProductList.module.css";
+import ss from "@/app/page.module.css";
+import Link from "next/link";
 
-function ProductList({ id, name, stock, costoActual, price }) {
+function ProductList({ id, name, stock, costoActual, price, enlace }) {
   return (
     <div className={s.all}>
       <div className={s.container}>
@@ -10,7 +12,9 @@ function ProductList({ id, name, stock, costoActual, price }) {
         <div className={s.e}>{costoActual * 1.21}</div>
         <div className={s.d}>{price}</div>
         <div className={s.f}>
-          <button className={s.button}>Detalle</button>
+          <Link className={ss.z} href={enlace}>
+            <button className={s.button}>Detalle</button>
+          </Link>
         </div>
       </div>
     </div>
