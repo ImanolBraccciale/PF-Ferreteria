@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import Link from "next/link"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
 
 import ProductBar from "../componentes/ProductBar/ProductBar";
-import AddButtom from "../componentes/AddButtom/AddButtom"
-import VentaButton from "../componentes/IngresarVenta/VentaButton"
-import ProductList from "../componentes/ProductList/ProductList"
-import s from "@/app/page.module.css"
+import AddButtom from "../componentes/AddButtom/AddButtom";
+import VentaButton from "../componentes/IngresarVenta/VentaButton";
+import ProductList from "../componentes/ProductList/ProductList";
 
 const CartForm = () => {
   const allProducts = useSelector((state) => state.products);
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const productsPerPage = 30
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 30;
 
-  const indexOfLastProducts = currentPage * productsPerPage 
-  const indexOfFirstProducts= indexOfLastProducts - productsPerPage 
+  const indexOfLastProducts = currentPage * productsPerPage;
+  const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
   const currentProducts = allProducts.slice(
     indexOfFirstProducts,
     indexOfLastProducts
@@ -25,15 +24,15 @@ const CartForm = () => {
       <ProductBar />
       {currentProducts.map(({ id, name, stock, costoActual, price }) => {
         return (
-          <Link className={s.z} href={`/${id}`} key={id}>
             <ProductList
+              key={id}
               id={id}
               name={name}
               stock={stock}
               costoActual={costoActual}
               price={price}
+              enlace={`/${id}`}
             />
-          </Link>
         );
       })}
       <Link href="/formProducto">
