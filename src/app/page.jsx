@@ -1,11 +1,14 @@
 "use client"
+
 import NavBar from "./componentes/NavBar/NavBar"
+import ProductBar from "./componentes/ProductBar/ProductBar"
+import ProductList from "./componentes/ProductList/ProductList"
 import CartForm  from "./sellProcess/page"
 // import Rating from "./componentes/Rating/Rating"
 import { getAllProducts } from "./redux/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import s from "@/app/page.module.css"
+
 import Paginado from "./componentes/paginado/paginado"
 
 const page = () => {

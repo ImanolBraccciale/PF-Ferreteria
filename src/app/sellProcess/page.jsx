@@ -5,6 +5,8 @@ import Link from "next/link"
 import ProductBar from "../componentes/ProductBar/ProductBar";
 import AddButtom from "../componentes/AddButtom/AddButtom"
 import VentaButton from "../componentes/IngresarVenta/VentaButton"
+import ProductList from "../componentes/ProductList/ProductList"
+import s from "@/app/page.module.css"
 
 const CartForm = () => {
   const allProducts = useSelector((state) => state.products);
