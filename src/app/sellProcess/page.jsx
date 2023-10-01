@@ -7,8 +7,10 @@ import AddButtom from "../componentes/AddButtom/AddButtom";
 import VentaButton from "../componentes/IngresarVenta/VentaButton";
 import ProductList from "../componentes/ProductList/ProductList";
 import Paginado from "../componentes/paginado/paginado";
+import { getAllProducts } from "../redux/actions/actions"
 
 const CartForm = () => {
+  const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +26,14 @@ const CartForm = () => {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, [currentPage])
 
   return (
     <>
