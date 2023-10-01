@@ -27,6 +27,8 @@ module.exports = async (productId) => {
     const formattedProduct = {
       name: product.name,
       descripcion: product.descripcion,
+       image:product.image,
+       imageID:product.imageID,
       costoAnterior: parseFloat(product.costoAnterior).toFixed(2),
       costoActual: parseFloat(product.costoActual).toFixed(2),
       price: parseFloat(product.price).toFixed(2),
