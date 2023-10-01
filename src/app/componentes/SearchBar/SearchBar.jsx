@@ -25,7 +25,7 @@ function SearchBar() {
 
     return (
         <div className={s.search}>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form onSubmit={(e) => handleSubmit(e)} className={s.form}>
                 <div className={s.input}>
                     <span htmlFor="name"></span>
                     <input

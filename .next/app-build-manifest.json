@@ -1,79 +1,22 @@
 {
   "pages": {
-<<<<<<< HEAD
-=======
-    "/dashAdmin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashAdmin/page.css",
-      "static/chunks/app/dashAdmin/page.js"
-    ],
->>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-<<<<<<< HEAD
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
-    ],
-    "/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[id]/page.css",
-      "static/chunks/app/[id]/page.js"
-    ],
-    "/dashAdmin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashAdmin/page.css",
-      "static/chunks/app/dashAdmin/page.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-=======
-    "/formProducto/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/formProducto/page.css",
-      "static/chunks/app/formProducto/page.js"
-    ],
-    "/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[id]/page.css",
-      "static/chunks/app/[id]/page.js"
-    ],
-    "/postTag/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/postTag/page.css",
-      "static/chunks/app/postTag/page.js"
-    ],
-    "/formProv/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/formProv/page.css",
-      "static/chunks/app/formProv/page.js"
-    ],
-    "/suppliers/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/suppliers/page.css",
-      "static/chunks/app/suppliers/page.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
->>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
       "static/css/app/page.css",
       "static/chunks/app/page.js"
+    ],
+    "/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[id]/page.css",
+      "static/chunks/app/[id]/page.js"
     ]
   }
 }

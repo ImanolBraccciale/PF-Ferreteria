@@ -36,3 +36,44 @@
 .input button:hover {
   background-color: #a89479;
 }
+
+.form {
+  display: flex;
+}
+
+/*------------------RESPONSIVE------------------------------------------*/
+
+
+@media (max-width: 768px) {
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .input input{
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-right: 1px solid orange;
+  }
+
+  .input button {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-left: 0;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .input input {
+    font-size: 14px;
+  }
+
+  .input button {
+    font-size: 14px;
+  }
+}
