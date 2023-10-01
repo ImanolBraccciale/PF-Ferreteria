@@ -22,7 +22,21 @@ const Detail = ({ params }) => {
       <main className={style.main}>
         <section className={style.section}>
           <div className={style.divImg}>
-            <Image src={martillo} alt="Mi Imagen" />
+            {productDetail.image ? (
+              <Image
+                src={productDetail.image}
+                alt="Mi Imagen"
+                width={600} // Define el ancho deseado
+                height={400} // Define la altura deseada
+              />
+            ) : (
+              <Image
+                src="/ruta/a/martillo.jpg"
+                alt="Martillo"
+                width={600} // Define el ancho deseado
+                height={400} // Define la altura deseada
+              />
+            )}
           </div>
           <div className={style.divDescription}>
             {productDetail ? (

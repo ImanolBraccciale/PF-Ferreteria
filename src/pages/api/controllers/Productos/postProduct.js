@@ -7,6 +7,8 @@ module.exports = async (data) => {
   try {
     const {
       name,
+      image,
+      imageID,
       descripcion,
       costoAnterior,
       costoActual,
@@ -43,6 +45,8 @@ console.log(name);
      console.log(supplier, "aasdasdasdas");
     const newProduct = await Products.create({
       name,
+       image,
+       imageID,
       descripcion,
       costoAnterior,
       costoActual,
