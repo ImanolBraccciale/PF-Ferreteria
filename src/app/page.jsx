@@ -1,10 +1,6 @@
 "use client"
-import Link from "next/link"
-import AddButtom from "./componentes/AddButtom/AddButtom"
-import VentaButton from "./componentes/IngresarVenta/VentaButton"
 import NavBar from "./componentes/NavBar/NavBar"
-import ProductBar from "./componentes/ProductBar/ProductBar"
-import ProductList from "./componentes/ProductList/ProductList"
+import CartForm  from "./sellProcess/page"
 // import Rating from "./componentes/Rating/Rating"
 import { getAllProducts } from "./redux/actions/actions"
 import { useDispatch, useSelector } from "react-redux"
@@ -20,7 +16,7 @@ const page = () => {
   const productsPerPage = 30
   const indexOfLastProducts = currentPage * productsPerPage 
   const indexOfFirstProducts= indexOfLastProducts - productsPerPage 
-  const currentProducts = allProducts.slice(indexOfFirstProducts, indexOfLastProducts) 
+
   
   const paginado = (pageNumber) => { 
     setCurrentPage(pageNumber)
@@ -40,7 +36,7 @@ const page = () => {
     <div>
       <div>
         <NavBar />
-        <ProductBar />
+        <CartForm />
         {/* <Rating/> */}
         {/* <h1>
         {rolUser === "admin"
@@ -49,31 +45,13 @@ const page = () => {
           ? "Bienvenido, empleado"
           : "Bienvenido, cliente"}
           </h1> */}
-        {currentProducts.map(({ id, name, stock, costoActual, price }) => {
-          return (
-            <Link className={s.z} href={`/${id}`} key={id}>
-              <ProductList
-                id={id}
-                name={name}
-                stock={stock}
-                costoActual={costoActual}
-                price={price}
-              />
-            </Link>
-          );
-        })}
-        <Link href="/formProducto">
-          <AddButtom />
-        </Link>
+        
       </div>
-      <Link href="/formCarrito">
-        <VentaButton/>
-      </Link>
       <div>
         <Paginado
-                productsPerPage={productsPerPage} 
-                allProducts={allProducts.length} 
-                paginado={paginado} />
+          productsPerPage={productsPerPage} 
+          allProducts={allProducts.length} 
+          paginado={paginado} />
       </div>
     </div>
   );
