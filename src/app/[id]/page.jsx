@@ -35,6 +35,7 @@ const Detail = ({ params }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     let addProdToCart = {};
+    addProdToCart.ID = id;
     addProdToCart.Image = productDetail.image;
     addProdToCart.Name = productDetail.name;
     addProdToCart.Description = productDetail.descripcion;

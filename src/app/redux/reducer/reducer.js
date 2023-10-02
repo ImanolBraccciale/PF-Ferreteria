@@ -206,23 +206,6 @@ const reducer = (state = initialState, action) => {
         allCartItems: [...state.allCartItems, action.payload],
         cartItems: [...state.cartItems, action.payload],
       };
-      // const newItem = action.payload;
-      // console.log("newItem", newItem, "cartItems", state.cartItems);
-
-      // var existItem = state.cartItems.some((elem) => {
-      //   return elem.Name === newItem.Name;
-      // });
-
-      // //una condicion para actualizar si existe el item o guardar si no existe
-      // if (existItem) {
-      //   const findItem = state.cartItems.find(
-      //     (elem) => elem.Name === newItem.Name
-      //   );
-      //   const quantity = findItem ? findItem.Qty + 1 : 1;
-      //   newItem.Qty = quantity;
-      // }
-
-      // return { ...state, cartItems: [...state.cartItems, newItem] };
     }
 
     case "CART_REMOVE_ITEM": {
