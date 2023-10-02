@@ -21,47 +21,56 @@ function FormCarrito() {
     const price = parseFloat(item.Price); // Convierte el precio a un número
 
     // Buscar si el producto ya existe en el arreglo productSummary
-    const existingProduct = productSummary.find((summaryItem) => summaryItem.Name === productName);
+    const existingProduct = productSummary.find(
+      (summaryItem) => summaryItem.Name === productName
+    );
 
     if (existingProduct) {
-        // Si el producto ya existe en el resumen, suma la cantidad
-        existingProduct.Qty += quantity;
-        // Calcula el subtotal para el producto existente
-        existingProduct.Subtotal = existingProduct.Qty * price;
+      // Si el producto ya existe en el resumen, suma la cantidad
+      existingProduct.Qty += quantity;
+      // Calcula el subtotal para el producto existente
+      existingProduct.Subtotal = existingProduct.Qty * price;
     } else {
-        // Si el producto no existe en el resumen, agrégalo como un nuevo objeto
-        const Subtotal = quantity * price;
-        productSummary.push({ ...item, Subtotal });
+      // Si el producto no existe en el resumen, agrégalo como un nuevo objeto
+      const Subtotal = quantity * price;
+      productSummary.push({ ...item, Subtotal });
     }
   });
 
   console.log("productSummary", productSummary);
 
-  // 1. Vamos a obtener todo el carrito
-  // 2. Vamos a generar el listado reutilizando la vista de productos
-  // 3. No sé todavía
+  const onSubmit = (e) => {
+    e.preventDefault();
+    
+  };
 
   return (
-    <>
+    <div>
       <NavBar />
       <ProductBarCart />
-      {productSummary.map(({ Image, Name, Description, Price, Qty, Subtotal }) => {
-        return (
-          <ProductListCart
-            key={1}
-            // id={id}
-            name={Name}
-            description={Description}
-            price={Price}
-            qty={Qty}
-            subTotal = {Subtotal}
-          />
-        );
-      })}
+      {productSummary.map(
+        ({ ID, Image, Name, Description, Price, Qty, Subtotal }) => {
+          return (
+            <ProductListCart
+              key={ID}
+              // id={id}
+              image= {Image}
+              name={Name}
+              description={Description}
+              price={Price}
+              qty={Qty}
+              subTotal={Subtotal}
+            />
+          );
+        }
+      )}
       <Link href="/">
         <BackButtom />
       </Link>
-    </>
+      <button className="add" onClick={(e) => onSubmit(e)}>
+        $
+      </button>
+    </div>
   );
 }
 
