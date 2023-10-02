@@ -2,9 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/products": "pages/api/products.js",
-  "/api/tag": "pages/api/tag.js",
-  "/api/suppliers": "pages/api/suppliers.js",
-  "/api/mercadoPago": "pages/api/mercadoPago.js",
-  "/api/sales": "pages/api/sales.js"
+  "/api/user": "pages/api/user.js",
+  "/api/nodemailer": "pages/api/nodemailer.js"
 }
