@@ -23,14 +23,16 @@
 .option select,
 .option2 select {
   background-color: #555;
-  font-size: 14px;
+  font-size: 12px;
   color: white;
   border: 2px solid #555;
   border-radius: 5px;
   text-align: center;
-  padding: 7px 12px;
+  padding: 7px 13px;
   text-decoration: none;
   cursor: pointer;
+  width: 150px;
+  height: 30px;
 }
 
 .option select:hover {
@@ -44,13 +46,15 @@
 .rutas a:visited,
 .rutas a:active {
   background-color: #555;
-  font-size: 14px;
+  font-size: 12px;
   color: white;
   border: 2px solid #555;
   border-radius: 5px;
   text-align: center;
-  padding: 7px 12px;
+  padding: 7px 13px;
   text-decoration: none;
+  width: 150px;
+  height: 30px;
 }
 .rutas a:hover {
   box-shadow: 0 0 15px rgb(92, 106, 125);
@@ -91,7 +95,7 @@
 .sesion {
   padding: 0;
   position: relative;
-  top: 15px;
+  top: 18px;
   right: 5px;
   display: flex;
   flex-direction: column;
@@ -99,19 +103,21 @@
 }
 
 .sesion div {
-  margin-bottom: 25px; /* Espacio entre los íconos */
+  border-radius: 5px;
+  margin-bottom: 18px;
 }
 
 .dash a {
   background-color: #555;
   color: white;
   border: 2px solid #555;
-  border-radius: 8px;
+  border-radius: 5px;
   text-align: center;
   font-size: medium;
-  padding: 6px 12px;
+  padding: 6px 10px;
   display: inline-block;
   text-decoration: none;
+  width: 120px;
 }
 
 .dash a:hover {
@@ -122,11 +128,12 @@
   background-color: #555;
   color: white;
   border: 2px solid #555;
-  border-radius: 8px;
+  border-radius: 5px;
   text-align: center;
   font-size: medium;
-  padding: 6px 12px;
+  padding: 6px 10px;
   text-decoration: none;
+  width: 120px;
 }
 
 .login a:hover {

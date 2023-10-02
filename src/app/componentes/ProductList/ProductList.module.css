@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  padding: 17px;
+  padding: 14px;
   color: rgb(0, 0, 0);
   border-top: 1px solid #474747;
 }
@@ -54,10 +54,11 @@
 .button {
   background: #ffa424;
   border: 2px solid #474747;
-  padding: 10px 18px;
+  padding: 8px 18px;
   border-radius: 5px;
   color: #1e1e1e;
   font-size: 15px;
+  cursor: pointer;
 }
 [data-theme="dark"] .button {
   background: #474747;

@@ -113,12 +113,12 @@ const Detail = ({ params }) => {
         </Link>
 
         <button
-          className={{}}
+          className={style.buttonAgg}
           onClick={(event) => {
             onSubmit(event);
           }}
         >
-          Agregar al carrito
+          Agregar al Carrito
         </button>
       </main>
     </>

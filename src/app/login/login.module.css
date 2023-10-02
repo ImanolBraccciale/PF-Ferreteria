@@ -39,10 +39,10 @@
 }
 
 .inputWrong {
-  color: white;
-  background-color: #959191;
+  color: #474747;
+  background-color: white;
   border-radius: 12px;
-  border: solid 1px #474747;
+  border: solid 2px rgb(180, 0, 0);
   margin: 0 1vw 1vh;
   width: 400px;
   height: 4vh;
