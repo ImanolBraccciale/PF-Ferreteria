@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import style from "./login.module.css";
 import Link from "next/link";
@@ -32,7 +32,8 @@ const LoginPage = () => {
     );
   };
 
-  const isFormValid = Object.keys(errors).length === 0 && input.usuario && input.contraseña;
+  const isFormValid =
+    Object.keys(errors).length === 0 && input.usuario && input.contraseña;
 
   const toggleMostrarContr = () => {
     setMostrarContr(!mostrarContr);
@@ -40,7 +41,9 @@ const LoginPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const credencial = await dispatch(credential(input.usuario, input.contraseña));
+    const credencial = await dispatch(
+      credential(input.usuario, input.contraseña)
+    );
     const userEmail = await dispatch(getUserByEmail(input.usuario));
 
     if (!isFormValid) {
@@ -52,21 +55,18 @@ const LoginPage = () => {
       alert("El usuario no existe");
       return;
     } else {
-
       try {
         window.location.href = "/";
       } catch (error) {
         console.log(error);
       }
     }
-
   };
 
   return (
     <div key="login" className={style.contenedor}>
-
       <form onSubmit={handleSubmit} className={style.container}>
-        <h1 className={style.title}>LOGIN</h1>
+        <h1 className={style.title}>REGISTRESE</h1>
 
         <h3 className={style.subtitle}>Email</h3>
 
@@ -79,7 +79,6 @@ const LoginPage = () => {
             id="usuario"
             onChange={handleChange}
           />
-
         </div>
 
         {errors.usuario && <p className={style.error}>{errors.usuario}</p>}
@@ -87,7 +86,9 @@ const LoginPage = () => {
         <h3 className={style.subtitle}>Contraseña</h3>
         <div className={style.passwordContainer}>
           <input
-            className={errors.contraseña ? style.inputWrong : style.passwordInput}
+            className={
+              errors.contraseña ? style.inputWrong : style.passwordInput
+            }
             placeholder="Escriba su contraseña"
             type={mostrarContr ? "text" : "password"}
             value={input.contraseña}
@@ -107,9 +108,18 @@ const LoginPage = () => {
           </button>
         </div>
 
+<<<<<<< HEAD
         {errors.contraseña && <p className={style.error}>{errors.contraseña}</p>}
         <button className={style.button} type="submit"> Ingresar </button>
         <p className={style.p}>O ingresa con</p>
+=======
+        {errors.contraseña && <p className={style.p}>{errors.contraseña}</p>}
+        <button className={style.button} type="submit">
+          {" "}
+          Ingresar{" "}
+        </button>
+        <p>O ingresa con</p>
+>>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
         <button
           type="button"
           className={style.btnFloating}
@@ -123,7 +133,11 @@ const LoginPage = () => {
           ¿No tienes una cuenta? <Link href="/register">¡Registrate!</Link>
         </p>
         <br></br>
+<<<<<<< HEAD
         <p className={style.p}>¿Has olvidado tu contraseña?</p>
+=======
+        <p>¿Olvidaste tu contraseña?</p>
+>>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
         <br></br>
       </form>
     </div>

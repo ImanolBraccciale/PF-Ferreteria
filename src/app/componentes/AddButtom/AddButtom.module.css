@@ -2,16 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background-color: #ff9800;
   color: white;
   border-radius: 50%;
   position: absolute;
-  bottom: 7%;
-  right: 8%;
-  font-size: 120px;
-  padding-bottom: 15px;
+  bottom: 50%;
+  right: 4%;
+  font-size: 110px;
+  padding-bottom: 12px;
   padding-right: 2px;
 }
 [data-theme="dark"] .add {

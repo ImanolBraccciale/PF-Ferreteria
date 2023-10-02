@@ -17,7 +17,6 @@ const Detail = ({ params }) => {
   const id = params.id;
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
-  const allCartItems = useSelector((state) => state.allCartItems);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
 
@@ -32,11 +31,6 @@ const Detail = ({ params }) => {
   useEffect(() => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
-
-  useEffect(() => {
-    console.log("allCartItems", allCartItems)
-    //dispatch(getAllCartItems());
-  }, [allCartItems]);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -66,7 +60,7 @@ const Detail = ({ params }) => {
             ) : (
               <Image
                 src="/ruta/a/martillo.jpg"
-                alt="Martillo"
+                alt="Foto Decsripción"
                 width={600} // Define el ancho deseado
                 height={400} // Define la altura deseada
               />
@@ -115,12 +109,12 @@ const Detail = ({ params }) => {
         </Link>
 
         <button
-          className={{}}
+          className={style.buttonAgg}
           onClick={(event) => {
             onSubmit(event);
           }}
         >
-          Agregar al carrito
+          Agregar al Carrito
         </button>
       </main>
     </>

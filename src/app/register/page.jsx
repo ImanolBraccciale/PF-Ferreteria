@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import { useState } from "react";
-import style from "./login.module.css";
+import style from "./register.module.css";
 import Link from "next/link";
 import validationRegister from "../componentes/validations.js/validationRegister";
 import { signIn } from "next-auth/react";
@@ -34,7 +34,11 @@ const LoginPage = () => {
     );
   };
 
-  const isFormValid = Object.keys(errors).length === 0 && input.nameUser && input.emailUser && input.passwordUser;
+  const isFormValid =
+    Object.keys(errors).length === 0 &&
+    input.nameUser &&
+    input.emailUser &&
+    input.passwordUser;
 
   const toggleMostrarContr = () => {
     setMostrarContr(!mostrarContr);
@@ -47,8 +51,8 @@ const LoginPage = () => {
       return;
     }
     console.log(input);
-    dispatch(postUsers(input))
-    alert("El usuario fue creado correctamente")
+    dispatch(postUsers(input));
+    alert("El usuario fue creado correctamente");
     window.location.href = "/login";
   };
 
@@ -59,7 +63,6 @@ const LoginPage = () => {
 
         <h3 className={style.subtitle}>Nombre</h3>
         <div className={style.passwordContainer}>
-
           <input
             className={errors.nameUser ? style.inputWrong : style.input}
             placeholder="Escriba su nombre completo"
@@ -85,13 +88,14 @@ const LoginPage = () => {
           />
         </div>
 
-
         {errors.emailUser && <p className={style.p}>{errors.emailUser}</p>}
 
         <h3 className={style.subtitle}>Contraseña</h3>
         <div className={style.passwordContainer}>
           <input
-            className={errors.passwordUser ? style.inputWrong : style.passwordInput}
+            className={
+              errors.passwordUser ? style.inputWrong : style.passwordInput
+            }
             placeholder="Escriba su contraseña"
             type={mostrarContr ? "text" : "password"}
             value={input.passwordUser}
@@ -111,14 +115,19 @@ const LoginPage = () => {
           </button>
         </div>
 
-        {errors.passwordUser && <p className={style.p}>{errors.passwordUser}</p>}
-
+        {errors.passwordUser && (
+          <p className={style.p}>{errors.passwordUser}</p>
+        )}
 
         <button className={style.button} type="submit">
           Crear Cuenta
         </button>
         <p>O registrate con</p>
-        <button type="button" className={style.btnFloating} onClick={() => signIn("google")}>
+        <button
+          type="button"
+          className={style.btnFloating}
+          onClick={() => signIn("google")}
+        >
           <FontAwesomeIcon icon={faGoogle} />
         </button>
         <br />

@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  padding: 17px;
+  padding: 14px;
   color: rgb(0, 0, 0);
   border-top: 1px solid #474747;
 }
@@ -21,10 +21,10 @@
   color: white;
 }
 
-.a {
+/* .a {
   width: 10%;
   margin: 0 auto;
-}
+} */
 
 .b {
   width: 28%;
@@ -53,9 +53,18 @@
 
 .button {
   background: #ffa424;
-  border: none;
-  padding: 13px 20px;
+  border: 2px solid #474747;
+  padding: 8px 18px;
   border-radius: 5px;
   color: #1e1e1e;
   font-size: 15px;
+  cursor: pointer;
+}
+[data-theme="dark"] .button {
+  background: #474747;
+  color: white;
+  border: 2px solid #474747;
+}
+.button:hover {
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }

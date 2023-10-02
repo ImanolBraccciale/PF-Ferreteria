@@ -1,37 +1,37 @@
 .paginacion {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .paginacion button {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    border: 1px solid #060606;
-    margin: 0 4px
+  color: black;
+  justify-content: left;
+  padding: 8px 16px;
+  border: 1px solid #060606;
+  margin: 0 4px;
 }
 
 .paginacion button:focus {
-    background-color: black;
-    color: rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
 }
 
 .paginacion button.activo {
-    background-color: #000000;
-    color: white;
+  background-color: #000000;
+  color: white;
 }
 
 .paginacion button:hover:not(.activo) {
-    background-color: rgb(163, 163, 163);
+  background-color: rgb(163, 163, 163);
 }
 
 .paginacion button:first-child {
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
 }
 
 .paginacion button:last-child {
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
