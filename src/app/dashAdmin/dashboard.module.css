@@ -5,14 +5,17 @@
   color: black;
 }
 [data-theme="dark"] .containerGrid {
-  background: #201f1f;
+  background: #1e1e1e;
   color: white;
 }
 .image {
   width: 25vh;
   height: 25vh;
   border-radius: 50%;
-  border: solid 1px black;
+  border: solid 1px #555;
+}
+[data-theme="dark"] .image {
+  border: solid 1px #555;
 }
 
 .caja1 {
@@ -22,32 +25,22 @@
   padding: 6vh;
 }
 [data-theme="dark"] .caja1 {
-  background: #201f1f;
+  background: #1e1e1e;
   color: white;
 }
 
 .ul {
   list-style: none;
 }
-[data-theme="dark"] .ul {
-  background: #201f1f;
-  color: white;
-}
+
 .li {
   margin: 5px;
-  font-size: 23px;
+  font-size: 25px;
 }
-[data-theme="dark"] .li {
-  background: #201f1f;
-  color: white;
-}
+
 .caja2 {
   /* border: solid 1px black; */
   grid-row: 1 / span 2;
-}
-[data-theme="dark"] .caja2 {
-  background: #201f1f;
-  color: white;
 }
 
 .infoAdmin {
@@ -64,24 +57,21 @@
   display: flex;
   flex-direction: column;
   margin: 5px;
-  padding: 25px;
+  padding: 20px;
   align-items: center;
 }
 
 .buttonsCaja1 {
   text-decoration: none;
   display: flex;
-  padding: 4px;
-  background-color: #ffa424;
+  padding: 5px;
+  color: white;
+  background-color: #555;
   border-radius: 10px;
   margin: 10px;
   width: 180px;
   height: 35px;
   justify-content: center;
-}
-[data-theme="dark"] .buttonsCaja1 {
-  background: rgb(61, 61, 59);
-  color: rgb(237, 235, 235);
   border: solid 1px orange;
 }
 .buttonsCaja1:hover {
@@ -96,10 +86,6 @@
   align-items: center;
   justify-content: space-around;
 }
-[data-theme="dark"] .cajaButtons2 {
-  background: #201f1f;
-  color: white;
-}
 
 .buttonsCaja2 {
   display: flex;
@@ -110,10 +96,6 @@
   width: 150px;
   height: 35px;
   justify-content: center;
-}
-[data-theme="dark"] .buttonsCaja1 {
-  background: #201f1f;
-  color: white;
 }
 
 .cajaGraficos {
@@ -133,10 +115,10 @@
   border: solid 1px #ffa424;
   width: 50vh;
   height: 32vh;
-  margin: 10px;
+  margin: 12px;
   border-radius: 10px;
 }
 [data-theme="dark"] .grafico {
-  background: #201f1f;
+  background: #555;
   color: white;
 }

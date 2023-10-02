@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import validate from "../componentes/validations.js/validateProductos";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import { getRubro, getSuppliers, getTags, postProducts } from "../redux/actions/actions";
-import { CldUploadButton } from 'next-cloudinary';
+import {
+  getRubro,
+  getSuppliers,
+  getTags,
+  postProducts,
+} from "../redux/actions/actions";
+import { CldUploadButton } from "next-cloudinary";
 import s from "@/app/formProducto/page.module.css";
 function FormProducto() {
   const [input, setInput] = useState({
@@ -20,15 +25,15 @@ function FormProducto() {
   });
   const [image, setImage] = useState({
     image: "",
-    imageID: ""
-  })
+    imageID: "",
+  });
   const handleUploadSuccess = (e) => {
-    const { public_id, url } = e.info
+    const { public_id, url } = e.info;
     console.log(public_id, url);
     setImage({
       image: url,
-      imageID: public_id
-    })
+      imageID: public_id,
+    });
   };
 
   const dispatch = useDispatch();
@@ -40,7 +45,7 @@ function FormProducto() {
   console.log(group, "group");
   useEffect(() => {
     dispatch(getTags());
-    dispatch(getRubro())
+    dispatch(getRubro());
     dispatch(getSuppliers());
   }, [dispatch]);
 
@@ -54,12 +59,11 @@ function FormProducto() {
       !input.rubro.length ||
       !input.supplierName.length
     ) {
-
       alert("Llene los campos correctamente");
       setErrors(validationErrors);
     } else {
-      input.image = image.image
-      input.imageID = image.imageID
+      input.image = image.image;
+      input.imageID = image.imageID;
       dispatch(postProducts(input));
       setInput({
         name: "",
@@ -117,8 +121,6 @@ function FormProducto() {
       }));
     }
   }
-
-
 
   return (
     <div>
@@ -207,10 +209,9 @@ function FormProducto() {
           />
           {errors.stock && <p className={s.error}>{errors.stock}</p>}
         </div>
-        <div>
-          <h2>Subir una imagen</h2>
+        <div className={s.agregarImg}>
+          <h3>Agregar una imagen</h3>
           <CldUploadButton
-
             uploadPreset="uv0vtybv"
             onSuccess={handleUploadSuccess}
           >

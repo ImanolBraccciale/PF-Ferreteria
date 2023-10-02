@@ -66,7 +66,7 @@ const Detail = ({ params }) => {
             ) : (
               <Image
                 src="/ruta/a/martillo.jpg"
-                alt="Martillo"
+                alt="Foto Decsripción"
                 width={600} // Define el ancho deseado
                 height={400} // Define la altura deseada
               />
@@ -115,12 +115,12 @@ const Detail = ({ params }) => {
         </Link>
 
         <button
-          className={{}}
+          className={style.buttonAgg}
           onClick={(event) => {
             onSubmit(event);
           }}
         >
-          Agregar al carrito
+          Agregar al Carrito
         </button>
       </main>
     </>

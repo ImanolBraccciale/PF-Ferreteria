@@ -2,10 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/products": "pages/api/products.js",
-<<<<<<< HEAD
-=======
+  "/api/suppliers": "pages/api/suppliers.js",
   "/api/tag": "pages/api/tag.js",
->>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
-  "/api/suppliers": "pages/api/suppliers.js"
+  "/api/products": "pages/api/products.js",
+  "/api/user": "pages/api/user.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }

@@ -1,48 +1,92 @@
-
 .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 430px;
+  margin: 65px auto;
+  padding: 40px;
+  background-color: #474747;
+  border-radius: 13px;
+  color: #ec8800;
+  border: 2px solid #555;
+  font-size: 24px;
+  font-weight: 400;
+}
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 
-    align-items: center;
-    justify-content: center;
-    max-width: 430px;
-    margin: 65px auto;
-    padding: 40px;
-    background-color: #474747;
-    border-radius: 13px;
-    color: #EC8800;
-    font-size: 24px;
-    font-weight: 400;
-   
+.label select {
+  border-radius: 4px;
+  color: black;
+  width: 140px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 12px;
+}
+.label select:hover {
+  background-color: #eaeaea;
+}
+
+.b {
+  color: black;
+  border-radius: 5px;
+  width: 110px;
+  height: 40px;
+  border: #555;
+  cursor: pointer;
+  background: #ec8800;
+}
+[data-theme="dark"] .b {
+  border: #555;
+  color: white;
+}
+
+.b:hover {
+  color: black;
+  background: #d27200;
+  box-shadow: 0 0 15px rgb(92, 106, 125);
 }
 
 .formgroup {
-    margin-bottom: 1rem;
-    margin:10px;
-}
-
-.label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin: 10px;
 }
 
 .input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .error {
-    color: rgba(255, 0, 0, 0.915);
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
+  color: rgba(255, 0, 0, 0.915);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
 }
 
-.form button {
-    background: #FFA424;
-    border-radius: 4px;
-    width: 120px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
+/*.form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  width: 110px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background: #ec8800;
+  margin-top: 10px;
 }
+.form button:hover {
+  color: #555;
+  box-shadow: 0 0 15px rgb(92, 106, 125);
+} */
