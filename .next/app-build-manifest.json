@@ -1,12 +1,46 @@
 {
   "pages": {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+=======
+    "/dashAdmin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashAdmin/page.css",
+      "static/chunks/app/dashAdmin/page.js"
+>>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
+    ],
+>>>>>>> 4aebb8921d965bf93e923cf68ae1840cf9b0b093
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+<<<<<<< HEAD
     "/page": [
+=======
+<<<<<<< HEAD
+    "/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[id]/page.css",
+      "static/chunks/app/[id]/page.js"
+    ],
+    "/dashAdmin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashAdmin/page.css",
+      "static/chunks/app/dashAdmin/page.js"
+=======
+    "/formProducto/page": [
+>>>>>>> 4aebb8921d965bf93e923cf68ae1840cf9b0b093
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/page.css",
@@ -17,6 +51,34 @@
       "static/chunks/main-app.js",
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
+<<<<<<< HEAD
+=======
+    ],
+    "/postTag/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/postTag/page.css",
+      "static/chunks/app/postTag/page.js"
+    ],
+    "/formProv/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/formProv/page.css",
+      "static/chunks/app/formProv/page.js"
+    ],
+    "/suppliers/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/suppliers/page.css",
+      "static/chunks/app/suppliers/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+>>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
+>>>>>>> 4aebb8921d965bf93e923cf68ae1840cf9b0b093
     ]
   }
 }

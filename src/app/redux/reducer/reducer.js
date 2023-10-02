@@ -15,13 +15,18 @@ import {
   GET_USER_BY_EMAIL,
   POST_USERS,
   POST_TAG,
+  POST_REVIEW,
+  GET_REVIEW,
+  GET_REVIEW_BY_ID,
   GET_RUBRO,
+  GET_ALL_CART_ITEM_PRODUCTS,
 } from "../actions/actionsTypes";
 
 const initialState = {
   allProducts: [],
   products: [],
   allSuppliers: [],
+  allCartItems: [],
   allUsers: [],
   etiquetas: [],
   productDetail: [],
@@ -29,7 +34,8 @@ const initialState = {
   credential_user: {},
   estado: false,
   suppliers: [],
-  rubro:[]
+  rubro: [],
+  cartItems: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -188,11 +194,48 @@ const reducer = (state = initialState, action) => {
         ...state,
         etiquetas: action.payload,
       };
-          case GET_RUBRO:
+    case GET_RUBRO:
       return {
         ...state,
         rubro: action.payload,
       };
+
+    case "CART_ADD_ITEM": {
+      return {
+        ...state,
+        allCartItems: [...state.allCartItems, action.payload],
+        cartItems: [...state.cartItems, action.payload],
+      };
+      // const newItem = action.payload;
+      // console.log("newItem", newItem, "cartItems", state.cartItems);
+
+      // var existItem = state.cartItems.some((elem) => {
+      //   return elem.Name === newItem.Name;
+      // });
+
+      // //una condicion para actualizar si existe el item o guardar si no existe
+      // if (existItem) {
+      //   const findItem = state.cartItems.find(
+      //     (elem) => elem.Name === newItem.Name
+      //   );
+      //   const quantity = findItem ? findItem.Qty + 1 : 1;
+      //   newItem.Qty = quantity;
+      // }
+
+      // return { ...state, cartItems: [...state.cartItems, newItem] };
+    }
+
+    case "CART_REMOVE_ITEM": {
+    //  Implementar
+    }
+
+    case "GET_ALL_CART_ITEM_PRODUCTS":
+      return {
+        ...state,
+        allCartItems: action.payload,
+        cartItems: action.payload,
+      };
+
     default:
       return state;
   }
