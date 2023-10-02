@@ -28,13 +28,3 @@ async function sendMail(subject, toEmail, otpText) {
 }
 
 module.exports = { sendMail };
-
-//   transporter.sendMail(mailOptions, function (error, info) {
-//     if (error) {
-//       throw new Error(error);
-//     } else {
-//       console.log("Email Sent");
-//       return true;
-//     }
-//   });
-// }

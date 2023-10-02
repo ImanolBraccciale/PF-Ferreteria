@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { useDispatch } from "react-redux";
 import { postUsers } from "../redux/actions/actions";
+import axios from "axios";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -44,14 +45,32 @@ const LoginPage = () => {
     setMostrarContr(!mostrarContr);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!isFormValid) {
       alert("Complete de manera correcta los valores");
       return;
     }
-    console.log(input);
+    //console.log(input);
     dispatch(postUsers(input));
+
+    const emailData = {
+      subject: "Registro exitoso",
+      toEmail: input.emailUser,
+      text: "Gracias por registrarte en nuestra aplicación. ¡Bienvenido a ferreteria ROFE!",
+    };
+    console.log("datos a enviar", emailData);
+    try {
+      const response = await axios.post("/api/nodemailer", emailData);
+
+      if (response === 200) {
+        console.log("Correo de registro enviado con éxito");
+      } else {
+        console.error("Error al enviar el correo de registro");
+      }
+    } catch (error) {
+      console.error("Error al enviar el correo de registro:", error);
+    }
     alert("El usuario fue creado correctamente");
     window.location.href = "/login";
   };

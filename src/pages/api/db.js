@@ -8,6 +8,10 @@ const SuppliersModel = require("../../models/Suppliers");
 const TagModel = require("../../models/Tag");
 const ReviewModel = require("../../models/Review");
 
+const SaleMasterModel = require("../../models/saleMaster")
+const SaleDetailsModel = require("../../models/saleDetails")
+const SalePaymentsModel = require("../../models/salePayments")
+
 //IMPORTANTE!!!!!
 // const { faTruckMedical } = require('@fortawesome/free-solid-svg-icons');
 
@@ -39,7 +43,11 @@ db.Suppliers = SuppliersModel(sequelize);
 db.Tag = TagModel(sequelize);
 db.Review = ReviewModel(sequelize);
 
-const { Users, Products, DetailSale, Sale, Suppliers, Tag, Review } =
+db.SaleMaster = SaleMasterModel(sequelize)
+db.SaleDetails = SaleDetailsModel(sequelize)
+db.SalePayments = SalePaymentsModel(sequelize)
+
+const { Users, Products, DetailSale, Sale, Suppliers, Tag, Review, SaleMaster, SaleDetails, SalePayments} =
   db.sequelize.models;
 
 Users.belongsToMany(Products, { through: "user_product", timestamps: false });

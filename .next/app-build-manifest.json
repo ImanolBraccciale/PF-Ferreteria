@@ -12,6 +12,7 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
+<<<<<<< HEAD
 >>>>>>> 4aebb8921d965bf93e923cf68ae1840cf9b0b093
     "/layout": [
       "static/chunks/webpack.js",
@@ -26,12 +27,15 @@
 <<<<<<< HEAD
 =======
 >>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
+=======
+>>>>>>> 9836036d073557540d847496d0bcec0581159402
     "/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
     ],
+<<<<<<< HEAD
     "/dashAdmin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -80,6 +84,8 @@
       "static/css/app/formProv/page.css",
       "static/chunks/app/formProv/page.js"
     ],
+=======
+>>>>>>> 9836036d073557540d847496d0bcec0581159402
     "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -91,7 +97,16 @@
       "static/chunks/main-app.js",
       "static/css/app/register/page.css",
       "static/chunks/app/register/page.js"
+<<<<<<< HEAD
 >>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
+=======
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+>>>>>>> 9836036d073557540d847496d0bcec0581159402
     ]
   }
 }

@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/api/suppliers": "pages/api/suppliers.js",
 <<<<<<< HEAD
   "/api/products": "pages/api/products.js",
@@ -20,4 +21,8 @@
   "/api/user": "pages/api/user.js",
   "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 >>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
+=======
+  "/api/user": "pages/api/user.js",
+  "/api/nodemailer": "pages/api/nodemailer.js"
+>>>>>>> 9836036d073557540d847496d0bcec0581159402
 }

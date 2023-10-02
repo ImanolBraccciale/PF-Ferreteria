@@ -5,6 +5,7 @@ function ProductBarCart() {
   return (
     <div className={s.all}>
       <div className={s.container}>
+        <div className={s.b}>Imagen</div>
         <div className={s.b}>Nombre</div>
         <div className={s.c}>Descripción</div>
         <div className={s.d}>Precio</div>
