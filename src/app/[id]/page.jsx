@@ -17,6 +17,7 @@ const Detail = ({ params }) => {
   const id = params.id;
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
+  const allCartItems = useSelector((state) => state.allCartItems);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
 
@@ -33,8 +34,9 @@ const Detail = ({ params }) => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    dispatch(getAllCartItems());
-  }, [dispatch]);
+    console.log("allCartItems", allCartItems)
+    //dispatch(getAllCartItems());
+  }, [allCartItems]);
 
   const onSubmit = (event) => {
     event.preventDefault();
