@@ -26,6 +26,7 @@ const initialState = {
   allProducts: [],
   products: [],
   allSuppliers: [],
+  allCartItems: [],
   allUsers: [],
   etiquetas: [],
   productDetail: [],
@@ -200,42 +201,39 @@ const reducer = (state = initialState, action) => {
       };
 
     case "CART_ADD_ITEM": {
-      const newItem = action.payload;
-      console.log("newItem", newItem)
+      return {
+        ...state,
+        allCartItems: [...state.allCartItems, action.payload],
+        cartItems: [...state.cartItems, action.payload],
+      };
+      // const newItem = action.payload;
+      // console.log("newItem", newItem, "cartItems", state.cartItems);
 
-      var existItem = state.cartItems.find(function (elem) {
-        return elem.Name === newItem.Name;
-      });
+      // var existItem = state.cartItems.some((elem) => {
+      //   return elem.Name === newItem.Name;
+      // });
 
-      console.log("existItem", existItem)
+      // //una condicion para actualizar si existe el item o guardar si no existe
+      // if (existItem) {
+      //   const findItem = state.cartItems.find(
+      //     (elem) => elem.Name === newItem.Name
+      //   );
+      //   const quantity = findItem ? findItem.Qty + 1 : 1;
+      //   newItem.Qty = quantity;
+      // }
 
-      state.cartItems.map((item) =>
-            console.log("item", item)
-          )
-
-      //una condicion para actualizar si existe el item o guardar si no existe
-      const cartItems = existItem
-        ? state.cartItems.map((item) =>
-            item.Name === existItem.Name ? newItem : item
-          )
-        : //de lo contrario si no existe entonces guardamos el primero
-          [...state.cartItems, newItem];
-
-      return { ...state, cartItems: { ...state.cartItems, cartItems } };
+      // return { ...state, cartItems: [...state.cartItems, newItem] };
     }
 
     case "CART_REMOVE_ITEM": {
-      const cartItems = state.cart.cartItems.filter(
-        (item) => item.slug !== action.payload.slug
-      );
-
-      return { ...state, cart: { ...state.cart, cartItems } };
+    //  Implementar
     }
 
     case "GET_ALL_CART_ITEM_PRODUCTS":
       return {
         ...state,
-        cart: action.payload,
+        allCartItems: action.payload,
+        cartItems: action.payload,
       };
 
     default:
