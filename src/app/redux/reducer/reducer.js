@@ -20,6 +20,7 @@ import {
   GET_REVIEW_BY_ID,
   GET_RUBRO,
   GET_ALL_CART_ITEM_PRODUCTS,
+  POST_SALE,
 } from "../actions/actionsTypes";
 
 const initialState = {
@@ -209,7 +210,7 @@ const reducer = (state = initialState, action) => {
     }
 
     case "CART_REMOVE_ITEM": {
-    //  Implementar
+      //  Implementar
     }
 
     case "GET_ALL_CART_ITEM_PRODUCTS":

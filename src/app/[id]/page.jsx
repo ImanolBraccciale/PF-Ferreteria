@@ -8,9 +8,7 @@ import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getProductById,
-  getAllCartItems,
   cartAddItem,
-  getAllProducts,
 } from "../redux/actions/actions";
 
 const Detail = ({ params }) => {
@@ -32,7 +30,7 @@ const Detail = ({ params }) => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     let addProdToCart = {};
     addProdToCart.ID = id;
@@ -41,8 +39,9 @@ const Detail = ({ params }) => {
     addProdToCart.Description = productDetail.descripcion;
     addProdToCart.Price = productDetail.price;
     addProdToCart.Qty = 1;
+
     dispatch(cartAddItem(addProdToCart));
-    // Agregar redirección
+    alert("¡Producto agregado exisósamente al carrito!")
   };
 
   return (

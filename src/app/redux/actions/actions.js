@@ -17,6 +17,7 @@ import {
   GET_RUBRO,
   CART_ADD_ITEM,
   GET_ALL_CART_ITEM_PRODUCTS,
+  POST_SALE,
 } from "./actionsTypes";
 import axios from "axios";
 
@@ -165,11 +166,11 @@ export const cartAddItem = (payload) => {
 };
 
 export const getAllCartItems = (payload) => {
-    return {
-        type: GET_ALL_CART_ITEM_PRODUCTS,
-        payload,
-    }
-}
+  return {
+    type: GET_ALL_CART_ITEM_PRODUCTS,
+    payload,
+  };
+};
 
 export const filterBySuppliers = (payload) => {
   return {
@@ -236,6 +237,23 @@ export const postTags = (tag) => {
       });
     } catch (error) {
       console.log(error.message);
+    }
+  };
+};
+
+export const postSale = (cart) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.post("/api/sales", cart);
+      return dispatch({
+        type: POST_SALE,
+        payload: data,
+      });
+    } catch (error) {
+      return dispatch({
+        type: POST_SALE,
+        payload: error.message,
+      });
     }
   };
 };

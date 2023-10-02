@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./page.module.css";
@@ -9,7 +9,10 @@ import BackButtom from "../componentes/BackButtom/BackButtom";
 import ProductListCart from "../componentes/ProductListCart/ProductListCart";
 import ProductBarCart from "../componentes/ProductBarCart/ProductBarCart";
 
+import { postSale } from "../redux/actions/actions";
+
 function FormCarrito() {
+  const dispatch = useDispatch();
   const allCartItems = useSelector((state) => state.allCartItems);
   console.log("allCartItems", allCartItems);
 
@@ -37,11 +40,23 @@ function FormCarrito() {
     }
   });
 
-  console.log("productSummary", productSummary);
-
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    
+    if (productSummary.length === 0) {
+      alert(
+        "Debe agregar al menos un producto al carrito para poder generar la compra"
+      );
+    } else {
+      dispatch(postSale(productSummary)).then((data) => {
+        if (typeof data.payload === "object") {
+         alert("Su compra se realizó existósamente.")
+        //  Se redirecciona por window a / y se limpia el carrito
+         location.href = "/";
+        } else {
+          alert("Hebo un error al generar su compra, por favor inténtelo nuevamente.")
+        }
+      });
+    }
   };
 
   return (
@@ -54,7 +69,7 @@ function FormCarrito() {
             <ProductListCart
               key={ID}
               // id={id}
-              image= {Image}
+              image={Image}
               name={Name}
               description={Description}
               price={Price}
@@ -67,7 +82,7 @@ function FormCarrito() {
       <Link href="/">
         <BackButtom />
       </Link>
-      <button className="add" onClick={(e) => onSubmit(e)}>
+      <button className={style.add} onClick={(e) => onSubmit(e)}>
         $
       </button>
     </div>
