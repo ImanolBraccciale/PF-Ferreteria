@@ -6,7 +6,7 @@ import SuppliersList from "../componentes/SuppliersList/SuppliersList";
 import Link from "next/link";
 import AddButtom from "../componentes/AddButtom/AddButtom";
 import { useDispatch, useSelector } from "react-redux";
-import { getSuppliers } from "../redux/actions/actions";
+import { deleteLogicSupplier, getSuppliers } from "../redux/actions/actions";
 
 function suppliers() {
   const dispatch = useDispatch();
@@ -14,20 +14,29 @@ function suppliers() {
   useEffect(() => {
     dispatch(getSuppliers());
   }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteLogicSupplier(id));
+  };
+
   return (
     <div>
       <NavBar />
       <SuppliersBar />
-      {allSuppliers.map(
-        ({ name, cellphone, name_company, direction, email }) => {
+      {allSuppliers.filter(supplier => supplier.isActive).map(
+        ({id_suppliers, name, cellphone, name_company, direction, email }) => {
           return (
-            <SuppliersList
-              name={name}
-              name_company={name_company}
-              direction={direction}
-              cellphone={cellphone}
-              email={email}
-            />
+            <div>
+              <SuppliersList
+                name={name}
+                name_company={name_company}
+                direction={direction}
+                cellphone={cellphone}
+                email={email}
+              />
+              <button onClick={() => handleDelete(id_suppliers)}>Eliminar</button>
+            </div>
+            
           );
         }
       )}

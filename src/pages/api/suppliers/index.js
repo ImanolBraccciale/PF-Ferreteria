@@ -2,6 +2,7 @@ import deleteSuppliers from "../controllers/suppliers/deleteSuppliers";
 import getSuppliers from "../controllers/suppliers/getSuppliers";
 import putSuppliers from "../controllers/suppliers/putSuppliers";
 import postSuppliers from "../controllers/suppliers/postSuppliers";
+const logicS = require("../controllers/suppliers/loigSupplier")
 
 const handlerSuppliers = async (req, res) => {
   const { method, body } = req;
@@ -29,13 +30,17 @@ const handlerSuppliers = async (req, res) => {
       const response = await putSuppliers(body);
       res.status(200).json(response);
     } else if (method === "DELETE") {
-      const { id } = body;
-      if (!id) {
-        res.status(400).json({ error: "You must enter the id" });
-        return;
+      const { id_suppliers, permanently } = body;
+      if (permanently === true) {
+
+        const delLogicSupplier = await deleteSuppliers(id_suppliers)
+        return res.status(201).json(delLogicSupplier)
+      } else {
+
+        const response = await logicS(id_suppliers);
+        res.status(200).json(response);
       }
-      const response = await deleteSuppliers(id);
-      res.status(200).json(response);
+
     }
   } catch (error) {
     res.status(500).json({ error: error.message });
