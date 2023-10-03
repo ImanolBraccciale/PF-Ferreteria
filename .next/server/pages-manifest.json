@@ -1,28 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-<<<<<<< HEAD
-  "/api/suppliers": "pages/api/suppliers.js",
-<<<<<<< HEAD
-  "/api/products": "pages/api/products.js",
-<<<<<<< HEAD
-  "/api/tag": "pages/api/tag.js"
-=======
-<<<<<<< HEAD
-=======
-  "/api/tag": "pages/api/tag.js",
->>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
-  "/api/suppliers": "pages/api/suppliers.js"
->>>>>>> 4aebb8921d965bf93e923cf68ae1840cf9b0b093
-=======
-  "/api/tag": "pages/api/tag.js",
-  "/api/products": "pages/api/products.js",
-  "/api/user": "pages/api/user.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
->>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
-=======
-  "/api/user": "pages/api/user.js",
-  "/api/nodemailer": "pages/api/nodemailer.js"
->>>>>>> 9836036d073557540d847496d0bcec0581159402
+  "/_document": "pages/_document.js"
 }

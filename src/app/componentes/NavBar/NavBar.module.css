@@ -144,59 +144,26 @@
 /*---------------RESPONSIVE-------------------------------*/
 
 @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .option select,
+  .option2 select,
+  .rutas a {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
   .logo {
-    width: 110px;
-    height: 65px;
-  }
-
-  /* Otros estilos que quieres hacer responsive para pantallas hasta 768px */
-  .option select {
-    font-size: 12px;
-  }
-
-  .option2 select {
-    font-size: 12px;
-  }
-
-  .rutas a,
-  .rutas a:visited,
-  .rutas a:active {
-    font-size: 12px;
-    padding: 5px 10px;
-  }
-
-  .dash a,
-  .login a {
-    font-size: small;
-    padding: 4px 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    width: 70px;
-    height: 40px;
-  }
-
-  /* Otros estilos que quieres hacer responsive para pantallas hasta 480px */
-  .option select {
-    font-size: 10px;
-  }
-
-  .option2 select {
-    font-size: 10px;
-  }
-
-  .rutas a,
-  .rutas a:visited,
-  .rutas a:active {
-    font-size: 10px;
-    padding: 4px 8px;
-  }
-
-  .dash a,
-  .login a {
-    font-size: x-small;
-    padding: 3px 6px;
+    width: 150px;
+    height: 75px;
   }
 }

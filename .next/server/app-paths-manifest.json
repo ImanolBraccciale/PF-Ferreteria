@@ -1,25 +1,4 @@
 {
   "/page": "app/page.js",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "/[id]/page": "app/[id]/page.js"
-=======
-<<<<<<< HEAD
-=======
-  "/[id]/page": "app/[id]/page.js",
-  "/formProv/page": "app/formProv/page.js",
-  "/formProducto/page": "app/formProducto/page.js",
->>>>>>> 60f9652ddc3a26630fd2660966df381dd9da8322
   "/dashAdmin/page": "app/dashAdmin/page.js"
->>>>>>> 4aebb8921d965bf93e923cf68ae1840cf9b0b093
-=======
-  "/[id]/page": "app/[id]/page.js",
-  "/formProv/page": "app/formProv/page.js",
-=======
->>>>>>> 9836036d073557540d847496d0bcec0581159402
-  "/login/page": "app/login/page.js",
-  "/[id]/page": "app/[id]/page.js",
-  "/register/page": "app/register/page.js"
->>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
 }
