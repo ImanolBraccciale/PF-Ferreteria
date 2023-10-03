@@ -10,15 +10,6 @@ const page = () => {
       <div>
         <NavBar />
         <CartForm />
-        {/* <Rating/> */}
-        {/* <h1>
-        {rolUser === "admin"
-          ? "Bienvenido, administrador"
-          : rolUser === "employee"
-          ? "Bienvenido, empleado"
-          : "Bienvenido, cliente"}
-          </h1> */}
-        
       </div>
     </div>
   );
