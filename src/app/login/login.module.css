@@ -54,7 +54,7 @@
   border: none;
   border-radius: 5px;
   background-color: #6c6060;
-  color: #1e1e1e;
+  color: white;
   cursor: pointer;
   width: auto;
   margin: 2vh auto;
@@ -63,7 +63,7 @@
 .button:hover {
   background-color: #959191;
   box-shadow: 0 0 15px rgb(92, 106, 125);
-  color: white;
+  color: #1e1e1e;
 }
 
 .forget {
