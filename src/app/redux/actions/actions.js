@@ -18,8 +18,9 @@ import {
   CART_ADD_ITEM,
   GET_ALL_CART_ITEM_PRODUCTS,
   POST_SALE,
-  UPDATE_PRODUCT,
-} from "./actionsTypes";
+  DELETE_LOGIC_PRODUCT,
+  DELETE_LOGIC_SUPPLIER,
+  UPDATE_PRODUCT } from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -274,3 +275,40 @@ export const updateProducts = (input) => {
     }
   }
 }
+export const deleteLogicProduct = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete("api/products", { data: { id, permanently: false } });
+      return dispatch({
+        type: DELETE_LOGIC_PRODUCT,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const deleteLogicSupplier = (id_suppliers) => {
+  return async (dispatch) => {
+    try {
+      const dataToSend = {
+        id_suppliers,
+        permanently: false,
+      };
+
+      const response = await axios.delete("api/suppliers", { data: dataToSend });
+      
+      if (response && response.data) {
+        dispatch({
+          type: DELETE_LOGIC_SUPPLIER,
+          payload: response.data,
+        });
+      } else {
+        console.error("La respuesta DELETE no contiene datos válidos.");
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud DELETE:", error);
+    }
+  };
+};

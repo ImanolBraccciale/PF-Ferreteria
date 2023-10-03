@@ -21,6 +21,8 @@ import {
   GET_RUBRO,
   GET_ALL_CART_ITEM_PRODUCTS,
   POST_SALE,
+  DELETE_LOGIC_PRODUCT,
+  DELETE_LOGIC_SUPPLIER
   UPDATE_PRODUCT,
 } from "../actions/actionsTypes";
 
@@ -219,6 +221,25 @@ const reducer = (state = initialState, action) => {
         ...state,
         allCartItems: action.payload,
         cartItems: action.payload,
+      };
+
+    case DELETE_LOGIC_PRODUCT:
+      return {
+        ...state,
+        allProducts: state.allProducts.map(product =>
+          product.id === action.payload.id ? { ...product, isActive: false } : product
+        ),
+        products: state.products.map(product =>
+          product.id === action.payload.id ? { ...product, isActive: false } : product
+        ),
+      };
+
+    case DELETE_LOGIC_SUPPLIER:
+      return {
+        ...state,
+        allSuppliers: state.allSuppliers.map(supplier =>
+          supplier.id === action.payload.id ? { ...supplier, isActive: false } : supplier
+        )
       };
 
     case UPDATE_PRODUCT:

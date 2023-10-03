@@ -7,7 +7,7 @@ import AddButtom from "../componentes/AddButtom/AddButtom";
 import VentaButton from "../componentes/IngresarVenta/VentaButton";
 import ProductList from "../componentes/ProductList/ProductList";
 import Paginado from "../componentes/paginado/paginado";
-import { getAllProducts } from "../redux/actions/actions"
+import { deleteLogicProduct, getAllProducts } from "../redux/actions/actions"
 
 const CartForm = () => {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ const CartForm = () => {
     indexOfLastProducts
   );
 
+
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -33,31 +34,39 @@ const CartForm = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-}, [currentPage])
+  }, [currentPage])
+
+  const handleDelete = (id) => {
+    dispatch(deleteLogicProduct(id));
+    window.location.reload()
+  };
 
   return (
     <>
       <ProductBar />
-      {currentProducts.map(({ id, name, stock, costoActual, price }) => {
+      {currentProducts.filter(product => product.isActive).map(({ id, name, stock, costoActual, price }) => {
         return (
-          <ProductList
-            key={id}
-            id={id}
-            name={name}
-            stock={stock}
-            costoActual={costoActual}
-            price={price}
-            enlace={`/${id}`}
-          />
+          <div key={id}>
+            <ProductList
+              id={id}
+              name={name}
+              stock={stock}
+              costoActual={costoActual}
+              price={price}
+              enlace={`/${id}`}
+            />
+            <button onClick={() => handleDelete(id)}>Eliminar</button>
+          </div>
         );
       })}
+
       <Link href="/formProducto">
         <AddButtom />
       </Link>
       <Link href="/formCarrito">
         <VentaButton />
       </Link>
-      <div style={{marginLeft: 200}}>
+      <div style={{ marginLeft: 200 }}>
         <Paginado
           productsPerPage={productsPerPage}
           allProducts={allProducts.length}
