@@ -207,11 +207,50 @@ const reducer = (state = initialState, action) => {
       };
 
     case CART_ADD_ITEM: {
-      return {
-        ...state,
-        allCartItems: [...state.allCartItems, action.payload],
-        cartItems: [...state.cartItems, action.payload],
-      };
+      // Buscar el producto en el carrito y obtener el campo cantidad
+      let isAdded = false;
+      const item = state.allCartItems.find(
+        (item) => item.ID === action.payload.ID
+      );
+
+      // contar cuántos productos hay en el carrito según el id
+      const count = state.cartItems.filter((item) => item.ID === action.payload.ID);
+      console.log("count", count.length);
+
+      console.log("state.allCartItems", state.allCartItems);
+      console.log("item", item);
+      console.log("action.payload", action.payload);
+
+      if (item === undefined) {
+        if (parseInt(action.payload.Qty) > parseInt(action.payload.stock)) {
+          isAdded = false;
+        } else {
+          isAdded = true;
+        }
+      } else {
+        // No es el primero, se le debe sumar uno a la cantidad del item encontrado y validar con stock
+        if (count.length + 1 > item.stock) {
+          isAdded = false;
+        } else {
+          isAdded = true;
+        }
+      }
+
+      console.log("isAdded", isAdded);
+
+      if (isAdded) {
+        return {
+          ...state,
+          allCartItems: [...state.allCartItems, action.payload],
+          cartItems: [...state.cartItems, action.payload],
+        };
+      } else {
+        return {
+          ...state,
+          error: 'No hay stock suficiente para este producto.'
+        }
+      }
+      
     }
 
     case CART_REMOVE_ITEM: {
@@ -220,10 +259,8 @@ const reducer = (state = initialState, action) => {
         allCartItems: state.allCartItems.filter(
           (item) => item.ID !== action.payload
         ),
-        cartItems: state.cartItems.filter(
-          (item) => item.ID !== action.payload
-        ),
-      }
+        cartItems: state.cartItems.filter((item) => item.ID !== action.payload),
+      };
     }
 
     case GET_ALL_CART_ITEM_PRODUCTS:
@@ -236,20 +273,26 @@ const reducer = (state = initialState, action) => {
     case DELETE_LOGIC_PRODUCT:
       return {
         ...state,
-        allProducts: state.allProducts.map(product =>
-          product.id === action.payload.id ? { ...product, isActive: false } : product
+        allProducts: state.allProducts.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, isActive: false }
+            : product
         ),
-        products: state.products.map(product =>
-          product.id === action.payload.id ? { ...product, isActive: false } : product
+        products: state.products.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, isActive: false }
+            : product
         ),
       };
 
     case DELETE_LOGIC_SUPPLIER:
       return {
         ...state,
-        allSuppliers: state.allSuppliers.map(supplier =>
-          supplier.id === action.payload.id ? { ...supplier, isActive: false } : supplier
-        )
+        allSuppliers: state.allSuppliers.map((supplier) =>
+          supplier.id === action.payload.id
+            ? { ...supplier, isActive: false }
+            : supplier
+        ),
       };
 
     case UPDATE_PRODUCT:
@@ -257,7 +300,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         allProducts: [...state.allProducts, action.payload],
         products: [...state.products, action.payload],
-      }
+      };
 
     default:
       return state;
