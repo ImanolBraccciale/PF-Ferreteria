@@ -25,7 +25,8 @@ function NavBar() {
   const suppliers = useSelector((state) => state.suppliers);
 
   useEffect(() => {
-    dispatch(getSuppliers()), dispatch(getTags());
+    dispatch(getSuppliers()),
+    dispatch(getTags());
   }, [dispatch]);
 
   useEffect(() => setMounted(true), []);

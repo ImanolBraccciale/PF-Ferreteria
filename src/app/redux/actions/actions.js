@@ -18,6 +18,7 @@ import {
   CART_ADD_ITEM,
   GET_ALL_CART_ITEM_PRODUCTS,
   POST_SALE,
+  UPDATE_PRODUCT,
 } from "./actionsTypes";
 import axios from "axios";
 
@@ -184,6 +185,7 @@ export const getTags = () => {
     try {
       const { data } = await axios.get("/api/tag");
       const filteredData = data.filter((item) => item.type === "group");
+      console.log(filteredData)
       return dispatch({
         type: GET_TAGS,
         payload: filteredData,
@@ -257,3 +259,18 @@ export const postSale = (cart) => {
     }
   };
 };
+
+export const updateProducts = (input) => {
+  return async (dispatch) =>{
+    try {
+
+      const response = await axios.put("/api/products" , input)
+      return dispatch({
+        type: UPDATE_PRODUCT,
+        payñoad:response.data
+      })
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}

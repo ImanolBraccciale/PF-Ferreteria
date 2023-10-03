@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import style from "./page.module.css";
-import martillo from "../componentes/assets/images/97957.jpeg";
 import Link from "next/link";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,6 +42,8 @@ const Detail = ({ params }) => {
     dispatch(cartAddItem(addProdToCart));
     alert("¡Producto agregado exisósamente al carrito!")
   };
+
+  
 
   return (
     <>
@@ -104,6 +105,12 @@ const Detail = ({ params }) => {
             )}
           </div>
         </section>
+        
+
+
+        <Link key={id} props = {productDetail}href={`/updateProd/${id}`}>
+          <button >Modificar</button>
+        </Link>
         <Link href="/">
           <button className={style.button}>Volver</button>
         </Link>

@@ -21,6 +21,7 @@ import {
   GET_RUBRO,
   GET_ALL_CART_ITEM_PRODUCTS,
   POST_SALE,
+  UPDATE_PRODUCT,
 } from "../actions/actionsTypes";
 
 const initialState = {
@@ -219,6 +220,13 @@ const reducer = (state = initialState, action) => {
         allCartItems: action.payload,
         cartItems: action.payload,
       };
+
+    case UPDATE_PRODUCT:
+      return {
+        ...state,
+        allProducts: [...state.allProducts, action.payload],
+        products: [...state.products, action.payload],
+      }
 
     default:
       return state;
