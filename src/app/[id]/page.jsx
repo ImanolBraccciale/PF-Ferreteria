@@ -43,7 +43,7 @@ const Detail = ({ params }) => {
     alert("¡Producto agregado exisósamente al carrito!")
   };
 
-  
+
 
   return (
     <>
@@ -105,10 +105,10 @@ const Detail = ({ params }) => {
             )}
           </div>
         </section>
-        
 
 
-        <Link key={id} props = {productDetail}href={`/updateProd/${id}`}>
+
+        <Link key={id} props={productDetail} href={`/updateProd/${id}`}>
           <button >Modificar</button>
         </Link>
         <Link href="/">
