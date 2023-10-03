@@ -23,6 +23,7 @@ import {
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
   DELETE_LOGIC_SUPPLIER
+  UPDATE_PRODUCT,
 } from "../actions/actionsTypes";
 
 const initialState = {
@@ -240,6 +241,13 @@ const reducer = (state = initialState, action) => {
           supplier.id === action.payload.id ? { ...supplier, isActive: false } : supplier
         )
       };
+
+    case UPDATE_PRODUCT:
+      return {
+        ...state,
+        allProducts: [...state.allProducts, action.payload],
+        products: [...state.products, action.payload],
+      }
 
     default:
       return state;

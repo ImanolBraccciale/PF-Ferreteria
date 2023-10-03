@@ -12,6 +12,7 @@
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
     ],
+<<<<<<< HEAD
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -23,6 +24,19 @@
       "static/chunks/main-app.js",
       "static/css/app/dashAdmin/page.css",
       "static/chunks/app/dashAdmin/page.js"
+=======
+    "/updateProd/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/updateProd/[id]/page.css",
+      "static/chunks/app/updateProd/[id]/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+>>>>>>> f87573ae507099030ea66b16b5dd540ae994e040
     ]
   }
 }
