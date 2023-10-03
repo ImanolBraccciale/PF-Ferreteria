@@ -56,7 +56,7 @@ const LoginPage = () => {
       subject: "Inicio de sesión exitoso",
       toEmail: input.usuario,
       loginText:
-        "Has iniciado sesión exitosamente en nuestra aplicación. ROFE ferreteria te da la mas cordial bienvenida.",
+        "Has iniciado sesión exitosamente en nuestra aplicación. te damos la mas cordial Bienvenida a ROFE ferreteria.",
     };
 
     try {

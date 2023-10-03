@@ -1,23 +1,37 @@
-import { sendMail } from "../service/mailService";
+import { sendMail, sendPurchaseConfirmation } from "../service/mailService";
 
 const handlerMail = async (req, res) => {
   try {
     const { method, body } = req;
-
+    //console.log("pasando por el handlerMail", method, body);
     switch (method) {
       case "POST": {
-        const { subject, toEmail, otpText, loginText } = body;
-        if (otpText) {
-          // Si otpText está presente, es un correo de registro
-          await sendMail(subject, toEmail, otpText);
-        } else if (loginText) {
-          // Si loginText está presente, es un correo de inicio de sesión
-          await sendMail(subject, toEmail, null, loginText);
-        } else {
-          return res.status(400).send("Missing email text");
+        const {
+          subject,
+          toEmail,
+          otpText,
+          loginText,
+          productSummary,
+          isPurchase,
+        } = body;
+        try {
+          if (otpText) {
+            await sendMail(subject, toEmail, otpText);
+          } else if (loginText) {
+            await sendMail(subject, toEmail, null, loginText);
+          }
+
+          if (isPurchase) {
+            await sendPurchaseConfirmation(toEmail, productSummary);
+            res.status(200).send("Purchase confirmation email sent");
+          } else {
+            res.status(200).send("General email sent");
+          }
+        } catch (error) {
+          console.error("Error sending email:", error);
+          res.status(500).send("An error occurred while sending the email.");
         }
 
-        res.status(200).send("Success");
         break;
       }
       case "GET": {

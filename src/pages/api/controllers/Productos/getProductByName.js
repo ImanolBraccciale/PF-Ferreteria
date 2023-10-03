@@ -19,7 +19,7 @@ module.exports = async (name) => {
       },
     ],
   });
-  console.log(productWithTags);
+  //console.log(productWithTags);
   if (!productWithTags) {
 
     return null;

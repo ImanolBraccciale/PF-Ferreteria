@@ -19,7 +19,7 @@ import {
   GET_ALL_CART_ITEM_PRODUCTS,
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
-  DELETE_LOGIC_SUPPLIER
+  DELETE_LOGIC_SUPPLIER,
 } from "./actionsTypes";
 import axios from "axios";
 
@@ -38,7 +38,7 @@ export const getSuppliers = () => {
 };
 
 export const postSuppliers = (supplier) => {
-  console.log(supplier);
+  //console.log(supplier);
   return async (dispatch) => {
     try {
       const { data } = await axios.post("api/suppliers", supplier);
@@ -82,9 +82,12 @@ export const getProductById = (id) => {
 };
 
 export const getUserByEmail = (emailUser) => {
+  console.log("Entramos al action--------------->");
   return async (dispatch) => {
     try {
+      console.log("--------------->ANTES DEL DATA", data);
       const { data } = await axios.get(`/api/user?emailUser=${emailUser}`);
+      console.log("PROBANDO EL DATA", data);
       return dispatch({
         type: GET_USER_BY_EMAIL,
         payload: data,
@@ -263,7 +266,9 @@ export const postSale = (cart) => {
 export const deleteLogicProduct = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/products", { data: { id, permanently: false } });
+      const { data } = await axios.delete("api/products", {
+        data: { id, permanently: false },
+      });
       return dispatch({
         type: DELETE_LOGIC_PRODUCT,
         payload: data,
@@ -282,8 +287,10 @@ export const deleteLogicSupplier = (id_suppliers) => {
         permanently: false,
       };
 
-      const response = await axios.delete("api/suppliers", { data: dataToSend });
-      
+      const response = await axios.delete("api/suppliers", {
+        data: dataToSend,
+      });
+
       if (response && response.data) {
         dispatch({
           type: DELETE_LOGIC_SUPPLIER,

@@ -1,44 +1,46 @@
 "use client";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./page.module.css";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 import NavBar from "../componentes/NavBar/NavBar";
 import BackButtom from "../componentes/BackButtom/BackButtom";
 import ProductListCart from "../componentes/ProductListCart/ProductListCart";
 import ProductBarCart from "../componentes/ProductBarCart/ProductBarCart";
-
 import { postSale } from "../redux/actions/actions";
+import { getUserByEmail } from "../redux/actions/actions";
 
 function FormCarrito() {
   const dispatch = useDispatch();
   const allCartItems = useSelector((state) => state.allCartItems);
-  console.log("allCartItems", allCartItems);
-
+  // console.log("allCartItems", allCartItems);
+  const userData = useSelector((state) => state.user);
   const productSummary = [];
 
   allCartItems.forEach((item) => {
     const productName = item.Name;
     const quantity = item.Qty;
-    const price = parseFloat(item.Price); // Convierte el precio a un número
-
+    const price = parseFloat(item.Price);
     // Buscar si el producto ya existe en el arreglo productSummary
     const existingProduct = productSummary.find(
       (summaryItem) => summaryItem.Name === productName
     );
 
     if (existingProduct) {
-      // Si el producto ya existe en el resumen, suma la cantidad
       existingProduct.Qty += quantity;
-      // Calcula el subtotal para el producto existente
+
       existingProduct.Subtotal = existingProduct.Qty * price;
     } else {
-      // Si el producto no existe en el resumen, agrégalo como un nuevo objeto
       const Subtotal = quantity * price;
       productSummary.push({ ...item, Subtotal });
     }
   });
+  useEffect(() => {
+    console.log("correo electronico user", userData);
+    dispatch(getUserByEmail(userData.email));
+  }, [dispatch, userData]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -49,11 +51,19 @@ function FormCarrito() {
     } else {
       dispatch(postSale(productSummary)).then((data) => {
         if (typeof data.payload === "object") {
-         alert("Su compra se realizó existósamente.")
-        //  Se redirecciona por window a / y se limpia el carrito
-         location.href = "/";
-        } else {
-          alert("Hebo un error al generar su compra, por favor inténtelo nuevamente.")
+          try {
+            axios.post("/api/nodemailer", {
+              subject: "Confirmación de compra",
+              toEmail: "ahernandezdep@gmail.com",
+              isPurchase: true,
+            });
+            alert("Su compra se realizó exitósamente.");
+            location.href = "/";
+          } catch (error) {
+            console.error(
+              "No se pudo obtener el correo electrónico del usuario."
+            );
+          }
         }
       });
     }
