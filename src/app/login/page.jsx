@@ -108,18 +108,12 @@ const LoginPage = () => {
           </button>
         </div>
 
-<<<<<<< HEAD
-        {errors.contraseña && <p className={style.error}>{errors.contraseña}</p>}
-        <button className={style.button} type="submit"> Ingresar </button>
-        <p className={style.p}>O ingresa con</p>
-=======
         {errors.contraseña && <p className={style.p}>{errors.contraseña}</p>}
         <button className={style.button} type="submit">
           {" "}
           Ingresar{" "}
         </button>
         <p>O ingresa con</p>
->>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
         <button
           type="button"
           className={style.btnFloating}
@@ -133,11 +127,7 @@ const LoginPage = () => {
           ¿No tienes una cuenta? <Link href="/register">¡Registrate!</Link>
         </p>
         <br></br>
-<<<<<<< HEAD
-        <p className={style.p}>¿Has olvidado tu contraseña?</p>
-=======
         <p>¿Olvidaste tu contraseña?</p>
->>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
         <br></br>
       </form>
     </div>

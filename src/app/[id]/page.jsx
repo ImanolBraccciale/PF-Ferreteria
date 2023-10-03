@@ -109,7 +109,7 @@ const Detail = ({ params }) => {
 
 
         <Link key={id} props = {productDetail}href={`/updateProd/${id}`}>
-          <button >Modificar</button>
+          <button className={style.buttonModificar}>Modificar</button>
         </Link>
         <Link href="/">
           <button className={style.button}>Volver</button>

@@ -25,21 +25,21 @@ function SearchBar() {
 
     return (
         <div className={s.search}>
-            <form onSubmit={(e) => handleSubmit(e)} className={s.form}>
-                <div className={s.input}>
-                    <span htmlFor="name"></span>
-                    <input
-                        type="text"
-                        autoComplete="off"
-                        value={state}
-                        placeholder="Producto"
-                        onChange={(e) => handleChange(e)}
-                    />
-                    <button type="submit" className={s.btn}>
-                        Buscar
-                    </button>
-                </div>
-            </form>
+                <form onSubmit={(e) => handleSubmit(e)} className={s.form}>
+                    <div className={s.input}>
+                        <span htmlFor="name"></span>
+                        <input
+                            type="text"
+                            autoComplete="off"
+                            value={state}
+                            placeholder="Producto"
+                            onChange={(e) => handleChange(e)}
+                        />
+                        <button type="submit" className={s.btn}>
+                            Buscar
+                        </button>
+                    </div>
+                </form>
         </div>
     );
 }

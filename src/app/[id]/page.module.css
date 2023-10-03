@@ -141,7 +141,16 @@
   height: 40px;
 }
 
-.button:hover {
+.buttonModificar {
+  color: white;
+  border: 2px solid #555;
+  padding: 0.6em 1.2em;
+  border-radius: 5px;
+  background-color: #555;
+  cursor: pointer;
+}
+
+.button:hover, .buttonModificar:hover {
   border-color: #6f6e6e;
   transform: scale(1.05);
   box-shadow: 0 0 15px rgb(92, 106, 125);

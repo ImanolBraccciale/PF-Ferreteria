@@ -7,6 +7,7 @@ import Link from "next/link";
 import AddButtom from "../componentes/AddButtom/AddButtom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLogicSupplier, getSuppliers } from "../redux/actions/actions";
+import style from "./page.module.css";
 
 function suppliers() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function suppliers() {
                 cellphone={cellphone}
                 email={email}
               />
-              <button onClick={() => handleDelete(id_suppliers)}>Eliminar</button>
+              <button onClick={() => handleDelete(id_suppliers)} className={style.buttonEliminar}>Eliminar</button>
             </div>
             
           );

@@ -11,17 +11,9 @@
   padding: 40px;
 }
 
-<<<<<<< HEAD
-
-
-.error{
-    color: rgb(180, 0, 0);
-    font-size: 13px;
-=======
 .p {
   color: rgb(180, 0, 0);
   font-size: 13px;
->>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
 }
 
 .title {
@@ -123,110 +115,105 @@
 }
 
 .eyeIcon {
-<<<<<<< HEAD
-    font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 /* ------------RESPONSIVE----------------------------------------- */
 @media (max-width: 768px) {
-    .container{
-        width: 75%;
-        padding: 20px ;
-    }
+  .container{
+      width: 75%;
+      padding: 20px ;
+  }
 
-    .error {
-        font-size: 12px;
-    }
+  .error {
+      font-size: 12px;
+  }
 
-    .p {
-        font-size: 15px;
-    }
+  .p {
+      font-size: 15px;
+  }
 
-    .title{
-        font-size: 18px;
-    }
+  .title{
+      font-size: 18px;
+  }
 
-    .subtitle{
-        font-size: 16px;
-    }
+  .subtitle{
+      font-size: 16px;
+  }
 
-    .input {
-        width: 92%;
-        padding: 5px;
-    }
+  .input {
+      width: 92%;
+      padding: 5px;
+  }
 
-    .passwordInput{
-        width: 92%;
-        padding: 5px;
-    }
+  .passwordInput{
+      width: 92%;
+      padding: 5px;
+  }
 
-    .inputWrong {
-        width: 92%;
-        padding: 5px;
-    }
+  .inputWrong {
+      width: 92%;
+      padding: 5px;
+  }
 
-    .button{
-        width: 26%;
-    }
+  .button{
+      width: 26%;
+  }
 
-    .eyeIcon{
-        font-size: 1.2rem;
-    }
+  .eyeIcon{
+      font-size: 1.2rem;
+  }
 
-    .googleIcon{
-        width: 90%;
-    }
+  .googleIcon{
+      width: 90%;
+  }
 }
 
 @media (max-width: 480px) {
-    .container{
-        width: 90%;
-    }
+  .container{
+      width: 90%;
+  }
 
-    .error {
-        font-size: 11px;
-    }
+  .error {
+      font-size: 11px;
+  }
 
-    .p {
-        font-size: 14px;
-    }
+  .p {
+      font-size: 14px;
+  }
 
-    .title {
-        font-size: 16px;
-    }
+  .title {
+      font-size: 16px;
+  }
 
-    .subtitle{
-        font-size: 14px;
-    }
+  .subtitle{
+      font-size: 14px;
+  }
 
-    .input{
-        width: 88%;
-        padding: 5px;
-    }
+  .input{
+      width: 88%;
+      padding: 5px;
+  }
 
-    .passwordInput{
-        width: 88%;
-        padding: 5px;
-    }
+  .passwordInput{
+      width: 88%;
+      padding: 5px;
+  }
 
-    .inputWrong{
-        width: 88%;
-        padding: 5px;
-    }
+  .inputWrong{
+      width: 88%;
+      padding: 5px;
+  }
 
-    .button{
-        width: 22%;
-    }
+  .button{
+      width: 22%;
+  }
 
-    .eyeIcon{
-        font-size: 1rem;
-    }
+  .eyeIcon{
+      font-size: 1rem;
+  }
 
-    .googleIcon{
-        width: 85%;
-    }
+  .googleIcon{
+      width: 85%;
+  }
 }
-=======
-  font-size: 1.4rem;
-}
->>>>>>> cb6c8409a94fdbec3923fe54ed2124ef829a0d8d
