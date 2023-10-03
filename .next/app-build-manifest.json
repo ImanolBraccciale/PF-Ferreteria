@@ -6,6 +6,12 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
     "/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -23,12 +29,6 @@
       "static/chunks/main-app.js",
       "static/css/app/register/page.css",
       "static/chunks/app/register/page.js"
-    ],
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
     ]
   }
 }

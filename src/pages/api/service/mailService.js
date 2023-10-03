@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 //creamos un servicio que utilizará la biblioteca nodemailer para construir objetos de correo electrónico y enviar correos electrónicos
-async function sendMail(subject, toEmail, otpText) {
+async function sendMail(subject, toEmail, otpText, loginText) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -15,7 +15,7 @@ async function sendMail(subject, toEmail, otpText) {
     from: process.env.NODEMAILER_EMAIL,
     to: toEmail,
     subject: subject,
-    text: otpText,
+    text: otpText || loginText,
   };
   try {
     const info = await transporter.sendMail(mailOptions);

@@ -6,12 +6,17 @@ const handlerMail = async (req, res) => {
 
     switch (method) {
       case "POST": {
-        const { subject, toEmail, text } = body;
-        if (!subject || !toEmail || !text) {
-          return res.status(400).send("Missing email data");
+        const { subject, toEmail, otpText, loginText } = body;
+        if (otpText) {
+          // Si otpText está presente, es un correo de registro
+          await sendMail(subject, toEmail, otpText);
+        } else if (loginText) {
+          // Si loginText está presente, es un correo de inicio de sesión
+          await sendMail(subject, toEmail, null, loginText);
+        } else {
+          return res.status(400).send("Missing email text");
         }
 
-        await sendMail(subject, toEmail, text);
         res.status(200).send("Success");
         break;
       }

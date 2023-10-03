@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { credential, getUserByEmail } from "../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -49,6 +50,25 @@ const LoginPage = () => {
     if (!isFormValid) {
       alert("Complete de manera correcta los valores");
       return;
+    }
+
+    const emailData = {
+      subject: "Inicio de sesión exitoso",
+      toEmail: input.usuario,
+      loginText:
+        "Has iniciado sesión exitosamente en nuestra aplicación. ROFE ferreteria te da la mas cordial bienvenida.",
+    };
+
+    try {
+      const response = await axios.post("/api/nodemailer", emailData);
+
+      if (response === 200) {
+        console.log("sesion iniciada con éxito");
+      } else {
+        console.error("Error al iniciar sesion");
+      }
+    } catch (error) {
+      console.error("Error al ikntentar iniciar sesion:", error);
     }
 
     if (credencial.payload !== true) {

@@ -57,9 +57,10 @@ const LoginPage = () => {
     const emailData = {
       subject: "Registro exitoso",
       toEmail: input.emailUser,
-      text: "Gracias por registrarte en nuestra aplicación. ¡Bienvenido a ferreteria ROFE!",
+      otpText:
+        "Gracias por registrarte en nuestra aplicación. Será un gusto atenderte ¡Bienvenido a ferreteria ROFE!",
     };
-    console.log("datos a enviar", emailData);
+    //console.log("datos a enviar", emailData);
     try {
       const response = await axios.post("/api/nodemailer", emailData);
 
