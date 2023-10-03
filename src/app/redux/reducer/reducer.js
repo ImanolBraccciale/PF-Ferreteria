@@ -20,9 +20,11 @@ import {
   GET_REVIEW_BY_ID,
   GET_RUBRO,
   GET_ALL_CART_ITEM_PRODUCTS,
+  CART_ADD_ITEM,
+  CART_REMOVE_ITEM,
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
-  DELETE_LOGIC_SUPPLIER
+  DELETE_LOGIC_SUPPLIER,
   UPDATE_PRODUCT,
 } from "../actions/actionsTypes";
 
@@ -204,7 +206,7 @@ const reducer = (state = initialState, action) => {
         rubro: action.payload,
       };
 
-    case "CART_ADD_ITEM": {
+    case CART_ADD_ITEM: {
       return {
         ...state,
         allCartItems: [...state.allCartItems, action.payload],
@@ -212,11 +214,19 @@ const reducer = (state = initialState, action) => {
       };
     }
 
-    case "CART_REMOVE_ITEM": {
-      //  Implementar
+    case CART_REMOVE_ITEM: {
+      return {
+        ...state,
+        allCartItems: state.allCartItems.filter(
+          (item) => item.ID !== action.payload
+        ),
+        cartItems: state.cartItems.filter(
+          (item) => item.ID !== action.payload
+        ),
+      }
     }
 
-    case "GET_ALL_CART_ITEM_PRODUCTS":
+    case GET_ALL_CART_ITEM_PRODUCTS:
       return {
         ...state,
         allCartItems: action.payload,

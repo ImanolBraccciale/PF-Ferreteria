@@ -16,6 +16,7 @@ import {
   POST_PRODUCTS,
   GET_RUBRO,
   CART_ADD_ITEM,
+  CART_REMOVE_ITEM,
   GET_ALL_CART_ITEM_PRODUCTS,
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
@@ -166,6 +167,13 @@ export const cartAddItem = (payload) => {
     payload,
   };
 };
+
+export const cartRemoveItem = (payload) => {
+  return {
+    type: CART_REMOVE_ITEM,
+    payload,
+  };
+}
 
 export const getAllCartItems = (payload) => {
   return {
