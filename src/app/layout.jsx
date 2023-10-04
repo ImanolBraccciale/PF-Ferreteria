@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { Provider } from "react-redux";
 import Providers from "./Providers";
 import store from "./redux/store/store";
+const inter = Inter({ subsets: ["latin"] });
 
 
 export default function RootLayout({ children }) {
