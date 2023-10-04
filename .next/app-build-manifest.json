@@ -17,6 +17,18 @@
       "static/chunks/main-app.js",
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
+    ],
+    "/formCarrito/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/formCarrito/page.css",
+      "static/chunks/app/formCarrito/page.js"
+    ],
+    "/formProducto/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/formProducto/page.css",
+      "static/chunks/app/formProducto/page.js"
     ]
   }
 }

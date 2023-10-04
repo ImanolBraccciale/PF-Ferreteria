@@ -6,10 +6,7 @@ import martillo from "../componentes/assets/images/97957.jpeg";
 import Link from "next/link";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getProductById,
-  cartAddItem,
-} from "../redux/actions/actions";
+import { getProductById, cartAddItem } from "../redux/actions/actions";
 
 const Detail = ({ params }) => {
   const id = params.id;
@@ -41,7 +38,7 @@ const Detail = ({ params }) => {
     addProdToCart.Qty = 1;
 
     dispatch(cartAddItem(addProdToCart));
-    alert("¡Producto agregado exisósamente al carrito!")
+    alert("¡Producto agregado con Exito al carrito!");
   };
 
   return (
@@ -60,7 +57,7 @@ const Detail = ({ params }) => {
             ) : (
               <Image
                 src="/ruta/a/martillo.jpg"
-                alt="Foto Decsripción"
+                alt="Foto Descripción"
                 width={600} // Define el ancho deseado
                 height={400} // Define la altura deseada
               />
