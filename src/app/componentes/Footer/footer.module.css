@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: orange;
+  background-color: #ffa424;
   height: 50px;
   width: 100%;
   position: fixed;
@@ -24,7 +24,7 @@
 }
 [data-theme="dark"] .footer a {
   background: #262525;
-  color: orange;
+  color: #ffa424;
 }
 [data-theme="dark"] .footer a:hover {
   background: #262525;

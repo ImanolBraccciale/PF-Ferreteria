@@ -119,13 +119,13 @@ function NavBar() {
         <div>
           {theme === "dark" ? (
             <BsSun
-              size={40}
+              size={30}
               cursor="pointer"
               onClick={() => setTheme("light")}
             />
           ) : (
             <FiMoon
-              size={40}
+              size={30}
               cursor="pointer"
               onClick={() => setTheme("dark")}
             />

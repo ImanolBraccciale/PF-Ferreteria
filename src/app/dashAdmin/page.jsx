@@ -17,7 +17,7 @@ const Dashboard = () => {
           <div className={style.infoAdmin}>
             <img
               className={style.image}
-              src="https://pbs.twimg.com/media/EG7QuK-XUAEa8Gr.jpg"
+              src="https://comercialsanjose.com.ar/wp-content/uploads/2021/11/FERRETERIA.png"
               alt="Avatar"
             />
             <ul className={style.ul}>
@@ -36,9 +36,9 @@ const Dashboard = () => {
             <Link href="/formProducto" className={style.buttonsCaja1}>
               Crear Producto
             </Link>
-            <Link href="/" className={style.buttonsCaja1}>
+            {/* <Link href="/" className={style.buttonsCaja1}>
               Empleados
-            </Link>
+            </Link> */}
             <Link href="/" className={style.buttonsCaja1}>
               Volver al inicio
             </Link>
@@ -51,14 +51,14 @@ const Dashboard = () => {
               <LinesChart />
             </div>
             <div className={style.grafico}>
-              <BarsChart />
-            </div>
-            <div className={style.grafico}>
               <PiesChart />
             </div>
-            <div className={style.grafico}>
-              <h3>Personal</h3>
+            <div className={style.graficoGrande}>
+              <BarsChart />
             </div>
+            {/* <div className={style.grafico}>
+              <h3>Personal</h3>
+            </div> */}
           </div>
         </div>
       </div>

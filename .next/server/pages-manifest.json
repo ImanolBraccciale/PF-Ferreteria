@@ -4,5 +4,10 @@
   "/_document": "pages/_document.js",
   "/api/suppliers": "pages/api/suppliers.js",
   "/api/tag": "pages/api/tag.js",
+<<<<<<< HEAD
   "/api/products": "pages/api/products.js"
+=======
+  "/api/products": "pages/api/products.js",
+  "/api/sales": "pages/api/sales.js"
+>>>>>>> 0adea62e8dd8f52f9986add20d8dc049e3717591
 }

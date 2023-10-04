@@ -81,7 +81,7 @@ const LoginPage = () => {
           />
         </div>
 
-        {errors.usuario && <p className={style.p}>{errors.usuario}</p>}
+        {errors.usuario && <p className={style.error}>{errors.usuario}</p>}
 
         <h3 className={style.subtitle}>Contraseña</h3>
         <div className={style.passwordContainer}>
@@ -123,7 +123,7 @@ const LoginPage = () => {
           <span className={style.googleIcon}></span>
         </button>
         <br></br>
-        <p>
+        <p className={style.p}>
           ¿No tienes una cuenta? <Link href="/register">¡Registrate!</Link>
         </p>
         <br></br>
