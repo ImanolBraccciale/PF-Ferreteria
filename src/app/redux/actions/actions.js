@@ -234,7 +234,7 @@ export const getProductByName = (name) => {
   return async (dispatch) => {
     try {
       console.log(name);
-      const { data } = await axios.get(`api/products?name=${name}`);
+      const { data } = await axios.get(`/api/products?name=${name}`);
       console.log(data,"eeeeeeeeeeeeeeeeeeeeee");
       return dispatch({
         type: GET_NAMES,
@@ -252,7 +252,7 @@ export const getProductByName = (name) => {
 export const postTags = (tag) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post("api/tag", tag);
+      const { data } = await axios.post("/api/tag", tag);
       return dispatch({
         type: POST_TAG,
         payload: data,
@@ -297,7 +297,7 @@ export const updateProducts = (input) => {
 export const deleteLogicProduct = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/products", { data: { id, permanently: false } });
+      const { data } = await axios.delete("/api/products", { data: { id, permanently: false } });
       return dispatch({
         type: DELETE_LOGIC_PRODUCT,
         payload: data,
@@ -323,7 +323,7 @@ export const getAllSales = () => async (dispatch) => {
 export const deleteLogicTag = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      const { data } = await axios.delete("/api/tag", { data: { id, permanently: false } });
       return dispatch({
         type: DELETE_LOGIC_TAG,
         payload: data,
@@ -337,7 +337,7 @@ export const deleteLogicTag = (id) => {
 export const deleteLogicRubro = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      const { data } = await axios.delete("/api/tag", { data: { id, permanently: false } });
       return dispatch({
         type: DELETE_LOGIC_RUBRO,
         payload: data,
@@ -356,7 +356,7 @@ export const deleteLogicSupplier = (id_suppliers) => {
         permanently: false,
       };
 
-      const response = await axios.delete("api/suppliers", { data: dataToSend });
+      const response = await axios.delete("/api/suppliers", { data: dataToSend });
       
       if (response && response.data) {
         dispatch({
