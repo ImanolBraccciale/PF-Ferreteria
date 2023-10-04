@@ -21,13 +21,10 @@ import {
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
   DELETE_LOGIC_SUPPLIER,
-<<<<<<< HEAD
-} from "./actionsTypes";
-=======
   DELETE_LOGIC_TAG,
   DELETE_LOGIC_RUBRO,
-  UPDATE_PRODUCT } from "./actionsTypes";
->>>>>>> fdc7431c63d9719a35b7c41bb823d6308ab26a2f
+  UPDATE_PRODUCT,
+} from "./actionsTypes";
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -171,10 +168,10 @@ export const cartAddItem = (payload) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/products?id=${payload.ID}`);
-      let stock = data.stock
+      let stock = data.stock;
       return dispatch({
         type: CART_ADD_ITEM,
-        payload: {...payload, stock},
+        payload: { ...payload, stock },
       });
     } catch (error) {
       console.log(error.message);
@@ -187,7 +184,7 @@ export const cartRemoveItem = (payload) => {
     type: CART_REMOVE_ITEM,
     payload,
   };
-}
+};
 
 export const getAllCartItems = () => {
   return {
@@ -239,7 +236,7 @@ export const getProductByName = (name) => {
     try {
       console.log(name);
       const { data } = await axios.get(`api/products?name=${name}`);
-      console.log(data,"eeeeeeeeeeeeeeeeeeeeee");
+      console.log(data, "eeeeeeeeeeeeeeeeeeeeee");
       return dispatch({
         type: GET_NAMES,
         payload: data,
@@ -285,19 +282,18 @@ export const postSale = (cart) => {
 };
 
 export const updateProducts = (input) => {
-  return async (dispatch) =>{
+  return async (dispatch) => {
     try {
-
-      const response = await axios.put("/api/products" , input)
+      const response = await axios.put("/api/products", input);
       return dispatch({
         type: UPDATE_PRODUCT,
-        payñoad:response.data
-      })
+        payñoad: response.data,
+      });
     } catch (error) {
       console.log(error.message);
     }
-  }
-}
+  };
+};
 export const deleteLogicProduct = (id) => {
   return async (dispatch) => {
     try {
@@ -315,11 +311,11 @@ export const deleteLogicProduct = (id) => {
 };
 export const getAllSales = () => async (dispatch) => {
   try {
-    const response = await axios.get("/api/sales"); 
+    const response = await axios.get("/api/sales");
     console.log(response);
-    const salesData = response.data; 
+    const salesData = response.data;
     dispatch({
-      type: "GET_ALL_SALES_SUCCESS", 
+      type: "GET_ALL_SALES_SUCCESS",
       payload: salesData,
     });
   } catch (error) {
@@ -329,7 +325,9 @@ export const getAllSales = () => async (dispatch) => {
 export const deleteLogicTag = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      const { data } = await axios.delete("api/tag", {
+        data: { id, permanently: false },
+      });
       return dispatch({
         type: DELETE_LOGIC_TAG,
         payload: data,
@@ -343,7 +341,9 @@ export const deleteLogicTag = (id) => {
 export const deleteLogicRubro = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      const { data } = await axios.delete("api/tag", {
+        data: { id, permanently: false },
+      });
       return dispatch({
         type: DELETE_LOGIC_RUBRO,
         payload: data,

@@ -33,12 +33,12 @@ const LoginPage = () => {
     );
   };
 
-  const user = useSelector(state => state.user)
+  const user = useSelector((state) => state.user);
 
   console.log(user);
   useEffect(() => {
     dispatch(getUserByEmail(input.usuario));
-  }, [input])
+  }, [input]);
   const isFormValid =
     Object.keys(errors).length === 0 && input.usuario && input.contraseña;
 
@@ -51,11 +51,7 @@ const LoginPage = () => {
     const credencial = await dispatch(
       credential(input.usuario, input.contraseña)
     );
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> fdc7431c63d9719a35b7c41bb823d6308ab26a2f
     if (!isFormValid) {
       alert("Complete de manera correcta los valores");
       return;
@@ -77,14 +73,14 @@ const LoginPage = () => {
         console.error("Error al iniciar sesion");
       }
     } catch (error) {
-      console.error("Error al ikntentar iniciar sesion:", error);
+      console.error("Error al intentar iniciar sesion:", error);
     }
 
     if (credencial.payload !== true) {
       alert("El usuario no existe");
       return;
     } else {
-      localStorage.setItem('user', JSON.stringify(user))
+      localStorage.setItem("user", JSON.stringify(user));
       try {
         window.location.href = "/";
       } catch (error) {
@@ -92,7 +88,6 @@ const LoginPage = () => {
       }
     }
   };
-
 
   return (
     <div key="login" className={style.contenedor}>

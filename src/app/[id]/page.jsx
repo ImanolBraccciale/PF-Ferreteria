@@ -38,9 +38,6 @@ const Detail = ({ params }) => {
     addProdToCart.Qty = 1;
 
     dispatch(cartAddItem(addProdToCart));
-<<<<<<< HEAD
-    alert("¡Producto agregado con Exito al carrito!");
-=======
     let errorValidate = false;
     cartItems.map((item) => {
       if (item.error !== undefined) {
@@ -53,7 +50,6 @@ const Detail = ({ params }) => {
     } else {
       alert("¡Producto agregado exisósamente al carrito!");
     }
->>>>>>> fdc7431c63d9719a35b7c41bb823d6308ab26a2f
   };
 
   return (
