@@ -227,6 +227,8 @@ const reducer = (state = initialState, action) => {
         }
       }
 
+      console.log(isAdded);
+
       if (isAdded) {
         return {
           ...state,
@@ -241,6 +243,7 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           allCartItems: allCartItemsConNuevaClave,
+          cartItems: allCartItemsConNuevaClave,
         };
       }
     }
