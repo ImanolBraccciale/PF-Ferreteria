@@ -16,7 +16,8 @@ function FormCarrito() {
   const dispatch = useDispatch();
   const allCartItems = useSelector((state) => state.allCartItems);
   const session = useSession();
-  const email = session?.data?.user?.email;
+  const email =
+    session && session.data && session.data.user && session.data.user.email;
   const productSummary = [];
 
   allCartItems.forEach((item) => {
@@ -50,7 +51,8 @@ function FormCarrito() {
           try {
             axios.post("/api/nodemailer", {
               subject: "Confirmación de compra",
-              toEmail: email,
+              //   toEmail: "rofeferreteria@gmail.com",
+              email,
               productSummary,
               isPurchase: true,
             });
