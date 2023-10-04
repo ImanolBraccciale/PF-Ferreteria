@@ -24,6 +24,9 @@ const sequelize = new Sequelize(POSTGRES_DATABASE, POSTGRES_USER, POSTGRES_PASSW
   operatorAliases: false,
   logging: false,
   native: false,
+  dialectOptions: {
+      ssl: true, 
+    },
   pool: {
     max: 5,
     min: 0,
