@@ -7,7 +7,7 @@ import AddButtom from "../componentes/AddButtom/AddButtom";
 import VentaButton from "../componentes/IngresarVenta/VentaButton";
 import ProductList from "../componentes/ProductList/ProductList";
 import Paginado from "../componentes/paginado/paginado";
-import { deleteLogicProduct, getAllProducts } from "../redux/actions/actions"
+import {  getAllProducts } from "../redux/actions/actions"
 
 const CartForm = () => {
   const dispatch = useDispatch();
@@ -36,10 +36,7 @@ const CartForm = () => {
     window.scrollTo(0, 0);
   }, [currentPage])
 
-  const handleDelete = (id) => {
-    dispatch(deleteLogicProduct(id));
-    window.location.reload()
-  };
+ 
 
   return (
     <>
@@ -55,7 +52,7 @@ const CartForm = () => {
               price={price}
               enlace={`/${id}`}
             />
-            <button onClick={() => handleDelete(id)}>Eliminar</button>
+            
           </div>
         );
       })}
