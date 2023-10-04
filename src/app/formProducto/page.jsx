@@ -28,12 +28,15 @@ function FormProducto() {
     imageID: "",
   });
   const handleUploadSuccess = (e) => {
-    const { public_id, url } = e.info;
-    console.log(public_id, url);
-    setImage({
-      image: url,
-      imageID: public_id,
-    });
+    if (e.event === "success") {
+      const { public_id, url } = e.info;
+      console.log(public_id, url);
+      setImage({
+        image: url,
+        imageID: public_id,
+      });
+
+    }
   };
 
   const dispatch = useDispatch();
@@ -41,7 +44,7 @@ function FormProducto() {
   const group = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.allSuppliers);
   const rubro = useSelector((state) => state.rubro);
-  
+
   useEffect(() => {
     dispatch(getTags());
     dispatch(getRubro());
@@ -69,6 +72,7 @@ function FormProducto() {
         descripcion: "",
         costoAnterior: "",
         costoActual: "",
+        isActive: true,
         group: [],
         rubro: [],
         supplierName: [],

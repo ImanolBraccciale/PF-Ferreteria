@@ -164,9 +164,17 @@ export const filterByProd = (payload) => {
 };
 
 export const cartAddItem = (payload) => {
-  return {
-    type: CART_ADD_ITEM,
-    payload,
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/products?id=${payload.ID}`);
+      let stock = data.stock
+      return dispatch({
+        type: CART_ADD_ITEM,
+        payload: {...payload, stock},
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 };
 
@@ -177,7 +185,7 @@ export const cartRemoveItem = (payload) => {
   };
 }
 
-export const getAllCartItems = (payload) => {
+export const getAllCartItems = () => {
   return {
     type: GET_ALL_CART_ITEM_PRODUCTS,
     payload,

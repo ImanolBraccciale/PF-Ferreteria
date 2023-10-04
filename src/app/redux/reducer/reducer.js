@@ -209,11 +209,45 @@ const reducer = (state = initialState, action) => {
       };
 
     case CART_ADD_ITEM: {
-      return {
-        ...state,
-        allCartItems: [...state.allCartItems, action.payload],
-        cartItems: [...state.cartItems, action.payload],
-      };
+      let isAdded = false;
+
+      const count = state.cartItems.filter(
+        (item) => item.ID === action.payload.ID
+      );
+
+      if (count.length === 0) {
+        if (parseInt(action.payload.Qty) > parseInt(action.payload.stock)) {
+          isAdded = false;
+        } else {
+          isAdded = true;
+        }
+      } else {
+        if (parseInt(count.length + 1) > parseInt(action.payload.stock)) {
+          isAdded = false;
+        } else {
+          isAdded = true;
+        }
+      }
+
+      console.log(isAdded);
+
+      if (isAdded) {
+        return {
+          ...state,
+          allCartItems: [...state.allCartItems, action.payload],
+          cartItems: [...state.cartItems, action.payload],
+        };
+      } else {
+        const allCartItemsConNuevaClave = state.allCartItems.map((item) => ({
+          ...item,
+          error: "error not enought stock",
+        }));
+        return {
+          ...state,
+          allCartItems: allCartItemsConNuevaClave,
+          cartItems: allCartItemsConNuevaClave,
+        };
+      }
     }
 
     case CART_REMOVE_ITEM: {
@@ -222,10 +256,8 @@ const reducer = (state = initialState, action) => {
         allCartItems: state.allCartItems.filter(
           (item) => item.ID !== action.payload
         ),
-        cartItems: state.cartItems.filter(
-          (item) => item.ID !== action.payload
-        ),
-      }
+        cartItems: state.cartItems.filter((item) => item.ID !== action.payload),
+      };
     }
 
     case GET_ALL_CART_ITEM_PRODUCTS:
@@ -238,20 +270,26 @@ const reducer = (state = initialState, action) => {
     case DELETE_LOGIC_PRODUCT:
       return {
         ...state,
-        allProducts: state.allProducts.map(product =>
-          product.id === action.payload.id ? { ...product, isActive: false } : product
+        allProducts: state.allProducts.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, isActive: false }
+            : product
         ),
-        products: state.products.map(product =>
-          product.id === action.payload.id ? { ...product, isActive: false } : product
+        products: state.products.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, isActive: false }
+            : product
         ),
       };
 
     case DELETE_LOGIC_SUPPLIER:
       return {
         ...state,
-        allSuppliers: state.allSuppliers.map(supplier =>
-          supplier.id === action.payload.id ? { ...supplier, isActive: false } : supplier
-        )
+        allSuppliers: state.allSuppliers.map((supplier) =>
+          supplier.id === action.payload.id
+            ? { ...supplier, isActive: false }
+            : supplier
+        ),
       };
 
     case DELETE_LOGIC_TAG:
@@ -275,7 +313,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         allProducts: [...state.allProducts, action.payload],
         products: [...state.products, action.payload],
-      }
+      };
 
     default:
       return state;
