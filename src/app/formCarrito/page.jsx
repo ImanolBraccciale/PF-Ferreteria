@@ -10,14 +10,13 @@ import BackButtom from "../componentes/BackButtom/BackButtom";
 import ProductListCart from "../componentes/ProductListCart/ProductListCart";
 import ProductBarCart from "../componentes/ProductBarCart/ProductBarCart";
 import { postSale } from "../redux/actions/actions";
-import useSession from "../session/page";
+import { getUserByEmail } from "../redux/actions/actions";
 
 function FormCarrito() {
   const dispatch = useDispatch();
   const allCartItems = useSelector((state) => state.allCartItems);
-  const session = useSession();
-  const email =
-    session && session.data && session.data.user && session.data.user.email;
+  // console.log("allCartItems", allCartItems);
+  const userData = useSelector((state) => state.user);
   const productSummary = [];
 
   allCartItems.forEach((item) => {
@@ -38,6 +37,11 @@ function FormCarrito() {
       productSummary.push({ ...item, Subtotal });
     }
   });
+
+  useEffect(() => {
+    console.log("correo electronico user", userData);
+    dispatch(getUserByEmail(userData.email));
+  }, [dispatch, userData]);
 
   const onSubmit = async (e) => {
     e.preventDefault();

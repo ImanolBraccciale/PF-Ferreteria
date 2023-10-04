@@ -5,7 +5,6 @@
   "/api/suppliers": "pages/api/suppliers.js",
   "/api/tag": "pages/api/tag.js",
   "/api/products": "pages/api/products.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
   "/api/sales": "pages/api/sales.js",
   "/api/nodemailer": "pages/api/nodemailer.js"
 }

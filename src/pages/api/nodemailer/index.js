@@ -14,7 +14,7 @@ const handlerMail = async (req, res) => {
           productSummary,
           isPurchase,
         } = body;
-        console.log("pasando por el handlerMail 2", method, body);
+
         try {
           if (otpText) {
             await sendMail(subject, toEmail, otpText);

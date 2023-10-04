@@ -40,12 +40,19 @@ const LoginPage = () => {
     setMostrarContr(!mostrarContr);
   };
 
+  const handleSale = async (userEmail) => {
+    // Lógica para manejar la venta usando el correo electrónico del usuario
+    console.log("Correo electrónico del usuario**********:", userEmail);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const credencial = await dispatch(
       credential(input.usuario, input.contraseña)
     );
-    const userEmail = await dispatch(getUserByEmail(input.usuario));
+
+    const userEmail = input.usuario;
+    handleSale(userEmail);
 
     if (!isFormValid) {
       alert("Complete de manera correcta los valores");
