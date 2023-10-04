@@ -17,7 +17,7 @@ const Dashboard = () => {
           <div className={style.infoAdmin}>
             <img
               className={style.image}
-              src="https://pbs.twimg.com/media/EG7QuK-XUAEa8Gr.jpg"
+              src="https://comercialsanjose.com.ar/wp-content/uploads/2021/11/FERRETERIA.png"
               alt="Avatar"
             />
             <ul className={style.ul}>
