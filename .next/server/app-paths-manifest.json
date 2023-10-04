@@ -1,4 +1,6 @@
 {
   "/page": "app/page.js",
-  "/dashAdmin/page": "app/dashAdmin/page.js"
+  "/suppliers/page": "app/suppliers/page.js",
+  "/dashAdmin/page": "app/dashAdmin/page.js",
+  "/formProducto/page": "app/formProducto/page.js"
 }
