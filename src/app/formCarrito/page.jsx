@@ -51,7 +51,7 @@ function FormCarrito() {
           try {
             axios.post("/api/nodemailer", {
               subject: "Confirmación de compra",
-              //   toEmail: "rofeferreteria@gmail.com",
+              toEmail: "rofeferreteria@gmail.com",
               email,
               productSummary,
               isPurchase: true,
