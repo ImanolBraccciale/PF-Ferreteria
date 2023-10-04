@@ -183,7 +183,7 @@ export const cartRemoveItem = (payload) => {
   };
 }
 
-export const getAllCartItems = (payload) => {
+export const getAllCartItems = () => {
   return {
     type: GET_ALL_CART_ITEM_PRODUCTS,
     payload,

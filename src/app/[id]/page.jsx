@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductById, cartAddItem } from "../redux/actions/actions";
 
 const Detail = ({ params }) => {
-  const [cantAdded, setCantAdded] = useState(0);
   const id = params.id;
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
@@ -37,8 +36,8 @@ const Detail = ({ params }) => {
     addProdToCart.Description = productDetail.descripcion;
     addProdToCart.Price = productDetail.price;
     addProdToCart.Qty = 1;
-    dispatch(cartAddItem(addProdToCart));
 
+    dispatch(cartAddItem(addProdToCart));
     let errorValidate = false;
     cartItems.map((item) => {
       if (item.error !== undefined) {
@@ -51,7 +50,6 @@ const Detail = ({ params }) => {
     } else {
       alert("¡Producto agregado exisósamente al carrito!");
     }
-    console.log("cartItems", cartItems);
   };
 
   return (

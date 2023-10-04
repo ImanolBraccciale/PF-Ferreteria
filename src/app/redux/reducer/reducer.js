@@ -207,25 +207,20 @@ const reducer = (state = initialState, action) => {
       };
 
     case CART_ADD_ITEM: {
-      // Buscar el producto en el carrito y obtener el campo cantidad
       let isAdded = false;
-      // const item = state.allCartItems.find(
-      //   (item) => item.ID === action.payload.ID
-      // );
 
       const count = state.cartItems.filter(
         (item) => item.ID === action.payload.ID
       );
 
       if (count.length === 0) {
-
         if (parseInt(action.payload.Qty) > parseInt(action.payload.stock)) {
           isAdded = false;
         } else {
           isAdded = true;
         }
       } else {
-        if (count.length + 1 > parseInt(action.payload.stock)) {
+        if (parseInt(count.length + 1) > parseInt(action.payload.stock)) {
           isAdded = false;
         } else {
           isAdded = true;
@@ -241,7 +236,7 @@ const reducer = (state = initialState, action) => {
       } else {
         const allCartItemsConNuevaClave = state.allCartItems.map((item) => ({
           ...item,
-          error: "error not enought stock", // Personaliza el valor según tus necesidades
+          error: "error not enought stock",
         }));
         return {
           ...state,
