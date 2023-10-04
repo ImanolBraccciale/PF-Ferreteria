@@ -45,5 +45,5 @@ module.exports = async (name) => {
     supplierName: productWithTags.supplier.name,
   };
 
-  return reformattedProduct;
+  return [reformattedProduct];
 };
