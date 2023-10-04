@@ -305,7 +305,19 @@ export const deleteLogicProduct = (id) => {
     }
   };
 };
-
+export const getAllSales = () => async (dispatch) => {
+  try {
+    const response = await axios.get("/api/sales"); 
+    console.log(response);
+    const salesData = response.data; 
+    dispatch({
+      type: "GET_ALL_SALES_SUCCESS", 
+      payload: salesData,
+    });
+  } catch (error) {
+    console.error("Error al obtener las ventas:", error);
+  }
+};
 export const deleteLogicTag = (id) => {
   return async (dispatch) => {
     try {

@@ -44,6 +44,8 @@ const initialState = {
   suppliers: [],
   rubro: [],
   cartItems: [],
+    sales: [],
+  detailSale:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -299,7 +301,12 @@ const reducer = (state = initialState, action) => {
           tag.id === action.payload.id ? { ...tag, isActive: false } : tag
         )
       };
-
+               case "GET_ALL_SALES_SUCCESS":
+      return {
+        ...state,
+        sales: action.payload, 
+      
+      };
     case DELETE_LOGIC_RUBRO:
       return {
         ...state,
