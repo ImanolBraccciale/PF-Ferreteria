@@ -52,7 +52,6 @@ function FormCarrito() {
             axios.post("/api/nodemailer", {
               subject: "Confirmación de compra",
               toEmail: "rofeferreteria@gmail.com",
-              email,
               productSummary,
               isPurchase: true,
             });
