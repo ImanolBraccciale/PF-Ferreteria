@@ -15,8 +15,9 @@ import { getUserByEmail } from "../redux/actions/actions";
 function FormCarrito() {
   const dispatch = useDispatch();
   const allCartItems = useSelector((state) => state.allCartItems);
-  // console.log("allCartItems", allCartItems);
-  const userData = useSelector((state) => state.user);
+
+  const userData = useSelector((state) => state.userData);
+  console.log("user----************", userData);
   const productSummary = [];
 
   allCartItems.forEach((item) => {
@@ -40,7 +41,7 @@ function FormCarrito() {
 
   useEffect(() => {
     console.log("correo electronico user", userData);
-    dispatch(getUserByEmail(userData.email));
+    dispatch(getUserByEmail(userData));
   }, [dispatch, userData]);
 
   const onSubmit = async (e) => {
@@ -55,7 +56,7 @@ function FormCarrito() {
           try {
             axios.post("/api/nodemailer", {
               subject: "Confirmación de compra",
-              toEmail: "rofeferreteria@gmail.com",
+              toEmail: userData,
               productSummary,
               isPurchase: true,
             });

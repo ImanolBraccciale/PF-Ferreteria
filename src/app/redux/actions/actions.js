@@ -82,18 +82,15 @@ export const getProductById = (id) => {
 };
 
 export const getUserByEmail = (emailUser) => {
-  console.log("Entramos al action--------------->");
   return async (dispatch) => {
     try {
-      console.log("--------------->ANTES DEL DATA", data);
       const { data } = await axios.get(`/api/user?emailUser=${emailUser}`);
-      console.log("PROBANDO EL DATA", data);
       return dispatch({
         type: GET_USER_BY_EMAIL,
         payload: data,
       });
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 };
