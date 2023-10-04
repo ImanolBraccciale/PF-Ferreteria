@@ -1,6 +1,8 @@
 const postTag = require("../controllers/Tag/postTag")
-const deletTag = require("../controllers/Tag/deleteTag")
+const deleteTag = require("../controllers/Tag/deleteTag")
 const getTag = require("../controllers/Tag/getTag")
+const logicT = require("../controllers/Tag/loigTag")
+
 export default async  function Handler(req, res){
 
   switch (req.method) {
@@ -21,13 +23,19 @@ export default async  function Handler(req, res){
       }
       case "DELETE":
         try {
-        const {id} = req.body
-        const delTag = await deletTag(id); 
-        return res.status(201).json(delTag);
+        const { id, permanently } = req.body
+        if (permanently === true) {
+
+          const delTag = await deleteTag(id)
+          return res.status(201).json(delTag)
+        } else {
+          
+          const delLogicTag = await logicT(id)
+          return res.status(201).json(delLogicTag)
+        }
       } catch (error) {
         return res.status(400).json({ error: error.message });
       }
-
 
     default:
       break;

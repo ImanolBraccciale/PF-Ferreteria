@@ -21,6 +21,8 @@ import {
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
   DELETE_LOGIC_SUPPLIER,
+  DELETE_LOGIC_TAG,
+  DELETE_LOGIC_RUBRO,
   UPDATE_PRODUCT } from "./actionsTypes";
 import axios from "axios";
 
@@ -194,7 +196,6 @@ export const getTags = () => {
     try {
       const { data } = await axios.get("/api/tag");
       const filteredData = data.filter((item) => item.type === "group");
-      console.log(filteredData)
       return dispatch({
         type: GET_TAGS,
         payload: filteredData,
@@ -289,6 +290,34 @@ export const deleteLogicProduct = (id) => {
       const { data } = await axios.delete("api/products", { data: { id, permanently: false } });
       return dispatch({
         type: DELETE_LOGIC_PRODUCT,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const deleteLogicTag = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      return dispatch({
+        type: DELETE_LOGIC_TAG,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const deleteLogicRubro = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      return dispatch({
+        type: DELETE_LOGIC_RUBRO,
         payload: data,
       });
     } catch (error) {

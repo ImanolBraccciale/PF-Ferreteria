@@ -25,6 +25,8 @@ import {
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
   DELETE_LOGIC_SUPPLIER,
+  DELETE_LOGIC_TAG,
+  DELETE_LOGIC_RUBRO,
   UPDATE_PRODUCT,
 } from "../actions/actionsTypes";
 
@@ -249,6 +251,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         allSuppliers: state.allSuppliers.map(supplier =>
           supplier.id === action.payload.id ? { ...supplier, isActive: false } : supplier
+        )
+      };
+
+    case DELETE_LOGIC_TAG:
+      return {
+        ...state,
+        etiquetas: state.etiquetas.map(tag =>
+          tag.id === action.payload.id ? { ...tag, isActive: false } : tag
+        )
+      };
+
+    case DELETE_LOGIC_RUBRO:
+      return {
+        ...state,
+        rubro: state.rubro.map(rub =>
+          rub.id === action.payload.id ? { ...rub, isActive: false } : rub
         )
       };
 

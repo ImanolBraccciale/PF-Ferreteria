@@ -73,6 +73,12 @@
   margin-top: 0.2rem;
 }
 
+.divisor{
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-around;
+}
+
 /*.form button {
   display: flex;
   justify-content: center;
