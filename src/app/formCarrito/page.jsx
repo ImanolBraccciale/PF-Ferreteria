@@ -10,13 +10,13 @@ import BackButtom from "../componentes/BackButtom/BackButtom";
 import ProductListCart from "../componentes/ProductListCart/ProductListCart";
 import ProductBarCart from "../componentes/ProductBarCart/ProductBarCart";
 import { postSale } from "../redux/actions/actions";
-import { getUserByEmail } from "../redux/actions/actions";
+import useSession from "../session/page";
 
 function FormCarrito() {
   const dispatch = useDispatch();
   const allCartItems = useSelector((state) => state.allCartItems);
-  // console.log("allCartItems", allCartItems);
-  const userData = useSelector((state) => state.user);
+  const session = useSession();
+  const email = session?.data?.user?.email;
   const productSummary = [];
 
   allCartItems.forEach((item) => {
@@ -38,11 +38,6 @@ function FormCarrito() {
     }
   });
 
-  useEffect(() => {
-    console.log("correo electronico user", userData);
-    dispatch(getUserByEmail(userData.email));
-  }, [dispatch, userData]);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     if (productSummary.length === 0) {
@@ -55,7 +50,7 @@ function FormCarrito() {
           try {
             axios.post("/api/nodemailer", {
               subject: "Confirmación de compra",
-              toEmail: "rofeferreteria@gmail.com",
+              toEmail: email,
               productSummary,
               isPurchase: true,
             });
