@@ -44,7 +44,7 @@ export const postSuppliers = (supplier) => {
   console.log(supplier);
   return async (dispatch) => {
     try {
-      const { data } = await axios.post("api/suppliers", supplier);
+      const { data } = await axios.post("/api/suppliers", supplier);
       return dispatch({
         type: POST_SUPPLIERS,
         payload: data,
