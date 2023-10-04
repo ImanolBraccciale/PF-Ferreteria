@@ -92,7 +92,7 @@ const LoginPage = () => {
       }
     }
   };
-  
+
 
   return (
     <div key="login" className={style.contenedor}>
