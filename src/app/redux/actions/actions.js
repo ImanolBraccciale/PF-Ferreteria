@@ -235,7 +235,7 @@ export const getProductByName = (name) => {
     try {
       console.log(name);
       const { data } = await axios.get(`/api/products?name=${name}`);
-      console.log(data,"eeeeeeeeeeeeeeeeeeeeee");
+      console.log(data,"eeeeeeeeeeeeeeeeeeeeeeeeeeeee");
       return dispatch({
         type: GET_NAMES,
         payload: data,
