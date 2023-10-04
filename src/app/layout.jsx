@@ -5,10 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { Provider } from "react-redux";
 import Providers from "./Providers";
 import store from "./redux/store/store";
-const inter = Inter({ subsets: ["latin"] });
-export const metadata = {
-  title: "ROFE Ferretería",
-};
+
 
 export default function RootLayout({ children }) {
   return (
@@ -17,7 +14,7 @@ export default function RootLayout({ children }) {
         <Provider store={store}>
           <Providers>
             {children}
-            
+
           </Providers>
         </Provider>
       </body>
