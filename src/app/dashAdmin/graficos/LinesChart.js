@@ -29,7 +29,7 @@ export default function Bars() {
     labels: [],
     datasets: [
       {
-        label: "Metodos de ventas",
+        label: "Ventas",
         data: [],
         backgroundColor: "rgba(220, 95, 0, 0.7)", 
       },
@@ -39,7 +39,7 @@ export default function Bars() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/products");
+        const response = await axios.get("http://localhost:3000/api/sales");
         const datos = response.data;
         console.log("stock ", datos);
         mostrar(datos);
@@ -53,8 +53,8 @@ export default function Bars() {
         const labels = [];
         const data = [];
         datos.forEach((element) => {
-          labels.push(element.name);
-          data.push(element.costoActual);
+          labels.push(element.saleDate);
+          data.push(element.totalAmount);
         });
         setChartData({
           ...chartData,

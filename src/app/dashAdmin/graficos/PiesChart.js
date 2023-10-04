@@ -36,6 +36,7 @@ export default function Pies() {
       try {
         const response = await axios.get("http://localhost:3000/api/products");
         const datos = response.data;
+        console.log(typeof datos);
         console.log('circulo ',datos);
         mostrar(datos);
       } catch (error) {
@@ -47,7 +48,7 @@ export default function Pies() {
       if (Array.isArray(datos)) {
         const labels = [];
         const data = [];
-        datos.forEach((element) => {
+        datos.filter(product => product.isActive).forEach((element) => {
           labels.push(element.name);
           data.push(element.stock);
         });

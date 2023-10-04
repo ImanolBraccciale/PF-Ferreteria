@@ -113,14 +113,8 @@ const Detail = ({ params }) => {
           </div>
         </section>
 
-<<<<<<< HEAD
-
-        <Link key={id} props = {productDetail}href={`/updateProd/${id}`}>
-          <button className={style.buttonModificar}>Modificar</button>
-=======
         <Link key={id} props={productDetail} href={`/updateProd/${id}`}>
           <button>Modificar</button>
->>>>>>> b85a1bac170f5151bb0fed63a567abc48c0d2a0a
         </Link>
         <Link href="/">
           <button className={style.button}>Volver</button>

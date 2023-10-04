@@ -31,7 +31,7 @@ function ProductList({ id, name, stock, costoActual, price, enlace }) {
           </Link>
         </div>
         <div>
-          <button onClick={() => handleDelete(id)}>Eliminar</button>
+          <button onClick={() => handleDelete(id)} className={s.buttonEliminar}>Eliminar</button>
         </div>
       </div>
     </div>

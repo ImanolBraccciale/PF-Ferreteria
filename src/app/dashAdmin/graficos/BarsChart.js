@@ -52,7 +52,7 @@ export default function Bars() {
       if (Array.isArray(datos)) {
         const labels = [];
         const data = [];
-        datos.forEach((element) => {
+        datos.filter(product => product.isActive).forEach((element) => {
           labels.push(element.name);
           data.push(element.costoActual);
         });
