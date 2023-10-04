@@ -41,8 +41,7 @@ function FormProducto() {
   const group = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.allSuppliers);
   const rubro = useSelector((state) => state.rubro);
-  console.log(rubro, "rubro");
-  console.log(group, "group");
+  
   useEffect(() => {
     dispatch(getTags());
     dispatch(getRubro());
