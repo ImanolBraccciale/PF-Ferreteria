@@ -2,8 +2,12 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/tag": "pages/api/tag.js",
   "/api/suppliers": "pages/api/suppliers.js",
+<<<<<<< HEAD
   "/api/sales": "pages/api/sales.js",
   "/api/products": "pages/api/products.js"
+=======
+  "/api/products": "pages/api/products.js",
+  "/api/tag": "pages/api/tag.js"
+>>>>>>> f8c452949be893361327f5b5bb70a6ea0c92113e
 }

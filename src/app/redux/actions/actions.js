@@ -233,7 +233,9 @@ export const getRubro = () => {
 export const getProductByName = (name) => {
   return async (dispatch) => {
     try {
+      console.log(name);
       const { data } = await axios.get(`api/products?name=${name}`);
+      console.log(data,"eeeeeeeeeeeeeeeeeeeeee");
       return dispatch({
         type: GET_NAMES,
         payload: data,
