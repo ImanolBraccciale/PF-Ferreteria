@@ -1,3 +1,9 @@
 {
+<<<<<<< HEAD
   "/dashAdmin/page": "app/dashAdmin/page.js"
+=======
+  "/page": "app/page.js",
+  "/formCarrito/page": "app/formCarrito/page.js",
+  "/[id]/page": "app/[id]/page.js"
+>>>>>>> c4a063ebe14a2171f62b56e5f16f9ef2dcf2f5a8
 }
