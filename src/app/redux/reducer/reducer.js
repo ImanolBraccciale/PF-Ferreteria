@@ -209,34 +209,28 @@ const reducer = (state = initialState, action) => {
     case CART_ADD_ITEM: {
       // Buscar el producto en el carrito y obtener el campo cantidad
       let isAdded = false;
-      const item = state.allCartItems.find(
+      // const item = state.allCartItems.find(
+      //   (item) => item.ID === action.payload.ID
+      // );
+
+      const count = state.cartItems.filter(
         (item) => item.ID === action.payload.ID
       );
 
-      // contar cuántos productos hay en el carrito según el id
-      const count = state.cartItems.filter((item) => item.ID === action.payload.ID);
-      console.log("count", count.length);
+      if (count.length === 0) {
 
-      console.log("state.allCartItems", state.allCartItems);
-      console.log("item", item);
-      console.log("action.payload", action.payload);
-
-      if (item === undefined) {
         if (parseInt(action.payload.Qty) > parseInt(action.payload.stock)) {
           isAdded = false;
         } else {
           isAdded = true;
         }
       } else {
-        // No es el primero, se le debe sumar uno a la cantidad del item encontrado y validar con stock
-        if (count.length + 1 > item.stock) {
+        if (count.length + 1 > parseInt(action.payload.stock)) {
           isAdded = false;
         } else {
           isAdded = true;
         }
       }
-
-      console.log("isAdded", isAdded);
 
       if (isAdded) {
         return {
@@ -245,12 +239,15 @@ const reducer = (state = initialState, action) => {
           cartItems: [...state.cartItems, action.payload],
         };
       } else {
+        const allCartItemsConNuevaClave = state.allCartItems.map((item) => ({
+          ...item,
+          error: "error not enought stock", // Personaliza el valor según tus necesidades
+        }));
         return {
           ...state,
-          error: 'No hay stock suficiente para este producto.'
-        }
+          allCartItems: allCartItemsConNuevaClave,
+        };
       }
-      
     }
 
     case CART_REMOVE_ITEM: {
