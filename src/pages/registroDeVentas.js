@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../app/componentes/Layout";
-import ventasData from "../app/data/ventas.json";
+
 
 export default function Registro() {
   const router = useRouter();

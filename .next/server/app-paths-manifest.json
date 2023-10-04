@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "/page": "app/page.js",
 <<<<<<< HEAD
@@ -11,3 +12,6 @@
   "/dashAdmin/page": "app/dashAdmin/page.js"
 >>>>>>> 0adea62e8dd8f52f9986add20d8dc049e3717591
 }
+=======
+{}
+>>>>>>> 61360ee4da4c2fd11687c9a0967d52503a8492bf
