@@ -68,7 +68,7 @@ function FormCarrito() {
           return (
             <ProductListCart
               key={ID}
-              // id={id}
+              id={ID}
               image={Image}
               name={Name}
               description={Description}

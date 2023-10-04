@@ -1,11 +1,18 @@
 {
   "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
+<<<<<<< HEAD
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -17,6 +24,43 @@
       "static/chunks/main-app.js",
       "static/css/app/dashAdmin/page.css",
       "static/chunks/app/dashAdmin/page.js"
+=======
+    "/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[id]/page.css",
+      "static/chunks/app/[id]/page.js"
+    ],
+    "/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
+    ],
+    "/register/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/register/page.css",
+      "static/chunks/app/register/page.js"
+    ],
+    "/history/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/history/page.css",
+      "static/chunks/app/history/page.js"
+    ],
+    "/updateProd/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/updateProd/[id]/page.css",
+      "static/chunks/app/updateProd/[id]/page.js"
+    ],
+    "/formProducto/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/formProducto/page.css",
+      "static/chunks/app/formProducto/page.js"
+>>>>>>> b85a1bac170f5151bb0fed63a567abc48c0d2a0a
     ]
   }
 }

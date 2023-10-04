@@ -5,15 +5,13 @@ import style from "./page.module.css";
 import Link from "next/link";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getProductById,
-  cartAddItem,
-} from "../redux/actions/actions";
+import { getProductById, cartAddItem } from "../redux/actions/actions";
 
 const Detail = ({ params }) => {
   const id = params.id;
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
+  const cartItems = useSelector((state) => state.allCartItems);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
 
@@ -40,10 +38,19 @@ const Detail = ({ params }) => {
     addProdToCart.Qty = 1;
 
     dispatch(cartAddItem(addProdToCart));
-    alert("¡Producto agregado exisósamente al carrito!")
-  };
+    let errorValidate = false;
+    cartItems.map((item) => {
+      if (item.error !== undefined) {
+        errorValidate = true;
+      }
+    });
 
-  
+    if (errorValidate) {
+      alert("No hay stock suficiente para agregar este producto a su carrito.");
+    } else {
+      alert("¡Producto agregado exisósamente al carrito!");
+    }
+  };
 
   return (
     <>
@@ -105,11 +112,15 @@ const Detail = ({ params }) => {
             )}
           </div>
         </section>
-        
 
+<<<<<<< HEAD
 
         <Link key={id} props = {productDetail}href={`/updateProd/${id}`}>
           <button className={style.buttonModificar}>Modificar</button>
+=======
+        <Link key={id} props={productDetail} href={`/updateProd/${id}`}>
+          <button>Modificar</button>
+>>>>>>> b85a1bac170f5151bb0fed63a567abc48c0d2a0a
         </Link>
         <Link href="/">
           <button className={style.button}>Volver</button>
