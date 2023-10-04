@@ -37,6 +37,7 @@ function FormCarrito() {
       productSummary.push({ ...item, Subtotal });
     }
   });
+
   useEffect(() => {
     console.log("correo electronico user", userData);
     dispatch(getUserByEmail(userData.email));
@@ -54,7 +55,8 @@ function FormCarrito() {
           try {
             axios.post("/api/nodemailer", {
               subject: "Confirmación de compra",
-              toEmail: "ahernandezdep@gmail.com",
+              toEmail: "rofeferreteria@gmail.com",
+              productSummary,
               isPurchase: true,
             });
             alert("Su compra se realizó exitósamente.");

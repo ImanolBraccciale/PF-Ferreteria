@@ -3,7 +3,7 @@ import { sendMail, sendPurchaseConfirmation } from "../service/mailService";
 const handlerMail = async (req, res) => {
   try {
     const { method, body } = req;
-    //console.log("pasando por el handlerMail", method, body);
+    console.log("pasando por el handlerMail 1", method, body);
     switch (method) {
       case "POST": {
         const {
@@ -14,7 +14,7 @@ const handlerMail = async (req, res) => {
           productSummary,
           isPurchase,
         } = body;
-        console.log("pasando por el handlerMail", method, body);
+        console.log("pasando por el handlerMail 2", method, body);
         try {
           if (otpText) {
             await sendMail(subject, toEmail, otpText);

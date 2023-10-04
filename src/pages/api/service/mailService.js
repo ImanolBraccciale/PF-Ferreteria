@@ -1,14 +1,18 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-async function sendMail(subject, toEmail, otpText, loginText) {
-  const transporter = nodemailer.createTransport({
+const createTransporter = () => {
+  return nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.NODEMAILER_EMAIL,
       pass: process.env.NODEMAILER_PW,
     },
   });
+};
+
+async function sendMail(subject, toEmail, otpText, loginText) {
+  const transporter = createTransporter();
 
   const mailOptions = {
     from: process.env.NODEMAILER_EMAIL,
@@ -27,15 +31,15 @@ async function sendMail(subject, toEmail, otpText, loginText) {
 }
 
 async function sendPurchaseConfirmation(toEmail, productSummary) {
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.NODEMAILER_EMAIL,
-      pass: process.env.NODEMAILER_PW,
-    },
-  });
+  console.log(
+    "pasando por el sendPurchaseConfirmation",
+    toEmail,
+    productSummary
+  );
+  const transporter = createTransporter();
 
   const subject = "Confirmación de compra";
+
   const purchaseText = `Gracias por preferirnos. El resumen de tu compra:\n\n${JSON.stringify(
     productSummary,
     null,
