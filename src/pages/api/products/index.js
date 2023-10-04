@@ -45,8 +45,8 @@ export default async function Handler(req, res) {
           return res.status(201).json(delProduct)
         } else {
 
-          const delProduct = await logicP(id)
-          return res.status(201).json(delProduct)
+          const delLogicProduct = await logicP(id)
+          return res.status(201).json(delLogicProduct)
         }
 
       } catch (error) {

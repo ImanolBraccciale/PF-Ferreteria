@@ -1,8 +1,22 @@
+"use client";
 import s from "@/app/componentes/ProductList/ProductList.module.css";
 import ss from "@/app/page.module.css";
 import Link from "next/link";
+import {
+  deleteLogicProduct,
+  getAllProducts,
+} from "@/app/redux/actions/actions";
+import { useDispatch } from "react-redux";
+
 
 function ProductList({ id, name, stock, costoActual, price, enlace }) {
+  const dispatch = useDispatch();
+
+  const handleDelete = async (id) => {
+    await dispatch(deleteLogicProduct(id));
+    await dispatch(getAllProducts());
+  };
+
   return (
     <div className={s.all}>
       <div className={s.container}>
@@ -15,6 +29,9 @@ function ProductList({ id, name, stock, costoActual, price, enlace }) {
           <Link className={ss.z} href={enlace}>
             <button className={s.button}>Detalle</button>
           </Link>
+        </div>
+        <div>
+          <button onClick={() => handleDelete(id)} className={s.buttonEliminar}>Eliminar</button>
         </div>
       </div>
     </div>

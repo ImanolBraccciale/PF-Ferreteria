@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import style from "./page.module.css";
-import martillo from "../componentes/assets/images/97957.jpeg";
 import Link from "next/link";
 import NavBar from "../componentes/NavBar/NavBar";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +11,7 @@ const Detail = ({ params }) => {
   const id = params.id;
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
+  const cartItems = useSelector((state) => state.allCartItems);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
 
@@ -38,7 +38,22 @@ const Detail = ({ params }) => {
     addProdToCart.Qty = 1;
 
     dispatch(cartAddItem(addProdToCart));
+<<<<<<< HEAD
     alert("¡Producto agregado con Exito al carrito!");
+=======
+    let errorValidate = false;
+    cartItems.map((item) => {
+      if (item.error !== undefined) {
+        errorValidate = true;
+      }
+    });
+
+    if (errorValidate) {
+      alert("No hay stock suficiente para agregar este producto a su carrito.");
+    } else {
+      alert("¡Producto agregado exisósamente al carrito!");
+    }
+>>>>>>> fdc7431c63d9719a35b7c41bb823d6308ab26a2f
   };
 
   return (
@@ -101,6 +116,10 @@ const Detail = ({ params }) => {
             )}
           </div>
         </section>
+
+        <Link key={id} props={productDetail} href={`/updateProd/${id}`}>
+          <button>Modificar</button>
+        </Link>
         <Link href="/">
           <button className={style.button}>Volver</button>
         </Link>

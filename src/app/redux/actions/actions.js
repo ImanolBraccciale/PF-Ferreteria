@@ -16,11 +16,18 @@ import {
   POST_PRODUCTS,
   GET_RUBRO,
   CART_ADD_ITEM,
+  CART_REMOVE_ITEM,
   GET_ALL_CART_ITEM_PRODUCTS,
   POST_SALE,
   DELETE_LOGIC_PRODUCT,
   DELETE_LOGIC_SUPPLIER,
+<<<<<<< HEAD
 } from "./actionsTypes";
+=======
+  DELETE_LOGIC_TAG,
+  DELETE_LOGIC_RUBRO,
+  UPDATE_PRODUCT } from "./actionsTypes";
+>>>>>>> fdc7431c63d9719a35b7c41bb823d6308ab26a2f
 import axios from "axios";
 
 export const getSuppliers = () => {
@@ -161,13 +168,28 @@ export const filterByProd = (payload) => {
 };
 
 export const cartAddItem = (payload) => {
-  return {
-    type: CART_ADD_ITEM,
-    payload,
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/products?id=${payload.ID}`);
+      let stock = data.stock
+      return dispatch({
+        type: CART_ADD_ITEM,
+        payload: {...payload, stock},
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 };
 
-export const getAllCartItems = (payload) => {
+export const cartRemoveItem = (payload) => {
+  return {
+    type: CART_REMOVE_ITEM,
+    payload,
+  };
+}
+
+export const getAllCartItems = () => {
   return {
     type: GET_ALL_CART_ITEM_PRODUCTS,
     payload,
@@ -215,7 +237,9 @@ export const getRubro = () => {
 export const getProductByName = (name) => {
   return async (dispatch) => {
     try {
+      console.log(name);
       const { data } = await axios.get(`api/products?name=${name}`);
+      console.log(data,"eeeeeeeeeeeeeeeeeeeeee");
       return dispatch({
         type: GET_NAMES,
         payload: data,
@@ -260,6 +284,20 @@ export const postSale = (cart) => {
   };
 };
 
+export const updateProducts = (input) => {
+  return async (dispatch) =>{
+    try {
+
+      const response = await axios.put("/api/products" , input)
+      return dispatch({
+        type: UPDATE_PRODUCT,
+        payñoad:response.data
+      })
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}
 export const deleteLogicProduct = (id) => {
   return async (dispatch) => {
     try {
@@ -268,6 +306,46 @@ export const deleteLogicProduct = (id) => {
       });
       return dispatch({
         type: DELETE_LOGIC_PRODUCT,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+export const getAllSales = () => async (dispatch) => {
+  try {
+    const response = await axios.get("/api/sales"); 
+    console.log(response);
+    const salesData = response.data; 
+    dispatch({
+      type: "GET_ALL_SALES_SUCCESS", 
+      payload: salesData,
+    });
+  } catch (error) {
+    console.error("Error al obtener las ventas:", error);
+  }
+};
+export const deleteLogicTag = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      return dispatch({
+        type: DELETE_LOGIC_TAG,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const deleteLogicRubro = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete("api/tag", { data: { id, permanently: false } });
+      return dispatch({
+        type: DELETE_LOGIC_RUBRO,
         payload: data,
       });
     } catch (error) {

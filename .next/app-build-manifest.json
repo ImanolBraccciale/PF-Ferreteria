@@ -1,5 +1,6 @@
 {
   "pages": {
+<<<<<<< HEAD
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -24,6 +25,20 @@
       "static/css/app/login/page.css",
       "static/chunks/app/login/page.js"
     ],
+=======
+    "/dashAdmin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashAdmin/page.css",
+      "static/chunks/app/dashAdmin/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+>>>>>>> fdc7431c63d9719a35b7c41bb823d6308ab26a2f
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

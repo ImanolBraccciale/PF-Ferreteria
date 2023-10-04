@@ -7,15 +7,15 @@ const SaleMaster = db.SaleMaster;
 
 module.exports = async (data) => {
   let totalAmout = 0;
-
-  data.map((e) => (totalAmout = totalAmout + e.Subtotal));
+  console.log(data,);
+  data.productSummary.map((e) => (totalAmout = totalAmout + e.Subtotal));
   try {
     const newSale = await SaleMaster.create({
       saleDate: new Date(),
       totalAmount: totalAmout,
     });
 
-    data.map(async (e) => {
+    data.productSummary.map(async (e) => {
       await SaleDetails.create({
         sale_id: newSale.id,
         product_id: e.ID,
@@ -26,7 +26,7 @@ module.exports = async (data) => {
 
     const newPayment = await SalePayments.create({
       sale_id: newSale.id,
-      method: "TARJETA",
+      method: data.paymentMethod,
       amount: totalAmout,
     });
 

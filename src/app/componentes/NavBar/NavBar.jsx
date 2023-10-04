@@ -25,7 +25,8 @@ function NavBar() {
   const suppliers = useSelector((state) => state.suppliers);
 
   useEffect(() => {
-    dispatch(getSuppliers()), dispatch(getTags());
+    dispatch(getSuppliers()),
+    dispatch(getTags());
   }, [dispatch]);
 
   useEffect(() => setMounted(true), []);
@@ -118,13 +119,13 @@ function NavBar() {
         <div>
           {theme === "dark" ? (
             <BsSun
-              size={40}
+              size={30}
               cursor="pointer"
               onClick={() => setTheme("light")}
             />
           ) : (
             <FiMoon
-              size={40}
+              size={30}
               cursor="pointer"
               onClick={() => setTheme("dark")}
             />

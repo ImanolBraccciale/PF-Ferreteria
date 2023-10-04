@@ -1,7 +1,6 @@
 .containerGrid {
   display: grid;
   grid-template-columns: 35% auto;
-  /* grid-template-rows: auto auto auto; */
   color: black;
 }
 [data-theme="dark"] .containerGrid {
@@ -19,7 +18,6 @@
 }
 
 .caja1 {
-  /* border: solid 1px black; */
   grid-row: 1 / span 2;
   height: 83vh;
   padding: 6vh;
@@ -39,7 +37,6 @@
 }
 
 .caja2 {
-  /* border: solid 1px black; */
   grid-row: 1 / span 2;
 }
 
@@ -101,10 +98,10 @@
 .cajaGraficos {
   display: grid;
   grid-template-columns: auto auto;
-  /* margin: 5px;
-    padding: 5px; */
+  grid-template-rows: auto auto;
   align-items: center;
   justify-content: center;
+  justify-items: center;
 }
 [data-theme="dark"] .cajaGraficos {
   background: #201f1f;
@@ -118,7 +115,52 @@
   margin: 12px;
   border-radius: 10px;
 }
+
+.graficoGrande{
+  border: solid 1px #ffa424;
+  width: 50vh;
+  height: 32vh;
+  margin: 12px;
+  border-radius: 10px;
+  grid-column: 1/3;
+}
 [data-theme="dark"] .grafico {
   background: #555;
   color: white;
+}
+
+/*-------------RESPONSIVE----------------------*/
+
+
+@media (max-width: 768px) {
+  .containerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caja1 {
+    height: auto;
+    padding: 4vh;
+  }
+
+  .cajaButtons1 {
+    padding: 10px;
+  }
+
+  .grafico {
+    width: 90%;
+    height: 25vh;
+    margin: 6px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .containerGrid {
+    grid-template-columns: 30% auto;
+  }
+
+  .grafico {
+    width: 40vh;
+    height: 28vh;
+    margin: 10px;
+  }
 }

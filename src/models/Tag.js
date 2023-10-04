@@ -11,12 +11,14 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        type:{
-          type :DataTypes.ENUM , values:[ 'group', 'rubro']
+        type: {
+            type: DataTypes.ENUM, values: ['group', 'rubro']
         },
         isActive: {
             type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true,
         },
-    })
+    }, { timestamps: false })
     return Tag
 }
