@@ -1,11 +1,10 @@
 {
-<<<<<<< HEAD
   "pages": {
-    "/dashAdmin/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/dashAdmin/page.css",
-      "static/chunks/app/dashAdmin/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -13,59 +12,23 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-<<<<<<< HEAD
-    ],
     "/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
     ],
-    "/suppliers/page": [
+    "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/suppliers/page.css",
-      "static/chunks/app/suppliers/page.js"
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
     ],
-    "/formProv/page": [
+    "/register/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/formProv/page.css",
-      "static/chunks/app/formProv/page.js"
-    ],
-    "/formProducto/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/formProducto/page.css",
-      "static/chunks/app/formProducto/page.js"
-    ],
-    "/dashAdmin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashAdmin/page.css",
-      "static/chunks/app/dashAdmin/page.js"
-    ],
-    "/postTag/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/postTag/page.css",
-      "static/chunks/app/postTag/page.js"
-=======
->>>>>>> 0adea62e8dd8f52f9986add20d8dc049e3717591
+      "static/css/app/register/page.css",
+      "static/chunks/app/register/page.js"
     ]
   }
-=======
-  "pages": {}
->>>>>>> 61360ee4da4c2fd11687c9a0967d52503a8492bf
 }

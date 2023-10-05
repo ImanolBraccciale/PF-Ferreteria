@@ -2,16 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
+  "/api/user": "pages/api/user.js",
+  "/api/nodemailer": "pages/api/nodemailer.js",
   "/api/suppliers": "pages/api/suppliers.js",
   "/api/tag": "pages/api/tag.js",
-<<<<<<< HEAD
   "/api/products": "pages/api/products.js"
-=======
-  "/api/products": "pages/api/products.js",
-  "/api/sales": "pages/api/sales.js"
->>>>>>> 0adea62e8dd8f52f9986add20d8dc049e3717591
-=======
-  "/api/suppliers": "pages/api/suppliers.js"
->>>>>>> 61360ee4da4c2fd11687c9a0967d52503a8492bf
 }
