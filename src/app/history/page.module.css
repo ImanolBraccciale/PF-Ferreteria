@@ -33,3 +33,9 @@
 .button:hover {
   box-shadow: 0 0 15px rgb(92, 106, 125);
 }
+.rewiev {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}

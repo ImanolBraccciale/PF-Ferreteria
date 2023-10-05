@@ -44,8 +44,9 @@ const initialState = {
   suppliers: [],
   rubro: [],
   cartItems: [],
-    sales: [],
-  detailSale:[]
+  sales: [],
+  detailSale: [],
+  review: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -297,22 +298,21 @@ const reducer = (state = initialState, action) => {
     case DELETE_LOGIC_TAG:
       return {
         ...state,
-        etiquetas: state.etiquetas.map(tag =>
+        etiquetas: state.etiquetas.map((tag) =>
           tag.id === action.payload.id ? { ...tag, isActive: false } : tag
-        )
+        ),
       };
-               case "GET_ALL_SALES_SUCCESS":
+    case "GET_ALL_SALES_SUCCESS":
       return {
         ...state,
-        sales: action.payload, 
-      
+        sales: action.payload,
       };
     case DELETE_LOGIC_RUBRO:
       return {
         ...state,
-        rubro: state.rubro.map(rub =>
+        rubro: state.rubro.map((rub) =>
           rub.id === action.payload.id ? { ...rub, isActive: false } : rub
-        )
+        ),
       };
 
     case UPDATE_PRODUCT:
@@ -320,6 +320,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         allProducts: [...state.allProducts, action.payload],
         products: [...state.products, action.payload],
+      };
+    case POST_REVIEW:
+      return {
+        ...state,
+        review: [...state.review, action.payload],
+      };
+    case GET_REVIEW:
+      return {
+        ...state,
+        review: action.payload,
+      };
+    case GET_REVIEW_BY_ID:
+      return {
+        ...state,
+        review: action.payload,
       };
 
     default:

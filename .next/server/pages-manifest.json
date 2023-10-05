@@ -3,6 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/api/tag": "pages/api/tag.js",
-  "/api/suppliers": "pages/api/suppliers.js",
-  "/api/products": "pages/api/products.js"
+  "/api/sales": "pages/api/sales.js",
+  "/api/suppliers": "pages/api/suppliers.js"
 }
