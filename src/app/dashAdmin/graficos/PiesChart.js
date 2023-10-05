@@ -75,6 +75,6 @@ export default function Bars() {
       },
     },
   };
-
+//aaaaaaaaaaaa
   return <Bar data={chartData} options={misoptions} />;
 }
