@@ -27,6 +27,7 @@ import {
   POST_REVIEW,
   GET_REVIEW,
   GET_REVIEW_BY_ID,
+  PUT_USERS
 } from "./actionsTypes";
 import axios from "axios";
 
@@ -66,6 +67,21 @@ export const postUsers = (user) => {
       const response = await axios.post("/api/user", user);
       return dispatch({
         type: POST_USERS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const putUsers = (user) => {
+  return async (dispatch) => {
+    try {
+      console.log(user);
+      const response = await axios.put("/api/user", user);
+      return dispatch({
+        type: PUT_USERS,
         payload: response.data,
       });
     } catch (error) {

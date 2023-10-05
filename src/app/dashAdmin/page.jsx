@@ -1,14 +1,52 @@
 "use client";
 import Link from "next/link";
 import style from "./dashboard.module.css";
-//import { Bar, Line } from "react-chartjs-2";
 import NavBar from "../componentes/NavBar/NavBar";
 import LinesChart from "./graficos/LinesChart";
 import BarsChart from "./graficos/BarsChart";
 import PiesChart from "./graficos/PiesChart";
-//import History from "../history/page";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserByEmail, putUsers } from "../redux/actions/actions";
 
 const Dashboard = () => {
+
+  const dispatch = useDispatch()
+  const [input, setInput] = useState({
+    emailUser: "",
+    roleUser: "",
+  });
+  
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    setInput({
+      ...input,
+      [id]: value,
+    });
+  };
+
+
+  const userEmail = useSelector(state => state.user)
+  useEffect(() => {
+    if (input.emailUser) {
+      dispatch(getUserByEmail(input.emailUser));
+    }
+  }, [dispatch, input.emailUser]);
+  const handleGetUserByEmail = () => {
+
+    const newUser = {
+        idUser: userEmail.idUser,
+        emailUser: userEmail.emailUser,
+        passwordUser: userEmail.passwordUser,
+        rolUser: input.roleUser,
+        nameUser: userEmail.nameUser,
+        isActiveUser: userEmail.isActiveUser
+    } 
+
+    console.log("newUser ",newUser);
+    dispatch(putUsers(newUser))
+  };
+
   const user = localStorage.getItem("user")
   if (!user) {
     window.location.replace("/login");
@@ -31,6 +69,25 @@ const Dashboard = () => {
             </ul>
           </div>
           <div className={style.cajaButtons1}>
+            <p>Ingrese el Email del usuario a modificar</p>
+            <input
+              type="text"
+              id="emailUser"
+              value={input.emailUser}
+              onChange={handleInputChange}
+            />
+            <p>Seleccione el rol:</p>
+            <select
+              id="roleUser"
+              value={input.roleUser}
+              onChange={handleInputChange}
+            >
+              <option disable value="">Rol</option>
+              <option value="admin">Admin</option>
+              <option value="client">Client</option>
+              <option value="employee">Employee</option>
+            </select>
+            <button onClick={handleGetUserByEmail}>Editar Usuario</button>
             <Link href="/formProv" className={style.buttonsCaja1}>
               Crear Proveedor
             </Link>
@@ -40,9 +97,6 @@ const Dashboard = () => {
             <Link href="/formProducto" className={style.buttonsCaja1}>
               Crear Producto
             </Link>
-            {/* <Link href="/" className={style.buttonsCaja1}>
-              Empleados
-            </Link> */}
             <Link href="/" className={style.buttonsCaja1}>
               Volver al inicio
             </Link>

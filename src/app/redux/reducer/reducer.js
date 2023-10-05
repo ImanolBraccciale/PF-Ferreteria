@@ -28,6 +28,7 @@ import {
   DELETE_LOGIC_TAG,
   DELETE_LOGIC_RUBRO,
   UPDATE_PRODUCT,
+  PUT_USERS
 } from "../actions/actionsTypes";
 
 const initialState = {
@@ -70,6 +71,11 @@ const reducer = (state = initialState, action) => {
         allUsers: [...state.allUsers, action.payload],
       };
 
+    case PUT_USERS:
+      return {
+        user: action.payload,
+      };
+
     case CREDENTIAL:
       return {
         ...state,
@@ -83,9 +89,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case GET_USER_BY_EMAIL:
-      console.log(action.payload);
       return {
-        ...state,
         user: action.payload,
       };
     case POST_PRODUCTS:

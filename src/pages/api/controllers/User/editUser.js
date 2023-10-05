@@ -6,7 +6,7 @@ module.exports = async (data) => {
     const user = await Users.findOne(
         {
             where:
-                { id: data.id }
+                { idUser: data.idUser }
         })
     if (!user) throw new Error("Cannot ")
 
