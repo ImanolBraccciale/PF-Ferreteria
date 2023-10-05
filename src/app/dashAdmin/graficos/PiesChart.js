@@ -56,9 +56,9 @@ export default function Pies() {
       }
     };
 
-    // Llama a la función para mostrar los datos de productos desde el estado global de Redux
+
     mostrar(products);
-  }, [products]); // useEffect se ejecuta cada vez que products cambia en el estado global de Redux
+  }, [products]); 
 
   let misoptions = {
     responsive: true,
