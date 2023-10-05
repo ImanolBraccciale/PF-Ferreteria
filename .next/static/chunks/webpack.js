@@ -113,31 +113,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = function() { return "c7a90bc554b71f63"; }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = function() { return "6403ed5301698c4e"; }
-=======
-/******/ 		__webpack_require__.h = function() { return "b5d5f35d6e356438"; }
->>>>>>> 0adea62e8dd8f52f9986add20d8dc049e3717591
->>>>>>> 0522f46c3141963173931ce54857ed76340b7bc1
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	!function() {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-=======
 /******/ 		__webpack_require__.h = function() { return "08bbe3671c2a994f"; }
->>>>>>> 61360ee4da4c2fd11687c9a0967d52503a8492bf
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
