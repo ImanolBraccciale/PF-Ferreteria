@@ -1,9 +1,11 @@
-const { db } = require("../../db");
+//const { Sequelize } = require("sequelize");
+const { db} = require("../../db");
 const { Products, Tag,Suppliers } = db;
+const {Op} = require("sequelize")
 
 module.exports = async (name) => {
-  const productWithTags = await Products.findOne({
-    where: { name: name },
+  const productWithTags = await Products.findAll({
+    where: { name: { [Op.iLike] : `%${name}%` } },
     include: [
       {
         model: Tag,
@@ -25,25 +27,27 @@ module.exports = async (name) => {
     return null;
   }
 
-  const group = productWithTags.Tags[0]?.name || ''; 
-  const rubro = productWithTags.Tags[1]?.name || ''; 
-
-
-  const reformattedProduct = {
-    id: productWithTags.id,
-    name: productWithTags.name,
-     image:productWithTags.image,
-    imageID:productWithTags.imageID,
-    descripcion: productWithTags.descripcion,
-    costoAnterior: productWithTags.costoAnterior,
-    costoActual: productWithTags.costoActual,
-    price: productWithTags.price,
-    stock: productWithTags.stock,
-    isActive: productWithTags.isActive,
-    group,
-    rubro,
-    supplierName: productWithTags.supplier.name,
+  const reformattedProducts = productWithTags.map((product) => {
+    const group = product.Tags[0]?.name || ''; // El primer nombre en "grupo" o cadena vacía si no hay etiqueta
+    const rubro = product.Tags[1]?.name || ''; // El segundo nombre en "rubro" o cadena vacía si no hay etiqueta
+  
+    // Crear un nuevo objeto con las propiedades reformateadas
+    return {
+      id: product.id,
+      name: product.name,
+      image:product.image,
+      imageID:product.imageID,
+      descripcion: product.descripcion,
+      costoAnterior: product.costoAnterior,
+      costoActual: product.costoActual,
+      price: product.price,
+      stock: product.stock,
+      isActive: product.isActive,
+      group,
+      rubro,
+     supplierName:product.supplier.name,
+    };
+  });
+  
+  return reformattedProducts
   };
-
-  return [reformattedProduct];
-};
