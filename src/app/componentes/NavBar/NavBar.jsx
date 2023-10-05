@@ -23,7 +23,13 @@ function NavBar() {
   const dispatch = useDispatch();
   const tag = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.suppliers);
-  const user = localStorage.getItem("user")
+  const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
+
+  // Si el usuario no está presente y estás en un entorno de navegador
+  if (!user && typeof window !== 'undefined' && window.localStorage) {
+    // Redirige al usuario a la página de inicio de sesión
+    window.location.replace("/login");
+  }
   const userActual = JSON.parse(user)
 
   useEffect(() => {
