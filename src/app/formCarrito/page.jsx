@@ -32,7 +32,6 @@ function FormCarrito() {
       window.location.replace("/login");
     }
   }, []);
-
   const productSummary = [];
   const [preferenceId, setPreferenceId] = useState(null);
 
@@ -120,9 +119,6 @@ function FormCarrito() {
     }
   };
 
-  if (!user) {
-    window.location.replace("/login");
-  }
   return (
     <div>
       <NavBar />
