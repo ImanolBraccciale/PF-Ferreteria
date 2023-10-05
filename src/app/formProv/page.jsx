@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { validateProveedor } from "../componentes/validations.js/ValidationProveedores";
 import NavBar from "../componentes/NavBar/NavBar";
 import BackButtom from "../componentes/BackButtom/BackButtom";

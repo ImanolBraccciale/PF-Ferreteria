@@ -17,7 +17,7 @@ const CartForm = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
 
-  const userActual = JSON.parse(user)
+
 
   const indexOfLastProducts = currentPage * productsPerPage;
   const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
@@ -48,6 +48,7 @@ const CartForm = () => {
       window.location.replace("/login");
     }
   }, []);
+  const userActual = JSON.parse(user)
   return (
     <>
       <ProductBar />
