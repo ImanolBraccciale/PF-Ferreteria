@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import axios from "axios";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Pies() {
+  const allProducts = useSelector((state) => state.products);
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -32,23 +33,11 @@ export default function Pies() {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products");
-        const datos = response.data;
-        console.log(typeof datos);
-        console.log('circulo ',datos);
-        mostrar(datos);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    const mostrar = (datos) => {
-      if (Array.isArray(datos)) {
+    const mostrar = (productos) => {
+      if (Array.isArray(productos)) {
         const labels = [];
         const data = [];
-        datos.filter(product => product.isActive).forEach((element) => {
+        productos.filter((product) => product.isActive).forEach((element) => {
           labels.push(element.name);
           data.push(element.stock);
         });
@@ -65,10 +54,10 @@ export default function Pies() {
       }
     };
 
-    fetchData();
-  }, []); // useEffect se ejecuta solo una vez al montar el componente
+    mostrar(allProducts);
+  }, [allProducts, chartData]);
 
-  let misoptions = {
+  const misoptions = {
     responsive: true,
     maintainAspectRatio: false,
   };
