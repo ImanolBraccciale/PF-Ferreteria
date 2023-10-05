@@ -45,7 +45,7 @@ export const postSuppliers = (supplier) => {
   //console.log(supplier);
   return async (dispatch) => {
     try {
-      const { data } = await axios.post("api/suppliers", supplier);
+      const { data } = await axios.post("/api/suppliers", supplier);
       return dispatch({
         type: POST_SUPPLIERS,
         payload: data,
@@ -235,8 +235,8 @@ export const getProductByName = (name) => {
   return async (dispatch) => {
     try {
       console.log(name);
-      const { data } = await axios.get(`api/products?name=${name}`);
-      console.log(data, "eeeeeeeeeeeeeeeeeeeeee");
+      const { data } = await axios.get(`/api/products?name=${name}`);
+      console.log(data, "eeeeeeeeeeeeeeeeeeeeeeeeeeeee");
       return dispatch({
         type: GET_NAMES,
         payload: data,
@@ -253,7 +253,7 @@ export const getProductByName = (name) => {
 export const postTags = (tag) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post("api/tag", tag);
+      const { data } = await axios.post("/api/tag", tag);
       return dispatch({
         type: POST_TAG,
         payload: data,
@@ -297,7 +297,7 @@ export const updateProducts = (input) => {
 export const deleteLogicProduct = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/products", {
+      const { data } = await axios.delete("/api/products", {
         data: { id, permanently: false },
       });
       return dispatch({
@@ -325,7 +325,7 @@ export const getAllSales = () => async (dispatch) => {
 export const deleteLogicTag = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/tag", {
+      const { data } = await axios.delete("/api/tag", {
         data: { id, permanently: false },
       });
       return dispatch({
@@ -341,7 +341,7 @@ export const deleteLogicTag = (id) => {
 export const deleteLogicRubro = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete("api/tag", {
+      const { data } = await axios.delete("/api/tag", {
         data: { id, permanently: false },
       });
       return dispatch({
@@ -362,7 +362,7 @@ export const deleteLogicSupplier = (id_suppliers) => {
         permanently: false,
       };
 
-      const response = await axios.delete("api/suppliers", {
+      const response = await axios.delete("/api/suppliers", {
         data: dataToSend,
       });
 

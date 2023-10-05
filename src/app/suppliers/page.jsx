@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteLogicSupplier, getSuppliers } from "../redux/actions/actions";
 import style from "./page.module.css";
 
-function suppliers() {
+function Suppliers() {
   const dispatch = useDispatch();
   const allSuppliers = useSelector((state) => state.allSuppliers);
   useEffect(() => {
@@ -25,9 +25,9 @@ function suppliers() {
       <NavBar />
       <SuppliersBar />
       {allSuppliers.filter(supplier => supplier.isActive).map(
-        ({id_suppliers, name, cellphone, name_company, direction, email }) => {
+        ({ id_suppliers, name, cellphone, name_company, direction, email }) => {
           return (
-            <div>
+            <div key={id_suppliers}>
               <SuppliersList
                 name={name}
                 name_company={name_company}
@@ -35,9 +35,8 @@ function suppliers() {
                 cellphone={cellphone}
                 email={email}
               />
-              <button onClick={() => handleDelete(id_suppliers)} className={style.buttonEliminar}>Eliminar</button>
+              <button onClick={() => handleDelete(id_suppliers)}>Eliminar</button>
             </div>
-            
           );
         }
       )}
@@ -49,4 +48,4 @@ function suppliers() {
   );
 }
 
-export default suppliers;
+export default Suppliers;
