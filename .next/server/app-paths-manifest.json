@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 {}
+=======
+{
+  "/page": "app/page.js",
+  "/login/page": "app/login/page.js",
+  "/[id]/page": "app/[id]/page.js",
+  "/register/page": "app/register/page.js"
+}
+>>>>>>> dacdeea76c0591e727349b1bf7718e29cc65bd63
