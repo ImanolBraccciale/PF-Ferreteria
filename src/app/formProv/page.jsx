@@ -54,7 +54,8 @@ const ProveedorForm = () => {
       alert("Felicidades, el proveedor fue creado exitosamente.");
     }
   }
-  const user = localStorage.getItem("user")
+  const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
+
   if (!user) {
     window.location.replace("/login");
   }
