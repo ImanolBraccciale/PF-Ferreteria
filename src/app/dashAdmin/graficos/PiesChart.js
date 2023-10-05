@@ -66,5 +66,6 @@ export default function Pies() {
     },
   };
 //aaaaaaaaaaaa
-  return <Bar data={chartData} options={misoptions} />;
+
+  return <Pie data={chartData} options={misoptions} />;
 }
