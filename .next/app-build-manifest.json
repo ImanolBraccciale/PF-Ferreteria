@@ -1,5 +1,11 @@
 {
   "pages": {
+    "/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[id]/page.css",
+      "static/chunks/app/[id]/page.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -12,17 +18,26 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+<<<<<<< HEAD
     "/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/[id]/page.css",
       "static/chunks/app/[id]/page.js"
+=======
+    "/dashAdmin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashAdmin/page.css",
+      "static/chunks/app/dashAdmin/page.js"
+>>>>>>> 8feff1a9989f6db3e8f02410828992540d4d7cb9
     ],
     "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/login/page.css",
       "static/chunks/app/login/page.js"
+<<<<<<< HEAD
     ],
     "/register/page": [
       "static/chunks/webpack.js",
@@ -35,6 +50,8 @@
       "static/chunks/main-app.js",
       "static/css/app/formCarrito/page.css",
       "static/chunks/app/formCarrito/page.js"
+=======
+>>>>>>> 8feff1a9989f6db3e8f02410828992540d4d7cb9
     ]
   }
 }

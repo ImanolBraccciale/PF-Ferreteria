@@ -1,30 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend, Filler } from "chart.js";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend, Filler);
 
 export default function Bars() {
+  // Utiliza useSelector para obtener el estado global de Redux
+  const allProducts = useSelector((state) => state.products);
+
+  // Utiliza el estado local para almacenar los datos del gráfico
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -37,35 +22,28 @@ export default function Bars() {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products");
-        const datos = response.data;
-        console.log("stock ", datos);
-        mostrar(datos);
-      } catch (error) {
-        console.error(error);
-      }
+    // Función para obtener los datos de productos del estado global de Redux
+    const obtenerDatosDeProductos = () => {
+      const labels = [];
+      const data = [];
+
+      // Filtra los productos activos y obtiene sus nombres y costos
+      allProducts.filter((product) => product.isActive).forEach((element) => {
+        labels.push(element.name);
+        data.push(element.costoActual);
+      });
+
+      // Actualiza el estado local del gráfico con los datos obtenidos
+      setChartData({
+        ...chartData,
+        labels: labels,
+        datasets: [{ ...chartData.datasets[0], data: data }],
+      });
     };
 
-    const mostrar = (datos) => {
-      if (Array.isArray(datos)) {
-        const labels = [];
-        const data = [];
-        datos.filter(product => product.isActive).forEach((element) => {
-          labels.push(element.name);
-          data.push(element.costoActual);
-        });
-        setChartData({
-          ...chartData,
-          labels: labels,
-          datasets: [{ ...chartData.datasets[0], data: data }],
-        });
-      }
-    };
-
-    fetchData();
-  }, []); // useEffect se ejecuta solo una vez al montar el componente
+    // Llama a la función para obtener los datos de productos
+    obtenerDatosDeProductos();
+  }, [allProducts]); // useEffect se ejecuta cada vez que allProducts cambia en el estado global de Redux
 
   const misoptions = {
     responsive: true,

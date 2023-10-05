@@ -1,6 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+<<<<<<< HEAD
   "/_document": "pages/_document.js",
   "/api/suppliers": "pages/api/suppliers.js",
   "/api/tag": "pages/api/tag.js",
@@ -9,4 +10,7 @@
   "/api/nodemailer": "pages/api/nodemailer.js",
   "/api/mercadoPago": "pages/api/mercadoPago.js",
   "/api/sales": "pages/api/sales.js"
+=======
+  "/_document": "pages/_document.js"
+>>>>>>> 8feff1a9989f6db3e8f02410828992540d4d7cb9
 }
