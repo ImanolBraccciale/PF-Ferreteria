@@ -192,10 +192,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = function() { return "08bbe3671c2a994f"; }
-=======
-/******/ 		__webpack_require__.h = function() { return "9126a435a7e45c02"; }
+/******/ 		__webpack_require__.h = function() { return "2a445d72ef6ee11c"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -208,7 +205,6 @@
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
->>>>>>> dacdeea76c0591e727349b1bf7718e29cc65bd63
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

@@ -1,13 +1,10 @@
 {
-<<<<<<< HEAD
-  "pages": {}
-=======
   "pages": {
-    "/page": [
+    "/register/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/register/page.css",
+      "static/chunks/app/register/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -15,24 +12,23 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[id]/page.css",
-      "static/chunks/app/[id]/page.js"
-    ],
     "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/login/page.css",
       "static/chunks/app/login/page.js"
     ],
-    "/register/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/register/page.css",
-      "static/chunks/app/register/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
+    "/formProducto/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/formProducto/page.js",
+      "static/css/app/formProducto/page.css"
     ]
   }
->>>>>>> dacdeea76c0591e727349b1bf7718e29cc65bd63
 }

@@ -1,14 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-<<<<<<< HEAD
-  "/api/user": "pages/api/user.js"
-=======
-  "/api/user": "pages/api/user.js",
-  "/api/nodemailer": "pages/api/nodemailer.js",
-  "/api/suppliers": "pages/api/suppliers.js",
-  "/api/tag": "pages/api/tag.js",
-  "/api/products": "pages/api/products.js"
->>>>>>> dacdeea76c0591e727349b1bf7718e29cc65bd63
+  "/_document": "pages/_document.js"
 }
