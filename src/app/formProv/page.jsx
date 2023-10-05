@@ -56,7 +56,8 @@ const ProveedorForm = () => {
   }
   const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
 
-  if (!user) {
+  if (!user && typeof window !== 'undefined') {
+
     window.location.replace("/login");
   }
   return (
