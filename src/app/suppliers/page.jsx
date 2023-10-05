@@ -39,7 +39,7 @@ function Suppliers() {
                 cellphone={cellphone}
                 email={email}
               />
-              <button onClick={() => handleDelete(id_suppliers)}>Eliminar</button>
+              <button onClick={() => handleDelete(id_suppliers)} className={style.buttonEliminar}>Eliminar</button>
             </div>
           );
         }
