@@ -26,7 +26,7 @@ export default function Bars() {
     const obtenerDatosDeProductos = () => {
       const labels = [];
       const data = [];
-//aaaaaaa
+//aaaaaaaaaaaaaaaaaa
       // Filtra los productos activos y obtiene sus nombres y costosaaaa
       allProducts.filter((product) => product.isActive).forEach((element) => {
         labels.push(element.name);
