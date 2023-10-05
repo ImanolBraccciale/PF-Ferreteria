@@ -232,7 +232,7 @@ function FormProducto() {
               <option value="" disabled hidden>
                 Grupo
               </option>
-              {group.map((g) => {
+              {group.filter(product => product.isActive).map((g) => {
                 return (
                   <option key={g.id} value={g.name}>
                     {g.name}
@@ -269,7 +269,7 @@ function FormProducto() {
               <option value="" disabled hidden>
                 Rubro
               </option>
-              {rubro.map((r) => {
+              {rubro.filter(product => product.isActive).map((r) => {
                 return (
                   <option key={r.id} value={r.name}>
                     {r.name}
@@ -305,7 +305,7 @@ function FormProducto() {
               <option value="" disabled hidden>
                 Proveedor
               </option>
-              {suppliers.map((s) => {
+              {suppliers.filter(product => product.isActive).map((s) => {
                 return (
                   <option key={s.id} value={s.name}>
                     {s.name}

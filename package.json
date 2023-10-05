@@ -14,6 +14,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mercadopago/sdk-react": "^0.0.14",
     "@reduxjs/toolkit": "^1.9.5",
+    "@vercel/postgres": "^0.5.0",
     "axios": "^1.5.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^4.4.0",
