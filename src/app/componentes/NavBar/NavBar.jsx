@@ -23,14 +23,10 @@ function NavBar() {
   const dispatch = useDispatch();
   const tag = useSelector((state) => state.etiquetas);
   const suppliers = useSelector((state) => state.suppliers);
-  const user = localStorage.getItem("user")
-  const userActual = JSON.parse(user)
-
-  console.log(userActual.rolUser);
 
   useEffect(() => {
     dispatch(getSuppliers()),
-      dispatch(getTags());
+    dispatch(getTags());
   }, [dispatch]);
 
   useEffect(() => setMounted(true), []);
@@ -111,16 +107,12 @@ function NavBar() {
                 })}
             </select>
           </div>
-          {userActual.rolUser !== "client" &&
-            <div className={s.rutas}>
-              <Link href="/history">Historial</Link>
-            </div>
-          }
-          {userActual.rolUser !== "client" &&
-            <div className={s.rutas}>
-              <Link href="/suppliers">Proveedores</Link>
-            </div>
-          }
+          <div className={s.rutas}>
+            <Link href="/history">Historial</Link>
+          </div>
+          <div className={s.rutas}>
+            <Link href="/suppliers">Proveedores</Link>
+          </div>
         </div>
       </div>
       <div className={s.sesion}>
@@ -139,11 +131,10 @@ function NavBar() {
             />
           )}
         </div>
-        {userActual.rolUser === "admin" &&
-          <div className={s.dash}>
-            <Link href="/dashAdmin">Ir al Panel</Link>
-          </div>
-        }
+
+        <div className={s.dash}>
+          <Link href="/dashAdmin">Ir al Panel</Link>
+        </div>
         <div className={s.login}>
           <Link href="/login">Cerrar Sesion</Link>
         </div>

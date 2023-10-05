@@ -16,8 +16,6 @@ const CartForm = () => {
   console.log(allProducts);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
-  const user = localStorage.getItem("user")
-  const userActual = JSON.parse(user)
 
   const indexOfLastProducts = currentPage * productsPerPage;
   const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
@@ -59,11 +57,10 @@ const CartForm = () => {
           </div>
         );
       })}
-      {userActual.rolUser !== "client" &&
-        <Link href="/formProducto">
-          <AddButtom />
-        </Link>
-      }
+
+      <Link href="/formProducto">
+        <AddButtom />
+      </Link>
       <Link href="/formCarrito">
         <VentaButton />
       </Link>
