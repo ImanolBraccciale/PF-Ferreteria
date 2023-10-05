@@ -10,10 +10,9 @@ import ProductListCart from "../componentes/ProductListCart/ProductListCart";
 import ProductBarCart from "../componentes/ProductBarCart/ProductBarCart";
 import { postSale } from "../redux/actions/actions";
 import { getUserByEmail } from "../redux/actions/actions";
-
+import s from "./page.module.css";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
-import s from "./page.module.css";
 
 initMercadoPago("TEST-2704ea0d-a660-4fe8-be61-e2c32675c7ed");
 
@@ -22,18 +21,20 @@ function FormCarrito() {
   const allCartItems = useSelector((state) => state.allCartItems);
   const [paymentMethod, setPaymentMethod] = useState("");
 
+  const user =
+    typeof localStorage !== "undefined" ? localStorage.getItem("user") : null;
 
-  const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
   useEffect(() => {
-
     // Si el usuario no está presente y estás en un entorno de navegador
-    if (!user && typeof window !== 'undefined' && window.localStorage) {
+    if (!user && typeof window !== "undefined" && window.localStorage) {
       // Redirige al usuario a la página de inicio de sesión
       window.location.replace("/login");
     }
-  }, []);
+  }, [user]);
+
   const productSummary = [];
   const [preferenceId, setPreferenceId] = useState(null);
+  const userActual = JSON.parse(user);
 
   allCartItems.forEach((item) => {
     const productName = item.Name;
@@ -46,7 +47,6 @@ function FormCarrito() {
 
     if (existingProduct) {
       existingProduct.Qty += quantity;
-
       existingProduct.Subtotal = existingProduct.Qty * price;
     } else {
       const Subtotal = quantity * price;
@@ -56,6 +56,7 @@ function FormCarrito() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     if (productSummary.length === 0) {
       alert(
         "Debe agregar al menos un producto al carrito para poder generar la compra"
@@ -106,13 +107,21 @@ function FormCarrito() {
         };
         dispatch(postSale(dataToSend)).then((data) => {
           if (typeof data.payload === "object") {
-            alert("Su compra se realizó existósamente.");
-            // Redirecciona por ventana a la página principal y limpia el carrito
-            window.location.href = "/";
-          } else {
-            alert(
-              "Hubo un error al generar su compra, por favor inténtelo nuevamente."
-            );
+            try {
+              axios.post("/api/nodemailer", {
+                subject: "Confirmación de compra",
+                toEmail: userActual.emailUser,
+                productSummary,
+                paymentMethod,
+                isPurchase: true,
+              });
+              alert("Su compra se realizó exitósamente.");
+              window.location.href = "/";
+            } catch (error) {
+              console.error(
+                "No se pudo obtener el correo electrónico del usuario."
+              );
+            }
           }
         });
       }
