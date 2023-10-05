@@ -16,7 +16,7 @@ const CartForm = () => {
   console.log(allProducts);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
-  const user = localStorage.getItem("user")
+
   const userActual = JSON.parse(user)
 
   const indexOfLastProducts = currentPage * productsPerPage;
@@ -39,10 +39,15 @@ const CartForm = () => {
     window.scrollTo(0, 0);
   }, [currentPage])
 
-  if (!user) {
-    window.location.replace("/login");
-  }
+  const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
+  useEffect(() => {
 
+    // Si el usuario no está presente y estás en un entorno de navegador
+    if (!user && typeof window !== 'undefined' && window.localStorage) {
+      // Redirige al usuario a la página de inicio de sesión
+      window.location.replace("/login");
+    }
+  }, []);
   return (
     <>
       <ProductBar />

@@ -55,12 +55,14 @@ const ProveedorForm = () => {
     }
   }
   const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
+  useEffect(() => {
 
-  // Si el usuario no está presente y estás en un entorno de navegador
-  if (!user && typeof window !== 'undefined' && window.localStorage) {
-    // Redirige al usuario a la página de inicio de sesión
-    window.location.replace("/login");
-  }
+    // Si el usuario no está presente y estás en un entorno de navegador
+    if (!user && typeof window !== 'undefined' && window.localStorage) {
+      // Redirige al usuario a la página de inicio de sesión
+      window.location.replace("/login");
+    }
+  }, []);
   return (
     <>
       <a>
