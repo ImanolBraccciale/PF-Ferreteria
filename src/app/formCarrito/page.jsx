@@ -30,7 +30,7 @@ function FormCarrito() {
 
     // Si el usuario no está presente y estás en un entorno de navegador
     if (!user && typeof window !== 'undefined' && window.localStorage) {
-      // Redirige al usuario a la página de inicio de sesión
+
       window.location.replace("/login");
     }
   }, []);

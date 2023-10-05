@@ -16,7 +16,7 @@ const Dashboard = () => {
     emailUser: "",
     roleUser: "",
   });
-  
+
   const handleInputChange = (event) => {
     const { id, value } = event.target;
     setInput({
@@ -35,21 +35,24 @@ const Dashboard = () => {
   const handleGetUserByEmail = () => {
 
     const newUser = {
-        idUser: userEmail.idUser,
-        emailUser: userEmail.emailUser,
-        passwordUser: userEmail.passwordUser,
-        rolUser: input.roleUser,
-        nameUser: userEmail.nameUser,
-        isActiveUser: userEmail.isActiveUser
-    } 
+      idUser: userEmail.idUser,
+      emailUser: userEmail.emailUser,
+      passwordUser: userEmail.passwordUser,
+      rolUser: input.roleUser,
+      nameUser: userEmail.nameUser,
+      isActiveUser: userEmail.isActiveUser
+    }
 
-    console.log("newUser ",newUser);
+    console.log("newUser ", newUser);
     dispatch(putUsers(newUser))
   };
 
-  const user = localStorage.getItem("user")
+  const user = localStorage.getItem("user");
+
+  // Verifica si el usuario no está autenticado y redirige a la página de inicio de sesión
   if (!user) {
     window.location.replace("/login");
+    return null; // Agrega esto para evitar renderizar el componente si se redirige
   }
   return (
     <div>
