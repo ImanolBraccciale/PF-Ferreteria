@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import axios from "axios";
+import { useSelector } from "react-redux"; // Importa useSelector para acceder al estado global de Redux
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -31,24 +31,15 @@ export default function Pies() {
     ],
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products");
-        const datos = response.data;
-        console.log(typeof datos);
-        console.log('circulo ',datos);
-        mostrar(datos);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // Obtén los datos de productos del estado global de Redux
+  const products = useSelector((state) => state.products);
 
+  useEffect(() => {
     const mostrar = (datos) => {
       if (Array.isArray(datos)) {
         const labels = [];
         const data = [];
-        datos.filter(product => product.isActive).forEach((element) => {
+        datos.filter((product) => product.isActive).forEach((element) => {
           labels.push(element.name);
           data.push(element.stock);
         });
@@ -65,8 +56,9 @@ export default function Pies() {
       }
     };
 
-    fetchData();
-  }, []); // useEffect se ejecuta solo una vez al montar el componente
+    // Llama a la función para mostrar los datos de productos desde el estado global de Redux
+    mostrar(products);
+  }, [products]); // useEffect se ejecuta cada vez que products cambia en el estado global de Redux
 
   let misoptions = {
     responsive: true,
