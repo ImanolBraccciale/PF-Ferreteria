@@ -22,7 +22,7 @@ export default function Bars() {
   });
 
   useEffect(() => {
-    // Función para obtener los datos de productos del estado global de Redux
+    // Función para obtener los datos de productos del estado global de Reduxeeee
     const obtenerDatosDeProductos = () => {
       const labels = [];
       const data = [];
