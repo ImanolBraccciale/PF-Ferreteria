@@ -12,7 +12,7 @@ import {
   Legend,
   Filler,
 } from "chart.js";
-
+//deploy por tercera vez hecho
 ChartJS.register(
   CategoryScale,
   LinearScale,
