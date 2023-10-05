@@ -12,9 +12,10 @@ import style from "./page.module.css";
 function Suppliers() {
   const dispatch = useDispatch();
   const allSuppliers = useSelector((state) => state.allSuppliers);
+
   useEffect(() => {
     dispatch(getSuppliers());
-  }, [dispatch]);
+  }, [dispatch, allSuppliers]);
 
   const handleDelete = (id) => {
     dispatch(deleteLogicSupplier(id));
