@@ -73,7 +73,7 @@ export default function Bars() {
     scales: {
       y: {
         min: 0,
-        max: 500,
+        max: 10,
       },
       x: {
         ticks: { color: "rgba(220, 95, 0)" },
