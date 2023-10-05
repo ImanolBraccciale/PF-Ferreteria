@@ -55,30 +55,43 @@ function FormCarrito() {
       );
     } else {
       if (paymentMethod === "mercadoPago") {
-        console.log("Pagar con mercado pago");
-        const subtotalsSum = productSummary.reduce(
-          (total, item) => total + item.Subtotal,
-          0
-        );
-        try {
-          console.log("create");
-          const response = await axios.post("/api/mercadoPago", {
-            product: {
-              description: "Venta general",
-              price: subtotalsSum,
-              quantity: 1,
-              currency_id: "ARS",
-            },
-          });
+        const dataToSend = {
+          productSummary,
+          paymentMethod,
+        };
+        dispatch(postSale(dataToSend)).then(async (data) => {
+          if (typeof data.payload === "object") {
+            console.log("Se registró la venta");
+            console.log("Pagar con mercado pago");
+            const subtotalsSum = productSummary.reduce(
+              (total, item) => total + item.Subtotal,
+              0
+            );
+            try {
+              console.log("create");
+              const response = await axios.post("/api/mercadoPago", {
+                product: {
+                  description: "Venta general",
+                  price: subtotalsSum,
+                  quantity: 1,
+                  currency_id: "ARS",
+                },
+              });
 
-          const { id } = response.data;
-          console.log("sample");
-          if (id) {
-            setPreferenceId(id);
+              const { id } = response.data;
+              console.log("sample");
+              if (id) {
+                setPreferenceId(id);
+              }
+            } catch (error) {
+              console.error("Error al crear la preferencia:", error);
+            }
+          } else {
+            alert(
+              "Hubo un error al generar su compra, por favor inténtelo nuevamente."
+            );
           }
-        } catch (error) {
-          console.error("Error al crear la preferencia:", error);
-        }
+        });
       } else {
         const dataToSend = {
           productSummary,
