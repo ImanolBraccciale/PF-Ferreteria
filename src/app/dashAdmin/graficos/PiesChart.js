@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-} from "chart.js";
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -24,8 +14,8 @@ ChartJS.register(
   Filler
 );
 
-export default function Bars() {
-  const sales = useSelector((state) => state.sales);
+export default function Pies() {
+  const allProducts = useSelector((state) => state.products);
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -38,13 +28,13 @@ export default function Bars() {
   });
 
   useEffect(() => {
-    const mostrar = (datos) => {
-      if (Array.isArray(datos)) {
+    const mostrar = (productos) => {
+      if (Array.isArray(productos)) {
         const labels = [];
         const data = [];
-        datos.forEach((element) => {
-          labels.push(element.saleDate);
-          data.push(element.totalAmount);
+        productos.filter((product) => product.isActive).forEach((element) => {
+          labels.push(element.name);
+          data.push(element.stock);
         });
         setChartData({
           ...chartData,
@@ -54,8 +44,8 @@ export default function Bars() {
       }
     };
 
-    mostrar(sales);
-  }, [sales, chartData]);
+    mostrar(allProducts);
+  }, [allProducts, chartData]);
 
   const misoptions = {
     responsive: true,
