@@ -32,6 +32,12 @@ const LoginPage = () => {
     );
   };
 
+  const user = useSelector(state => state.user)
+
+  console.log(user);
+  useEffect(() => {
+    dispatch(getUserByEmail(input.usuario));
+  }, [input])
   const isFormValid =
     Object.keys(errors).length === 0 && input.usuario && input.contraseña;
 
@@ -44,8 +50,7 @@ const LoginPage = () => {
     const credencial = await dispatch(
       credential(input.usuario, input.contraseña)
     );
-    const userEmail = await dispatch(getUserByEmail(input.usuario));
-
+    
     if (!isFormValid) {
       alert("Complete de manera correcta los valores");
       return;
@@ -55,6 +60,7 @@ const LoginPage = () => {
       alert("El usuario no existe");
       return;
     } else {
+      localStorage.setItem('user', JSON.stringify(user))
       try {
         window.location.href = "/";
       } catch (error) {
@@ -62,6 +68,7 @@ const LoginPage = () => {
       }
     }
   };
+  
 
   return (
     <div key="login" className={style.contenedor}>

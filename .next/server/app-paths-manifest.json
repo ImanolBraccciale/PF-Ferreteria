@@ -1,8 +1,26 @@
+<<<<<<< HEAD
 {
   "/page": "app/page.js",
+<<<<<<< HEAD
   "/[id]/page": "app/[id]/page.js",
   "/history/page": "app/history/page.js",
   "/dashAdmin/page": "app/dashAdmin/page.js",
   "/formCarrito/page": "app/formCarrito/page.js",
   "/suppliers/page": "app/suppliers/page.js"
 }
+=======
+<<<<<<< HEAD
+  "/suppliers/page": "app/suppliers/page.js",
+  "/formProducto/page": "app/formProducto/page.js",
+  "/dashAdmin/page": "app/dashAdmin/page.js",
+  "/postTag/page": "app/postTag/page.js",
+  "/[id]/page": "app/[id]/page.js",
+  "/formProv/page": "app/formProv/page.js"
+=======
+  "/dashAdmin/page": "app/dashAdmin/page.js"
+>>>>>>> 0adea62e8dd8f52f9986add20d8dc049e3717591
+}
+=======
+{}
+>>>>>>> 61360ee4da4c2fd11687c9a0967d52503a8492bf
+>>>>>>> 0522f46c3141963173931ce54857ed76340b7bc1
