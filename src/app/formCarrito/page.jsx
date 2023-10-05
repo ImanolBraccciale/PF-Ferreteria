@@ -3,14 +3,24 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./page.module.css";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import axios from "axios";
+=======
+import { useState } from "react";
+>>>>>>> 0c9dbc220d5ca60b12cc863af8f95103383e49b8
 import NavBar from "../componentes/NavBar/NavBar";
 import BackButtom from "../componentes/BackButtom/BackButtom";
 import ProductListCart from "../componentes/ProductListCart/ProductListCart";
 import ProductBarCart from "../componentes/ProductBarCart/ProductBarCart";
 import { postSale } from "../redux/actions/actions";
 import { getUserByEmail } from "../redux/actions/actions";
+
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import axios from "axios";
+import s from "./page.module.css";
+
+initMercadoPago("TEST-2704ea0d-a660-4fe8-be61-e2c32675c7ed");
 
 function FormCarrito() {
   const dispatch = useDispatch();
@@ -19,6 +29,7 @@ function FormCarrito() {
   const user = localStorage.getItem("user");
   const userActual = JSON.parse(user);
   const productSummary = [];
+  const [preferenceId, setPreferenceId] = useState(null);
 
   allCartItems.forEach((item) => {
     const productName = item.Name;
@@ -46,6 +57,7 @@ function FormCarrito() {
         "Debe agregar al menos un producto al carrito para poder generar la compra"
       );
     } else {
+<<<<<<< HEAD
       const dataToSend = {
         productSummary,
         paymentMethod,
@@ -70,6 +82,63 @@ function FormCarrito() {
           }
         }
       });
+=======
+      if (paymentMethod === "mercadoPago") {
+        const dataToSend = {
+          productSummary,
+          paymentMethod,
+        };
+        dispatch(postSale(dataToSend)).then(async (data) => {
+          if (typeof data.payload === "object") {
+            console.log("Se registró la venta");
+            console.log("Pagar con mercado pago");
+            const subtotalsSum = productSummary.reduce(
+              (total, item) => total + item.Subtotal,
+              0
+            );
+            try {
+              console.log("create");
+              const response = await axios.post("/api/mercadoPago", {
+                product: {
+                  description: "Venta general",
+                  price: subtotalsSum,
+                  quantity: 1,
+                  currency_id: "ARS",
+                },
+              });
+
+              const { id } = response.data;
+              console.log("sample");
+              if (id) {
+                setPreferenceId(id);
+              }
+            } catch (error) {
+              console.error("Error al crear la preferencia:", error);
+            }
+          } else {
+            alert(
+              "Hubo un error al generar su compra, por favor inténtelo nuevamente."
+            );
+          }
+        });
+      } else {
+        const dataToSend = {
+          productSummary,
+          paymentMethod,
+        };
+        dispatch(postSale(dataToSend)).then((data) => {
+          if (typeof data.payload === "object") {
+            alert("Su compra se realizó existósamente.");
+            // Redirecciona por ventana a la página principal y limpia el carrito
+            window.location.href = "/";
+          } else {
+            alert(
+              "Hubo un error al generar su compra, por favor inténtelo nuevamente."
+            );
+          }
+        });
+      }
+>>>>>>> 0c9dbc220d5ca60b12cc863af8f95103383e49b8
     }
   };
 
@@ -101,6 +170,11 @@ function FormCarrito() {
         <option value="tarjeta">Tarjeta</option>
         <option value="mercadoPago">MercadoPago</option>
       </select>
+      {preferenceId && (
+        <div>
+          <Wallet initialization={{ preferenceId }} className={s.wallet} />
+        </div>
+      )}
       <Link href="/">
         <BackButtom />
       </Link>
