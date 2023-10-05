@@ -22,14 +22,19 @@ function FormCarrito() {
   const allCartItems = useSelector((state) => state.allCartItems);
   const [paymentMethod, setPaymentMethod] = useState("");
 
-  const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
+
 
   // Si el usuario no está presente y estás en un entorno de navegador
-  if (!user && typeof window !== 'undefined' && window.localStorage) {
-    // Redirige al usuario a la página de inicio de sesión
-    window.location.replace("/login");
-  }
-  const userActual = JSON.parse(user);
+  useEffect(() => {
+    const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
+
+    // Si el usuario no está presente y estás en un entorno de navegador
+    if (!user && typeof window !== 'undefined' && window.localStorage) {
+      // Redirige al usuario a la página de inicio de sesión
+      window.location.replace("/login");
+      const userActual = JSON.parse(user);
+    }
+  }, []);
   const productSummary = [];
   const [preferenceId, setPreferenceId] = useState(null);
 
