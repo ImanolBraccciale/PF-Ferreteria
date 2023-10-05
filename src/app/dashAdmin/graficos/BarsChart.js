@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import {  useSelector } from "react-redux";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -25,6 +25,7 @@ ChartJS.register(
 );
 
 export default function Bars() {
+  const allProducts = useSelector((state) => state.products);
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -37,22 +38,11 @@ export default function Bars() {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products");
-        const datos = response.data;
-        console.log("stock ", datos);
-        mostrar(datos);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     const mostrar = (datos) => {
       if (Array.isArray(datos)) {
         const labels = [];
         const data = [];
-        datos.filter(product => product.isActive).forEach((element) => {
+        datos.filter((product) => product.isActive).forEach((element) => {
           labels.push(element.name);
           data.push(element.costoActual);
         });
@@ -64,8 +54,8 @@ export default function Bars() {
       }
     };
 
-    fetchData();
-  }, []); // useEffect se ejecuta solo una vez al montar el componente
+    mostrar(allProducts);
+  }, [allProducts]);
 
   const misoptions = {
     responsive: true,
