@@ -12,9 +12,10 @@ import style from "./page.module.css";
 function Suppliers() {
   const dispatch = useDispatch();
   const allSuppliers = useSelector((state) => state.allSuppliers);
+
   useEffect(() => {
     dispatch(getSuppliers());
-  }, [dispatch]);
+  }, [dispatch, allSuppliers]);
 
   const handleDelete = (id) => {
     dispatch(deleteLogicSupplier(id));
@@ -38,7 +39,7 @@ function Suppliers() {
                 cellphone={cellphone}
                 email={email}
               />
-              <button onClick={() => handleDelete(id_suppliers)}>Eliminar</button>
+              <button onClick={() => handleDelete(id_suppliers)} className={style.buttonEliminar}>Eliminar</button>
             </div>
           );
         }

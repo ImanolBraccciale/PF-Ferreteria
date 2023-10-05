@@ -1,11 +1,12 @@
 "use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../componentes/NavBar/NavBar";
 import { getAllSales } from "../redux/actions/actions";
 import StarRating from "../componentes/Rating/Rating";
-import s from "./page.module.css";
+import style from "./page.module.css";
 
 function History() {
   const dispatch = useDispatch();
@@ -18,20 +19,31 @@ function History() {
     window.location.replace("/login");
   }
   return (
-    <div className={s.container}>
+    <div >
       <NavBar />
       <div>
-        <h2>Historial de Ventas</h2>
+        <h1 className={style.title}>Historial de Ventas</h1>
+        <div className={style.all}>
+          <div className={style.containerTabla}>
+            <div className={style.tabla1}>ID</div>
+            <div className={style.tabla2}>Fecha de Venta</div>
+            <div className={style.tabla3}>Monto Total</div>
+            <div className={style.tabla4}>Método de Pago</div>
+            <div className={style.tabla}></div>
+          </div>
+        </div>
         {sales.map((sale) => (
-          <div key={sale.id}>
-            <p>ID: {sale.id}</p>
-            <p>Fecha de Venta: {sale.saleDate}</p>
-            <p>Monto Total: {sale.totalAmount}</p>
-            <p>Método de Pago: {sale.method}</p>
+          <div key={sale.id} className={style.all}>
+            <div className={style.container}>
+              <div className={style.b}>{sale.id}</div>
+              <div className={style.b}>{sale.saleDate}</div>
+              <div className={style.b}> {sale.totalAmount}</div>
+              <div className={style.b}>{sale.method}</div>
+            </div>
           </div>
         ))}
       </div>
-      <div className={s.rewiev}>
+      <div className={style.rewiev}>
         <p>Califica tu Experiencia</p>
         <StarRating />
       </div>

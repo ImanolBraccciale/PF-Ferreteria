@@ -1,6 +1,6 @@
 import React from 'react'
 import s from '@/app/componentes/SuppliersList/SuppliersList.module.css'
-function SuppliersList({ name, cellphone, direction, name_company, email }) {
+function SuppliersList({ id_suppliers,name, cellphone, direction, name_company, email }) {
   return (
     <div className={s.all}>
       <div className={s.container}>
