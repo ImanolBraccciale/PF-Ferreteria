@@ -23,7 +23,7 @@ ChartJS.register(
   Legend,
   Filler
 );
-
+//aaaa
 export default function Bars() {
   // Obtener el estado global de ventas desde Redux
   const sales = useSelector((state) => state.sale);
