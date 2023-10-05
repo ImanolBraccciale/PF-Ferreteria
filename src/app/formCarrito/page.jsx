@@ -18,7 +18,7 @@ function FormCarrito() {
   const allCartItems = useSelector((state) => state.allCartItems);
   const [paymentMethod, setPaymentMethod] = useState("");
   const [emailUser, setEmailUser] = useLocalStorage("emailUser", "");
-
+  console.log("email***********", emailUser);
   const productSummary = [];
 
   allCartItems.forEach((item) => {
