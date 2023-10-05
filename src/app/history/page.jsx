@@ -19,7 +19,7 @@ function History() {
     window.location.replace("/login");
   }
   return (
-    <div className={s.container}>
+    <div >
       <NavBar />
       <div>
         <h1 className={style.title}>Historial de Ventas</h1>
@@ -43,7 +43,7 @@ function History() {
           </div>
         ))}
       </div>
-      <div className={s.rewiev}>
+      <div className={style.rewiev}>
         <p>Califica tu Experiencia</p>
         <StarRating />
       </div>
