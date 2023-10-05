@@ -13,7 +13,10 @@ function History() {
   useEffect(() => {
     dispatch(getAllSales());
   }, [dispatch]);
-
+  const user = localStorage.getItem("user")
+  if (!user) {
+    window.location.replace("/login");
+  }
   return (
     <div className={s.container}>
       <NavBar />

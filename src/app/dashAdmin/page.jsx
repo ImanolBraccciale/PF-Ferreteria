@@ -9,6 +9,10 @@ import PiesChart from "./graficos/PiesChart";
 //import History from "../history/page";
 
 const Dashboard = () => {
+  const user = localStorage.getItem("user")
+  if (!user) {
+    window.location.replace("/login");
+  }
   return (
     <div>
       <NavBar />

@@ -92,7 +92,7 @@ const LoginPage = () => {
   return (
     <div key="login" className={style.contenedor}>
       <form onSubmit={handleSubmit} className={style.container}>
-        <h1 className={style.title}>REGISTRESE</h1>
+        <h1 className={style.title}>INGRESO</h1>
 
         <h3 className={style.subtitle}>Email</h3>
 

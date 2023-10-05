@@ -3,12 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./page.module.css";
-<<<<<<< HEAD
-import { useEffect, useState } from "react";
-import axios from "axios";
-=======
 import { useState } from "react";
->>>>>>> 0c9dbc220d5ca60b12cc863af8f95103383e49b8
 import NavBar from "../componentes/NavBar/NavBar";
 import BackButtom from "../componentes/BackButtom/BackButtom";
 import ProductListCart from "../componentes/ProductListCart/ProductListCart";
@@ -57,32 +52,6 @@ function FormCarrito() {
         "Debe agregar al menos un producto al carrito para poder generar la compra"
       );
     } else {
-<<<<<<< HEAD
-      const dataToSend = {
-        productSummary,
-        paymentMethod,
-      };
-      //console.log(dataToSend);
-      dispatch(postSale(dataToSend)).then((data) => {
-        if (typeof data.payload === "object") {
-          try {
-            axios.post("/api/nodemailer", {
-              subject: "Confirmación de compra",
-              toEmail: userActual.emailUser,
-              productSummary,
-              paymentMethod,
-              isPurchase: true,
-            });
-            alert("Su compra se realizó exitósamente.");
-            location.href = "/";
-          } catch (error) {
-            console.error(
-              "No se pudo obtener el correo electrónico del usuario."
-            );
-          }
-        }
-      });
-=======
       if (paymentMethod === "mercadoPago") {
         const dataToSend = {
           productSummary,
@@ -138,10 +107,12 @@ function FormCarrito() {
           }
         });
       }
->>>>>>> 0c9dbc220d5ca60b12cc863af8f95103383e49b8
     }
   };
 
+  if (!user) {
+    window.location.replace("/login");
+  }
   return (
     <div>
       <NavBar />

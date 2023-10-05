@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 
 function ProductList({ id, name, stock, costoActual, price, enlace }) {
   const dispatch = useDispatch();
+  const user = localStorage.getItem("user")
+  const userActual = JSON.parse(user)
 
   const handleDelete = async (id) => {
     await dispatch(deleteLogicProduct(id));
@@ -30,9 +32,11 @@ function ProductList({ id, name, stock, costoActual, price, enlace }) {
             <button className={s.button}>Detalle</button>
           </Link>
         </div>
-        <div>
-          <button onClick={() => handleDelete(id)} className={s.buttonEliminar}>Eliminar</button>
-        </div>
+        {userActual.rolUser !== "client" &&
+          <div>
+            <button onClick={() => handleDelete(id)} className={s.buttonEliminar}>Eliminar</button>
+          </div>
+        }
       </div>
     </div>
   );

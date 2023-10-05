@@ -39,7 +39,9 @@ const CartForm = () => {
     window.scrollTo(0, 0);
   }, [currentPage])
 
-
+  if (!user) {
+    window.location.replace("/login");
+  }
 
   return (
     <>

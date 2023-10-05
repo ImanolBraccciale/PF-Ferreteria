@@ -26,8 +26,6 @@ function NavBar() {
   const user = localStorage.getItem("user")
   const userActual = JSON.parse(user)
 
-  console.log(userActual.rolUser);
-
   useEffect(() => {
     dispatch(getSuppliers()),
       dispatch(getTags());
@@ -37,6 +35,10 @@ function NavBar() {
   if (!mounted) {
     return null;
   }
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+  };
 
   function handleSort(e) {
     e.preventDefault();
@@ -145,7 +147,7 @@ function NavBar() {
           </div>
         }
         <div className={s.login}>
-          <Link href="/login">Cerrar Sesion</Link>
+          <Link href="/login" onClick={handleLogout}>Cerrar Sesion</Link>
         </div>
       </div>
     </div>
