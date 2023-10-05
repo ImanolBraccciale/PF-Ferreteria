@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Bar } from "react-chartjs-2";
-import { useSelector } from "react-redux";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,7 +12,7 @@ import {
   Legend,
   Filler,
 } from "chart.js";
-//deploy por tercera vez hecho
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -25,35 +25,48 @@ ChartJS.register(
 );
 
 export default function Bars() {
-  // Obtener el estado global de ventas desde Redux
-  const sales = useSelector((state) => state.sale);
-
-  // Estado local para almacenar los datos del gráfico
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
       {
         label: "Ventas",
         data: [],
-        backgroundColor: "rgba(220, 95, 0, 0.7)",
+        backgroundColor: "rgba(220, 95, 0, 0.7)", 
       },
     ],
   });
 
-  // useEffect para actualizar el gráfico cuando cambien los datos de ventas
   useEffect(() => {
-    // Procesar los datos de ventas y actualizar el estado local del gráfico
-    const labels = sales.map((element) => element.saleDate);
-    const data = sales.map((element) => element.totalAmount);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/sales");
+        const datos = response.data;
+        console.log("stock ", datos);
+        mostrar(datos);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-    setChartData({
-      ...chartData,
-      labels: labels,
-      datasets: [{ ...chartData.datasets[0], data: data }],
-    });
-  }, [sales]); // useEffect se ejecutará cuando cambien los datos de ventas
+    const mostrar = (datos) => {
+      if (Array.isArray(datos)) {
+        const labels = [];
+        const data = [];
+        datos.forEach((element) => {
+          labels.push(element.saleDate);
+          data.push(element.totalAmount);
+        });
+        setChartData({
+          ...chartData,
+          labels: labels,
+          datasets: [{ ...chartData.datasets[0], data: data }],
+        });
+      }
+    };
 
-  // Opciones de configuración del gráfico
+    fetchData();
+  }, []); // useEffect se ejecuta solo una vez al montar el componente
+
   const misoptions = {
     responsive: true,
     animation: false,
@@ -73,6 +86,6 @@ export default function Bars() {
     },
   };
 
-  // Renderizar el gráfico de barras
   return <Bar data={chartData} options={misoptions} />;
 }
+
