@@ -2,7 +2,7 @@ const { db } = require("../../db");
 const { Products, Tag,Suppliers } = db;
 
 module.exports = async (name) => {
-  const productWithTags = await Products.findOne({
+  const productWithTags = await Products.findAll({
     where: { name: name },
     include: [
       {
