@@ -11,14 +11,13 @@ import ProductListCart from "../componentes/ProductListCart/ProductListCart";
 import ProductBarCart from "../componentes/ProductBarCart/ProductBarCart";
 import { postSale } from "../redux/actions/actions";
 import { getUserByEmail } from "../redux/actions/actions";
-import { useLocalStorage } from "react-use";
 
 function FormCarrito() {
   const dispatch = useDispatch();
   const allCartItems = useSelector((state) => state.allCartItems);
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [emailUser, setEmailUser] = useLocalStorage("emailUser", "");
-  console.log("email***********", emailUser);
+  const user = localStorage.getItem("user");
+  const userActual = JSON.parse(user);
   const productSummary = [];
 
   allCartItems.forEach((item) => {
@@ -40,19 +39,6 @@ function FormCarrito() {
     }
   });
 
-  useEffect(() => {
-    // Obtiene el correo electrónico almacenado en LocalStorage
-    const storedEmail = localStorage.getItem("emailUser");
-    if (storedEmail) {
-      setEmailUser(storedEmail);
-    }
-  }, []);
-
-  useEffect(() => {
-    console.log("correo electronico user***", emailUser);
-    dispatch(getUserByEmail(emailUser));
-  }, [dispatch, emailUser]);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     if (productSummary.length === 0) {
@@ -70,7 +56,7 @@ function FormCarrito() {
           try {
             axios.post("/api/nodemailer", {
               subject: "Confirmación de compra",
-              toEmail: emailUser,
+              toEmail: userActual.emailUser,
               productSummary,
               paymentMethod,
               isPurchase: true,
