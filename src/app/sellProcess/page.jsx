@@ -8,7 +8,7 @@ import AddButtom from "../componentes/AddButtom/AddButtom";
 import VentaButton from "../componentes/IngresarVenta/VentaButton";
 import ProductList from "../componentes/ProductList/ProductList";
 import Paginado from "../componentes/paginado/paginado";
-import { getAllProducts } from "../redux/actions/actions"
+import { getAllProducts } from "../redux/actions/actions";
 
 const CartForm = () => {
   const dispatch = useDispatch();
@@ -17,15 +17,12 @@ const CartForm = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 30;
 
-
-
   const indexOfLastProducts = currentPage * productsPerPage;
   const indexOfFirstProducts = indexOfLastProducts - productsPerPage;
   const currentProducts = allProducts.slice(
     indexOfFirstProducts,
     indexOfLastProducts
   );
-
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -37,18 +34,11 @@ const CartForm = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentPage])
+  }, [currentPage]);
 
   const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
-  useEffect(() => {
+  const userActual = JSON.parse(user);
 
-    // Si el usuario no está presente y estás en un entorno de navegador
-    if (!user && typeof window !== 'undefined' && window.localStorage) {
-      // Redirige al usuario a la página de inicio de sesión
-      window.location.replace("/login");
-    }
-  }, []);
-  const userActual = JSON.parse(user)
   return (
     <>
       <ProductBar />
@@ -63,18 +53,19 @@ const CartForm = () => {
               price={price}
               enlace={`/${id}`}
             />
-
           </div>
         );
       })}
-      {userActual.rolUser !== "client" &&
+      {userActual && userActual.rolUser === "client" && (
+        <Link href="/formCarrito">
+          <VentaButton />
+        </Link>
+      )}
+      {userActual && userActual.rolUser !== "client" && (
         <Link href="/formProducto">
           <AddButtom />
         </Link>
-      }
-      <Link href="/formCarrito">
-        <VentaButton />
-      </Link>
+      )}
       <div style={{ marginLeft: 200 }}>
         <Paginado
           productsPerPage={productsPerPage}
