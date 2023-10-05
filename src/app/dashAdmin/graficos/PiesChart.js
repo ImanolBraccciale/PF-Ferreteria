@@ -1,77 +1,80 @@
 import React, { useEffect, useState } from "react";
-import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import axios from "axios";
+import { useSelector } from "react-redux";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
 
-export default function Pies() {
+export default function Bars() {
+  const sales = useSelector((state) => state.sales);
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
       {
-        label: "Stock de productos",
+        label: "Ventas",
         data: [],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-        ],
-        borderWidth: 1,
+        backgroundColor: "rgba(220, 95, 0, 0.7)",
       },
     ],
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/products");
-        const datos = response.data;
-        console.log(typeof datos);
-        console.log('circulo ',datos);
-        mostrar(datos);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     const mostrar = (datos) => {
       if (Array.isArray(datos)) {
         const labels = [];
         const data = [];
-        datos.filter(product => product.isActive).forEach((element) => {
-          labels.push(element.name);
-          data.push(element.stock);
+        datos.forEach((element) => {
+          labels.push(element.saleDate);
+          data.push(element.totalAmount);
         });
         setChartData({
           ...chartData,
           labels: labels,
-          datasets: [
-            {
-              ...chartData.datasets[0],
-              data: data,
-            },
-          ],
+          datasets: [{ ...chartData.datasets[0], data: data }],
         });
       }
     };
 
-    fetchData();
-  }, []); // useEffect se ejecuta solo una vez al montar el componente
+    mostrar(sales);
+  }, [sales, chartData]);
 
-  let misoptions = {
+  const misoptions = {
     responsive: true,
-    maintainAspectRatio: false,
+    animation: false,
+    scales: {
+      y: {
+        min: 0,
+        max: 500,
+      },
+      x: {
+        ticks: { color: "rgba(220, 95, 0)" },
+      },
+    },
+    plugins: {
+      legend: {
+        display: true,
+      },
+    },
   };
 
-  return <Pie data={chartData} options={misoptions} />;
+  return <Bar data={chartData} options={misoptions} />;
 }
