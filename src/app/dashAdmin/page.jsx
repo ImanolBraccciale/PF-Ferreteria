@@ -47,13 +47,15 @@ const Dashboard = () => {
     dispatch(putUsers(newUser))
   };
 
-  const user = localStorage.getItem("user");
+  const user = typeof localStorage !== 'undefined' ? localStorage.getItem("user") : null;
+  useEffect(() => {
 
-  // Verifica si el usuario no está autenticado y redirige a la página de inicio de sesión
-  if (!user) {
-    window.location.replace("/login");
-    return null; // Agrega esto para evitar renderizar el componente si se redirige
-  }
+    // Si el usuario no está presente y estás en un entorno de navegador
+    if (!user && typeof window !== 'undefined' && window.localStorage) {
+      // Redirige al usuario a la página de inicio de sesión
+      window.location.replace("/login");
+    }
+  }, []);
   return (
     <div>
       <NavBar />
