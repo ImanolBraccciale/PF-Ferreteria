@@ -22,12 +22,12 @@ export default function Bars() {
   });
 
   useEffect(() => {
-    // Función para obtener los datos de productos del estado global de Redux
+    // Función para obtener los datos de productos del estado global de Reduxeeee
     const obtenerDatosDeProductos = () => {
       const labels = [];
       const data = [];
-//aaaaaaa
-      // Filtra los productos activos y obtiene sus nombres y costos
+//aaaaaaaaaaaaaaaaaa
+      // Filtra los productos activos y obtiene sus nombres y costosaaaa
       allProducts.filter((product) => product.isActive).forEach((element) => {
         labels.push(element.name);
         data.push(element.costoActual);

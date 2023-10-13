@@ -15,16 +15,18 @@ const SalePaymentsModel = require("../../models/salePayments");
 //IMPORTANTE!!!!!
 // const { faTruckMedical } = require('@fortawesome/free-solid-svg-icons');
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
-const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-  host: DB_HOST,
+const { POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_DATABASE } = process.env;
+const sequelize = new Sequelize(POSTGRES_DATABASE, POSTGRES_USER, POSTGRES_PASSWORD, {
+  host: POSTGRES_HOST,
   dialect: "postgres",
   dialectModule: require("pg"),
   force: false,
   operatorAliases: false,
   logging: false,
   native: false,
-
+  dialectOptions: {
+      ssl: true, 
+    },
   pool: {
     max: 5,
     min: 0,
